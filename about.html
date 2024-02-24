@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>TALK TO CHOCOLATE - WELCOME</title>
+    <title>TALK TO CHOCOLATE - ABOUT</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
     <style>
         body {
@@ -16,18 +16,25 @@
             background-color: black;
             font-family: Verdana, sans-serif;
             color: #D2691E;
-            size: 10px;
-            background: linear-gradient(to right,white 0%, rgba(0, 0, 0, 0) 40%), url(images/choc_tile.jpg);
+            size: 40px;
+            background-image: url(choc_tile.jpg);
             background-repeat: repeat;
             overflow: hidden; /* Add this line to prevent scrolling */
         }
         
+        a{
+            color: #ffffff;
+        }
+
+        a:visited {
+            color: #d8925d;
+        }
         h2 {
             size:25px;
             margin-bottom: 20px;
         }
                 
-        .welcoming {
+        .about {
             position:fixed;
             font-size: 16px;
             letter-spacing: 0.9px;
@@ -44,9 +51,9 @@
     <div class="sidebar">
         <iframe src="sidebar.html" id="sidebar" frameborder="0"></iframe>
     </div>
-    <p></p>
-    <div class='welcoming'><a href="chat.html">
-        <img src="images/welcome.png" alt="Welcome Image" style="width: auto; height: 20vw;">
+    <div class='about'>
+    <p>Type 'about' in the chat.</p>
+    <p><a href="chat.html">Go to the chat.</a></p>
     </div>
 </body>
 </html>

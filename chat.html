@@ -4,11 +4,6 @@
     <title>TALK TO CHOCOLATE! - CHAT</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>
-    $(function(){
-      $("#sidebar").load("sidebar.html"); 
-    });
-    </script>
 <style>
         /* Existing styles */
         body {
@@ -127,7 +122,16 @@
     </style>
 </head>
 <body>
-    <div id="sidebar" style="position: fixed; right: 0;"></div>
+    <div id="sidebar" style="position: fixed; right: 0;">
+        <div id="sidebar" style="position: fixed; right: 0;">
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script>
+            $(function(){
+              $("#sidebar").load("sidebar.html"); 
+            });
+            </script>
+        </div>
+    </div>
     <div class="chat-container" >
         <!-- User messages -->
         <div class="message user-message" id="userMessage" style="display: none;"></div>

@@ -37,15 +37,16 @@
         
         
     </style>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script>
-    $(function(){
-      $("#sidebar").load("sidebar.html"); 
-    });
-    </script>
 </head>
 <body>
-    <div id="sidebar" style="position: fixed; right: 0;"></div>
+    <div id="sidebar" style="position: fixed; right: 0;">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script>
+        $(function(){
+          $("#sidebar").load("sidebar.html"); 
+        });
+        </script>
+    </div>
     <p></p>
     <div class='welcoming'><a href="chat.html">
         <img src="welcome.png" alt="Welcome Image" style="width: auto; height: 20vw;">

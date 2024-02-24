@@ -103,7 +103,7 @@ body {
     size: 12 px;
 }
 
-#sidebar {
+.sidebar {
     position: fixed; /* Set the position to fixed */
     top: 0; /* Lock the sidebar to the top */
     right: 0; /* Lock the sidebar to the right */

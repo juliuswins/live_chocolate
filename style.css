@@ -102,3 +102,13 @@ body {
     border-radius: 15px 0 0 15px;
     size: 12 px;
 }
+
+#sidebar {
+    position: fixed; /* Set the position to fixed */
+    top: 0; /* Lock the sidebar to the top */
+    right: 0; /* Lock the sidebar to the right */
+    width: 20%; /* Set the width of the sidebar */
+    background-color: #D2691E;
+    color: white;
+    padding: 10px;
+}

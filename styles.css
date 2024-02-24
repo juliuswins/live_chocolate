@@ -1,4 +1,9 @@
 body {
+    left: 0;
+    top: 0;
+    background-color: black;
+    width: 75%;
+    height: 100%;
     text-transform: uppercase;
     margin: 0;
     padding: 0;
@@ -102,4 +107,13 @@ body {
     padding: 15px 0 15px 15px;
     border-radius: 15px 0 0 15px;
     size: 12 px;
+}
+
+.sidebar {
+    position: fixed;
+    right: 0;
+    top: 0;
+    background-color: black;
+    width: 25%;
+    height: 100%;
 }

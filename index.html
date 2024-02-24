@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>TALK TO CHOCOLATE - COMING SOON</title>
+    <title>TALK TO CHOCOLATE - WELCOME!</title>
     <style>
         body {
             text-transform: uppercase;
@@ -15,44 +15,49 @@
             height: 100vh;
             background-color: black;
             font-family: Verdana, sans-serif;
-            color: black;
-            size; 10px;
-            background-image: url('choc_tile.jpg');
+            color: #D2691E;
+            size: 10px;
+            background-image: url(choc_tile.jpg);
             background-repeat: repeat;
-        }
+            }
         
         h2 {
             size:25px;
             margin-bottom: 20px;
-            min-font-size: 20px; /* Add this line */
+        }
+                
+        .welcoming {
+            font-size: 16px;
+            letter-spacing: 0.9px;
+            padding: 25px;
+            border-radius: 50px;
+            background-color: black;
         }
         
         .donate-info {
-            font-size: 16px;
+            font-size: 14px;
             letter-spacing: 0.9px;
-            background-color: white;
+            background-color: black;
+            padding: 0px;
+            border-radius: 0px;
+            margin: 0;
+            width: 100%;
         }
+        
     </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script>
-        function showDonateAddresses() {
-            var donateButton = document.getElementById("donate-button");
-            var donateAddresses = document.getElementById("donate-addresses");
-            
-            donateButton.style.display = "none";
-            donateAddresses.style.display = "block";
-        }
+    $(function(){
+      $("#sidebar").load("sidebar.html"); 
+    });
     </script>
 </head>
 <body>
-        <div class="donate-info">
-            <p>IT'S COMING SOON. THESE THINGS TAKE TIME... AND EFFORT... AND MONEY...</p>
-        <br>
-            <p>Donate BTC: 13xm444RRP9zaAQAKDbSBn61RLZswAbneG (Bitcoin Network)</p>
-            <p>Donate ETH: ERC0xfb56f0076c06134c2e5c9fa2f3fcc1490c6f0ca8 (Ethereum Network)</p>
-            <p>Donate USDC: 0xfb56f0076c06134c2e5c9fa2f3fcc1490c6f0ca8 (BEP20 / BNB Smart Chain Network)</p>
-            <br>
-            <p> Contact: <a href='mailto:talktochocolategame@gmail.com'>talktochocolategame@gmail.com</a></p>
-        </div>
+    <div id="sidebar"></div>
+    <p></p>
+    <div class='welcoming'><a href="chat.html">
+        <img src="welcome.png" alt="Welcome Image" style="width: 60vw; height: auto;">
+    </a></div></p>
     </div>
 </body>
 </html>

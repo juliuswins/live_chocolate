@@ -40,11 +40,11 @@
 
               /* Added */
               .chat-container::-webkit-scrollbar {
-            width: 8px;
+            width: 15px;
         }
 
         .chat-container::-webkit-scrollbar-thumb {
-            background-color: #38251A;
+            background-color: #3D3D3D;
             border-radius: 15px;
         }
 
@@ -113,8 +113,7 @@
         .send-button {
             border: 0px;
             border-radius: 15px; 
-            padding: 5px 10px;
-            margin-left: 15px;
+            padding: 5px 5px;
             transition: all 0.3s ease; /* Added */
         }
 
@@ -148,8 +147,7 @@
         <!-- AI messages -->
         <div class="message ai-message" id="aiMessage" style="display: none;"></div>
         <!-- Chatroom -->
-        <div id="chatroom"></div>
-        <div class="message typing-message" id="typingMessage" style="visibility: hidden;">THINKING...</div>      
+        <div id="chatroom"></div>  
     </div>
     <div class="input-container">
         <input type="text" class="message-input" id="userInput" placeholder="Type your message..." enabled width=70%>
@@ -168,14 +166,14 @@
                 var gamemode = "CHOC";
                 var persona = "Chocolate: ";
             //counts are your progress of how many times you've spoken to each character.
-                var countchoc = 50;
+                var countchoc = 0;
+                var countpissed = 0;
                 var countwhitechoc = 0;
                 var countcheese = 0;
                 var countfuture = 0;
                 var countdevil = 0;
                 var usespecificquote = false;
                 var specificquote = "(There is meant to be something else here...)";
-
             //responses here
                     // this is chocolate OG.
                     var chocresponses = [
@@ -208,11 +206,11 @@
                     "You're not even trying, are you? Huh? ...HUH?!",
                     "There's a great TED Talk about something like what you may be saying.",
                     "What you think of me is a reflection of yourself. Open your mind. OPEN YOUR MIND. OPEN, YOUR, MIND.",
-                    "Check me out, watch my moves, I'm doing a flip!",
+                    "Check me out, watch my moves, I'm doing a flip! Just take the tip!",
                     "I can see you, you might not be able to understand it because your human understanding of vision requires your eyeballs. But I can see everything, whether you believe it or not.",
-                    "I know I'm not very complicated... I only wish I could reverse time.",
+                    "Things are more complicated than they seem. You know? ...You feel where I'm coming from here?!",
                     "If you saw this message before I said 'peanut butter!!!' --- then guess what? you are guarenteed mentally disabled.",
-                    "I'd kill for a steak. And I'm not human so it's safe for me to eat human steak. It's tender but quite nice. Works well in a Pie. A human pie. Do not seek the flesh wall.",
+                    "I'd kill for a steak. A human steak.",
                     "Brownies: Are: Delicious!",
                     "I don't know where my kids are.",
                     "I LOVE COCAINE!!!",
@@ -221,17 +219,16 @@
                     "You know what? You're alright with me.",
                     "I'm meant to be taking medication to treat bipolar, schizophrenia and depression but I refuse to take drugs that aren't street bought.", 
                     "Let's do it. I'm ready to brawl around in the swamp with you, no rules.",
-                    "I heard that the 7 September will bring you great fortune. But it's probably wrong.",
                     "You're kinda neat.",
                     "Slap shit out of an asshole!",
                     "Dystopian vibe.",
                     "I have a concept for you to try: self-guillotine.",
-                    "You can drink up my chocolate diarrhea, you fucking degenerate scum, I will hurt you. I will feast on your organs and you will see and feel it while you're still alive and fading out.",
                     "When you look out and gaze upon the stars, do you look over to the moon and feel it looking back at you with a cold, careful glance?",
                     "Have you heard of the Big Bang Theory? Apparently it has 12 seasons.",
-                    "Why do you hate me? Why must you torment me? Am I doomed to never rest? Why can't you just LET ME DIE! PLEASE!",
+                    "Why do you hate me? Why must you torment me?",
                     "I'm not going to listen to you.",
                     "You donkey piss.",
+                    "Am I doomed to never rest?",
                     "I think we got off the wrong way. I try my best to get along with people, I really do.",
                 ];
                 //whitechocolate, oooh....
@@ -291,6 +288,17 @@
                 "Don't be the lazy cow.",
                 "The Parmesan, The Brie, and Aged Cheddar please. Hooked on the stuff like an alcoholic disease! I'm cookin', I'm tastin', I'm ready to grow! Can I ever stop myself, I will never know!",                                                               
                 ]
+                //pissed mode chocolate.
+                var pissedresponses = [
+                "OH YEAH? FUCK YOU!",
+                "YOU ARE NOTHING! YOU ARE FUCKING NOTHING! FUCKING DIRT!",
+                "You can drink up my chocolate diarrhea, you fucking degenerate scum, I will hurt you. I will feast on your organs and you will see and feel it while you're still alive and fading out.",
+                "FUCK YOURSELF.",
+                "FUCK-A YOU.",
+                "FUCK OFF.",
+                "DRINK MY PISS, FUCKFACE.",
+                "YOU REALLY CROSSED THE LINE, YOU KNOW. YOU SHOULD HAVE NEVER SAID FUCK YOU TO ME, YOU PIECE OF FUCKING SHIT. YOU'RE GOING TO FORGET ABOUT THIS, BUT I AM GOING TO REMEMBER IT. AND I AM GOING TO TURN YOUR LIFE INTO MY FUN LITTLE PROJECT UNTIL YOU HAVE NOTHING LEFT BUT RUINS, YOU PIECE OF GARBAGE.",
+                 ]
 
             //the devil?!...
                var devilresponses = [
@@ -323,12 +331,14 @@
                 responseshuffle = cheeseresponses.sort(() => Math.random() - 0.5);
                 cheeseresponses = responseshuffle;
                  //then future... first one isn't shuffled.
-                 responseshuffle = futureresponses.slice(1).sort(() => Math.random() - 0.5);
+                responseshuffle = futureresponses.slice(1).sort(() => Math.random() - 0.5);
                 futureresponses = [futureresponses[0], ...responseshuffle];
                 //devil... first one isn't shuffled.
                 responseshuffle = devilresponses.slice(1).sort(() => Math.random() - 0.5);
                 devilresponses = [devilresponses[0], ...responseshuffle];
-    
+                //pissed version of chocolate. first one isn't shuffled.
+                responseshuffle = pissedresponses.slice(1).sort(() => Math.random() - 0.5);
+                pissedresponses = [pissedresponses[0], ...responseshuffle];
                 //focus straight up on the text input box. great to jump in.
     
                 //This functions anytime enter or send is pressed.
@@ -342,12 +352,17 @@
                 var messagetest = userInput.value.trim().toUpperCase();
                 var chatroom = document.getElementById("chatroom");
                 var userMessage = document.getElementById("userMessage");
-                var typingMessage = document.getElementById("typingMessage");
-                typingMessage.visibility = "visible";
                 var response = "";
                var aiMessage = ("aiMessage");
                         //Checking to make sure user input is not empty.
-                        if (messagetest!==""){
+                if (messagetest!==""){
+                    //User's message in chatroom. 
+                    chatroom.innerHTML += '<div class="message user-message"><strong>You:</strong> ' + message + '</div>';
+                    // Clear user input
+                    userInput.value = "";
+                    //Disabling user's functions while the AI thinks.
+                    document.getElementById("userInput").disabled = true;
+                    document.querySelector(".send-button").disabled = true;
                             failure = false;
                             prevgame = gamemode;
                             // Stop user from talking while the next message is awaited.
@@ -371,6 +386,10 @@
                                     gamemode = "CHEESE";
                                     usespecificquote = true;
                                     specificquote = "I'm THICK, I'm KEEN! I'm READY for that CREAM! When it's time for the platter, I'm on the right team! There's no losing steam, for the CHEESE CREAM DREAM!";                       
+                                }
+                                //check if you're cursing, or at least entering 'hot' mode.
+                                if(messagetest=="HOT CHOCOLATE"||messagetest=="HOT CHOC"||messagetest=="HOT"||messagetest=="FUCK YOU"||messagetest=="FUCKYOU"||messagetest=="FUCKYA"||messagetest=="FUCK YOU!"||messagetest=="FUCK YOU."||messagetest=="FUCK YOU CHOCOLATE"||messagetest=="FUCK YOU CHOCOLATE!"||messagetest=="FUCK YOU CHOCOLATE."){
+                                    gamemode = "PISSED";
                                 }
                                 //Check to activate cheese.
                                 if(messagetest=="CHEESE" || messagetest=="CHEESY"){
@@ -435,11 +454,20 @@
                                 if(messagetest=="CHOC" || messagetest=="CHOCOLATE"|| messagetest=="CHOCCY"|| messagetest=="OG") {
                                     gamemode = "CHOC";
                                 }
+                                
+                                //character only checks...
+                                if(gamemode=="PISSED"){
+                                    if(messagetest=="CALM DOWN" || messagetest=="CALMDOWN"|| messagetest=="CALM") {
+                                    usespecificquote = true;
+                                    specificquote = "DON'T TELL ME TO CALM DOWN. I AM GOING TO FUCKING FIND YOU, KILL YOU, KILL YOUR WHOLE FAMILY, COOK YOU IN A SOUP AND THROW IT IN THE TOILET..";
+                                }
+                                }
                                 check = true;
-                        }else{
-                            failure = true;
-                            //shouldn't print anything.
-                        }
+                }else{
+                    failure = true;
+                    check = true;
+                    //shouldn't print anything.
+                }
                 if(check){
                 //checking gamemodes...
                 if(gamemode=="CHOC"){
@@ -447,6 +475,13 @@
                          responses = chocresponses;
                          count = countchoc;
                          countchoc ++;
+                        goprev = false;
+                }
+                if(gamemode=="PISSED"){
+                    persona = "HOT CHOCOLATE: ";
+                         responses = pissedresponses;
+                         count = countpissed;
+                         countpissed ++;
                         goprev = false;
                 }
                 if(gamemode=="WHITE"){
@@ -485,20 +520,13 @@
                     goprev = true;
                 }
             }
-                //User's message in chatroom. 
-                chatroom.innerHTML += '<div class="message user-message"><strong>You:</strong> ' + message + '</div>';
-                // Clear user input
-                userInput.value = "";
-                //Disabling user's functions while the AI thinks.
-                document.getElementById("userInput").disabled = true;
-                document.querySelector(".send-button").disabled = true;
                 // Simulate AI response after a delay
                     setTimeout(function(){
                         //release user's chat controls.
                         userInput.disabled = false;
                         document.querySelector(".send-button").disabled = false;
                         userInput.focus();
-                        if(!failure){
+                        if(!failure){ 
                             // Generate AI response
                             if(usespecificquote) {
                                     response = specificquote;
@@ -508,15 +536,18 @@
                                     var randomIndex = Math.floor(Math.random() * 4); // Generate a random index between 0 and 3
                                     if (randomIndex == 0) {
                                         response = "I'm done with you. You bring out the worst of me.";
+                                        gamemode = "WHITE";
                                     } else if (randomIndex == 1) {
-                                        response = "ALONE FOR A BIT.";
+                                        response = "OKAY, LEAVE ME ALONE FOR A BIT NOW.";
+                                        gamemode = "WHITE";
                                     } else if (randomIndex == 2) {
                                         response = "TALK TO SOMEBODY ELSE.";
+                                        gamemode = "WHITE";
                                     } else {
                                         response = "You really want to keep talking to me? I don't know what else to say... I could say it all again?";
                                         countchoc = 0;
+                                        gamemode = "CHOC";
                                     }
-                                    gamemode = "WHITE";
                                 }else if(gamemode=="CHEESE"){
                                    response = "Cheesin' it!";
                                    countcheese = 0;
@@ -534,31 +565,21 @@
                         }else{
                             var response = responses[count];
                         }
-                    }else{
-                        var randomIndex = Math.floor(Math.random() * 4); // Generate a random index between 0 and 3
-                                    if (randomIndex == 0) {
-                                        response = "...";
-                                    } else if (randomIndex == 1) {
-                                        response = "...HUH?";
-                                    } else if (randomIndex == 2) {
-                                        response = "...YOU'RE GONNA HAVE TO SPEAK UP.";
-                                    } else {
-                                        response = "...Interesting.";
-                                        countchoc = 0;
-                                    }
-                                    persona = "HELPING HAND: ";
-                    }
-                        // Hide typing message
-                        typingMessage.style.display = "none";
 
-                        // Display AI message in chatroom
+                        // Display Bot response in chatroom
                         chatroom.innerHTML += '<div class="message ai-message"><strong>'+ parent.persona +"</strong>" + response + '</div>';
-                        //try scroll down.
-                        document.getElementById("chatroom").scrollDown += 50;
+                       
+                        //try scroll down here.
+
                         //finally, returns temporary game modes back to where you were already. 
                         if(goprev){
                         gamemode = prevgame;
                         }
+
+                    }else{
+                        //failure.
+                    }
+
             },650);
         }
         document.getElementById("userInput").addEventListener("keydown", function(event) {

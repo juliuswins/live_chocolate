@@ -162,7 +162,8 @@
             
             //the first message you see:
                 document.getElementById("chatroom").innerHTML += '<div class="message ai-message"><strong> Welcome to the chat! Please be respectful and enjoy. </strong></div>';  
-                var sending = false;
+                var responsetime = 750;
+                var beginsend = false;
                 var gamemode = "CHOC";
                 var persona = "Chocolate: ";
             //counts are your progress of how many times you've spoken to each character.
@@ -343,6 +344,7 @@
     
                 //This functions anytime enter or send is pressed.
             function sendMessage() {
+                var beginsend = true;
                 //makes you check text before defining the game mode.
                 var check = false;
                 //Finding user input, adding to chat room, and the thinking message appears.
@@ -561,6 +563,9 @@
                                     response = "I'm away...";
                                     persona = "White Chocolate: ";
                                    gamemode = "DEVIL";
+                                }else if(gamemode==""){
+                                    response = "GO TO HELL.";
+                                    gamemode = "DEVIL";
                                 }
                         }else{
                             var response = responses[count];
@@ -579,20 +584,24 @@
                     }else{
                         //failure.
                     }
-
-            },650);
+             //finishes the sendmessage process.
+                beginsend = false;
+            },responsetime);
         }
         document.getElementById("userInput").addEventListener("keydown", function(event) {
         // Check if the "Enter" key is pressed
         if (event.key === "Enter") {
             // Prevent the default behavior of the "Enter" key (submitting the form)
             event.preventDefault();
-            // Get user input
+            // Sends message, if message isn't already in process already.
+            if(!beginsend){
                 sendMessage();
+            }
         }
     });
     document.getElementById("userInput").focus();
 </script>
-    version 0.9.
+<br>
+v0.91 - copyright (c) all rights reserved 2024
 </body>
 </html>

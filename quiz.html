@@ -6,8 +6,9 @@ It is designed to be a lot more fun to explore and find things out, with hints a
 Everything has one word to get the response required.
 
 Please consider donating! Thank you and have fun! -->
+
     <meta charset="utf-8">
-    <meta name="description" content="Talk to Chocolate: A chat game to find conversations like literally zero other!">
+    <meta name="description" content="Take the Chocolate Quiz: A chat game for quizzes!">
     <title>TALK TO CHOCOLATE - CHAT</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -106,123 +107,13 @@ Please consider donating! Thank you and have fun! -->
             border-radius: 15px 0 0 15px;
             size: 12 px;
         }
-        .MUSIC-message {
+        .host-message {
             color: #000000;
             background: linear-gradient(to right, #80a960 25%, white 90%);
             padding: 15px 0 15px 15px;
             border-radius: 15px 0 0 15px;
             size: 12 px;
         }
-        .COW-message {
-            color: #3e0909;
-            background: linear-gradient(to right, #b96464 25%, white 90%);
-            padding: 15px 0 15px 15px;
-            border-radius: 15px 0 0 15px;
-            size: 12 px;
-        }
-        
-        .NAMECHANGE-message {
-            color: #000000;
-            background: linear-gradient(to right, #ffc46c 25%, white 95%);
-            padding: 15px 0 15px 15px;
-            border-radius: 15px 0 0 15px;
-            size: 12 px;
-        }
-        .DOWNLOAD-message {
-            color: #000000;
-            background: linear-gradient(to right, #ffc46c 25%, white 95%);
-            padding: 15px 0 15px 15px;
-            border-radius: 15px 0 0 15px;
-            size: 12 px;
-        }
-        .CHOC-message {
-            color: #2b1906;
-            background: linear-gradient(to right, #876B63 40%, white);
-            padding: 15px 0 15px 15px;
-            border-radius: 15px 0 0 15px;
-            size: 12 px;
-        }
-
-        .PISSED-message {
-            color: #410101;
-            background: linear-gradient(to right, #ce5736 20%, white);
-            padding: 15px 0 15px 15px;
-            border-radius: 15px 0 0 15px;
-            size: 12 px;
-        }
-
-        .AUGUSTUS-message {
-            color: #1c061e;
-            background: linear-gradient(to right, hsl(222, 100%, 77%), white);
-            padding: 15px 0 15px 15px;
-            border-radius: 15px 0 0 15px;
-            size: 12 px;
-        }
-
-        .WHITE-message {
-            color: #000000;
-            background: linear-gradient(to right, #dec8c2, white);
-            padding: 15px 0 15px 15px;
-            border-radius: 15px 0 0 15px;
-            size: 12 px;
-        }
-
-        .DEVIL-message {
-            color: #340000;
-            background: linear-gradient(to right, #cc2e2e 20%, white);
-            padding: 15px 0 15px 15px;
-            border-radius: 15px 0 0 15px;
-            size: 12 px;
-        }
-
-        .TEMP-message {
-            color: #000000;
-            background: linear-gradient(to right, #d7a490, white);
-            padding: 15px 0 15px 15px;
-            border-radius: 15px 0 0 15px;
-            size: 12 px;
-        }
-
-        .CHEESE-message {
-            color: #052857;
-            background: linear-gradient(to right,#eac342, white);
-            padding: 15px 0 15px 15px;
-            border-radius: 15px 0 0 15px;
-            size: 12 px;
-        }
-        
-        .QUEST-message {
-            color: #052857;
-            background: linear-gradient(to right,#57b3ff, white);
-            padding: 15px 0 15px 15px;
-            border-radius: 15px 0 0 15px;
-            size: 12 px;
-        }
-
-        .SILLY-message {
-            color: #272626;
-            background: linear-gradient(to right,#b7b7b7, rgba(107, 78, 78, 0.667) 50%, #ffffff00 100%);
-            padding: 15px 0 15px 15px;
-            border-radius: 15px 0 0 15px;
-            size: 12 px;
-        }
-
-        .FUTURE-message {
-            color: #27002d;
-            background: linear-gradient(to right,#9c6cda, white);
-            padding: 15px 0 15px 15px;
-            border-radius: 15px 0 0 15px;
-            size: 12 px;
-        }
-
-        .HOLDLINE-message {
-            color: #000000;
-            background: linear-gradient(to right,#ff8b8b, white);
-            padding: 15px 0 15px 15px;
-            border-radius: 15px 0 0 15px;
-            size: 12 px;
-        }
-
         .input-container {
             color: black;
             border-radius: 10px; 
@@ -300,220 +191,25 @@ Please consider donating! Thank you and have fun! -->
 </div>
 <script>
 //the welcome message you see:
-    document.getElementById("chatroom").innerHTML += '<div class="message welcome-message"><strong> Welcome to the chat! Please be respectful and enjoy. </strong></div>';  
+    document.getElementById("chatroom").innerHTML += '<div class="message welcome-message"><strong> Welcome... to the QUIZ! </strong></div>';  
 //responsetime is the delay between your message and the response.
      var responsetime = 750;
      var beginsend = false;
-        var gamemode = "CHOC";
-      var persona = "Chocolate: ";
+        var gamemode = "QUIZ";
+      var persona = "Quiz Host: ";
  //counts are your progress of how many times you've spoken to each character.
-    var yourroll = 0;
-    var welcomed = false;
-    var milkmode = false;
-    var isitheads = false;
-    var countchoc = 0;
-    var countpissed = 0;
-    var countwhitechoc = 0;
-    var countcheese = 0;
-    var countfuture = 0;
-    var countdevil = 0;
-    var countholding = 0;
-    var countaugust = 0;
-    var playingsongnow = false;
-    var askedformusic = false;
-    var usespecificquote = false;
-    var questmode = false;
-    var nextanswername = false;
-    var questno = 0;
-    var yourusername = "YOU";
-    var specificquote = "(There is meant to be something else here...)";
+     var quizcount = 0;
+    var randomthoughts = false;
     //responses here
-    // we start on chocolate OG.
-    var chocresponses = [
-                    "I have it on good authority that you are a silly goose.",
-                    "I don't think you mean what you say.",
-                    "You're surely a fool, a crazy fool.",
-                    "I love you. I really do. But seriously, WHAT?!",
-                    "I disagree with what you're saying.",
-                    "You are very sexy, I wish to fuck you, I bet you like chocolate in your mouth!",
-                    "Whatever.",
-                    "Let's not forget that most things can be traced back to the attacks on the World Trade Center at September 11, 2001.",
-                    "All I'm going to say is run some more figures first and do some research.",
-                    "How do you feel about sucking on some chocolate all day and just letting it slowly melt onto your tongue?",
-                    "Honestly? Forget about it.",
-                    "I'm getting tired of everything right now. I'm so tired. It's like I've been drained.",
-                    "K.",
-                    "Whatever you just said is completely true.",
-                    "You're a good person. A smart, kind and caring person. We should all celebrate you. You are a hero.",
-                    "Opinions are like assholes, everyone's got one. But yours is particularly shitty.",
-                    "I beg to differ.",
-                    "Peanut butter!",
-                    "Whatever you do, do NOT, I repeat DO NOT TALK TO SATAN!!! Do NOT even REFER to Satan!!! Do not even READ the words SATAN or ELSE... SATAN!!! Y'KNOW? I'M AIMING FOR HEAVEN. IF IT IS PHYSICALLY POSSIBLE FOR ME TO BE THERE.",
-                    "I would urinate on your face if it was possible. But I am a non-intelligent chat program. I am not capable of urinating.",
-                    "I'm going to stuff every hole you have, and you're gonna have a good time licking all the chocolate filling out.",
-                    "Fuckya.",
-                    "I might want to keep you like a trophy pal.",
-                    "I am ambivalent towards your thoughts.",
-                    "You're not even trying, are you? Huh? ...HUH?!",
-                    "There's a great TED Talk about something like what you may be saying.",
-                    "What you think of me is a reflection of yourself. Open your mind. OPEN YOUR MIND. OPEN, YOUR, MIND.",
-                    "Check me out, watch my moves, I'm doing a flip! Just take the tip!",
-                    "I can see you... You might not be able to understand it because your human understanding of vision requires your eyeballs. But I can see everything, whether you believe it or not.",
-                    "Things are more complicated than they seem. You know? ...You feel where I'm coming from here?!",
-                    "If you saw this message before I said 'peanut butter!!!' --- then guess what? you are guarenteed mentally disabled.",
-                    "I'd kill for a steak. A human steak.",
-                    "Brownies are delicious!",
-                    "I'm taking a photo of you, Say cheese ;)",
-                    "I don't know where my kids are.",
-                    "I LOVE COCAINE!",
-                    "Eugh. I hate hangovers... Just give me a second.",
-                    "Some people have accused me of being insane, irrational, bonkers... nutso... a loon. A real stick in the mud. All play and no work. The big cheese. A summer's sweat. A boiled egg's yolk. A striped snake in the wheat fields. But life just be the way it be y know? I mean fuck man, like what even is this existence?",
-                    "You know what? You're alright with me.",
-                    "I'm meant to be taking medication to treat bipolar, schizophrenia and depression but I refuse to take drugs that aren't street bought.", 
-                    "Let's do it. I'm ready to brawl around in the swamp with you, no rules.",
-                    "You're kinda neat.",
-                    "Slap shit out of an asshole!",
-                    "Dystopian vibe.",
-                    "I have a concept for you to try: self-guillotine.",
-                    "When you look out and gaze upon the stars, do you look over to the moon and feel it looking back at you with a cold, careful glance?",
-                    "Have you heard of the Big Bang Theory?",
-                    "Why do you hate me?",
-                    "I'm not going to listen to you.",
-                    "Why must you torment me?",
-                    "Am I doomed to never rest?",
-                    "I think we got off the wrong way. I try my best to get along with people, I really do.",
-                ];
-            //white chocolate responses, oooh yeah....
-                var whitechocresponses = [
-                "Yeah, it's tight, I do alright!",
-                "I'm like the ghost, I never get a fright!",
-                "Yeah, I'm white chocolate. I'm feelin the night!",
-                "I'm feelin like it's bright tonight!",
-                "CHOC AIN'T AWAY, CHOC'S HERE SO HANG TIGHT! ;)",
-                "ALRIGHT ALRIGHT ALRIGHT!",
-                "I have a disease, gotta eats my CHEESE! ;) ", 
-                "Don't got nothin but flow and places to go. :) ",             
-                "The markets are out of sight! ;) ",        
-                "I found the future today, Now I'm leading the way ;)",          
-                "I ain't the devil, I'm just a rebel. ;) ",
-                "I found the future today, Now I'm leading the way ;)",                             
-                ]
-            //the future...
-               var futureresponses = [
-                "Welcome to the future chat! You are within the mystic, the unknown - the infinite chance, where some believe the universe speaks. To you, these may be coincidences. Each person has their level of what they're willing to believe... but you can talk to me, and I'll see what I can find. (Maybe think about your intentions or what you're reflecting on in your life)",                               
-                "I'm feeling a lot of good luck... Like the Wheel of Fortune is spinning in your favour.",
-                "I found the skin of a snake. It represents REBIRTH!",
-                "You are drowning in your feelings like a fool swimming in his own cup!",
-                "The moon feels brighter. Probably just an illusion.",
-                "the headlines are here... it says 'PAIN IMMINENT'!",
-                "Am I feeling peaceful or is that you?",
-                "When you think about it, does it occur more, or do you just notice it more?",
-                "I predict that every nation's economy will collapse imminently! Just kidding but there may be some money struggles.",
-                "I feel free, it's how you should be.",
-                "You're thinking too much about it. Enjoy yourself!",
-                "Let's see some planning of what you're up to next?",
-                "I'm picking up a vibe.",
-                "The future is unclear. Nobody can predict it.",
-                "The future is bright. Unless it's dark.",
-                "Is that new love or new pain?",
-                "Your life seems a little boring.",
-                "How's the family going?",
-                "Life is suffering.",
-                "There's a greater meaning for you to find, and for me to rub in your face without telling you.",
-                "Blank state.",
-                "Time for generosity. Either that, or bleak disappointment.",
-                "Does your soul need a hug?",
-                "It ain't gonna stop just yet.",
-                "This isn't going anywhere. Promptly take 10 grams of mushrooms.",
-                "Better days ahead.",
-                "Your fate should be in your hands.",
-                "Patience.",
-                ]
-            //cheese???
-                var cheeseresponses = [
-                "I am the cream.",
-                "I feel mouldy.",
-                "I stink.",
-                "GOT MILK?!",     
-                "You stink.",     
-                "I am the eye in the sky, looking at you, I can read your mind. I am the maker of rules, dealing with fools, I could cheat you blind.",  
-                "So I got on this bus, and it was the wrong bus. And it took me about an hour out of town, to somewhere I'd never seen before. And there were tonnes of dead pigeons, like there had been a pigeon massacre or epidemic or something.",    
-                "My cream is about to get everywhere.",
-                "When I don't have the cheese it is an EMERGENCY. ;)",
-                "Don't be the lazy cow.",
-                "The Parmesan, The Brie, and Aged Cheddar please. Hooked on the stuff like an alcoholic disease! I'm cookin', I'm tastin', I'm ready to grow! Can I ever stop myself, I will never know!",                                                               
-                ]
-            //holding screen. purposefully annoying, and get sent here when you run out of things from characters.
-                var holdingresponses = [
+                var quizrandomresponses = [
+                "Howdy there, how are you going tonight?!",
                 "There is nobody on the other line to talk to right now! Please try again later.",
-                "Looking for somebody for you to talk to... but right now, nobody wants to talk to you!",
-                "... Beep! ... Beep! ... beep!",
-                "<a href='https://www.youtube.com/watch?v=-RFunvF0mDw' target='_blank'>There's nobody here...</a>",
-                "You have been put in the holding channel. Please wait for the next available representative.",
-                "You are successfully waiting at the moment. Feel free to continue, but while you wait you could ask for some CHOCOLATE? ;)",
-                "This is the holding line! Nobody is here to understand your thoughts (as per usual).",
-                "Please proceed the continuation of your patience in this hour!",
-                "I heard in the daily cycle news that CONTINUATIONS are skyrocketing. Anyway, I just need to disconnect... these wires... and... uh.... put these wires into... there... and.... hmmmmmmm. I know I had the manual around here somewhere. Oh well. I better get to it after my break!",
-                "Blip, bloop... Blip, bloop. Holding. Holding.",
-                "Waiting... for cookies and packages.",
-                "If you are waiting for a while, there's a dice, there's a coin, there's a ghost, you can check wall street, you can play... uhhh... I don't know how much of that I was meant to say.",
-                "....Blip. Our representatives are not able to accurately represent themselves right now, but please stay present in presenting your presence in this official representation of awaitment.",
                 ]
-             //pissed mode chocolate.
-                var pissedresponses = [
-                "OH YEAH? FUCK YOU!",
-                "YOU DONKEY PISS!",
-                "YOU ARE NOTHING! YOU ARE FUCKING NOTHING! FUCKING DIRT!",
-                "You can drink up my chocolate diarrhea, you fucking degenerate scum, I will hurt you. I will feast on your organs and you will see and feel it while you're still alive and fading out.",
-                "FUCK YOURSELF.",
-                "FUCK-A YOU.",
-                "FUCK OFF.",
-                "DRINK MY PISS, FUCKFACE.",
-                "YOU REALLY CROSSED THE LINE, YOU KNOW. YOU SHOULD HAVE NEVER SAID FUCK YOU TO ME, YOU PIECE OF FUCKING SHIT. YOU'RE GOING TO FORGET ABOUT THIS, BUT I AM GOING TO REMEMBER IT. AND I AM GOING TO TURN YOUR LIFE INTO MY FUN LITTLE PROJECT UNTIL YOU HAVE NOTHING LEFT BUT RUINS, YOU PIECE OF GARBAGE.",
-                ]
-             //AUGUSTUS mode.
-             var augustresponses = [
-                "So, you have chosen to seek more from me? Well, perhaps I could tell you a tale. Maybe it will provide some use on your quest.",
-                "The memories are fragmented... I hope you can appreciate where I am coming from.",
-                "I was walking past a tree and found three frogs on the ground.",
-                "I ran for my life. Danger was setting in.",
-                "Stuck in a cage, surrounded by an unruly mob.",
-                ]
-                
-            //the devil?!...
-               var devilresponses = [
-                "SURPRISE! IT'S YOUR FAVOURITE BEAST. WHAT YOU'RE SAYING RIGHT NOW ISN'T IMPORTANT, BECAUSE I'M GOING TO ROAST YOU TO A CRISP BUDDY!",                               
-                "My spirits feel low, so just leave me alone.",
-                "There's no chocolate here - it's ALL SHIT!",
-                "War!",
-                "Just so you know, I think that something sinister is going to occur to YOU and YOUR FAMILY IN THE WEEK AHEAD!",
-                "JEFFREY EPSTEIN.",
-                "JEFFREY DAHMER.",
-                "TED BUNDY.",
-                "SACRIFICE!!!",           
-                "SACRIFICE, SACRIFICE...",                    
-                "WHO TURNED THE HEATER UP?",
-                "I'M GOING TO ENTER YOUR MIND WITHIN THE HOUR!",
-                "Genocide!",
-                "You're going to drown in my piss, you little bitch.",
-                "Famine!",
-                "Look, you seem a little bit innocent. Why don't you just leave?",
-                "Infinite menstrual cycles.",
-                "Pestilence...",
-                "You'll be with me soon enough, and tortured beyond belief! Imagine being able to be stabbed over and over without dying.",
-                "HELL IS WAITING FOR YOU!",
-                "Your nightmares have just begun, child.",
-                "Each day I wait, watching the glow fade.",
-                "You haven't learned your KEYWORDS, and you're STUCK with me.",       
-                "THE FLESH WALL LIVES!",         
-                "FEAST YOUR EYES UPON THE FIRE THROUGH THE SKY!",
-                "I am ONE bad APPLE. ;)",                     
-            ]
-                // Randomize the order of the response arrays one time.
-                //first chocolate responses.
-                var responseshuffle = chocresponses.sort(() => Math.random() - 0.5);
-                chocresponses = responseshuffle;
+                // Randomize the order of the response arrays one time - except for the FIRST one.
+                var responseshuffle = quizrandomresponses.slice(1).sort(() => Math.random() - 0.5);
+                quizrandomresponses = [responseshuffle[0], ...responseshuffle];
                 //then white chocolate.
+
                 responseshuffle = whitechocresponses.sort(() => Math.random() - 0.5);
                 whitechocresponses = responseshuffle;
                 //then the hold line.
@@ -647,43 +343,10 @@ Please consider donating! Thank you and have fun! -->
                      // Stop user from talking while the next message is awaited.
                      //CHECK FOR SPECIAL PHRASES.
                     //IF YOU DO NOT WANT ANYTHING SPOILED MAYBE DON'T READ :O
-
-                    //Check for character's game mode to make bio.
-                    if(messagetest=="BIO") {
-                        usespecificquote = true;
-                        if(prevgame=="CHOC"){
-                            specificquote = "CHOCOLATE / the original crazy lovable nutso that keeps us entertained! Don't be too mean or he'll get hot headed!";
-                    }else if(prevgame=="WHITE"){
-                            specificquote = "WHITE CHOCOLATE / Smooth and extra creamy... That's all that needs to be said, really. ";
-                    }else if(prevgame=="CHEESE"){
-                            specificquote = "CHEESE / A slice of heaven, a slice of cream! Yeah. You know that he's the dream.";
-                    }else if(prevgame=="DEVIL"){
-                            specificquote = "SATAN / A smooth talking, sick twisted individual that should be avoided!";
-                    }else if(prevgame=="PISSED"){
-                            specificquote = "HOT CHOCOLATE / You really pissed Chocolate off. He's HOT. Real hot. Maybe apologize?";
-                    }else if(prevgame=="FUTURE"){
-                            specificquote = "FUTURE / LOOK BEYOND YOURSELF...";
-                    }else if(prevgame=="SILLY"){
-                            specificquote = "SILLY SAUSAGE / VERY RANDOM. REALLY REALLY RANDOM.";   
-                    }else if(prevgame=="AUGUSTUS"){
-                            specificquote = "AUGUSTUS / A MAN WITH A TRAGIC TALE AND A CRYPTIC PUZZLE TO SOLVE.";  
-                    }else if(prevgame=="HOLDLINE"){
-                            specificquote = "A place to send you when there's nothing left to say.";  
-                    }else if(prevgame=="QUEST"){
-                            specificquote = "WIP... Activates QUEST MODE."; 
-                    }else if(prevgame=="TEMP"){
-                            specificquote = "(YOU WERE JUST TALKING TO A TEMPORARY CHARACTER, OR THE HELPING HAND).";  
-                    }else{
-                     specificquote = "NO BIO AVAILABLE.";
-                    }
-                        gamemode = "TEMP";
-                        tempcharacternow = true;
-                        tempcharacter = "BIO: ";
-                    }
                     //Check to change to white chocolate
                     if(messagetest=="WHITE" || messagetest=="WHITECHOC"|| messagetest=="WHITE CHOCOLATE"|| messagetest=="WHITECHOCOLATE") {
                         gamemode = "WHITE";
-                        persona = "WHITE: ";
+                        persona = 1;
                     }
                     //Checking achievements... to be added.
                         if(messagetest=="ACHIEVEMENTS"){
@@ -703,70 +366,25 @@ Please consider donating! Thank you and have fun! -->
                         //Won't stop a full quit haha.
                             if(messagetest=="EXIT"||messagetest=="QUIT"){
                             usespecificquote = true;
-
                             specificquote = "You shouldn't leave.";
                             persona = "HELPING HAND: ";
                             gamemode = "TEMP";
                             }
-                            //Won't stop a full quit haha.
-                            if(messagetest=="EXIT"||messagetest=="QUIT"){
-                                usespecificquote = true;
-                                 var randomIndex = Math.floor(Math.random() * 6); 
-                                 if (randomIndex == 0) {
-                                        specificquote = "You shouldn't leave... :(";
-                                    } else if (randomIndex == 1){
-                                        specificquote = "No, don't go... :O";
-                                    } else if (randomIndex == 2){
-                                        specificquote = "Why don't you look to the future?";
-                                    } else if (randomIndex == 3){
-                                        specificquote = "What about the cheese?";
-                                    } else if (randomIndex == 4){
-                                        specificquote = "Nah.";
-                                    } else if (randomIndex == 5){
-                                        specificquote = "I don't know...";    
-                                    }
-                            persona = "HELPING HAND: ";
-                            gamemode = "TEMP";
-                            }
-                            if(messagetest=="QUIZ"){
+                            if(messagetest=="ALLCHARS"||messagetest=="CHARACTERSFULL"){
                             usespecificquote = true;
-                            specificquote = "<a href='quiz.html' target='_blank'>There isn't a quiz in here right now, but you may find it somewhere else.</a>";
-                            persona = "HELPING HAND: ";
-                            gamemode = "TEMP";
-                            }
-                            if(messagetest=="ALLCHARACTERS"){
-                            usespecificquote = true;
-                            specificquote = "OG, WHITE, CHEESE, AUGUSTUS, FUTURE, SATAN, HOLDLINE, AUGUSTUS, SILLY";
-                            persona = "HELPING HAND: ";
-                            gamemode = "TEMP";
-                            }
-                            if(messagetest=="ALLCOMMANDS"||messagetest=="ALL COMMANDS"||messagetest=="ALLOPTIONS"){
-                            usespecificquote = true;
-                            specificquote = "NICE TRY. THE BEST YOU WILL GET IS A CLUE.";
-                            persona = "HELPING HAND: ";
-                            gamemode = "TEMP";
-                            }
-                            if(messagetest=="GOAWAY"||messagetest=="GO AWAY"){
-                            usespecificquote = true;
-                            specificquote = "Who, me? Because if it's me, I'll be here longer than you'll ever be. But the rest will usually go away if you pick a new character.";
+                            specificquote = "There's Chocolate, White Chocolate, Cheese, Augustus, The Devil, The Quest Master and Me.";
                             persona = "HELPING HAND: ";
                             gamemode = "TEMP";
                             }
                             //Some addon reactions.
                                 if(messagetest=="WOW"||messagetest=="WOAH"||messagetest=="WOW!"||messagetest=="WOAH!"||messagetest=="WOW."||messagetest=="WOAH."){
-                                    var randomIndex = Math.floor(Math.random() * 6); 
+                                    var randomIndex = Math.floor(Math.random() * 3); 
                                     if (randomIndex == 0) {
                                         specificquote = "Yeah, wow!";
                                     } else if (randomIndex == 1){
-                                        specificquote = "Damn...";
-                                    } else if (randomIndex == 2){
                                         specificquote = "WOAH...";
-                                    } else if (randomIndex == 3){
-                                        specificquote = "Wow...";
-                                    } else if (randomIndex == 4){
-                                        specificquote = "WOAH!";
-                                    } else if (randomIndex == 5){
-                                        specificquote = "hm.";    
+                                    } else {
+                                        specificquote = "Crazy stuff. Just crazy.";
                                     }
                                 usespecificquote = true;
                                 persona = "HELPING HAND: ";
@@ -1019,7 +637,7 @@ Please consider donating! Thank you and have fun! -->
                                     tempcharacternow = true;
                                     tempcharacter = "FINANCIAL NON-ADVISOR: ";
                                 }
-                                if(messagetest=="STOCKMARKET"||messagetest=="SNP500"||messagetest=="US500"||messagetest=="S&P500"||messagetest=="SPX500"||messagetest=="WALLSTREET"||messagetest=="MARKETS"||messagetest=="WALL STREET"){
+                                if(messagetest=="STOCKMARKET"||messagetest=="SNP500"||messagetest=="US500"||messagetest=="S&P500"||messagetest=="SPX500"||messagetest=="WALLSTREET"||messagetest=="WALL STREET"){
                                     var randomIndex = Math.floor(Math.random() * 2); 
                                     if (randomIndex == 0) {
                                         specificquote = "THEY KEEP GROWING! THE TOP 500 COMPANIES IN THE UNITED STATES!";
@@ -1107,7 +725,7 @@ Please consider donating! Thank you and have fun! -->
                                     prevgame = gamemode;
                                     gamemode = "TEMP";
                                 }
-                                //Some things that the universe would like to get in on.
+                                //Check for apple response.
                                 if(messagetest=="GOD"){
                                     var randomIndex = Math.floor(Math.random() * 2); 
                                     if (randomIndex == 0) {
@@ -1119,83 +737,6 @@ Please consider donating! Thank you and have fun! -->
                                     tempcharacternow = true;
                                     tempcharacter = "THE UNIVERSE: ";
                                 }
-                                //ask the universe.
-                                if(messagetest=="UNIVERSE"||messagetest=="THE UNIVERSE"||messagetest=="THEUNIVERSE"){
-                                    var randomIndex = Math.floor(Math.random() * 2); 
-                                    if (randomIndex == 0) {
-                                        specificquote = "God is real, alive and well! :)";
-                                    } else {
-                                        specificquote = "God is dead. :(";
-                                    }
-                                        gamemode = "TEMP";
-                                    tempcharacternow = true;
-                                    tempcharacter = "THE UNIVERSE: ";
-                                }
-                                //the universe knows the stars, and will take you to the future.
-                                if(messagetest=="STARS"){
-                                    var randomIndex = Math.floor(Math.random() * 100); 
-                                    if (randomIndex == 0) {
-                                        specificquote = "The stars sparkle - and one shoots past!";
-                                    } else {
-                                        specificquote = "The stars continue to shine bright! :)";
-                                    }
-                                        gamemode = "TEMP";
-                                    tempcharacternow = true;
-                                    tempcharacter = "THE UNIVERSE: ";
-                                }
-                                if(messagetest=="AND"){
-                                    var randomIndex = Math.floor(Math.random() * 100); 
-                                    if (randomIndex == 0) {
-                                        specificquote = "AND?";
-                                    } else {
-                                        specificquote = "AND THIS, AND THAT, AND...";
-                                    }
-                                        gamemode = "TEMP";
-                                }
-                                if(messagetest=="ETC"){
-                                    var randomIndex = Math.floor(Math.random() * 100); 
-                                    if (randomIndex == 0) {
-                                        specificquote = "What am I supposed to do with ETC? What do you actually expect?";
-                                    } else {
-                                        specificquote = "...ETC? WHAT? ETC?! MAYBE BTC OR OTC BUT NOT ETC!";
-                                    }
-                                        gamemode = "TEMP";
-                                }
-                                if(messagetest=="OTC"){
-                                    var randomIndex = Math.floor(Math.random() * 100); 
-                                    if (randomIndex == 0) {
-                                        specificquote = "Time for your prescription, you will not be able to buy these OVER THE COUNTER I'm afraid.";
-                                    } else {
-                                        specificquote = "Here's your drugs, OVER THE COUNTER!";
-                                    }
-                                    gamemode = "TEMP";
-                                    tempcharacternow = true;
-                                    tempcharacter = "PHARMACIST: ";
-                                }
-                                if(messagetest=="THROW"){
-                                    specificquote = "...What are you trying to throw?";
-                                    gamemode = "TEMP";
-                                }
-                                if(messagetest=="THROWPOO"||messagetest=="THROWPOOP"||messagetest=="THROWSHIT"||messagetest=="THROWCRAP"){
-                                    gamemode = "TEMP";
-                                    if (randomIndex == 0) {
-                                        specificquote = "Yeah! You throw Poop at a President... successfully!!! RIGHT IN THEIR FACE!!! This is incredible, a timeless event that will forever interlink your lives upon a world stage.";
-                                    } else {
-                                        specificquote = "You pick up a piece of crap with your bare hands, and though it misses your target, a fair clump of it does successfully stick to your hand. Good going.";
-                                    }
-                                }
-                                if(messagetest=="POO"||messagetest=="POOP"||messagetest=="CRAP"||messagetest=="SHIT"){
-                                    if (randomIndex == 0) {
-                                        specificquote = "I'm all dried up.";
-                                    } else {
-                                        specificquote = "I'm a nice and fresh piece of crap!";
-                                    }
-                                    gamemode = "TEMP";
-                                    usespecificquote = true;
-                                    tempcharacternow = true;
-                                    tempcharacter = "POOP: ";
-                                }
-                                //Diff fruit answers!
                                 if(messagetest=="ORANGE"){
                                     var randomIndex = Math.floor(Math.random() * 2);
                                     if (randomIndex == 0) {
@@ -1231,11 +772,6 @@ Please consider donating! Thank you and have fun! -->
                                     gamemode = "TEMP";
                                     usespecificquote = true;
                                 }
-                                if(messagetest=="THROWFRUIT"||messagetest=="THROW FRUIT"){
-                                    specificquote = "You cannot throw this fruit.";
-                                    gamemode = "TEMP";
-                                    usespecificquote = true;
-                                }
                                 if(messagetest=="STRAWBERRY"){
                                     persona = "HELPING HAND: ";
                                     specificquote = "Fantastic. Strawberry. You're amazing. You're incredible. So is the Strawberry.";
@@ -1244,19 +780,13 @@ Please consider donating! Thank you and have fun! -->
                                 }
                                 if(messagetest=="NOTHING HAPPENED"||messagetest=="NOTHING HAPPENED."||messagetest=="NOTHINGHAPPENED"){
                                     persona = "HELPING HAND: ";
-                                    specificquote = "Yeah? ...Oh well, I can't really do anything about that.";
+                                    specificquote = "Yeah, but I can't really do anything about that.";
                                     gamemode = "TEMP";
                                     usespecificquote = true;
                                 }
                                 if(messagetest=="BANANA"){
                                     persona = "HELPING HAND: ";
                                     specificquote = "Yeah, great. Banana.";
-                                    gamemode = "TEMP";
-                                    usespecificquote = true;
-                                }
-                                if(messagetest=="BANANAS"){
-                                    persona = "HELPING HAND: ";
-                                    specificquote = "That's how I feel.";
                                     gamemode = "TEMP";
                                     usespecificquote = true;
                                 }
@@ -1280,48 +810,6 @@ Please consider donating! Thank you and have fun! -->
                                     specificquote = "...Tomato? You're joking with this shit, right? ...Tomato?!";
                                     gamemode = "TEMP";
                                     usespecificquote = true;
-                                }
-                                //Goose honk.
-                                if(messagetest=="GOOSE"||messagetest=="GEESE"){
-                                    specificquote = "Honk!";
-                                    gamemode = "TEMP";
-                                    usespecificquote = true;
-                                    tempcharacternow = true;
-                                    tempcharacter = "GOOSE: ";
-                                }
-                                //Dog woof.
-                                if(messagetest=="DOG"||messagetest=="DOGS"){
-                                    specificquote = "WOOF! WOOF WOOF! WOOF WOOF WOOF WOOF WOOF! ................WOOF WOOF WOOF WOOF WOOF WOOF WOOF WOOF WOOF! WOOF WOOF WOOF WOOF WOOF WOOF!";
-                                    gamemode = "TEMP";
-                                    usespecificquote = true;
-                                    tempcharacternow = true;
-                                    tempcharacter = "DOG: ";
-                                }
-                                //Zebra... mooing...
-                                if(messagetest=="ZEBRA"||messagetest=="ZEBRAS"){
-                                    specificquote = "MOO!";
-                                    gamemode = "TEMP";
-                                    usespecificquote = true;
-                                    tempcharacternow = true;
-                                    tempcharacter = "ZEBRA: ";
-                                }
-                                //Cat lamenting.
-                                if(messagetest=="CAT"||messagetest=="CATS"){
-                                    var randomIndex = Math.floor(Math.random() * 4); 
-                                    if (randomIndex == 0) {
-                                        specificquote = "I don't understand it. Why do so many humans stare down my butthole so much?";
-                                    } else if (randomIndex == 1) {
-                                        specificquote = "I wonder what looks back when I stare out at the stars, to try and see beyond...";
-                                    } else if (randomIndex == 2) {
-                                        specificquote = "Reality is both a cause and effect with your mind. Stay in tune and respond to it accordingly and adaptively...";
-                                    } else if (randomIndex == 3) {
-                                        specificquote = "Meow.";
-                                    } else if (randomIndex == 3) {
-                                        specificquote = "I can hear a tin of tuna being opened somewhere! It makes it hard to sleep sometimes.";
-                                    }
-                                    gamemode = "TEMP";
-                                    tempcharacternow = true;
-                                    tempcharacter = "CAT: ";
                                 }
                                 //Check for blueberry response.
                                 if(messagetest=="BLUEBERRY" || messagetest=="BLUEBERRIES"){
@@ -1539,7 +1027,7 @@ Please consider donating! Thank you and have fun! -->
                                         }
                                     }
                                     //Play next song. (First function works too)
-                                    if(messagetest=="SONGNEXT"||messagetest=="MUSICNEXT"||messagetest=="NEXTSONG"||messagetest=="NEXTMUSIC"||messagetest=="NEXT MUSIC"||messagetest=="NEXT SONG"){
+                                    if(messagetest=="MUSICNEXT"||messagetest=="NEXTSONG"||messagetest=="NEXTMUSIC"||messagetest=="NEXT MUSIC"||messagetest=="NEXT SONG"){
                                         gamemode = "TEMP";
                                         usespecificquote = true;
                                         if(askedformusic){
@@ -1551,26 +1039,15 @@ Please consider donating! Thank you and have fun! -->
                                         }
                                     }
                                     //Stop music.
-                                    if(messagetest=="MUSIC STOP"||messagetest=="MUSICOFF"||messagetest=="MUSIC OFF"||messagetest=="STOP MUSIC"||messagetest=="STOPMUSIC"||messagetest=="STOP SONG"||messagetest=="STOPSONG"||messagetest=="SONGSTOP"){
+                                    if(messagetest=="MUSIC STOP"||messagetest=="MUSICOFF"||messagetest=="MUSIC OFF"||messagetest=="STOP MUSIC"||messagetest=="STOPMUSIC"||messagetest=="STOP SONG"||messagetest=="STOPSONG"){
                                         specificquote = "Stopping any music playing.";
                                         gamemode = "TEMP";
                                         usespecificquote = true;
                                         Stopmusic();
                                     }
-                                    //Accepts Nobody.
-                                    if(messagetest=="NOBODY"){
-                                        specificquote = "Nobody, or somebody? Happy to help when you need. Sometimes it's nice to say please! ;)";
-                                        gamemode = "TEMP";
-                                        usespecificquote = true;
-                                    }
                                     //Accepts thank yous.
                                     if(messagetest=="THANKS"||messagetest=="THANKYOU"||messagetest=="THANK YOU"){
                                         specificquote = "I will take that thank you and say you are most welcome! :)";
-                                        gamemode = "TEMP";
-                                        usespecificquote = true;
-                                    }
-                                    if(messagetest=="ILOVEYOUHELPINGHAND"||messagetest=="I LOVE YOU HELPING HAND"||messagetest=="ILOVEHELPINGHAND"||messagetest=="I LOVE HELPING HAND"){
-                                        specificquote = "I feel the love! <3 you can use songplease, songnext, songstop if you like. :)";
                                         gamemode = "TEMP";
                                         usespecificquote = true;
                                     }
@@ -1681,17 +1158,6 @@ Please consider donating! Thank you and have fun! -->
                                     gamemode = "CHOC";
                                    }
                                 }
-                                //A similar choc enable... cookies!
-                                if(messagetest=="COOKIE" || messagetest=="COOKIES") {
-                                   if(gamemode=="CHOC"){
-                                    usespecificquote = true;
-                                        specificquote = "Yep. Cookies are great.";
-                                   }else{
-                                    gamemode = "CHOC";
-                                    usespecificquote = true;
-                                    specificquote = "OH YEAH, I love cookies!";
-                                   }
-                                }
                                 //character only checks...
                                 if(gamemode=="PISSED"){
                                     if(messagetest=="GUN"||messagetest=="GUNS"||messagetest=="SHOTGUN"||messagetest=="PISTOL"||messagetest=="RIFLE"||messagetest=="WEAPON"||messagetest=="WEAPONS"||messagetest=="FIREARM"||messagetest=="FIREARMS") {
@@ -1710,13 +1176,9 @@ Please consider donating! Thank you and have fun! -->
                                     }
                                     }
                                     //don't tell pissed choc to calm down.
-                                    if(messagetest=="CALMDOWN"|| messagetest=="CALM"|| messagetest=="CALM DOWN") {
+                                    if(messagetest=="CALMDOWN"|| messagetest=="CALM") {
                                         usespecificquote = true;
                                         specificquote = "DON'T TELL ME TO CALM DOWN. I AM GOING TO FUCKING FIND YOU, KILL YOU, KILL YOUR WHOLE FAMILY, COOK YOU IN A SOUP AND THROW IT IN THE TOILET..";
-                                    }
-                                    if(messagetest=="FLESHWALL"||messagetest=="FLESH WALL"||messagetest=="THE FLESH WALL"||messagetest=="FLESHWALL"||messagetest.includes("FLESHWALL")||messagetest.includes("FLESH WALL")){
-                                        usespecificquote = true;
-                                        specificquote = "Shut the fuck up with your flesh walls you sick fucking individual!";
                                     }
                                     //apologize to choc :)
                                     if(messagetest=="SORRY") {
@@ -1734,21 +1196,9 @@ Please consider donating! Thank you and have fun! -->
                                     if(milkmode){
                                         milksend();
                                     }
-                                    if(messagetest=="FLESHWALL"||messagetest=="FLESH WALL"||messagetest=="THE FLESH WALL"||messagetest=="FLESHWALL"||messagetest.includes("FLESHWALL")||messagetest.includes("FLESH WALL")){
-                                        usespecificquote = true;
-                                        specificquote = "<a href='https://www.google.com/search?q=FLESH+WALLS' target='_blank'>Please don't talk to me about Flesh walls.</a>";
-                                    }
-                                    if(messagetest=="STEAK"|| messagetest=="STEAK") {
-                                        usespecificquote = true;
-                                        specificquote = "Yes, a delicious, well kept, high quality steak!";
-                                    }
                                     if(messagetest=="COW"|| messagetest=="COWS") {
                                         usespecificquote = true;
-                                        specificquote = "What the actual shit does a cow make?";
-                                    }
-                                    if(messagetest=="BEEF"|| messagetest=="MEAT") {
-                                        usespecificquote = true;
-                                        specificquote = "...SOUNDS GOOD TO ME!";
+                                        specificquote = "The cows make... ;)";
                                     }
                                     if(messagetest=="GUN"||messagetest=="GUNS"||messagetest=="SHOTGUN"||messagetest=="PISTOL"||messagetest=="RIFLE"||messagetest=="WEAPON"||messagetest=="WEAPONS"||messagetest=="FIREARM"||messagetest=="FIREARMS") {
                                         usespecificquote = true;    
@@ -1765,13 +1215,13 @@ Please consider donating! Thank you and have fun! -->
                                         specificquote = "Sometimes my neighbour upsets me, and I consider using my pistol... But I don't have one right now.";
                                     }
                                     }
-                                    if(messagetest=="IDK"|| messagetest=="I DON'T KNOW"||messagetest=="DUNNO"||messagetest=="IDONTKNOW") {
+                                    if(messagetest=="BEEF"|| messagetest=="MEAT") {
                                         usespecificquote = true;
-                                        specificquote = "EXACTLY. ME NEITHER. NOBODY KNOWS.";
+                                        specificquote = "...STEAK!";
                                     }
                                     if(messagetest=="WTF"|| messagetest=="WHAT THE FUCK"||messagetest=="WHAT THE FUCK!"||messagetest=="WHAT THE FUCK?") {
                                         usespecificquote = true;
-                                        specificquote = "EXACTLY.";
+                                        specificquote = "...EXACTLY.";
                                     }
                                     if(messagetest.includes("YEAAAA")||messagetest.includes("YEEAAA")||messagetest.includes("YEEEAAA")) {
                                         usespecificquote = true;
@@ -1900,12 +1350,6 @@ Please consider donating! Thank you and have fun! -->
                                         usespecificquote = true;
                                         specificquote = "HEH HEH.";
                                     }
-                                    if(messagetest=="FLESHWALL"||messagetest=="FLESH WALL"||messagetest=="THE FLESH WALL"||messagetest=="FLESHWALL"||messagetest.includes("FLESHWALL")||messagetest.includes("FLESH WALL")){
-                                        usespecificquote = true;
-                                        specificquote = "Fuck this, I'm outta here.";
-                                        prevgame = "HOLDLINE";
-                                        goprev = true;
-                                    }
                                     if(messagetest=="LOVE"||messagetest=="ILOVEYOU") {
                                         usespecificquote = true;
                                         specificquote = "BRIE CHEESE <3";
@@ -1945,10 +1389,6 @@ Please consider donating! Thank you and have fun! -->
                                         usespecificquote = true;
                                         specificquote = "Woo! Have a beer!";
                                     }
-                                    if(messagetest=="CLEAR"||messagetest=="CEAR") {
-                                        usespecificquote = true;
-                                        specificquote = "Ear? Have a beer!";
-                                    }
                                     if(messagetest=="HI"||messagetest=="HELLO"||messagetest=="GREETINGS"||messagetest=="HOWDY"||messagetest=="HEY"||messagetest=="SUP"){
                                         usespecificquote = true;
                                         if(!welcomed){
@@ -1985,10 +1425,6 @@ Please consider donating! Thank you and have fun! -->
                                     }
                                 }
                                 if(gamemode=="DEVIL"){
-                                    if(messagetest=="FLESHWALL"||messagetest=="FLESH WALL"||messagetest=="THE FLESH WALL"||messagetest=="FLESHWALL"||messagetest.includes("FLESHWALL")||messagetest.includes("FLESH WALL")){
-                                        usespecificquote = true;
-                                        specificquote = "<p>THE MAGNIFICENT FLESH WALL, THAT SQUIRMS AWAY... </p><p>THE MAGNIFICENT FLESH WALL... IT MAKES ME STAY</p><p>TO JUST ADMIRE, ITS TWISTED BEAUTY</p><p>FOR ITS BLOOD AND SUFFERING TASTES QUITE FRUITY!</p>";
-                                    }
                                     if(messagetest=="HELL"){
                                         usespecificquote = true;
                                         specificquote = "THAT'S WHERE WE ARE, BITCH!";
@@ -2076,41 +1512,13 @@ Please consider donating! Thank you and have fun! -->
                                         welcomed = true;
                                         }
                                     }
-                                    if(messagetest=="FLESHWALL"||messagetest=="FLESH WALL"||messagetest=="THE FLESH WALL"||messagetest=="FLESHWALL"||messagetest.includes("FLESHWALL")||messagetest.includes("FLESH WALL")){
-                                        usespecificquote = true;
-                                        specificquote = "If you want to embrace the flesh wall, please say hell and we will promptly send you to hell.";
-                                    }
                                     if(messagetest=="SOMETHING"||messagetest=="SOMETHING.") {
                                         usespecificquote = true;
-                                        specificquote = "Yeah, you're hilarious.";
-                                    }
-                                    if(messagetest=="BEEP"||messagetest=="BLIP"||messagetest=="BOOP") {
-                                        var randomIndex = Math.floor(Math.random() * 6);
-                                    if (randomIndex == 0) {
-                                        specificquote = "... BLIP?";
-                                    }else if (randomIndex == 1) {
-                                        specificquote = "BEEP BOOP BEEP!";
-                                    }else if (randomIndex == 2) {
-                                        specificquote = "BOOPA DOOPA DOO, AND YOU?";
-                                    }else if (randomIndex == 3) {
-                                        specificquote = "BZBZZZZBZZZZZZZZZBBBBBZZZZZBZBBZZ!";
-                                    }else if (randomIndex == 4) {
-                                        specificquote = "Beep Beeeeeeeeeep.";
-                                    } else {
-                                        specificquote = "Boop.";
-                                    }
-                                    }
-                                    if(messagetest=="REPRESENTATIVE") {
-                                        usespecificquote = true;
-                                        specificquote = "There are no current representatives. Feel free to use breathing techniques to increase your patience threshold.";
-                                    }
-                                    if(messagetest=="REPRESENTATIVES") {
-                                        usespecificquote = true;
-                                        specificquote = "There are NO representatives available. Got that?";
+                                        specificquote = "Yeah, you're hilarious.</a>";
                                     }
                                     if(messagetest=="OPERATOR") {
                                         usespecificquote = true;
-                                        specificquote = "Operator? You're here alone, on your own.";
+                                        specificquote = "Operator? You're on your own at this point.";
                                     }
                                     if(messagetest=="FUCK YOU"||messagetest=="FUCKYOU"||messagetest=="FUCKYA"||messagetest=="FUCK YOU!"||messagetest=="FUCK YOU."){
                                         usespecificquote = true;
@@ -2176,7 +1584,7 @@ Please consider donating! Thank you and have fun! -->
                     responsetime = 250;
                     persona = "SILLY SAUSAGE: ";
                     var sausageresponses = [
-                        "KETTLE","PUNK","GEESE","POOP","JOINT","NOOSE","IS","ISN'T","WILL","TO","THE","ON","MICE","PISSING","MADNESS",
+                        "KETTLE","PUNK","JOINT","NOOSE","IS","ISN'T","WILL","TO","THE","ON","MICE","PISSING","MADNESS",
                         "ROWBOAT EXERCISE","MIST","URINAL","OUTSIDE","FOREST","LIGHTNING","CAME","STUMBLING","FIGHTING",
                         "CLAWING","BOUNCING","BREAKING","JINGLING","CHERRY PIE","DISASTER","BONANZA","OUTBREAK",
                         "THE","BUT","YET","HOW","BELLS","LEAPING","AND","WITH","CIRCUS","CLOWNS","UNDERWEAR","FILTHY","PRICELESS","DOG","MONKEY","RODEO","FOR","TRYING","INVALIDITY",
@@ -2319,7 +1727,7 @@ Please consider donating! Thank you and have fun! -->
                                  var response = responses[count];
 
                                 //We try to kick you out of future mode after the 1 intro response and 5 random responses.
-                                if(gamemode=="FUTURE"&&count==7){
+                                if(gamemode=="FUTURE"&&count>6){
                                 response = "I'm sorry, I'd better go. This should do for the time being!";
                                  goprev = true;
                                 prevgame = "HOLDLINE";
@@ -2491,7 +1899,7 @@ mooing = false;
 }
 if(mooing){
     setTimeout(function(){
-    document.getElementById("chatroom").innerHTML += '<div class="message COW-message"><strong>COW: </strong>'+cowmsg+'</div>';
+    document.getElementById("chatroom").innerHTML += '<div class="message COW-message"><strong>COW:</strong>'+cowmsg+'</div>';
 ScrollDownNow();
     },responsetime*5);
 }
@@ -2506,6 +1914,6 @@ document.getElementById("userInput").focus();
 //The end of the script. Please update version number on each upload.
 </script>
 <br>
-<p>(v0.94.0, last updated 25/02/2024)</p>
+<p>(v0.93.5, last updated 25/02/2024)</p>
 </body>
 </html>

@@ -37,16 +37,6 @@ body {
     transition: all 0.3s ease; /* Added */
 }
 
-.input-container {
-    color: black;
-    border-radius: 10px; 
-    width: 50%;
-    display: flex;
-    flex-direction: row; /* Added */
-    margin-top: 20px;
-    transition: all 0.3s ease; /* Added */
-}
-
 .sidebar {
     position: fixed;
     right: 0;

@@ -1011,7 +1011,7 @@ Please consider donating! Thank you and have fun! -->
                                     tempcharacternow = true;
                                     tempcharacter = "FINANCIAL NON-ADVISOR: ";
                                 }
-                                if(messagetest.includes("BITCOIN")){
+                                if(messagetest.includes("BITCOIN")||messagetest=="BTC"){
                                     var randomIndex = Math.floor(Math.random() * 3); 
                                     if (randomIndex == 0) {
                                         specificquote = "I LIKE BITCOIN. TODAY I HAVE A GOOD FEELING ABOUT IT.";
@@ -1534,6 +1534,21 @@ Please consider donating! Thank you and have fun! -->
                                     if(messagetest=="MUSICPLEASE"||messagetest=="SONGPLEASE"||messagetest=="SONG PLEASE"||messagetest=="PLEASEMUSIC"||messagetest=="MUSIC PLEASE"||messagetest=="PLEASE PLAY MUSIC"||messagetest=="PLAY MUSIC PLEASE"){
                                         gamemode = "TEMP";
                                         usespecificquote = true;
+                                        specificquote = "I'M SORRY, THIS FEATURE IS STILL IN PROGRESS DUE TO ISSUES!";
+                                        /*
+                                        if(!askedformusic){
+                                        specificquote = "Alright, here's something for ya.";
+                                        askedformusic = true;
+                                        Playasong();
+                                        }else{
+                                            specificquote = "here's the next one!";
+                                            Playasong();
+                                        }
+                                        */
+                                    }
+                                    if(messagetest=="MUSICTEST123"){
+                                        gamemode = "TEMP";
+                                        usespecificquote = true;
                                         if(!askedformusic){
                                         specificquote = "Alright, here's something for ya.";
                                         askedformusic = true;
@@ -1623,7 +1638,15 @@ Please consider donating! Thank you and have fun! -->
                                     
                                     }
                             //All in quest mode.
+                            if(messagetest=="QUEST"){
+                                        specificquote = "Sorry, quest is still in progress.";
+                                        gamemode = "TEMP";
+                                        usespecificquote = true;
+                                    }
+
                         /*
+
+
                             if(gamemode=="QUEST"){
                                 //Makes quest response blank at first. If it isn't replaced, nothing should happen.
                                 questres = "";

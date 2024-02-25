@@ -304,8 +304,21 @@ Please consider donating! Thank you and have fun! -->
 //responsetime is the delay between your message and the response.
      var responsetime = 750;
      var beginsend = false;
-        var gamemode = "CHOC";
-      var persona = "CHOCOLATE: ";
+    //we're going to make it a random chance that you can be a different character.
+    var randomIndex = Math.floor(Math.random() * 10); 
+    if (randomIndex == 0) {
+        var gamemode = "WHITE";
+      var persona = "WHITE CHOCOLATE: ";
+} else if (randomIndex == 1){
+      var gamemode = "CHEESE";
+      var persona = "CHEESE: ";       
+} else if (randomIndex == 7){
+      var gamemode = "FUTURE";
+      var persona = "FUTURE: ";       
+}else{    
+    var gamemode = "CHOC";
+    var persona = "CHOCOLATE: ";
+    }
  //counts are your progress of how many times you've spoken to each character.
     var yourroll = 0;
     var welcomed = false;
@@ -2315,7 +2328,7 @@ Please consider donating! Thank you and have fun! -->
                                     goprev = true;
                                    prevgame = "DEVIL";
                                 }else if(gamemode=="WHITE"){
-                                    response = "I'm away...";
+                                    response = "Actually I'm late and have to run, see you soon!";
                                     persona = "White Chocolate: ";
                                     goprev = true;
                                    prevgame = "HOLDLINE";
@@ -2531,6 +2544,6 @@ document.getElementById("userInput").focus();
 //The end of the script. Please update version number on each upload.
 </script>
 <br>
-<p>(v0.94.0.02, last updated 25/02/2024)</p>
+<p>(v0.94.0.12, last updated 25/02/2024)</p>
 </body>
 </html>

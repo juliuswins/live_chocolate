@@ -2559,23 +2559,17 @@ function reloadpage(){
     },responsetime+1000);
 }
 
+
 //Download your chat log!
 function downloadlog(){
        // Get the chatroom content
-    let chatroomContent = document.getElementById('chatroom').innerHTML;
+       let chatroomContent = document.getElementById('chatroom').innerHTML;
     currenttime = new Date().toLocaleString();
     downloadtitle = "<p><h1>TALK TO CHOCOLATE / CHAT LOG " +currenttime+"</h1></p><br>";
     let contentWithDiv = '<div style="size: 24px; text-transform: uppercase; font-family: \'Roboto Mono\', monospace;">'+downloadtitle + chatroomContent+'</div>';
-    let headContent = document.head.innerHTML;
-    let bodyContent = document.head.innerHTML;
-    let chatMessages = document.getElementsByClassName('message');
-    let chatContent = '';
+    // Create a Blob with the chatroom content
+    let file = new Blob([contentWithDiv], {type: 'text/html'});
 
-    for (let i = 0; i < chatMessages.length; i++) {
-        chatContent += chatMessages[i].outerHTML;
-    }
-    let fileContent = '<html><head>' + headContent + '</head><body style="background-color:white; height:100%; width:50%; text-align:left;margin-left: 5px;">' + chatContent + '</body></html>';
-    let file = new Blob([fileContent], {type: 'text/html'});
 // Create a link to download the file
 let a = document.createElement('a');
 a.href = URL.createObjectURL(file);
@@ -2595,7 +2589,7 @@ a.click();
 document.body.removeChild(a);
 
 //Notify user of download.
-$("#greaterchatroom").innerHTML += '<div class="message DOWNLOAD-message"><strong>DOWNLOADING CHAT LOG:</strong> '+finalfilename+' :)</div>';
+document.getElementById("chatroom").innerHTML += '<div class="message DOWNLOAD-message"><strong>DOWNLOADING CHAT LOG:</strong> '+finalfilename+' :)</div>';
 ScrollDownNow();
 }
 //
@@ -2632,6 +2626,6 @@ document.getElementById("userInput").focus();
 //The end of the script. Please update version number on each upload.
 </script>
 <br>
-<p>(v0.94.0.14, last updated 25/02/2024)</p>
+<p>(v0.94.1, last updated 26/02/2024)</p>
 </body>
 </html>

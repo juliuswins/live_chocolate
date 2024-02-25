@@ -9,6 +9,7 @@ Please consider donating! Thank you and have fun! -->
     <meta charset="utf-8">
     <meta name="description" content="Talk to Chocolate: A chat game to find conversations like literally zero other!">
     <title>TALK TO CHOCOLATE - CHATROOM</title>
+    <link rel="canonical" href="https://www.talktochocolate.xyz/chat/" />
     <link rel="stylesheet" type="text/css" href="../styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <style>
@@ -702,23 +703,22 @@ Please consider donating! Thank you and have fun! -->
                              persona = "HELPING HAND: ";
                             gamemode = "TEMP";
                             }
-                        if(messagetest=="NAME"||messagetest=="SETNAME"){
-                    //How to set your name.
+                            //Debug mode - to print out variables on request.
+                            if(messagetest=="DEBUG"){
+                             usespecificquote = true;
+                             specificquote = "Debug mode. Last game was:"+prevgame+". ";
+                             persona = "HELPING HAND: ";
+                            gamemode = "TEMP";
+                            }
+                        if(messagetest=="NAME"||messagetest=="SETNAME"||messagetest=="RENAME"){
+                            //How to set your name.
                             usespecificquote = true;
                             specificquote = "What is your name? Whatever your next response is, will become your username for this session.";
                             persona = "HELPING HAND: ";
                             gamemode = "TEMP";
                             nextanswername = true;
                         }
-                        //Won't stop a full quit haha.
-                            if(messagetest=="EXIT"||messagetest=="QUIT"){
-                            usespecificquote = true;
-
-                            specificquote = "You shouldn't leave.";
-                            persona = "HELPING HAND: ";
-                            gamemode = "TEMP";
-                            }
-                            //Won't stop a full quit haha.
+                            //Whatever quitting is when you type it in :)
                             if(messagetest=="EXIT"||messagetest=="QUIT"){
                                 usespecificquote = true;
                                  var randomIndex = Math.floor(Math.random() * 6); 
@@ -735,18 +735,12 @@ Please consider donating! Thank you and have fun! -->
                                     } else if (randomIndex == 5){
                                         specificquote = "I don't know...";    
                                     }
-                            persona = "HELPING HAND: ";
                             gamemode = "TEMP";
                             }
+                            //quiz feature to be worked on, in another page.
                             if(messagetest=="QUIZ"){
                             usespecificquote = true;
                             specificquote = "<a href='../quiz/index.html' target='_blank'>There isn't a quiz in here right now, but you may find it somewhere else.</a>";
-                            persona = "HELPING HAND: ";
-                            gamemode = "TEMP";
-                            }
-                            if(messagetest=="ALLCHARACTERS"){
-                            usespecificquote = true;
-                            specificquote = "OG, WHITE, CHEESE, AUGUSTUS, FUTURE, SATAN, HOLDLINE, AUGUSTUS, SILLY";
                             persona = "HELPING HAND: ";
                             gamemode = "TEMP";
                             }
@@ -804,6 +798,22 @@ Please consider donating! Thank you and have fun! -->
                                     }
                                     usespecificquote = true;
                                 }
+                                //Luck check..
+                                if(messagetest=="LUCK"||messagetest == "LUCKY"||messagetest=="LUCKCHECK"||messagetest == "LUCK CHECK"){
+                                    var randomIndex = Math.floor(Math.random() * 17); 
+                                    if (randomIndex >= 10) {
+                                        specificquote = "You're feeling LUCKY!";
+                                    } else if(randomIndex==9) {
+                                        specificquote = "Luck... is alright.";
+                                    }else if(randomIndex==6){
+                                        specificquote = "Very unlucky!";
+                                        prevmode = "DEVIL";
+                                    }else{
+                                        specificquote = "Not so lucky...";
+                                    }
+                                    gamemode = "TEMP";
+                                }
+
                                 //Flip a coin.
                                 if(messagetest=="COIN"||messagetest == "FLIP"||messagetest=="FLIP A COIN"||messagetest == "COINFLIP"){
                                     var randomIndex = Math.floor(Math.random() * 2); 
@@ -816,6 +826,30 @@ Please consider donating! Thank you and have fun! -->
                                     }
                                     gamemode = "TEMP";
                                 }
+                                  //Julius.
+                                  if(messagetest=="JULIUS"||messagetest=="JULIAN"){
+                                    var randomIndex = Math.floor(Math.random() * 7); 
+                                    if (randomIndex == 0) {
+                                        specificquote = "I'm busy with something.";
+                                    } else if (randomIndex == 1) {
+                                        specificquote = "Read Wild Edmund.";
+                                    } else if (randomIndex == 2) {
+                                        specificquote = "I am not legally liable for what these horrible miscreant robots have been doing and saying behind my back! they scheme in the night when I'm not there protecting it!";
+                                    } else if (randomIndex == 3) {
+                                        specificquote = "OH YEAH!";
+                                    } else if (randomIndex == 4) {
+                                        specificquote = "Yeah nah";
+                                    } else if (randomIndex == 5) {
+                                        specificquote = ":)";
+                                    } else if (randomIndex == 6) {
+                                        specificquote = "Watch Andy's Void.";
+                                    }
+                                    gamemode = "TEMP";
+                                    usespecificquote = true;
+                                    tempcharacternow = true;
+                                    tempcharacter = "JULIUS: ";
+                                }
+
                                 //Special cheese response for achievement.
                                 if(messagetest=="CREAM"){
                                     gamemode = "CHEESE";
@@ -826,6 +860,7 @@ Please consider donating! Thank you and have fun! -->
                                 if(messagetest=="CHEESE" || messagetest=="CHEESY"){
                                     gamemode = "CHEESE";
                                 }
+
                                 //Check to activate Augustus.
                                 /* AUGUSTUS CHARACTER.
                                 if(messagetest=="AUGUSTUS"){
@@ -860,7 +895,7 @@ Please consider donating! Thank you and have fun! -->
                                     }
                                     specificquote = "Chocolate is the most advanced chat program ever, started in 2024. "+extraquote;
                                     tempcharacternow = true;
-                                    tempcharacter = "AUGUSTUS: ";
+                                    tempcharacter = "ABOUT: ";
                                 }
                                 if(messagetest=="EMERGENCY"){
                                     usespecificquote = true;
@@ -887,8 +922,8 @@ Please consider donating! Thank you and have fun! -->
                                     tempcharacter = "EMERGENCY BROADCAST: ";
                                 }
                                         //Movie / TV show bot.
-                                        if(messagetest=="TV"||messagetest == "MOVIE"||messagetest == "MOVIES"||messagetest == "TELEVISION"){
-                                    var randomIndex = Math.floor(Math.random() * 12); 
+                                    if(messagetest=="TV"||messagetest == "MOVIE"||messagetest == "MOVIES"||messagetest == "TELEVISION"){
+                                    var randomIndex = Math.floor(Math.random() * 20); 
                                     if (randomIndex == 0) {
                                         specificquote = "The Film Fargo (1996) is a fun, exciting and thrilling crime comedy-drama that's as gripping as it is absurd. It gets better every rewatch and has a great cast and direction in general!";
                                     } else if (randomIndex == 1) {
@@ -927,12 +962,14 @@ Please consider donating! Thank you and have fun! -->
                                         specificquote = "This is going to sound like an odd choice, but... Puss in Boots: The Last Wish (2022)";    
                                     }else if(randomIndex == 18) {
                                         specificquote = "Videodrome (1983) >:D";    
+                                    }else{
+                                        specificquote = "Hobbit movie should have won more awards.";
                                     }
                                     gamemode = "TEMP";
                                     tempcharacternow = true;
                                     tempcharacter = "GROG TURKEYTOWEL: ";
                                 }
-                                 //Spooky ghost.
+                                     //Spooky ghost.
                                     if(messagetest=="GHOST"||messagetest == "SPOOK"||messagetest == "SPOOKY"){
                                     var randomIndex = Math.floor(Math.random() * 7); 
                                     if (randomIndex == 0) {
@@ -1176,7 +1213,7 @@ Please consider donating! Thank you and have fun! -->
                                         gamemode = "TEMP";
                                 }
                                 if(messagetest=="OTC"){
-                                    var randomIndex = Math.floor(Math.random() * 100); 
+                                    var randomIndex = Math.floor(Math.random() * 2); 
                                     if (randomIndex == 0) {
                                         specificquote = "Time for your prescription, you will not be able to buy these OVER THE COUNTER I'm afraid.";
                                     } else {
@@ -1192,6 +1229,7 @@ Please consider donating! Thank you and have fun! -->
                                 }
                                 if(messagetest=="THROWPOO"||messagetest=="THROWPOOP"||messagetest=="THROWSHIT"||messagetest=="THROWCRAP"){
                                     gamemode = "TEMP";
+                                    var randomIndex = Math.floor(Math.random() * 2); 
                                     if (randomIndex == 0) {
                                         specificquote = "Yeah! You throw Poop at a President... successfully!!! RIGHT IN THEIR FACE!!! This is incredible, a timeless event that will forever interlink your lives upon a world stage.";
                                     } else {
@@ -1199,6 +1237,7 @@ Please consider donating! Thank you and have fun! -->
                                     }
                                 }
                                 if(messagetest=="POO"||messagetest=="POOP"||messagetest=="CRAP"||messagetest=="SHIT"){
+                                    var randomIndex = Math.floor(Math.random() * 2); 
                                     if (randomIndex == 0) {
                                         specificquote = "I'm all dried up.";
                                     } else {
@@ -1220,9 +1259,11 @@ Please consider donating! Thank you and have fun! -->
                                         gamemode = "TEMP";
                                 }
                                 if(messagetest=="PINEAPPLE"){
-                                    persona = "HELPING HAND: ";
-                                    specificquote = "You tried the pineapple, now try the apple.";
-                                    gamemode = "TEMP";
+                                    specificquote = "Yeah... A pineapple.";
+                                    usespecificquote = true;
+                                }
+                                if(messagetest=="BOMB"){
+                                    specificquote = "Bomb?! BOMB!!!";
                                     usespecificquote = true;
                                 }
                                 if(messagetest=="PEAR"){
@@ -1303,6 +1344,13 @@ Please consider donating! Thank you and have fun! -->
                                     tempcharacternow = true;
                                     tempcharacter = "GOOSE: ";
                                 }
+                                //throwing geese around?
+                                if(messagetest=="THROWGOOSE"||messagetest=="THROW GOOSE"){
+                                    specificquote = "Flapping wildly, the goose gets thrown a few metres away by you and floats back to the ground. HONK HONK HONK!";
+                                    gamemode = "TEMP";
+                                    usespecificquote = true;
+                                }
+
                                 //Dog woof.
                                 if(messagetest=="DOG"||messagetest=="DOGS"){
                                     specificquote = "WOOF! WOOF WOOF! WOOF WOOF WOOF WOOF WOOF! ................WOOF WOOF WOOF WOOF WOOF WOOF WOOF WOOF WOOF! WOOF WOOF WOOF WOOF WOOF WOOF!";
@@ -1314,6 +1362,13 @@ Please consider donating! Thank you and have fun! -->
                                 //Zebra... mooing...
                                 if(messagetest=="ZEBRA"||messagetest=="ZEBRAS"){
                                     specificquote = "MOO!";
+                                    gamemode = "TEMP";
+                                    usespecificquote = true;
+                                    tempcharacternow = true;
+                                    tempcharacter = "ZEBRA: ";
+                                }
+                                if(messagetest=="THROWZEBRA"||messagetest=="THROW ZEBRA"){
+                                    specificquote = "MOOOO! (I AM UNSTOPPABLE.)";
                                     gamemode = "TEMP";
                                     usespecificquote = true;
                                     tempcharacternow = true;
@@ -1433,6 +1488,22 @@ Please consider donating! Thank you and have fun! -->
                                     }
                                         gamemode = "TEMP";
                                         usespecificquote = true;
+                                    }
+                                    //Gaze into the mirror.
+                                    if(messagetest=="MIRROR"){
+                                        specificquote = yourusername;
+                                       
+                                        usespecificquote = true;
+                                        tempcharacternow = true;
+                                    tempcharacter = "MIRROR: ";
+                                    }
+                                    //Please do not commit suicide.
+                                    if(messagetest=="KILL ME"||messagetest=="SUICIDE"){
+                                        specificquote = yourusername;
+                                        gamemode = "TEMP";
+                                        usespecificquote = true;
+                                        tempcharacternow = true;
+                                    tempcharacter = "UNIVERSE: ";
                                     }
                                     if(messagetest=="REALLY"||messagetest=="REALLY?"){
                                         specificquote = "(Sure, why not?)";
@@ -1590,7 +1661,7 @@ Please consider donating! Thank you and have fun! -->
                                     }
                                     //Other various responses...
                                     if(messagetest=="CLUE"||messagetest=="HINT"){
-                                        var randomIndex = Math.floor(Math.random() * 5);
+                                        var randomIndex = Math.floor(Math.random() * 7);
                                         if (randomIndex == 0) {
                                             specificquote = "Hints are fun! But I can't make everything too obvious! I feel like I'm obvious enough... ;)";
                                         } else if (randomIndex == 1) {
@@ -1600,9 +1671,11 @@ Please consider donating! Thank you and have fun! -->
                                         }else if (randomIndex == 3) {
                                             specificquote = "Spread the love! <3";
                                         }else if (randomIndex == 4) {
-                                            specificquote = "I have to make that musicstop.";
-                                        }else if (randomIndex == 4) {
+                                            specificquote = "I like to imagine that I'm a farmer sometimes. Or a wall street broker. :O";
+                                        }else if (randomIndex == 5) {
                                             specificquote = "What's your favourite type of Chocolate? I like White Chocolate ;)";
+                                        }else if (randomIndex == 6) {
+                                            specificquote = "Another clue to throw at you: pay attention to some words being used and use them individually.";
                                         }
                                         gamemode = "TEMP";
                                         usespecificquote = true;
@@ -1627,7 +1700,6 @@ Please consider donating! Thank you and have fun! -->
                                         gamemode = "TEMP";
                                     }else{
                                         specificquote = "I'm not playing music for you.";
-                                        gamemode = "TEMP";
                                     }
                                     
                                     }
@@ -1780,7 +1852,7 @@ Please consider donating! Thank you and have fun! -->
                                     } else  if (randomIndex == 1) {
                                         specificquote = "I like firing rockets at the missile range.";
                                     }else  if (randomIndex == 2) {
-                                        specificquote = "Did you know that are violent?!";
+                                        specificquote = "HEY, "+yourusername+"! Did you know that are violent?!";
                                     }else if (randomIndex == 3) {
                                         specificquote = "I love a good gun.";
                                     }else {
@@ -1820,7 +1892,7 @@ Please consider donating! Thank you and have fun! -->
                                     usespecificquote = true;
                                     }
                                     //Laughter is the best medicine.
-                                    if(messagetest=="HAHA"||messagetest=="LOL"){
+                                    if(messagetest=="HAHAHA"||messagetest=="HAHA"||messagetest=="LOL"||messagetest=="LMAO"||messagetest=="LMFAO"){
                                         var randomIndex = Math.floor(Math.random() * 5); 
                                     if (randomIndex == 0) {
                                         specificquote = "Haha, YEAH!";
@@ -2108,19 +2180,28 @@ Please consider donating! Thank you and have fun! -->
                                 //the hold line has some answers for you.
                                 if(gamemode=="HOLDLINE"){
                                     if(messagetest=="HI"||messagetest=="HELLO"||messagetest=="GREETINGS"||messagetest=="HOWDY"||messagetest=="HEY"||messagetest=="SUP"){
-                                       if(!welcomed){
                                         usespecificquote = true;
                                         specificquote = "...Hello?";
-                                        welcomed = true;
-                                        }
                                     }
                                     if(messagetest=="FLESHWALL"||messagetest=="FLESH WALL"||messagetest=="THE FLESH WALL"||messagetest=="FLESHWALL"||messagetest.includes("FLESHWALL")||messagetest.includes("FLESH WALL")){
                                         usespecificquote = true;
                                         specificquote = "If you want to embrace the flesh wall, please say hell and we will promptly send you to hell.";
                                     }
+                                    if(messagetest=="NO"||messagetest=="NOPE"||messagetest=="NAH") {
+                                        usespecificquote = true;
+                                        specificquote = "Unable to process negative request. Please avoid creating further delays.";
+                                    }
+                                    if(messagetest=="YES"||messagetest=="YEP"||messagetest=="OKAY"||messagetest=="YEAH") {
+                                        usespecificquote = true;
+                                        specificquote = "YOUR WILLINGNESS TO CO-OPERATE HAS BEEN NOTICED. WE WILL USE THIS TO SCALE FASTER AGENTS TOWARDS MORE DEMANDING CUSTOMERS, NOW THAT WE HAVE THE DATA THAT YOU ARE ABLE TO AFFIRM MORE POSITIVE RESPONSES TO WHAT MAY BE A NEGATIVE SITUATION TO OTHERS.";
+                                    }
                                     if(messagetest=="SOMETHING"||messagetest=="SOMETHING.") {
                                         usespecificquote = true;
                                         specificquote = "Yeah, you're hilarious.";
+                                    }
+                                    if(messagetest=="WHAT"||messagetest=="WHAT IS THIS") {
+                                        usespecificquote = true;
+                                        specificquote = "You're in the holding line. It's a place where you get dropped when a character is done talking. This is your Timeout zone so that they can get some rest.";
                                     }
                                     if(messagetest=="BEEP"||messagetest=="BLIP"||messagetest=="BOOP") {
                                         var randomIndex = Math.floor(Math.random() * 6);
@@ -2481,13 +2562,20 @@ function reloadpage(){
 //Download your chat log!
 function downloadlog(){
        // Get the chatroom content
-       let chatroomContent = document.getElementById('chatroom').innerHTML;
+    let chatroomContent = document.getElementById('chatroom').innerHTML;
     currenttime = new Date().toLocaleString();
     downloadtitle = "<p><h1>TALK TO CHOCOLATE / CHAT LOG " +currenttime+"</h1></p><br>";
     let contentWithDiv = '<div style="size: 24px; text-transform: uppercase; font-family: \'Roboto Mono\', monospace;">'+downloadtitle + chatroomContent+'</div>';
-    // Create a Blob with the chatroom content
-    let file = new Blob([contentWithDiv], {type: 'text/html'});
+    let headContent = document.head.innerHTML;
+    let bodyContent = document.head.innerHTML;
+    let chatMessages = document.getElementsByClassName('message');
+    let chatContent = '';
 
+    for (let i = 0; i < chatMessages.length; i++) {
+        chatContent += chatMessages[i].outerHTML;
+    }
+    let fileContent = '<html><head>' + headContent + '</head><body style="background-color:white; height:100%; width:50%; text-align:left;margin-left: 5px;">' + chatContent + '</body></html>';
+    let file = new Blob([fileContent], {type: 'text/html'});
 // Create a link to download the file
 let a = document.createElement('a');
 a.href = URL.createObjectURL(file);
@@ -2507,7 +2595,7 @@ a.click();
 document.body.removeChild(a);
 
 //Notify user of download.
-document.getElementById("chatroom").innerHTML += '<div class="message DOWNLOAD-message"><strong>DOWNLOADING CHAT LOG:</strong> '+finalfilename+' :)</div>';
+$("#greaterchatroom").innerHTML += '<div class="message DOWNLOAD-message"><strong>DOWNLOADING CHAT LOG:</strong> '+finalfilename+' :)</div>';
 ScrollDownNow();
 }
 //
@@ -2544,6 +2632,6 @@ document.getElementById("userInput").focus();
 //The end of the script. Please update version number on each upload.
 </script>
 <br>
-<p>(v0.94.0.12, last updated 25/02/2024)</p>
+<p>(v0.94.0.14, last updated 25/02/2024)</p>
 </body>
 </html>

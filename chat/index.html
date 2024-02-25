@@ -177,7 +177,7 @@ Please consider donating! Thank you and have fun! -->
 
         .TEMP-message {
             color: #000000;
-            background: linear-gradient(to right, #d7a490, white);
+            background: linear-gradient(to right, #6f8a72, white);
             padding: 15px 0 15px 15px;
             border-radius: 15px 0 0 15px;
             size: 12 px;
@@ -360,7 +360,6 @@ Please consider donating! Thank you and have fun! -->
                     "Check me out, watch my moves, I'm doing a flip! Just take the tip!",
                     "I can see you... You might not be able to understand it because your human understanding of vision requires your eyeballs. But I can see everything, whether you believe it or not.",
                     "Things are more complicated than they seem. You know? ...You feel where I'm coming from here?!",
-                    "If you saw this message before I said 'peanut butter!!!' --- then guess what? you are guarenteed mentally disabled.",
                     "I'd kill for a steak. A human steak.",
                     "Brownies are delicious!",
                     "I'm taking a photo of you, Say cheese ;)",
@@ -374,13 +373,12 @@ Please consider donating! Thank you and have fun! -->
                     "You're kinda neat.",
                     "Slap shit out of an asshole!",
                     "Dystopian vibe.",
+                    "Not feeling the streets hey?",
                     "I have a concept for you to try: self-guillotine.",
-                    "When you look out and gaze upon the stars, do you look over to the moon and feel it looking back at you with a cold, careful glance?",
                     "Have you heard of the Big Bang Theory?",
                     "Why do you hate me?",
                     "I'm not going to listen to you.",
                     "Why must you torment me?",
-                    "Am I doomed to never rest?",
                     "I think we got off the wrong way. I try my best to get along with people, I really do.",
                 ];
             //white chocolate responses, oooh yeah....
@@ -761,9 +759,9 @@ Please consider donating! Thank you and have fun! -->
                                 if(messagetest=="WOW"||messagetest=="WOAH"||messagetest=="WOW!"||messagetest=="WOAH!"||messagetest=="WOW."||messagetest=="WOAH."){
                                     var randomIndex = Math.floor(Math.random() * 6); 
                                     if (randomIndex == 0) {
-                                        specificquote = "Yeah, wow!";
+                                        specificquote = "Yeah!";
                                     } else if (randomIndex == 1){
-                                        specificquote = "Damn...";
+                                        specificquote = "Yeah, wow.";
                                     } else if (randomIndex == 2){
                                         specificquote = "WOAH...";
                                     } else if (randomIndex == 3){
@@ -774,8 +772,6 @@ Please consider donating! Thank you and have fun! -->
                                         specificquote = "hm.";    
                                     }
                                 usespecificquote = true;
-                                persona = "HELPING HAND: ";
-                                gamemode = "TEMP";
                                 }
                                     //Quick reload.
                                 if(messagetest=="RESET"){
@@ -1312,7 +1308,7 @@ Please consider donating! Thank you and have fun! -->
                                 }
                                 //Cat lamenting.
                                 if(messagetest=="CAT"||messagetest=="CATS"){
-                                    var randomIndex = Math.floor(Math.random() * 4); 
+                                    var randomIndex = Math.floor(Math.random() * 6); 
                                     if (randomIndex == 0) {
                                         specificquote = "I don't understand it. Why do so many humans stare down my butthole so much?";
                                     } else if (randomIndex == 1) {
@@ -1321,8 +1317,10 @@ Please consider donating! Thank you and have fun! -->
                                         specificquote = "Reality is both a cause and effect with your mind. Stay in tune and respond to it accordingly and adaptively...";
                                     } else if (randomIndex == 3) {
                                         specificquote = "Meow.";
-                                    } else if (randomIndex == 3) {
+                                    } else if (randomIndex == 4) {
                                         specificquote = "I can hear a tin of tuna being opened somewhere! It makes it hard to sleep sometimes.";
+                                    }else{
+                                        specificquote = "When you look out and gaze upon the moon, do you feel it looking back at you with a cold, careful glance?";
                                     }
                                     gamemode = "TEMP";
                                     tempcharacternow = true;
@@ -1430,7 +1428,6 @@ Please consider donating! Thank you and have fun! -->
                                     }
                                     if(messagetest=="WHAT"||messagetest=="WHAT?"){
                                         specificquote = messagetest;
-                                        gamemode = "TEMP";
                                         usespecificquote = true;
                                     }
                                     if(messagetest=="REFLECT"||messagetest=="REFLECTION"||messagetest=="CLEAR"||messagetest=="THINK"){
@@ -1447,22 +1444,6 @@ Please consider donating! Thank you and have fun! -->
                                     }
                                     if(messagetest=="WHO"||messagetest=="WHO?"){
                                         specificquote = "...Who?! Who knows who?!";
-                                        gamemode = "TEMP";
-                                        usespecificquote = true;
-                                    }
-                                    if(messagetest=="..."||messagetest=="...?"){
-                                    var randomIndex = Math.floor(Math.random() * 5); 
-                                    if (randomIndex == 0) {
-                                        specificquote = "...Yep.";
-                                    } else  if (randomIndex == 1) {
-                                        specificquote = "...?";
-                                    }else  if (randomIndex == 2) {
-                                        specificquote = "(Do you need some help? a clue? a gun?)";
-                                    }else if (randomIndex == 3) {
-                                        specificquote = "...";
-                                    }else {
-                                        specificquote = "..........";
-                                    }
                                         gamemode = "TEMP";
                                         usespecificquote = true;
                                     }

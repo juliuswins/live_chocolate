@@ -4,58 +4,6 @@
 <!-- I'll just warn you now, if you read this, you are probably going to spoil the game!
 It is designed to be a lot more fun to explore and find things out, with hints along the way.
 Everything has one word to get the response required.
-|||||||||||||||||||||||||
-:)
-||||||||||||||||||||||||
-:)
-|||||||||||||||||||||||
-:)
-||||||||||||||||||||||
-:)
-|||||||||||||||||||||
-:)
-||||||||||||||||||||
-:)
-|||||||||||||||||||
-:)
-||||||||||||||||||
-:)
-|||||||||||||||||
-:)
-||||||||||||||||
-:)
-|||||||||||||||
-:)
-||||||||||||||
-:)
-|||||||||||||
-:)
-||||||||||||
-:)
-|||||||||||
-:)
-|||||||||||
-:)
-||||||||||
-:)
-|||||||||
-:)
-||||||||
-:)
-|||||||
-:)
-||||||
-:)
-|||||
-:)
-||||
-:)
-|||
-:)
-||
-:)
-|
-:)
 
 Please consider donating! Thank you and have fun! -->
     <meta charset="utf-8">
@@ -253,7 +201,7 @@ Please consider donating! Thank you and have fun! -->
 
         .HOLDLINE-message {
             color: #000000;
-            background-color: #ff8b8b;
+            background: linear-gradient(to right,#ff8b8b, white);
             padding: 15px 0 15px 15px;
             border-radius: 15px 0 0 15px;
             size: 12 px;
@@ -748,7 +696,8 @@ Please consider donating! Thank you and have fun! -->
                                 if(messagetest=="CHEESE" || messagetest=="CHEESY"){
                                     gamemode = "CHEESE";
                                 }
-                                //Check to activate cheese.
+                                //Check to activate Augustus.
+                                /* AUGUSTUS CHARACTER.
                                 if(messagetest=="AUGUSTUS"){
                                     gamemode = "AUGUSTUS";
                                 }
@@ -757,6 +706,7 @@ Please consider donating! Thank you and have fun! -->
                                     usespecificquote = true;
                                     specificquote = "August? ...August? IT'S AUGUSTUS!";                       
                                 }
+                                 */
                                 if(messagetest=="ABOUT"){
                                     usespecificquote = true;
                                     gamemode = "TEMP";
@@ -905,10 +855,21 @@ Please consider donating! Thank you and have fun! -->
                                     tempcharacternow = true;
                                     tempcharacter = "FINANCIAL NON-ADVISOR: ";
                                 }
-                                if(messagetest=="SNP500"||messagetest=="US500"||messagetest=="S&P500"){
+                                if(messagetest=="SNP500"||messagetest=="US500"||messagetest=="S&P500"||messagetest=="SPX500"){
                                     var randomIndex = Math.floor(Math.random() * 2); 
                                     if (randomIndex == 0) {
                                         specificquote = "THEY KEEP GROWING! THE TOP 500 COMPANIES IN THE UNITED STATES!";
+                                    } else {
+                                        specificquote = "I'M NOT INTERESTED IN THE Standard & Poor 500 RIGHT NOW.";
+                                    }
+                                    gamemode = "TEMP";
+                                    tempcharacternow = true;
+                                    tempcharacter = "FINANCIAL NON-ADVISOR: ";
+                                }
+                                if(messagetest=="NDQ"||messagetest=="NDQ100"||messagetest=="NDX100"||messagetest=="US100"){
+                                    var randomIndex = Math.floor(Math.random() * 2); 
+                                    if (randomIndex == 0) {
+                                        specificquote = "LOVE THE NASDAQ-100 RIGHT NOW!";
                                     } else {
                                         specificquote = "I'M NOT INTERESTED IN THE Standard & Poor 500 RIGHT NOW.";
                                     }

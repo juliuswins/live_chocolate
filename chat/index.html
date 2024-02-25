@@ -304,8 +304,8 @@ Please consider donating! Thank you and have fun! -->
 //responsetime is the delay between your message and the response.
      var responsetime = 750;
      var beginsend = false;
-        var gamemode = "CHOC";
-      var persona = "Chocolate: ";
+        var gamemode = "FUTURE";
+      var persona = "FUTURE: ";
  //counts are your progress of how many times you've spoken to each character.
     var yourroll = 0;
     var welcomed = false;
@@ -2075,6 +2075,22 @@ Please consider donating! Thank you and have fun! -->
                                         specificquote = "Sometimes it is best to take things a bit more seriously.";
                                     }
                                         usespecificquote = true;
+                                    }
+                                    if(messagetest=="LOVE"||messagetest=="LOVEYOU"||messagetest=="ILOVEYOU"||messagetest=="LOVEU"||messagetest=="ILOVEU"||messagetest=="I LOVE YOU"){
+                                        usespecificquote = true;
+                                        if (randomIndex == 0) {
+                                        specificquote = ":D Love makes the hidden strings that keep us together!";
+                                    }else if (randomIndex == 1) {
+                                        specificquote = "I love you!";
+                                    }else if (randomIndex == 2) {
+                                        specificquote = "You love me? I'm flattered! I love you too!";
+                                    }else if (randomIndex == 3) {
+                                        specificquote = "LOVE, LOVE, LOVE!";
+                                    }else if (randomIndex == 4) {
+                                        specificquote = "LOVE CAN HURT, BUT IT'S WORTH IT TO FEEL ALIVE.";
+                                    } else {
+                                        specificquote = "ALL PAIN FADES AND ALL TRUE LOVE STAYS.";
+                                    }
                                     }
                                     if(messagetest=="HI"||messagetest=="HELLO"||messagetest=="GREETINGS"||messagetest=="HOWDY"||messagetest=="HEY"||messagetest=="SUP"){
                                         usespecificquote = true;

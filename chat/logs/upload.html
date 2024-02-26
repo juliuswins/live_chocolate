@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>File Uploader</title>
+</head>
+<body>
+    <h1>Upload log.</h1>
+    <form action="/chat/logs" method="post" enctype="multipart/form-data">
+        <label for="file">Choose a file:</label>
+        <input type="file" id="file" name="file" accept=".html">
+        <br>
+        <input type="submit" value="Upload">
+    </form>
+</body>
+</html>

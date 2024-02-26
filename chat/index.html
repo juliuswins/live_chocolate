@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta name="google-adsense-account" content="ca-pub-6285017727399378">
+
 <!-- I'll just warn you now, if you read this, you are probably going to spoil the game!
 It is designed to be a lot more fun to explore and find things out, with hints along the way.
 Everything has one word to get the response required.
@@ -61,25 +63,25 @@ Please consider donating! Thank you and have fun! -->
             margin-left: 15px;
             transition: all 0.3s ease; /* Added */
         }
-        /* set thinking icon. */
+        /* set thinking icon. with animation.*/
         #thinking-chat {
             display: none;
             text-align: right;
-            animation: fade 0.75s infinite;
+            animation: fade 0.5s infinite;
         }
         /* make it animate fade. */
         @keyframes fade {
             0% {
-                opacity: 0;
+                opacity: 1;
             }
             50% {
-                opacity: 1;
+                opacity: 0;
             }
             60% {
-                opacity: 1;
+                opacity: 0;
             }
             100% {
-                opacity: 0;
+                opacity: 1;
             }
         }
 
@@ -115,6 +117,7 @@ Please consider donating! Thank you and have fun! -->
             border-radius: 15px 0 0 15px;
             size: 12 px;
         }
+
         .COW-message {
             color: #3e0909;
             background: linear-gradient(to right, #b96464 25%, white 90%);
@@ -130,6 +133,7 @@ Please consider donating! Thank you and have fun! -->
             border-radius: 15px 0 0 15px;
             size: 12 px;
         }
+
         .DOWNLOAD-message {
             color: #000000;
             background: linear-gradient(to right, #ffc46c 25%, white 95%);
@@ -137,6 +141,7 @@ Please consider donating! Thank you and have fun! -->
             border-radius: 15px 0 0 15px;
             size: 12 px;
         }
+
         .CHOC-message {
             color: #2b1906;
             background: linear-gradient(to right, #876B63 40%, white);
@@ -148,6 +153,14 @@ Please consider donating! Thank you and have fun! -->
         .PISSED-message {
             color: #410101;
             background: linear-gradient(to right, #ce5736 20%, white);
+            padding: 15px 0 15px 15px;
+            border-radius: 15px 0 0 15px;
+            size: 12 px;
+        }
+
+        .SADGIRL-message {
+            color: #0e014a;
+            background: linear-gradient(to right, #b18bff 0%, rgb(255, 255, 255));
             padding: 15px 0 15px 15px;
             border-radius: 15px 0 0 15px;
             size: 12 px;
@@ -177,9 +190,39 @@ Please consider donating! Thank you and have fun! -->
             size: 12 px;
         }
 
+        .TIMER-message {
+            color: #000000;
+            background: linear-gradient(to right, #31943c, white);
+            padding: 15px 0 15px 15px;
+            border-radius: 15px 0 0 15px;
+            size: 12 px;
+        }
+        
         .TEMP-message {
             color: #000000;
-            background: linear-gradient(to right, #6f8a72, white);
+            background: linear-gradient(to right, #baffc2, white);
+            padding: 15px 0 15px 15px;
+            border-radius: 15px 0 0 15px;
+            size: 12 px;
+        }
+        
+        .RANDOM1-message {
+            color: #000000;
+            background: linear-gradient(to right,#85cae3, white);
+            padding: 15px 0 15px 15px;
+            border-radius: 15px 0 0 15px;
+            size: 12 px;
+        }
+        .RANDOM2-message {
+            color: #000000;
+            background: linear-gradient(to right,#de85e3, white);
+            padding: 15px 0 15px 15px;
+            border-radius: 15px 0 0 15px;
+            size: 12 px;
+        }
+        .RANDOM3-message {
+            color: #000000;
+            background: linear-gradient(to right,#d47e6c, white);
             padding: 15px 0 15px 15px;
             border-radius: 15px 0 0 15px;
             size: 12 px;
@@ -275,7 +318,7 @@ Please consider donating! Thank you and have fun! -->
         .send-button:disabled{
             background-color:rgb(39, 39, 39);   
         }
-    </style>
+</style>
 </head>
 <body>
     <div class="sidebar">
@@ -290,8 +333,8 @@ Please consider donating! Thank you and have fun! -->
         <!-- Chatroom -->
         <div id="chatroom"></div>
         <!-- Thinking icon -->
-        <div id="thinking-chat" class="thinking" >
-            <img src="images/thinking.png" alt="Thinking..." width="30" height="30">
+        <div id="thinking-chat" class="thinking">
+        <img id="thinkingicon" src="images/thinking.png" alt="Thinking..." width="25" height="25">
         </div>
     </div>
 <div class="input-container">
@@ -301,27 +344,76 @@ Please consider donating! Thank you and have fun! -->
     </div>
 </div>
 <script>
+//Puts the input in focus immediately.
+document.getElementById("userInput").focus();
+
 //the welcome message you see:
-    document.getElementById("chatroom").innerHTML += '<div class="message welcome-message"><strong> Welcome to the chat! Please be respectful and enjoy. </strong></div>';  
+document.getElementById("chatroom").innerHTML += '<div class="message welcome-message"><strong> Welcome to the chat! Please be respectful and enjoy. </strong></div>';  
+
 //responsetime is the delay between your message and the response.
-     var responsetime = 750;
-     var beginsend = false;
-    //Random chance that you start with CHEESE, WHITE CHOCOLATE or FUTURE on first load, instead of CHOCOLATE.
+var responsetime = 1000;
+var milkresponse = 5000;
+var beginsend = false;
+//Random chance that you start with CHEESE, WHITE CHOCOLATE or FUTURE on first load, instead of CHOCOLATE.
 var randomIndex = Math.floor(Math.random() * 10);
 if (randomIndex == 0) {
     var gamemode = "WHITE";
-    var persona = "WHITE CHOCOLATE: ";
 } else if (randomIndex == 1){
       var gamemode = "CHEESE";
-      var persona = "CHEESE: ";       
 } else if (randomIndex == 7){
       var gamemode = "FUTURE";
-      var persona = "FUTURE: ";       
 }else{    
     var gamemode = "CHOC";
-    var persona = "CHOCOLATE: ";
 }
-//Override: 
+
+//Gamemode URL override: if gamemode is in the URL, we will use this as our gamemode.
+var urlParams = new URLSearchParams(window.location.search);
+if (urlParams.has('gamemode')) {
+//Checking for specific gamemodes, otherwise ignore the URL input.
+    gamemodetry = urlParams.get('gamemode').toUpperCase();
+    if(gamemodetry=="CHOC"||gamemodetry=="OG"||gamemodetry=="CHOCOLATE"){
+        gamemode = "CHOC";
+        document.getElementById("chatroom").innerHTML += '<div class="message TEMP-message"><b>GAMEMODE SET TO: CHOCOLATE!</b></div>';
+    }
+    if(gamemodetry=="CHEESE"){
+        gamemode = "CHEESE";
+        document.getElementById("chatroom").innerHTML += '<div class="message TEMP-message"><b>GAMEMODE SET TO: CHEESE!</b></div>';
+    }
+    if(gamemodetry=="WHITE"||gamemodetry=="WHITECHOC"||gamemodetry=="WHITECHOCOLATE"){
+        gamemode = "WHITE";
+        document.getElementById("chatroom").innerHTML += '<div class="message TEMP-message"><b>GAMEMODE SET TO: CHEESE!</b></div>';
+    }
+    if(gamemodetry=="DEVIL"||gamemodetry=="DARK"||gamemodetry=="SURPRISE"){
+        gamemode = "DEVIL";
+        document.getElementById("chatroom").innerHTML += '<div class="message TEMP-message"><b>GAMEMODE SET TO...?!</b></div>';
+    }
+    if(gamemodetry=="FUTURE"){
+        gamemode = "FUTURE";
+        document.getElementById("chatroom").innerHTML += '<div class="message TEMP-message"><b>GAMEMODE SET TO: FUTURE!</b></div>';
+    }
+    if(gamemodetry=="HOLD"||gamemodetry=="HOLDLINE"||gamemodetry=="WAIT"){
+        gamemode = "HOLDLINEs";
+        document.getElementById("chatroom").innerHTML += '<div class="message TEMP-message"><b>GAMEMODE SET TO: HOLD LINE!</b></div>';
+    }
+    if(gamemodetry=="AUGUSTUS"||gamemodetry=="AUGUST"){
+        gamemode = "AUGUSTUS";
+        document.getElementById("chatroom").innerHTML += '<div class="message TEMP-message"><b>GAMEMODE SET TO: AUGUSTUS!</b></div>';
+    }
+    if(gamemodetry=="SADGIRL"||gamemodetry=="DEPRESSION"){
+        gamemode = "SADGIRL";
+        document.getElementById("chatroom").innerHTML += '<div class="message TEMP-message"><b>GAMEMODE SET TO: DEPRESSION!</b></div>';
+    }
+    if(gamemodetry=="SILLY"||gamemodetry=="SAUSAGE"){
+        gamemode = "SILLY";
+        document.getElementById("chatroom").innerHTML += '<div class="message TEMP-message"><b>GAMEMODE SET TO: SILLY!</b></div>';
+    }
+}
+
+    //pauses thinking animation. 
+    var element = document.getElementById('thinking-chat');
+    element.style.animationPlayState = 'paused';
+    element.style.animation = 'none';
+    element.offsetHeight;
 
     //set some special conditions.
     var welcomed = false;
@@ -331,6 +423,7 @@ if (randomIndex == 0) {
     var isitheads = false;
 
     //counts are your progress of how many times you've spoken to each character.
+    var timeroff = false;
     var countchoc = 0;
     var countpissed = 0;
     var countwhitechoc = 0;
@@ -339,11 +432,25 @@ if (randomIndex == 0) {
     var countdevil = 0;
     var countholding = 0;
     var countaugust = 0;
+    var countsadgirl = 0;
     var yourroll = 0;
-    //
+
+    //define which thinking image is being used URL.
+    if(gamemode!=="temp"&&gamemode!==null&&gamemode!==undefined){
+    var thinkingurl = "images/thinking"+gamemode.toLowerCase()+".png";
+    checkthinker();
+    }else{
+    var thinkingurl = "images/"+"thinking.png";
+    }
+
+    //defining that music isn't playing or asked for.
     var playingsongnow = false;
     var askedformusic = false;
+
+    //This determines whether 
     var usespecificquote = false;
+
+    //quest mode is off.
     var questmode = false;
     var nextanswername = false;
     var questno = 0;
@@ -566,9 +673,10 @@ if (randomIndex == 0) {
                 pissedresponses = [pissedresponses[0], ...responseshuffle];
                 //Augustus is not shuffled.
 
+                //Show thinker.
+                document.getElementById("thinking-chat").style.display = "block";
                 //This functions anytime enter or send is pressed.
-            function sendMessage() {
-
+            function sendMessage(){
                 //makes sure you can't click. SHOULD BE TOP OF SENDMESSAGE()!!!
                 var beginsend = true;
 
@@ -595,8 +703,9 @@ if (randomIndex == 0) {
                 var response = "";
                 var questres = "";
                 //sets up messagetest... the way we check for inputs.
-                var messagetest = userInput.value.trim().toUpperCase();
-                //Sets up message test, where we check it for value matches or inclusions... VVV
+                var messagetest = userInput.value.trim().toUpperCase().replace(/[^A-Z0-9]/g, ""); 
+                //sets up messagetest2... same but also checks for CHARACTERS.
+                var messagetest2 = userInput.value.trim().toUpperCase(); 
                 //SHOULD BE ASAP after var messagetest!                                      ^^^
                 if(messagetest=="DOWNLOAD"){
                 //On request, downloads the chat log minus your input to ask for download, or the responses..
@@ -608,9 +717,9 @@ if (randomIndex == 0) {
                 }else if(nextanswername==true&&messagetest!==""){
                     //Inside name check, we replace some names that are used already.
                     //we go ahead and make your username the message you've sent. but, we run some checks that will replace it if met.
-                    yourusername = messagetest;
+                    yourusername = messagetest2;
                     //
-                    if(messagetest.includes("<")||messagetest.includes(">")){
+                    if(messagetest2.includes("<")||messagetest2.includes(">")){
                         yourusername = "K00L HACK3R";
                     }
                     if(messagetest==" "||messagetest=="RESET"||messagetest=="U"||messagetest=="ME"){
@@ -661,12 +770,11 @@ if (randomIndex == 0) {
                     ScrollDownNow();
                     failure = true;
                 }else if (messagetest!==""){
-                    document.getElementById("thinking-chat").style.display = "block";
                     if(questmode){
                     //Nothing here. Makes sure not to add the user message right now.
                     }else{
-                    //Add User's message in chatroom.
-                    chatroom.innerHTML += '<div class="message user-message"><strong>'+yourusername+': </strong> ' + message + '</div>';
+                    //finally, gets rid of <> in your message.
+                    revisedmsg = message.replace(/</g, "").replace(/>/g, "");                    chatroom.innerHTML += '<div class="message user-message"><strong>'+yourusername+': </strong> ' + revisedmsg + '</div>';
                     ScrollDownNow();
                     //adds a scroll immediately after to show it properly.
                     }
@@ -718,33 +826,34 @@ if (randomIndex == 0) {
                     //Check to change to white chocolate
                     if(messagetest=="WHITE" || messagetest=="WHITECHOC"|| messagetest=="WHITE CHOCOLATE"|| messagetest=="WHITECHOCOLATE") {
                         gamemode = "WHITE";
-                        persona = "WHITE: ";
                     }
 
                     //Check to change to sadgirl.
                     if(messagetest=="DEPRESSION" ||messagetest=="DEPRESSEDGIRL" ||messagetest=="SAD GIRL" ||messagetest=="SADGIRL" || messagetest=="SAD"|| messagetest=="DEPRESSED"|| messagetest=="DEPRESSED GIRL") {
                         gamemode = "SADGIRL";
-                        persona = "DEPRESSION: ";
+                        persona = "DEPRESSION";
                     }
                     //Checking achievements... to be added.
+                    if(messagetest=="DL"){
+                            usespecificquote = true;
+                             specificquote = "type 'download' to get a chat log file."; 
+                            gamemode = "TEMP";
+                            }
                         if(messagetest=="ACHIEVEMENTS"){
                              usespecificquote = true;
                              specificquote = "Achievements are not available yet, but I look forward to them coming soon!";
-                             persona = "HELPING HAND: ";
                             gamemode = "TEMP";
                             }
                             //Debug mode - to print out variables on request.
                             if(messagetest=="DEBUG"){
                              usespecificquote = true;
                              specificquote = "Debug mode. Last game was:"+prevgame+". ";
-                             persona = "HELPING HAND: ";
                             gamemode = "TEMP";
                             }
                         if(messagetest=="NAME"||messagetest=="SETNAME"||messagetest=="RENAME"){
                             //How to set your name.
                             usespecificquote = true;
                             specificquote = "What is your name? Whatever your next response is, will become your username for this session.";
-                            persona = "HELPING HAND: ";
                             gamemode = "TEMP";
                             nextanswername = true;
                         }
@@ -771,25 +880,21 @@ if (randomIndex == 0) {
                             if(messagetest=="QUIZ"){
                             usespecificquote = true;
                             specificquote = "<a href='../quiz/index.html' target='_blank'>There isn't a quiz in here right now, but you may find it somewhere else.</a>";
-                            persona = "HELPING HAND: ";
                             gamemode = "TEMP";
                             }
                             if(messagetest=="ALLCHARACTERS"){
                             usespecificquote = true;
                             specificquote = "OG, WHITE, CHEESE, AUGUSTUS, FUTURE, SATAN, HOLDLINE, AUGUSTUS, SILLY";
-                            persona = "HELPING HAND: ";
                             gamemode = "TEMP";
                             }
                             if(messagetest=="ALLCOMMANDS"||messagetest=="ALL COMMANDS"||messagetest=="ALLOPTIONS"){
                             usespecificquote = true;
                             specificquote = "NICE TRY. THE BEST YOU WILL GET IS A CLUE.";
-                            persona = "HELPING HAND: ";
                             gamemode = "TEMP";
                             }
                             if(messagetest=="GOAWAY"||messagetest=="GO AWAY"){
                             usespecificquote = true;
                             specificquote = "Who, me? Because if it's me, I'll be here longer than you'll ever be. But the rest will usually go away if you pick a new character.";
-                            persona = "HELPING HAND: ";
                             gamemode = "TEMP";
                             }
                             //Some addon reactions.
@@ -1024,7 +1129,8 @@ if (randomIndex == 0) {
                                 }
                                 //Run a dice.
                                 if(messagetest=="DICE"||messagetest == "ROLL"||messagetest == "ROLLDICE"||messagetest == "D6"){
-                                    var randomIndex = Math.floor(Math.random() * 6); 
+                                    var randomIndex = Math.floor(Math.random() * 6);
+                                    adddice = "<p><img class='dice'></p>";
                                     if (randomIndex == 0) {
                                     specificquote = "You rolled a 6! OH YEAH!";
                                     } else if (randomIndex == 1) {
@@ -1311,7 +1417,7 @@ if (randomIndex == 0) {
                                     tempcharacternow = true;
                                     tempcharacter = "VEGETABLES: ";
                                 }
-                                if(messagetest=="FEEDBACK"||messagetest=="EMAIL"){
+                                if(messagetest=="FEEDBACK"||messagetest=="EMAIL"||messagetest=="CONTACT"){
                                     persona = "HELPING HAND: ";
                                     specificquote = "You can email <a href='mailto:admin@talktochocolate.xyz' target='_blank'>admin@talktochocolate.xyz</a> for feedback. Feel free to type download and then attach the downloaded chat log file to your email.";
                                     gamemode = "TEMP";
@@ -1360,12 +1466,20 @@ if (randomIndex == 0) {
                                     usespecificquote = true;
                                 }
                                  //Check for any use of coding.
-                                    if(messagetest.includes("<")||messagetest.includes(">")){
+                                if(messagetest2.includes("<")||messagetest2.includes(">")){
                                     persona = "HELPING HAND: ";
                                     specificquote = "...Please Don't use < > - I know what you're trying to do. And it's not original at all.";
                                     gamemode = "TEMP";
                                     usespecificquote = true;
                                 }
+                                
+                                 //Check for any use of coding.
+                                 if(messagetest.includes("HELP")&&messagetest!=="HELP"){
+                                    persona = "HELPING HAND: ";
+                                    specificquote = "(You mentioned help? Just type <u>HELP</u> IF YOU NEED HELP!)";
+                                    gamemode = "TEMP";
+                                    usespecificquote = true;
+                                }                                
                                 //Check for any tomato.
                                 if(messagetest.includes("TOMATO")){
                                     persona = "HELPING HAND: ";
@@ -1387,7 +1501,12 @@ if (randomIndex == 0) {
                                     gamemode = "TEMP";
                                     usespecificquote = true;
                                 }
-
+                                //throwing geese around?
+                                if(messagetest=="SILLY GOOSE"||messagetest=="SILLYGOOSE"){
+                                    specificquote = "";
+                                    gamemode = "TEMP";
+                                    usespecificquote = true;
+                                }
                                 //Dog woof.
                                 if(messagetest=="DOG"||messagetest=="DOGS"){
                                     specificquote = "WOOF! WOOF WOOF! WOOF WOOF WOOF WOOF WOOF! ................WOOF WOOF WOOF WOOF WOOF WOOF WOOF WOOF WOOF! WOOF WOOF WOOF WOOF WOOF WOOF!";
@@ -1403,6 +1522,14 @@ if (randomIndex == 0) {
                                     usespecificquote = true;
                                     tempcharacternow = true;
                                     tempcharacter = "ZEBRA: ";
+                                }
+                                 //EMU.
+                                if(messagetest=="EMU"||messagetest=="EMUS"){
+                                    specificquote = "...";
+                                    gamemode = "TEMP";
+                                    usespecificquote = true;
+                                    tempcharacternow = true;
+                                    tempcharacter = "EMU: ";
                                 }
                                 if(messagetest=="THROWZEBRA"||messagetest=="THROW ZEBRA"){
                                     specificquote = "MOOOO! (I AM UNSTOPPABLE.)";
@@ -1433,7 +1560,6 @@ if (randomIndex == 0) {
                                 }
                                 //Check for blueberry response.
                                 if(messagetest=="BLUEBERRY" || messagetest=="BLUEBERRIES"){
-                                    persona = "HELPING HAND: ";
                                     gamemode = "TEMP";
                                     usespecificquote = true;
                                     specificquote = "Wow... You'll just do anything I tell you! You're real clever. You deserve an AWARD for that, obviously, genius.";
@@ -1569,7 +1695,7 @@ if (randomIndex == 0) {
                                         usespecificquote = true;
                                     }
                                     //Silly mode!!! YAY!!!
-                                    if(messagetest=="SILLY"||messagetest=="SILLYSAUSAGE"||messagetest=="SILLY SAUSAGE"){
+                                    if(messagetest=="SILLY"||messagetest=="SILLYSAUSAGE"||messagetest=="SILLY SAUSAGE"||messagetest=="SILLY SAUSAGE"){
                                         gamemode = "SILLY";
                                     }
                                     if(messagetest=="SAUSAGE"){
@@ -1648,18 +1774,19 @@ if (randomIndex == 0) {
                                         }
                                         */
                                     }
+                                    //current music test.
                                     if(messagetest=="MUSICTEST123"){
                                         gamemode = "TEMP";
                                         usespecificquote = true;
                                         if(!askedformusic){
-                                        specificquote = "Alright, here's something for ya.";
+                                        specificquote = 'Alright, <audio id="myAudio" src="audio/retro.mp3"></audio><button class="musicbutton" onclick="Playasong()">here</button> is something for ya.';
                                         askedformusic = true;
-                                        Playasong();
+                                        //Playasong();
                                         }else{
-                                            specificquote = "here's the next one!";
-                                            Playasong();
+                                            specificquote = "Here is the next one!";
+                                           // Playasong();
                                         }
-                                    }
+                                    }        
                                     //Play next song. (First function works too)
                                     if(messagetest=="SONGNEXT"||messagetest=="MUSICNEXT"||messagetest=="NEXTSONG"||messagetest=="NEXTMUSIC"||messagetest=="NEXT MUSIC"||messagetest=="NEXT SONG"){
                                         gamemode = "TEMP";
@@ -1679,6 +1806,20 @@ if (randomIndex == 0) {
                                         usespecificquote = true;
                                         Stopmusic();
                                     }
+                                    //turn off timer notifications.
+                                    if(messagetest=="TIMEROFF"){
+                                        gamemode = "TEMP";
+                                        usespecificquote = true;
+                                        specificquote = "TIMER OFF!";
+                                        timeroff = true;
+                                    }
+                                    //turn off timer notifications.
+                                    if(messagetest=="TIMERON"){
+                                        gamemode = "TEMP";
+                                        usespecificquote = true;
+                                        specificquote = "TIMER ON!";
+                                        timeroff = false;
+                                    }                           
                                     //Accepts Nobody.
                                     if(messagetest=="NOBODY"){
                                         specificquote = "Nobody, or somebody? Happy to help when you need. Sometimes it's nice to say please! ;)";
@@ -1759,7 +1900,7 @@ if (randomIndex == 0) {
                                 questmode = false;
                                 validaction = false;
                                 prevgame = "CHOC";
-                                persona = "HELPING HAND: ";
+                                persona = "HELPING HAND";
                                 gamemode = "TEMP";
                                 }
 
@@ -1874,7 +2015,16 @@ if (randomIndex == 0) {
                                     }
                                     if(messagetest=="COW"|| messagetest=="COWS") {
                                         usespecificquote = true;
-                                        specificquote = "What the actual shit does a cow make?";
+                                        specificquote = "What does a cow even make?";
+                                    }
+                                    if(messagetest=="MOO"|| messagetest=="MOOCOW"|| messagetest=="COWMOO") {
+                                        usespecificquote = true;
+                                        specificquote = "Uh oh...";
+                                        milkmode = true;
+                                    }
+                                    if(messagetest=="COWSHIT"|| messagetest=="COW ") {
+                                        usespecificquote = true;
+                                        specificquote = "What does a cow even make?";
                                     }
                                     if(messagetest=="BEEF"|| messagetest=="MEAT") {
                                         usespecificquote = true;
@@ -2289,51 +2439,58 @@ if (randomIndex == 0) {
                     if(!milkmode){
                     persona = "Chocolate: ";
                     }else{
-                        persona = "Milk Chocolate: ";     
+                        persona = "Milk Chocolate";     
                     }
                     responses = chocresponses;
                     count = countchoc;
                      countchoc ++;
                 }
                 if(gamemode=="PISSED"){
-                    responsetime = 380;
-                    persona = "HOT CHOCOLATE: ";
+                    responsetime = 350;
+                    persona = "HOT CHOCOLATE";
                         responses = pissedresponses;
                         count = countpissed;
                          countpissed ++;
                 }
+                if(gamemode=="SADGIRL"){
+                    responsetime = 500;
+                    persona = "DEPRESSION";
+                    responses = sadgirlresponses;
+                    count = countsadgirl;
+                    countsadgirl ++;
+                }
                 if(gamemode=="AUGUSTUS"){
-                        responsetime = 800;
+                        responsetime = 700;
                         responses = augustresponses;
-                        persona = "Augustus:";
+                        persona = "Augustus";
                         count = countaugust;
                         countaugust ++;
                 }
                 if(gamemode=="WHITE"){
-                        responsetime = 400;
+                        responsetime = 700;
                         responses = whitechocresponses;
-                        persona = "White Chocolate: ";
+                        persona = "White Chocolate";
                         count = countwhitechoc;
                         countwhitechoc ++;
                 }
                 if(gamemode=="HOLDLINE"){
-                    responsetime = 1500;
-                    persona = "Holding Line: ";
+                    responsetime = 1100;
+                    persona = "Holding Line";
                         responses = holdingresponses;
                         count = countholding;
                         countholding++;
                 }
                 if(gamemode=="CHEESE"){
-                    responsetime = 500;
-                    persona = "Cheese: ";
+                    responsetime = 800;
+                    persona = "CHEESE";
                         responses = cheeseresponses;
                         count = countcheese;
                         countcheese ++;
                 }
                 //we built the silly sausage right here.
                 if(gamemode=="SILLY"){
-                    responsetime = 250;
-                    persona = "SILLY SAUSAGE: ";
+                    responsetime = 750;
+                    persona = "SILLY SAUSAGE";
                     var sausageresponses = [
                         "KETTLE","PUNK","GEESE","POOP","JOINT","NOOSE","IS","ISN'T","WILL","TO","THE","ON","MICE","PISSING","MADNESS",
                         "ROWBOAT EXERCISE","MIST","URINAL","OUTSIDE","FOREST","LIGHTNING","CAME","STUMBLING","FIGHTING",
@@ -2366,27 +2523,26 @@ if (randomIndex == 0) {
                     usespecificquote = true;
                 }
                 if(gamemode=="FUTURE"){
-                    responsetime = 777;
-                    persona = "Future: ";
+                    responsetime = 1000;
+                    persona = "Future";
                         responses = futureresponses;
                         count = countfuture;
                         countfuture ++;
                 }
                 if(gamemode=="DEVIL"){
                     responsetime = 666;
-                    persona = "SATAN: ";
+                    persona = "SATAN";
                         responses = devilresponses;
                         count = countdevil;
                         countdevil ++;
                 }
                 if(gamemode=="TEMP"){
-                    responsetime = 750;
+                    responsetime = 550;
                     usespecificquote = true;
                     if(!tempcharacternow){
-                    persona = "HELPING HAND: "; 
+                    persona = "HELPING HAND"; 
                     }else{
                     persona = tempcharacter;
-                    tempcharacternow = false;
                     }
                     count = 0;
                     responses[count] = specificquote;
@@ -2395,12 +2551,21 @@ if (randomIndex == 0) {
                     goprev = true;
                 }
                 if(gamemode=="QUEST"){
-                    responsetime = 700;
+                    responsetime = 1200;
                     //should always use specific quote when in quest.
                     usespecificquote = true;
-                    persona = "QUESTMASTER: ";
+                    persona = "QUESTMASTER";
                 }
             }
+                //runs thinker check, which updates thinking image.
+                
+                checkthinker();
+
+            //play thinking animation.
+            element.style.animation = '';
+            element.src = "";
+            document.getElementById('thinking-chat').style.animationPlayState = 'running';
+
                 // Simulate AI response after a delay
                     setTimeout(function(){
                         //release user's chat controls.
@@ -2445,12 +2610,12 @@ if (randomIndex == 0) {
                                 }else if(gamemode=="FUTURE"){
                                     response = "You literally got every response from me. How pointless that makes it.";
                                     countfuture = 0;
-                                    persona = "Future: ";
+                                    persona = "Future";
                                     goprev = true;
                                    prevgame = "DEVIL";
                                 }else if(gamemode=="WHITE"){
                                     response = "Actually I'm late and have to run, see you soon!";
-                                    persona = "White Chocolate: ";
+                                    persona = "White Chocolate";
                                     goprev = true;
                                    prevgame = "HOLDLINE";
                                 }else if(gamemode=="PISSED"){
@@ -2463,7 +2628,7 @@ if (randomIndex == 0) {
                                 }else if(gamemode=="AUGUSTUS"){
                                     response = "Alright, I must venture now. Well wishes with everything, "+yourusername+"!";
                                     countfuture = 0;
-                                    persona = "Augustus: ";
+                                    persona = "Augustus";
                                     goprev = true;
                                    prevgame = "HOLDLINE";
                                 }else if(gamemode=="QUEST"){
@@ -2484,14 +2649,36 @@ if (randomIndex == 0) {
                                 prevgame = "HOLDLINE";
                                  }
                                 }
-                        // Display Bot response in chatroom
+                        //makes sure helping hand has its own style.
+
                         if(!questmode){
-                            chatroom.innerHTML += '<div class="message '+gamemode+'-message"><strong>'+ parent.persona +"</strong>" + response + '</div>';
+                        //msgformat is referred to as what specific div class to set the message.
+                        var msgformat = gamemode;
+                        //allows random format if temp and not helping hand.
+                            if(gamemode=="TEMP"&&tempcharacternow){
+                                var randomIndex = Math.floor(Math.random() * 2);
+                                    if (randomIndex == 0) {
+                                        msgformat = "RANDOM1";
+                                    } else if (randomIndex == 1) {
+                                        msgformat = "RANDOM2";
+                                    }else{
+                                        msgformat = "RANDOM3";
+                                    }
+                            //make sure to turn this off.
+                            tempcharacternow = false;
+                            }
+                        //CHATPRINT PRINTCHAT 
+                        //Show response in chat room.
+                        
+                        chatroom.innerHTML += '<div class="message '+msgformat+'-message"><strong>'+ parent.persona+": </strong>" + response + '</div>';
+                       
                         }else if(validaction){
-                            chatroom.innerHTML += '<div class="message user-message">'+yourusername+'<strong> : </strong>'+ questres + '</div>';
+                            //Shows quest action if you're in quest mode and say a valid command.
+                            chatroom.innerHTML += '<div class="message user-message">'+yourusername+'<strong>: </strong>'+ messagetest + '</div>';
                             chatroom.innerHTML += '<div class="message '+gamemode+'-message"><strong> QUESTMASTER: </strong>'+ questres + '</div>';
                         }else{
-                            chatroom.innerHTML += '<div class="message '+gamemode+'-message"><strong> QUESTMASTER: INVALID... </strong>'+ questres + '</div>';
+                            //Questmaster can't do anything with this.
+                            //chatroom.innerHTML += '<div class="message '+gamemode+'-message"><strong> QUESTMASTER: TRY SOMETHING ELSE! </strong>'+ questres + '</div>';
                         }
                         //Scroll down here.
                         ScrollDownNow();
@@ -2500,13 +2687,18 @@ if (randomIndex == 0) {
                         gamemode = prevgame;
                         }
 
-                        //re-hides thinker.
-                        document.getElementById("thinking-chat").style.display = "none";
-
+                        //stops animation on thinker.
+                       var element = document.getElementById('thinking-chat');
+                        element.style.animationPlayState = 'paused';
+                        element.style.animation = 'none';
+                        element.offsetHeight;
                     }else{
                         //failure.
-                        //Re-hides thinker, in case.
-                        document.getElementById("thinking-chat").style.display = "none";
+                        //stops animation on thinker.
+                        var element = document.getElementById('thinking-chat');
+                        element.style.animationPlayState = 'paused';
+                        element.style.animation = 'none';
+                        element.offsetHeight;
                     }
                 
              //finishes the sendmessage process and allows new messages from user.
@@ -2525,19 +2717,23 @@ if (randomIndex == 0) {
         }
     });
 
+    //Check to see if you've turned the timer messages off.
     //10 minute timer: shames you into donating
     setTimeout(function() {
-            response = ": WOW! YOU REALLY SPENT TEN MINUTES HERE, ARE YA STUPID? IF YOU ARE, MAYBE YOU COULD SAY THANKS AND DONATE SOME MONEY! THAT'S RIGHT, I'M AN ANNOUNCEMENT DESIGNED TO SHAMELESSLY SELL YOU SOMETHING YOU ALREADY HAVE FOR FREE.";
-            document.getElementById("chatroom").innerHTML += '<div class="message TEMP-message"><strong>HELPING HAND: </strong>' + response + '</div>';
+        if(!timeroff){
+            response = ": YOU'VE SPENT 20 MINUTES HERE! IF YOU'RE HAVING FUN, MAYBE YOU COULD SAY THANKS AND DONATE SOME MONEY! THAT'S RIGHT, I'M AN ANNOUNCEMENT DESIGNED TO SHAMELESSLY SELL YOU SOMETHING YOU ALREADY HAVE FOR FREE.";
+            document.getElementById("chatroom").innerHTML += '<div class="message TIMER-message"><strong>TIMER: </strong>' + response + '</div>';
             ScrollDownNow();
-        }, 600000);
+        }
+        }, 600000); //600000 is 10 minutes.
 
     //20 minute timer: shames you much, much more.
     setTimeout(function() {
-            response = ": It's been 20 minutes. I appreciate that you enjoy it this much. Or hate it with a passion yet can't cease your curiosity. But either way, keep having fun, and remember to DONATE if you like it and want more!";
-            document.getElementById("chatroom").innerHTML += '<div class="message TEMP-message"><strong>HELPING HAND: </strong>' + response + '</div>';
+            response = ": Wow. You've been here an hour. Did you leave this open, or are you entertaining yourself this much? I'm going to put my hand out once again and say donate if you enjoy. There is an exclusive mode for donors.";
+            document.getElementById("chatroom").innerHTML += '<div class="message TIMER-message"><strong>TIMER: </strong>' + response + '</div>';
             ScrollDownNow();
-        }, 1200000); // 20 minutes in milliseconds
+        }, 1200000); // 1200000 is 20 minutes.
+    
         //Bonus: play a song if you ask nicely :)
         //The song playlist:
         var songplaylist = [
@@ -2563,6 +2759,7 @@ if (randomIndex == 0) {
             nowplaying.pause();
         }
         if(songcount >= songplaylist.length){
+        //Plays the first song on playlist if you're out of songs.
             songcount = 0;
             songtitletoplay = songplaylist[songcount];
             document.getElementById("chatroom").innerHTML += '<div class="message MUSIC-message">NOW PLAYING: '+songtitletoplay+' (Track '+(songcount+1)+') </div>';
@@ -2572,6 +2769,7 @@ if (randomIndex == 0) {
             nowplaying = thisaudio;
             songcount++;
         } else {
+        //Plays the next song.
             songtitletoplay = songplaylist[songcount];
             document.getElementById("chatroom").innerHTML += '<div class="message MUSIC-message">NOW PLAYING: '+songtitletoplay+' (Track '+(songcount+1)+') </div>';
             ScrollDownNow();
@@ -2602,10 +2800,13 @@ function reloadpage(){
 
 //Download your chat log!
 function downloadlog(){
-       // Get the chatroom content
-       let chatroomContent = document.getElementById('chatroom').innerHTML;
+    // Get the chatroom content
+    let chatroomContent = document.getElementById('chatroom').innerHTML;
     currenttime = new Date().toLocaleString();
-    downloadtitle = "<p><h1>TALK TO CHOCOLATE / CHAT LOG " +currenttime+"</h1></p><br>";
+    var messageElement = document.querySelector('.message'); // replace '.message' with the actual selector of your message element
+    var style = window.getComputedStyle(messageElement);
+    var allstyle = style.cssText;
+    var downloadtitle = allstyle+"<div class='TEMP-message'><p><h1>TALK TO CHOCOLATE / CHAT LOG " +currenttime+"</h1></p><br>";
     let contentWithDiv = '<div style="size: 24px; text-transform: uppercase; font-family: \'Roboto Mono\', monospace;">'+downloadtitle + chatroomContent+'</div>';
     // Create a Blob with the chatroom content
     let file = new Blob([contentWithDiv], {type: 'text/html'});
@@ -2613,12 +2814,11 @@ function downloadlog(){
 // Create a link to download the file
 let a = document.createElement('a');
 a.href = URL.createObjectURL(file);
-var filenamerandomizer = Math.floor(Math.random() * 1000000);
-var filenamerandomizer2 = Math.floor(Math.random() * 1000000);
+var filenamerandomizer = Math.floor(Math.random() * 10);
+var filenamerandomizer2 = Math.floor(Math.random() * 10000);
 var finalfilename = 'talktochocolate_chatlog_'+filenamerandomizer+'_'+filenamerandomizer2+'.html';
 a.download = finalfilename;
 a.style.display = 'none';
-
 // Append the link to the body
 document.body.appendChild(a);
 
@@ -2629,43 +2829,61 @@ a.click();
 document.body.removeChild(a);
 
 //Notify user of download.
-document.getElementById("chatroom").innerHTML += '<div class="message DOWNLOAD-message"><strong>DOWNLOADING CHAT LOG:</strong> '+finalfilename+' :)</div>';
+document.getElementById("chatroom").innerHTML += '<div class="message DOWNLOAD-message"><strong>DOWNLOADING CONVERSATION LOG:</strong> '+finalfilename+'</div>';
 ScrollDownNow();
 }
-//
+
+//Cow notifications.
 function milksend(){
 var cowmsg = "MOO!";
-var randomIndex = Math.floor(Math.random() * 18); 
+var randomIndex = Math.floor(Math.random() * 15); 
 if (randomIndex == 0) {
-specificquote = "MOOOO! (MILK GOES ALL OVER YOU AND YOUR PRECIOUS BELONGINGS)";
+cowmsg = "MOOOO! (MILK GOES ALL OVER YOU AND YOUR PRECIOUS BELONGINGS)";
 mooing = true;
 } else if (randomIndex == 1){
-specificquote = "MOO, MOO MOO MOOOOOOOOOOOO.";
+cowmsg = "MOO, MOO MOO MOOOOOOOOOOOO.";
 mooing = true;
 } else if (randomIndex == 2){
-specificquote = "Moo moo.";
+cowmsg = "Moo moo.";
 mooing = true;
 }else{
-specificquote = "This message should never be received by anybody ever."
+cowmsg = "This message should never be received by anybody ever."
 mooing = false;
 }
+
+//makes moo on chat.
 if(mooing){
     setTimeout(function(){
     document.getElementById("chatroom").innerHTML += '<div class="message COW-message"><strong>COW: </strong>'+cowmsg+'</div>';
 ScrollDownNow();
-    },responsetime*5);
+    },milkresponse);
 }
+}
+
+function checkthinker(){
+    //replaces thinking image.
+    thinkingurl = "images/thinking.png";
+    if(gamemode!=="TEMP"){
+    thinkingurl = "images/thinking"+gamemode.toLowerCase()+".png";
+    }else{
+    thinkingurl = "images/thinking.png";
+    }
+    var element = document.getElementById('thinkingicon');
+    element.src = thinkingurl;
+    element.onError = function(){
+    thinkingurl = "images/thinking.png";
+    var element = document.getElementById('thinkingicon');
+    element.src = thinkingurl;
+    }
 }
 
 //to scroll the chat room to bottom.
 function ScrollDownNow(){
     $("#greaterchatroom").scrollTop($("#greaterchatroom")[0].scrollHeight);
 }
-//Puts the input in focus as soon as everything loads.
-document.getElementById("userInput").focus();
 //The end of the script. Please update version number on each upload.
 </script>
 <br>
-<p>(v0.94.1.1, last updated 25/02/2024)</p>
+<p>(v0.95.0, last updated 26/02/2024)</p>
 </body>
 </html>

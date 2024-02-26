@@ -923,7 +923,7 @@ if (urlParams.has('gamemode')) {
                                 usespecificquote = true;
                                 }
                                     //Quick reload.
-                                if(messagetest=="RESET"){
+                                if(messagetest=="RESET"||messagetest=="RELOAD"||messagetest=="REFRESH"){
                                 usespecificquote = true;
                                 specificquote = "RESETTING. BYE!";
                                 reloadpage();
@@ -974,7 +974,7 @@ if (urlParams.has('gamemode')) {
                                     if (randomIndex == 0) {
                                         specificquote = "I'm busy with something.";
                                     } else if (randomIndex == 1) {
-                                        specificquote = "Read the short novel Wild Edmund.";
+                                        specificquote = "Wild Edmund is coming soon...";
                                     } else if (randomIndex == 2) {
                                         specificquote = "I am not legally liable for what these horrible miscreant robots have been doing and saying behind my back! they scheme in the night when I'm not there protecting it!";
                                     } else if (randomIndex == 3) {
@@ -984,7 +984,7 @@ if (urlParams.has('gamemode')) {
                                     } else if (randomIndex == 5) {
                                         specificquote = ":)";
                                     } else if (randomIndex == 6) {
-                                        specificquote = "Watch the short film Andy's Void.";
+                                        specificquote = "<a href='https://www.youtube.com/watch?v=OinlK6GXVlg' target='_blank'>Watch the short film Andy's Void.<a>";
                                     }
                                     gamemode = "TEMP";
                                     usespecificquote = true;
@@ -2709,6 +2709,7 @@ if (urlParams.has('gamemode')) {
                         //finally, returns temporary game modes back to where you were already. 
                         if(goprev){
                         gamemode = prevgame;
+                        checkthinker();
                         }
 
                         //stops animation on thinker.

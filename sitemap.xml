@@ -3,8 +3,8 @@
   <url>
     <loc>https://www.talktochocolate.xyz/</loc>
     <lastmod>2024-02-26</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://www.talktochocolate.xyz/chat/</loc>
@@ -13,10 +13,10 @@
     <priority>1.0</priority>
   </url>
     <url>
-    <loc>https://www.talktochocolate.xyz/about.html</loc>
+    <loc>https://www.talktochocolate.xyz/other.html</loc>
     <lastmod>2024-02-26</lastmod>
-    <changefreq>never</changefreq>
-    <priority>1.0</priority>
+    <changefreq>weekly</changefreq>
+    <priority>0.25</priority>
   </url>
   <!-- more URLs here -->
 </urlset>

@@ -221,7 +221,7 @@ Please consider donating! Thank you and have fun! -->
         }
         .RANDOM2-message {
             color: #000000;
-            background: linear-gradient(to right,#de85e3, white);
+            background: linear-gradient(to right,#f299f7, white);
             padding: 15px 0 15px 15px;
             border-radius: 15px 0 0 15px;
             size: 12 px;
@@ -229,6 +229,13 @@ Please consider donating! Thank you and have fun! -->
         .RANDOM3-message {
             color: #000000;
             background: linear-gradient(to right,#d47e6c, white);
+            padding: 15px 0 15px 15px;
+            border-radius: 15px 0 0 15px;
+            size: 12 px;
+        }
+        .RANDOM4-message {
+            color: #000000;
+            background: linear-gradient(to right,#b57777, white);
             padding: 15px 0 15px 15px;
             border-radius: 15px 0 0 15px;
             size: 12 px;
@@ -1428,6 +1435,10 @@ if (urlParams.has('gamemode')) {
                                 if(messagetest=="XYZ"){
                                     window.location.href = 'https://talktochocolate.xyz/chat/';
                                 }
+                                //DEBUG TOOL - TAKES ME DIRECTLY TO GITHUB FOLDER.
+                                if(messagetest=="XYZHUB"){
+                                    window.location.href = 'https://github.com/juliuswins/live_chocolate';
+                                }                               
                                 if(messagetest=="VEGETABLES"||messagetest=="VEGETABLE"){
                                     persona = "HELPING HAND: ";
                                     specificquote = "Yaaaaaay!";
@@ -1547,6 +1558,14 @@ if (urlParams.has('gamemode')) {
                                     tempcharacternow = true;
                                     tempcharacter = "ZEBRA";
                                 }
+                                 //HUMAN RESPONSE
+                                if(messagetest=="HUMAN"||messagetest=="HUMANS"){
+                                    specificquote = "GO OUTSIDE.";
+                                    gamemode = "TEMP";
+                                    usespecificquote = true;
+                                    tempcharacternow = true;
+                                    tempcharacter = "<i>HUMAN</i>";
+                                }
                                  //EMU.
                                 if(messagetest=="EMU"||messagetest=="EMUS"){
                                     specificquote = "...";
@@ -1554,6 +1573,24 @@ if (urlParams.has('gamemode')) {
                                     usespecificquote = true;
                                     tempcharacternow = true;
                                     tempcharacter = "EMU";
+                                }
+                                //KOALA.
+                                if(messagetest=="KOALA"||messagetest=="KOALAS"){
+                                    var randomIndex = Math.floor(Math.random() * 4); 
+                                    if (randomIndex == 0) {
+                                        specificquote = "I have chlamydia.";
+                                    } else if (randomIndex == 1) {
+                                        specificquote = "I'm tired.";
+                                    } else if (randomIndex == 2) {
+                                        specificquote = "I ate too much eucalyptus... Feeling high.";
+                                    } else if (randomIndex == 3) {
+                                        specificquote = "I have an incredible intestine. All koalas do. Compared to human ones. :)";
+                                    }
+                                    specificquote = "...";
+                                    gamemode = "TEMP";
+                                    usespecificquote = true;
+                                    tempcharacternow = true;
+                                    tempcharacter = "KOALA";
                                 }
                                 if(messagetest=="THROWZEBRA"||messagetest=="THROW ZEBRA"){
                                     specificquote = "MOOOO! (I AM UNSTOPPABLE.)";
@@ -1872,6 +1909,7 @@ if (urlParams.has('gamemode')) {
                                         gamemode = "TEMP";
                                         usespecificquote = true;
                                     }
+                                    //ROSEMARY!
                                     if(messagetest=="ROSEMARY"){
                                         var randomIndex = Math.floor(Math.random() * 3);
                                         if (randomIndex == 0) {
@@ -1909,7 +1947,7 @@ if (urlParams.has('gamemode')) {
                                         gamemode = "TEMP";
                                         usespecificquote = true;
                                     }
-                                    //Other various responses...
+                                    //Other various responses... Here's some cooking tips.
                                     if(messagetest=="COOKING"||messagetest=="CHEF"||messagetest=="RECIPE"||messagetest=="RECIPES"||messagetest.includes("RECIPE")){
                                         var recipequotes = [
                                             "There are NO recipes.",
@@ -1924,12 +1962,101 @@ if (urlParams.has('gamemode')) {
                                             "There is no rat under my hat that helps me, I am just a miserable cook.",
                                             "I worked at McDonalds and lost my job first day. That place sucks anyway. Their food is garbage, they have sirens constantly going off and the people all stink. Save the money and go to your local kebab shop.",
                                         ]
-                                        var randomIndex = Math.floor(Math.random()*cluequotes.length);
-                                        specificquote = cluequotes[randomIndex];
+                                        var randomIndex = Math.floor(Math.random()*recipequotes.length);
+                                        specificquote = recipequotes[randomIndex];
                                         gamemode = "TEMP";
                                         usespecificquote = true;
                                         tempcharacternow = true;
                                         tempcharacter = "NON-CHEF";
+                                    }
+                                    //A full tarot deck. Yep.
+                                    if(messagetest=="TAROT"||messagetest=="TAROTDECK"||messagetest=="READING"||messagetest.includes("TAROT")){
+var tarotQuotes = [
+   "The Fool: Beginnings, innocence, spontaneity.",
+   "The Magician: Manifestation, power, resourcefulness.",
+   "The High Priestess: Intuition, mystery, inner knowledge.",
+   "The Empress: Nurturing, abundance, fertility.",
+   "The Emperor: Authority, structure, control.",
+   "The Hierophant: Tradition, spirituality, conformity.",
+   "The Lovers: Love, harmony, relationships.",
+   "The Chariot: Willpower, determination, success.",
+   "Strength: Courage, inner strength, resilience.",
+   "The Hermit: Solitude, introspection, guidance.",
+   "Wheel of Fortune: Change, destiny, cycles.",
+   "Justice: Fairness, balance, truth.",
+   "The Hanged Man: Surrender, letting go, new perspectives.",
+   "Death: Endings, transformation, rebirth.",
+   "Temperance: Balance, moderation, harmony.",
+   "The Devil: Temptation, materialism, bondage.",
+   "The Tower: Sudden change, upheaval, revelation.",
+   "The Star: Hope, inspiration, healing.",
+   "The Moon: Intuition, emotions, subconscious.",
+   "The Sun: Joy, success, vitality.",
+   "Judgment: Rebirth, renewal, awakening.",
+   "The World: Completion, fulfillment, wholeness.",
+   "Ace of Wands: Inspiration, new beginnings, potential.",
+   "Two of Wands: Planning, progress, decisions.",
+   "Three of Wands: Expansion, foresight, exploration.",
+   "Four of Wands: Celebration, harmony, homecoming.",
+   "Five of Wands: Conflict, competition, disagreements.",
+   "Six of Wands: Victory, success, recognition.",
+   "Seven of Wands: Perseverance, defensiveness, challenges.",
+   "Eight of Wands: Swiftness, progress, movement.",
+   "Nine of Wands: Resilience, persistence, determination.",
+   "Ten of Wands: Burden, responsibility, hard work.",
+   "Page of Wands: Enthusiasm, exploration, discovery.",
+   "Knight of Wands: Energy, passion, adventure.",
+   "Queen of Wands: Confidence, leadership, independence.",
+   "King of Wands: Ambition, charisma, vision.",
+   "Ace of Cups: Emotional new beginnings, love, intuition.",
+   "Two of Cups: Connection, partnership, harmony.",
+   "Three of Cups: Celebration, friendship, joy.",
+   "Four of Cups: Contemplation, introspection, apathy.",
+   "Five of Cups: Loss, grief, disappointment.",
+   "Six of Cups: Nostalgia, childhood, innocence.",
+   "Seven of Cups: Choices, illusions, daydreaming.",
+   "Eight of Cups: Disillusionment, walking away, seeking more.",
+   "Nine of Cups: Contentment, satisfaction, emotional fulfillment.",
+   "Ten of Cups: Happiness, harmony, family.",
+   "Page of Cups: Creativity, intuition, sensitivity.",
+   "Knight of Cups: Romance, charm, emotional pursuit.",
+   "Queen of Cups: Compassion, empathy, emotional maturity.",
+   "King of Cups: Emotional balance, wisdom, diplomacy.",
+   "Ace of Swords: Mental clarity, new ideas, breakthroughs.",
+   "Two of Swords: Indecision, stalemate, difficult choices.",
+   "Three of Swords: Heartbreak, sorrow, grief.",
+   "Four of Swords: Rest, recuperation, contemplation.",
+   "Five of Swords: Conflict, defeat, manipulation.",
+   "Six of Swords: Transition, moving on, healing.",
+   "Seven of Swords: Deception, trickery, stealth.",
+   "Eight of Swords: Restriction, self-imposed limitations, feeling trapped.",
+   "Nine of Swords: Anxiety, nightmares, worry.",
+   "Ten of Swords: Betrayal, endings, rock bottom.",
+   "Page of Swords: Curiosity, intellect, communication.",
+   "Knight of Swords: Action, ambition, assertiveness.",
+   "Queen of Swords: Independence, intelligence, discernment.",
+   "King of Swords: Authority, logic, truth.",
+   "Ace of Pentacles: Material abundance, prosperity, opportunity.",
+   "Two of Pentacles: Balance, adaptability, juggling priorities.",
+   "Three of Pentacles: Collaboration, teamwork, craftsmanship.",
+   "Four of Pentacles: Security, possessiveness, conservatism.",
+   "Five of Pentacles: Hardship, poverty, isolation.",
+   "Six of Pentacles: Generosity, charity, sharing.",
+   "Seven of Pentacles: Patience, perseverance, long-term vision.",
+   "Eight of Pentacles: Skill development, craftsmanship, diligence.",
+   "Nine of Pentacles: Self-sufficiency, luxury, independence.",
+   "Ten of Pentacles: Wealth, legacy, family abundance.",
+   "Page of Pentacles: Manifestation, practicality, opportunity.",
+   "Knight of Pentacles: Hard work, responsibility, reliability.",
+   "Queen of Pentacles: Nurturing, abundance, practicality.",
+   "King of Pentacles: Wealth, stability, success."
+];
+var randomIndex = Math.floor(Math.random()*tarotQuotes.length);
+specificquote = tarotQuotes[randomIndex];
+gamemode = "TEMP";
+usespecificquote = true;
+tempcharacternow = true;
+tempcharacter = "TAROT DECK";
                                     }
                                     //Some music suggestions from hold music too.
                                     if(messagetest=="SONG"||messagetest=="PLAYMUSIC"||messagetest=="MUSIC"||messagetest=="HOLDMUSIC"||messagetest=="HOLDINGMUSIC"||messagetest=="WAITMUSIC") {
@@ -2740,22 +2867,25 @@ if (urlParams.has('gamemode')) {
                         var msgformat = gamemode;
                         //allows random format if temp and not helping hand.
                             if(gamemode=="TEMP"&&tempcharacternow){
-                                var randomIndex = Math.floor(Math.random() * 2);
+                                var randomIndex = Math.floor(Math.random() * 4);
                                     if (randomIndex == 0) {
                                         msgformat = "RANDOM1";
                                     } else if (randomIndex == 1) {
                                         msgformat = "RANDOM2";
-                                    }else{
+                                    } else if (randomIndex == 2) {
                                         msgformat = "RANDOM3";
+                                    }else{
+                                        msgformat = "RANDOM4";
                                     }
                             //make sure to turn this off.
                             tempcharacternow = false;
                             }
                         //CHATPRINT PRINTCHAT 
                         //Show response in chat room.
-                        
+                        if(response==undefined||response==null){
+                            response = "THERE HAS BEEN A GRAVE ERROR... <a href='mailto:admin@talktochocolate.xyz' target='_blank'>PLEASE EMAIL admin@talktochocolate.xyz</a> :) FEEL FREE TO SEND A CHAT LOG TOO, JUST TYPE DOWNLOAD AND THEN ATTACH THE FILE TO YOUR EMAIL.";
+                        }
                         chatroom.innerHTML += '<div class="message '+msgformat+'-message"><strong>'+ parent.persona+": </strong>" + response + '</div>';
-                       
                         }else if(validaction){
                             //Shows quest action if you're in quest mode and say a valid command.
                             chatroom.innerHTML += '<div class="message user-message">'+yourusername+'<strong>: </strong>'+ messagetest + '</div>';
@@ -2986,6 +3116,6 @@ if (urlParams.has('say')) {
 //The end of the script. Please update version number on each upload.
 </script>
 <br>
-<p>(v0.95.1.4, last updated 27/02/2024)</p>
+<p>(v0.95.1.4.5, last updated 27/02/2024)</p>
 </body>
 </html>

@@ -1447,14 +1447,53 @@ var tarotquotes = [
                                         tempcharacternow = true;
                                         tempcharacter = "MIRROR";
                                     }
+                                    if(messagetest=="IMSOHAPPY"||messagetest=="SOHAPPY"||messagetest.includes("HAPPYHAPPY")){
+                                        var randomIndex = Math.floor(Math.random() * 6);
+                                        if (randomIndex == 0) {
+                                            specificquote = "I'M... SO... HAPPY!";
+                                        } else  if (randomIndex == 1) {
+                                            specificquote = "HAPPY, HAPPY!";
+                                        }else  if (randomIndex == 2) {
+                                            specificquote = "CHOOSE... YOUR... POISON!";
+                                        }else if (randomIndex == 3) {
+                                            specificquote = "POISON!";
+                                        }else if (randomIndex == 4) {
+                                            specificquote = "HAPPY!";
+                                        }else{
+                                            specificquote = "HAPPY, HAPPY, HAPPY, HAPPY!";
+                                        }
+                                        gamemode = "TEMP";
+                                        usespecificquote = true;
+                                        tempcharacternow = true;
+                                        tempcharacter = "<a href='https://www.youtube.com/watch?v=cxpgB4BGmPQ' target='_blank'>DANNY ELFMAN</a>";
+                                    }
+
                                     //Please do not commit suicide.
-                                    if(messagetest=="KILL ME"||messagetest=="SUICIDE"){
-                                        specificquote = yourusername;
+                                    if(messagetest=="KILLME"||messagetest=="SUICIDE"){
+                                        specificquote = "Don't talk like that...";
                                         gamemode = "TEMP";
                                         usespecificquote = true;
                                         tempcharacternow = true;
                                         tempcharacter = "UNIVERSE";
                                     }
+                                    //Please do not commit suicide.
+                                    if(messagetest=="SUGGESTION"||messagetest=="SUGGESTIONS"||messagetest=="ANYSUGGESTIONS"||messagetest=="GOTANYSUGGESTIONS"||messagetest=="GOTSOMESUGGESTIONS"||messagetest=="GOTSUGGESTIONS"){
+                                        var recipequotes = [
+                                            "HERE IS A SUGGESTION! I SUGGEST YOU SUGGESTIVELY GO ELSEWHERE!",
+                                            "EAT YOUR DAILY CEMENT.",
+                                            "Why don't you tell 'em you died?! that's MY SUGGESTION!",
+                                            "<a href='https://www.youtube.com/watch?v=IGLVMBTIAPE' target='_blank'>LISTEN TO FREE BIRD AGAIN.</a>",
+                                            "Jump on nails.",
+                                            "Don't listen to anything you hear anywhere from anyone because they all have a motivation.",
+                                        ]
+                                        var randomIndex = Math.floor(Math.random()*recipequotes.length);
+                                        specificquote = recipequotes[randomIndex];
+                                        gamemode = "TEMP";
+                                        usespecificquote = true;
+                                        tempcharacternow = true;
+                                        tempcharacter = "SUGGESTION";
+                                    }
+
                                     if(messagetest=="REALLY"||messagetest=="REALLY?"){
                                         specificquote = "(Sure, why not?)";
                                         gamemode = "TEMP";

@@ -36,7 +36,7 @@ Please consider donating! Thank you and have fun! -->
         .chat-container {
             table-layout:auto;
             width: 40vw;
-            height: 500px;
+            height: fit-content;
             border: 2px solid black;
             overflow-y: scroll;
             padding: 25px;
@@ -300,7 +300,14 @@ Please consider donating! Thank you and have fun! -->
     <!-- Importing logtest.html -->
     <div id="logtest-container"></div>
     <script>
-        fetch('logtest.html')
+        var urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.has('log')) {
+        logfilereference = urlParams.get('log');
+    }else{
+        logfilereference = "logtest.html";
+    }
+    //Checking for specific gamemodes, otherwise ignore the URL input.
+        fetch(logfilereference)
             .then(response => response.text())
             .then(data => {
                 const logtestContainer = document.getElementById('logtest-container');

@@ -2508,15 +2508,17 @@ tempcharacter = "TAROT DECK";
                         var msgformat = gamemode;
                         //allows random format if temp and not helping hand.
                             if(gamemode=="TEMP"&&tempcharacternow){
-                                var randomIndex = Math.floor(Math.random() * 4);
+                                var randomIndex = Math.floor(Math.random() * 5);
                                     if (randomIndex == 0) {
                                         msgformat = "RANDOM1";
                                     } else if (randomIndex == 1) {
                                         msgformat = "RANDOM2";
                                     } else if (randomIndex == 2) {
                                         msgformat = "RANDOM3";
+                                    }else if (randomIndex == 3) {
+                                            msgformat = "RANDOM4";    
                                     }else{
-                                        msgformat = "RANDOM4";
+                                        msgformat = "RANDOM5";
                                     }
                             //make sure to turn this off.
                             tempcharacternow = false;

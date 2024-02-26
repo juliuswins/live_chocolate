@@ -12,7 +12,7 @@ Please consider donating! Thank you and have fun! -->
     <link rel="canonical" href="https://www.talktochocolate.xyz/chat/" />
     <link rel="stylesheet" type="text/css" href="../../styles.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<style>
+    <style>
         /* Existing styles */
         body {
             text-transform: uppercase;
@@ -33,10 +33,16 @@ Please consider donating! Thank you and have fun! -->
              text-transform: uppercase;
         }
         
+        .dice{
+            width:5vw;
+            height:5vw;
+            border-radius:20px;
+        }
+
         .chat-container {
             table-layout:auto;
             width: 40vw;
-            height: fit-content;
+            height: 500px;
             border: 2px solid black;
             overflow-y: scroll;
             padding: 25px;
@@ -61,25 +67,25 @@ Please consider donating! Thank you and have fun! -->
             margin-left: 15px;
             transition: all 0.3s ease; /* Added */
         }
-        /* set thinking icon. */
+        /* set thinking icon. with animation.*/
         #thinking-chat {
             display: none;
             text-align: right;
-            animation: fade 0.75s infinite;
+            animation: fade 0.5s infinite;
         }
         /* make it animate fade. */
         @keyframes fade {
             0% {
-                opacity: 0;
+                opacity: 1;
             }
             50% {
-                opacity: 1;
+                opacity: 0;
             }
             60% {
-                opacity: 1;
+                opacity: 0;
             }
             100% {
-                opacity: 0;
+                opacity: 1;
             }
         }
 
@@ -115,6 +121,7 @@ Please consider donating! Thank you and have fun! -->
             border-radius: 15px 0 0 15px;
             size: 12 px;
         }
+
         .COW-message {
             color: #3e0909;
             background: linear-gradient(to right, #b96464 25%, white 90%);
@@ -130,6 +137,7 @@ Please consider donating! Thank you and have fun! -->
             border-radius: 15px 0 0 15px;
             size: 12 px;
         }
+
         .DOWNLOAD-message {
             color: #000000;
             background: linear-gradient(to right, #ffc46c 25%, white 95%);
@@ -137,6 +145,7 @@ Please consider donating! Thank you and have fun! -->
             border-radius: 15px 0 0 15px;
             size: 12 px;
         }
+
         .CHOC-message {
             color: #2b1906;
             background: linear-gradient(to right, #876B63 40%, white);
@@ -148,6 +157,14 @@ Please consider donating! Thank you and have fun! -->
         .PISSED-message {
             color: #410101;
             background: linear-gradient(to right, #ce5736 20%, white);
+            padding: 15px 0 15px 15px;
+            border-radius: 15px 0 0 15px;
+            size: 12 px;
+        }
+
+        .SADGIRL-message {
+            color: #0e014a;
+            background: linear-gradient(to right, #b18bff 0%, rgb(255, 255, 255));
             padding: 15px 0 15px 15px;
             border-radius: 15px 0 0 15px;
             size: 12 px;
@@ -177,6 +194,14 @@ Please consider donating! Thank you and have fun! -->
             size: 12 px;
         }
 
+        .TIMER-message {
+            color: #000000;
+            background: linear-gradient(to right, #31943c, white);
+            padding: 15px 0 15px 15px;
+            border-radius: 15px 0 0 15px;
+            size: 12 px;
+        }
+        
         .TEMP-message {
             color: #000000;
             background: linear-gradient(to right, #baffc2, white);
@@ -186,8 +211,22 @@ Please consider donating! Thank you and have fun! -->
         }
         
         .RANDOM1-message {
-            color: #006eff;
-            background: linear-gradient(to right,#eac342, white);
+            color: #000000;
+            background: linear-gradient(to right,#85cae3, white);
+            padding: 15px 0 15px 15px;
+            border-radius: 15px 0 0 15px;
+            size: 12 px;
+        }
+        .RANDOM2-message {
+            color: #000000;
+            background: linear-gradient(to right,#de85e3, white);
+            padding: 15px 0 15px 15px;
+            border-radius: 15px 0 0 15px;
+            size: 12 px;
+        }
+        .RANDOM3-message {
+            color: #000000;
+            background: linear-gradient(to right,#d47e6c, white);
             padding: 15px 0 15px 15px;
             border-radius: 15px 0 0 15px;
             size: 12 px;
@@ -290,10 +329,6 @@ Please consider donating! Thank you and have fun! -->
         <iframe src="../../sidebar.html" id="sidebar" frameborder="0">
         </iframe>
     </div>
-    <br>
-    <div>
-
-    </div class='chat-container'>
 <div class="chat-container">
     <!-- Your existing code here -->
 
@@ -306,17 +341,34 @@ Please consider donating! Thank you and have fun! -->
     }else{
         logfilereference = "logtest.html";
     }
-    //Checking for specific gamemodes, otherwise ignore the URL input.
-        fetch(logfilereference)
-            .then(response => response.text())
-            .then(data => {
-                const logtestContainer = document.getElementById('logtest-container');
-                logtestContainer.innerHTML = data;
-            });
+
+    Importlog();
+
+    function Importlog(){
+    fetch(logfilereference)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.text();
+        })
+        .then(data => {
+            const logtestContainer = document.getElementById('logtest-container');
+            logtestContainer.innerHTML = data;
+        })
+        .catch(error => {
+            console.error('There has been a problem with your fetch operation:', error);
+            fetch('logtest.html')
+                .then(response => response.text())
+                .then(data => {
+                    const logtestContainer = document.getElementById('logtest-container');
+                    logtestContainer.innerHTML = data;
+                });
+        });
+}
+
     </script>
 </div>
-        
-    </iframe>
     </div>
 </div>
 </body>

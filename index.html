@@ -13,42 +13,47 @@
             flex-direction: column; /* Change flex-direction to row */
             justify-content: center;
             align-items: center;
-            height: 100vh;
             background-color: black;
             font-family: Verdana, sans-serif;
             color: #D2691E;
             size: 10px;
             text-align: center;
             background-color: black;
-            /* Old tile wrap.     background: linear-gradient(to right,white 0%, rgba(0, 0, 0, 0) 40%), url(images/choc_tile.jpg); */
-            background-repeat: repeat;
             overflow: hidden; /* Add this line to prevent scrolling */
-            
         }
         
+        infobox {
+        color: #D2691E;
+        size: 10px;
+        background-color: white;
+        }
+        
+        h1 {
+            size:20px;
+            margin-bottom: 20px;
+        }
+
         h2 {
-            size:25px;
+            size:15px;
             margin-bottom: 20px;
         }
         
         .welcoming {
-            position:fixed;
+            width: auto;
+            height: auto;
             font-size: 16px;
+            font-weight: 100;
             letter-spacing: 0.9px;
-            padding: 25px;
             border-radius: 25px;
-            margin-left: -5%;
             background-color: black;
             text-align: center;
             object-position: center;
         }
 
         .welcomeimage{
-            width: 50vw;
-            height: 35vw;
+            width: auto;
+            height: 60vh;
             border-radius:5vw;
-            margin-left: 0px;
-            margin-top: 0px;
             padding: 0px;
         }
         
@@ -58,9 +63,15 @@
     <div class="sidebar">
         <iframe src="sidebar.html" id="sidebar" frameborder="0"></iframe>
     </div>
-    <p></p>
-    <div class='welcoming'><a href="chat/index.html">
-        <img src="images/welcome.png" alt="Welcome Image" class="welcomeimage">
+    <br>
+    <div class='welcoming'>
+    <p><a href="chat/index.html">
+    <img src="images/welcome.png" alt="Welcome!" class="welcomeimage">
+    </a></p>
+    </div>
+    <div class="infobox">
+    <h1>Welcome to TALKTOCHOCOLATE.XYZ!</h1>
+    <h2></h2>
     </div>
 </body>
 </html>

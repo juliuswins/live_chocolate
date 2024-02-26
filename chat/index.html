@@ -7,7 +7,7 @@ Everything has one word to get the response required.
 
 Please consider donating! Thank you and have fun! -->
     <meta charset="utf-8">
-    <meta name="description" content="Talk to Chocolate: A chat game to find conversations like literally zero other!">
+    <meta name="description" content="Talk to Chocolate: A chat game to find conversations beyond what you know!">
     <title>TALK TO CHOCOLATE - CHATROOM</title>
     <link rel="canonical" href="https://www.talktochocolate.xyz/chat/" />
     <link rel="stylesheet" type="text/css" href="../styles.css">
@@ -107,6 +107,7 @@ Please consider donating! Thank you and have fun! -->
             border-radius: 15px 0 0 15px;
             size: 12 px;
         }
+
         .MUSIC-message {
             color: #000000;
             background: linear-gradient(to right, #80a960 25%, white 90%);
@@ -305,11 +306,11 @@ Please consider donating! Thank you and have fun! -->
 //responsetime is the delay between your message and the response.
      var responsetime = 750;
      var beginsend = false;
-    //we're going to make it a random chance that you can be a different character.
-    var randomIndex = Math.floor(Math.random() * 10); 
-    if (randomIndex == 0) {
-        var gamemode = "WHITE";
-      var persona = "WHITE CHOCOLATE: ";
+    //Random chance that you start with CHEESE, WHITE CHOCOLATE or FUTURE on first load, instead of CHOCOLATE.
+var randomIndex = Math.floor(Math.random() * 10);
+if (randomIndex == 0) {
+    var gamemode = "WHITE";
+    var persona = "WHITE CHOCOLATE: ";
 } else if (randomIndex == 1){
       var gamemode = "CHEESE";
       var persona = "CHEESE: ";       
@@ -319,12 +320,17 @@ Please consider donating! Thank you and have fun! -->
 }else{    
     var gamemode = "CHOC";
     var persona = "CHOCOLATE: ";
-    }
- //counts are your progress of how many times you've spoken to each character.
-    var yourroll = 0;
+}
+//Override: 
+
+    //set some special conditions.
     var welcomed = false;
     var milkmode = false;
+
+    //last coin flip. useful for quests maybe?
     var isitheads = false;
+
+    //counts are your progress of how many times you've spoken to each character.
     var countchoc = 0;
     var countpissed = 0;
     var countwhitechoc = 0;
@@ -333,6 +339,8 @@ Please consider donating! Thank you and have fun! -->
     var countdevil = 0;
     var countholding = 0;
     var countaugust = 0;
+    var yourroll = 0;
+    //
     var playingsongnow = false;
     var askedformusic = false;
     var usespecificquote = false;
@@ -412,7 +420,7 @@ Please consider donating! Thank you and have fun! -->
                 ]
             //the future...
                var futureresponses = [
-                "Welcome to the future chat! You are within the mystic, the unknown - the infinite chance, where some believe the universe speaks. To you, these may be coincidences. Each person has their level of what they're willing to believe... but you can talk to me, and I'll see what I can find. (Maybe think about your intentions or what you're reflecting on in your life)",                               
+                "Welcome to the future chat! You are within the mystic, the unknown. What are you thinking about lately?",                               
                 "I'm feeling a lot of good luck... Like the Wheel of Fortune is spinning in your favour.",
                 "I found the skin of a snake. It represents REBIRTH!",
                 "You are drowning in your feelings like a fool swimming in his own cup!",
@@ -420,7 +428,7 @@ Please consider donating! Thank you and have fun! -->
                 "the headlines are here... it says 'PAIN IMMINENT'!",
                 "Am I feeling peaceful or is that you?",
                 "When you think about it, does it occur more, or do you just notice it more?",
-                "I predict that every nation's economy will collapse imminently! Just kidding but there may be some money struggles.",
+                "I predict every nation's economy will collapse imminently! Just kidding. But yeah... Money gets tight.",
                 "I feel free, it's how you should be.",
                 "You're thinking too much about it. Enjoy yourself!",
                 "Let's see some planning of what you're up to next?",
@@ -431,15 +439,17 @@ Please consider donating! Thank you and have fun! -->
                 "Your life seems a little boring.",
                 "How's the family going?",
                 "Life is suffering.",
-                "There's a greater meaning for you to find, and for me to rub in your face without telling you.",
-                "Blank state.",
+                "Remember that there are moments in time that make you feel like the world is making something just for you.",
+                "There's a greater meaning for you to find, and for me to allude to without telling you.",
+                "Blank. I feel blank right now about this.",
                 "Time for generosity. Either that, or bleak disappointment.",
                 "Does your soul need a hug?",
+                "It all gets random, chaotic, difficult to interpret.",
                 "It ain't gonna stop just yet.",
                 "This isn't going anywhere. Promptly take 10 grams of mushrooms.",
                 "Better days ahead.",
-                "Your fate should be in your hands.",
-                "Patience.",
+                "Your fate belongs in your own hands.",
+                "Patience is always important.",
                 ]
             //cheese???
                 var cheeseresponses = [
@@ -471,7 +481,18 @@ Please consider donating! Thank you and have fun! -->
                 "If you are waiting for a while, there's a dice, there's a coin, there's a ghost, you can check wall street, you can play... uhhh... I don't know how much of that I was meant to say.",
                 "....Blip. Our representatives are not able to accurately represent themselves right now, but please stay present in presenting your presence in this official representation of awaitment.",
                 ]
-             //pissed mode chocolate.
+          //sad character responses.
+           var sadgirlresponses = [
+                "...I was thinking something... But forget about it. It's not important.",
+                "Oh, okay...",
+                "Nobody loves me...",
+                "I'm not feeling very good right now.",
+                "But nobody cares about what I think...",
+                "Nobody tells me anything.",
+                "People tell me I'm a bummer to be around.",
+                "I wish I had more friends.",
+            ]
+             //pissed mode chocolate responses.
                 var pissedresponses = [
                 "OH YEAH? FUCK YOU!",
                 "YOU DONKEY PISS!",
@@ -485,9 +506,9 @@ Please consider donating! Thank you and have fun! -->
                 ]
              //AUGUSTUS mode.
              var augustresponses = [
-                "So, you have chosen to seek more from me? Well, perhaps I could tell you a tale. Maybe it will provide some use on your quest.",
-                "The memories are fragmented... I hope you can appreciate where I am coming from.",
-                "I was walking past a tree and found three frogs on the ground.",
+                "I have to go soon, but do you know the code word?",
+                "Are you who I was told to meet by the docks?",
+                "",
                 "I ran for my life. Danger was setting in.",
                 "Stuck in a cage, surrounded by an unruly mob.",
                 ]
@@ -543,9 +564,7 @@ Please consider donating! Thank you and have fun! -->
                 //pissed version of chocolate. first one isn't shuffled.
                 responseshuffle = pissedresponses.slice(1).sort(() => Math.random() - 0.5);
                 pissedresponses = [pissedresponses[0], ...responseshuffle];
-                //shuffling augustus, first one not shuffled.
-                responseshuffle = augustresponses.slice(1).sort(() => Math.random() - 0.5);
-                augustresponses = [responseshuffle[0], ...responseshuffle];
+                //Augustus is not shuffled.
 
                 //This functions anytime enter or send is pressed.
             function sendMessage() {
@@ -605,6 +624,9 @@ Please consider donating! Thank you and have fun! -->
                     }
                     if(messagetest=="WHITE CHOCOLATE"){
                         yourusername = "WHITE GUILT";
+                    }
+                    if(messagetest=="DEPRESSED GIRL"){
+                        yourusername = "LOSER FOOL";
                     }
                     if(messagetest=="BLACK CHOCOLATE"){
                         yourusername = "I DON'T EXIST!!! I REALLY DO NOT EXIST!!!";
@@ -684,6 +706,8 @@ Please consider donating! Thank you and have fun! -->
                             specificquote = "WIP... Activates QUEST MODE."; 
                     }else if(prevgame=="TEMP"){
                             specificquote = "(YOU WERE JUST TALKING TO A TEMPORARY CHARACTER, OR THE HELPING HAND).";  
+                    }else if(prevgame=="SADGIRL"){
+                        specificquote = "DEPRESSED GIRL / Why can't she be happy?";  
                     }else{
                      specificquote = "NO BIO AVAILABLE.";
                     }
@@ -695,6 +719,12 @@ Please consider donating! Thank you and have fun! -->
                     if(messagetest=="WHITE" || messagetest=="WHITECHOC"|| messagetest=="WHITE CHOCOLATE"|| messagetest=="WHITECHOCOLATE") {
                         gamemode = "WHITE";
                         persona = "WHITE: ";
+                    }
+
+                    //Check to change to sadgirl.
+                    if(messagetest=="DEPRESSION" ||messagetest=="DEPRESSEDGIRL" ||messagetest=="SAD GIRL" ||messagetest=="SADGIRL" || messagetest=="SAD"|| messagetest=="DEPRESSED"|| messagetest=="DEPRESSED GIRL") {
+                        gamemode = "SADGIRL";
+                        persona = "DEPRESSION: ";
                     }
                     //Checking achievements... to be added.
                         if(messagetest=="ACHIEVEMENTS"){
@@ -862,7 +892,6 @@ Please consider donating! Thank you and have fun! -->
                                 }
 
                                 //Check to activate Augustus.
-                                /* AUGUSTUS CHARACTER.
                                 if(messagetest=="AUGUSTUS"){
                                     gamemode = "AUGUSTUS";
                                 }
@@ -871,11 +900,11 @@ Please consider donating! Thank you and have fun! -->
                                     usespecificquote = true;
                                     specificquote = "August? ...August? IT'S AUGUSTUS!";                       
                                 }
-                                 */
+
                                 if(messagetest=="ABOUT"){
                                     usespecificquote = true;
                                     gamemode = "TEMP";
-                                    var randomIndex = Math.floor(Math.random() * 7); 
+                                    var randomIndex = Math.floor(Math.random() * 9); 
                                     if (randomIndex == 0) {
                                         extraquote = "It is full of many ONE WORD codes to help you when you're in an EMERGENCY. ;)";
                                     } else if (randomIndex == 1) {
@@ -883,15 +912,17 @@ Please consider donating! Thank you and have fun! -->
                                     } else if (randomIndex == 2) {
                                         extraquote = "It even has a COIN you can FLIP, and a D6 dice! ;)";
                                     } else if (randomIndex == 3) {
-                                        extraquote = "It wants you to put your card details into the input box. Just kidding. I mean, you can if you want, I won't save it. But maybe you shouldn't. You should just donate instead, because you have too much money and you are a greedy person, people have been saying you need to be more generous.";
+                                        extraquote = "It wants you to put your card details into the input box. Just kidding. I mean, you can if you want, I won't save it. Nah, you should be more careful than that.";
                                     } else if (randomIndex == 4) {
                                         extraquote = "It was created for the sole purpose of mocking you, and everything else.";
                                     } else if (randomIndex == 5) {
                                         extraquote = "If it offends you, that is probably because of how lame you are. It's not my fault you're a loser.";
                                     } else if (randomIndex == 6) {
-                                        extraquote = "I wouldn't take it seriously. But I would try a few random words out with it! For example, Orange.";
-                                    }  else{
-                                        extraquote = "This is a partially randomized message and it brings you good luck.";
+                                        extraquote = "I wouldn't take it seriously. But I would try a few random words out with it! For example, Orange, or RANDOM.";
+                                    } else if (randomIndex == 7) {
+                                        extraquote = "It can solve your entire life, if you give it the chance to. Don't be silly, think of your future ;)";
+                                    }else if (randomIndex == 8) {
+                                        extraquote = "Stay golden, think smart about your words, and do not acknowledge the flesh wall.";
                                     }
                                     specificquote = "Chocolate is the most advanced chat program ever, started in 2024. "+extraquote;
                                     tempcharacternow = true;
@@ -1279,6 +1310,12 @@ Please consider donating! Thank you and have fun! -->
                                     usespecificquote = true;
                                     tempcharacternow = true;
                                     tempcharacter = "VEGETABLES: ";
+                                }
+                                if(messagetest=="FEEDBACK"||messagetest=="EMAIL"){
+                                    persona = "HELPING HAND: ";
+                                    specificquote = "You can email <a href='mailto:admin@talktochocolate.xyz' target='_blank'>admin@talktochocolate.xyz</a> for feedback. Feel free to type download and then attach the downloaded chat log file to your email.";
+                                    gamemode = "TEMP";
+                                    usespecificquote = true;
                                 }
                                 if(messagetest=="FRUIT"){
                                     persona = "HELPING HAND: ";
@@ -1711,7 +1748,6 @@ Please consider donating! Thank you and have fun! -->
                                     }
 
                         /*
-
 
                             if(gamemode=="QUEST"){
                                 //Makes quest response blank at first. If it isn't replaced, nothing should happen.
@@ -2165,7 +2201,7 @@ Please consider donating! Thank you and have fun! -->
                                     if(messagetest=="FUCK YOU"||messagetest=="FUCKYOU"||messagetest=="FUCKYA"||messagetest=="FUCK YOU!"||messagetest=="FUCK YOU."){
                                         usespecificquote = true;
                                         specificquote = "BAD KARMA.";
-                                        prevgame = "HOLDLINE";
+                                        prevgame = "DEVIL";
                                         goprev = true;
                                     }
                                     if(messagetest=="SORRY" || messagetest=="I AM SORRY"|| messagetest=="I'M SORRY") {
@@ -2233,10 +2269,14 @@ Please consider donating! Thank you and have fun! -->
                                     }
                                     if(messagetest=="FUCK YOU"||messagetest=="FUCKYOU"||messagetest=="FUCKYA"||messagetest=="FUCK YOU!"||messagetest=="FUCK YOU."){
                                         usespecificquote = true;
-                                        specificquote = "Very rude. No wonder nobody wants to talk to you.";
+                                        specificquote = "Very rude... No wonder nobody wants to talk to you.";
                                     }
                                 }
                                 check = true;
+                                //Augustus is looking for code words.
+                                if(gamemode=="AUGUSTUS"){
+
+                                }
                 }else{
                     failure = true;
                     check = true;
@@ -2626,6 +2666,6 @@ document.getElementById("userInput").focus();
 //The end of the script. Please update version number on each upload.
 </script>
 <br>
-<p>(v0.94.1, last updated 26/02/2024)</p>
+<p>(v0.94.1.1, last updated 25/02/2024)</p>
 </body>
 </html>

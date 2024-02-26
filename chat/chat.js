@@ -2742,8 +2742,8 @@ var messageElement = document.querySelector('.message'); // replace '.message' w
 var chatroomElements = document.querySelectorAll('.chat-container');
 var style = window.getComputedStyle(messageElement);
 var allstyle = style.cssText;
-var downloadtitle = toUpperCase(allstyle+"<div class='TEMP-message'><p><h1>TALK TO CHOCOLATE / CHAT LOG " +currenttime+"</h1></p><br></div>");
-let contentWithDiv = '<div id:"chat-container">'+downloadtitle + chatroomContent+"<br><p>END OF CHAT.</p>";
+var downloadtitle = (allstyle+"<div class='TEMP-message'><p><h1>TALK TO CHOCOLATE / CHAT LOG " +currenttime+"</h1></p><br></div>").toUpperCase();
+let contentWithDiv = '<div id:"chat-container">'+downloadtitle + chatroomContent+"<br><p>END OF CHAT.</p>";var downloadtitle = allstyle+"<div class='TEMP-message'><p><h1>"+("TALK TO CHOCOLATE / CHAT LOG " +currenttime).toUpperCase()+"</h1></p><br></div>";
 // Create a Blob with the chatroom content
 let file = new Blob([contentWithDiv], {type: 'text/html'});
 var downloadfilepath = URL.createObjectURL(file);
@@ -2766,7 +2766,7 @@ a.click();
 document.body.removeChild(a);
 
 //Notify user of download.
-document.getElementById("chatroom").innerHTML += '<div class="message DOWNLOAD-message"><strong>DOWNLOADING CONVERSATION LOG:</strong></div><br><a href="'+downloadfilepath+'" target="_blank">'+finalfilename+'</a></div>';
+document.getElementById("chatroom").innerHTML += '<div class="message DOWNLOAD-message"><strong>DOWNLOADING CONVERSATION LOG:</strong><br><a href="'+downloadfilepath+'" target="_blank">'+finalfilename+'</a></div>';
 ScrollDownNow();
 }
 

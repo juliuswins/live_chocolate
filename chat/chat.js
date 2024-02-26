@@ -9,6 +9,7 @@ var responsetime = 1000;
 var milkresponse = 5000;
 var beginsend = false;
 var helpinghelp = false;
+var tarotreversed = true;
 //Random chance that you start with CHEESE, WHITE CHOCOLATE or FUTURE on first load, instead of CHOCOLATE.
 var randomIndex = Math.floor(Math.random() * 20);
 if (randomIndex == 0) {
@@ -90,6 +91,7 @@ if (urlParams.has('gamemode')) {
     var countholding = 0;
     var countaugust = 0;
     var countsadgirl = 0;
+    var tarotcount = 0;
     var yourroll = 0;
 
     //define which thinking image is being used URL.
@@ -330,6 +332,89 @@ if (urlParams.has('gamemode')) {
                 pissedresponses = [pissedresponses[0], ...responseshuffle];
                 //Augustus is not shuffled.
 
+//tarot shuffle.
+var tarotquotes = [
+    "The Fool: Beginnings, innocence, spontaneity.",
+    "The Magician: Manifestation, power, resourcefulness.",
+    "The High Priestess: Intuition, mystery, inner knowledge.",
+    "The Empress: Nurturing, abundance, fertility.",
+    "The Emperor: Authority, structure, control.",
+    "The Hierophant: Tradition, spirituality, conformity.",
+    "The Lovers: Love, harmony, relationships.",
+    "The Chariot: Willpower, determination, success.",
+    "Strength: Courage, inner strength, resilience.",
+    "The Hermit: Solitude, introspection, guidance.",
+    "Wheel of Fortune: Change, destiny, cycles.",
+    "Justice: Fairness, balance, truth.",
+    "The Hanged Man: Surrender, letting go, new perspectives.",
+    "Death: Endings, transformation, rebirth.",
+    "Temperance: Balance, moderation, harmony.",
+    "The Devil: Temptation, materialism, bondage.",
+    "The Tower: Sudden change, upheaval, revelation.",
+    "The Star: Hope, inspiration, healing.",
+    "The Moon: Intuition, emotions, subconscious.",
+    "The Sun: Joy, success, vitality.",
+    "Judgment: Rebirth, renewal, awakening.",
+    "The World: Completion, fulfillment, wholeness.",
+    "Ace of Wands: Inspiration, new beginnings, potential.",
+    "Two of Wands: Planning, progress, decisions.",
+    "Three of Wands: Expansion, foresight, exploration.",
+    "Four of Wands: Celebration, harmony, homecoming.",
+    "Five of Wands: Conflict, competition, disagreements.",
+    "Six of Wands: Victory, success, recognition.",
+    "Seven of Wands: Perseverance, defensiveness, challenges.",
+    "Eight of Wands: Swiftness, progress, movement.",
+    "Nine of Wands: Resilience, persistence, determination.",
+    "Ten of Wands: Burden, responsibility, hard work.",
+    "Page of Wands: Enthusiasm, exploration, discovery.",
+    "Knight of Wands: Energy, passion, adventure.",
+    "Queen of Wands: Confidence, leadership, independence.",
+    "King of Wands: Ambition, charisma, vision.",
+    "Ace of Cups: Emotional new beginnings, love, intuition.",
+    "Two of Cups: Connection, partnership, harmony.",
+    "Three of Cups: Celebration, friendship, joy.",
+    "Four of Cups: Contemplation, introspection, apathy.",
+    "Five of Cups: Loss, grief, disappointment.",
+    "Six of Cups: Nostalgia, childhood, innocence.",
+    "Seven of Cups: Choices, illusions, daydreaming.",
+    "Eight of Cups: Disillusionment, walking away, seeking more.",
+    "Nine of Cups: Contentment, satisfaction, emotional fulfillment.",
+    "Ten of Cups: Happiness, harmony, family.",
+    "Page of Cups: Creativity, intuition, sensitivity.",
+    "Knight of Cups: Romance, charm, emotional pursuit.",
+    "Queen of Cups: Compassion, empathy, emotional maturity.",
+    "King of Cups: Emotional balance, wisdom, diplomacy.",
+    "Ace of Swords: Mental clarity, new ideas, breakthroughs.",
+    "Two of Swords: Indecision, stalemate, difficult choices.",
+    "Three of Swords: Heartbreak, sorrow, grief.",
+    "Four of Swords: Rest, recuperation, contemplation.",
+    "Five of Swords: Conflict, defeat, manipulation.",
+    "Six of Swords: Transition, moving on, healing.",
+    "Seven of Swords: Deception, trickery, stealth.",
+    "Eight of Swords: Restriction, self-imposed limitations, feeling trapped.",
+    "Nine of Swords: Anxiety, nightmares, worry.",
+    "Ten of Swords: Betrayal, endings, rock bottom.",
+    "Page of Swords: Curiosity, intellect, communication.",
+    "Knight of Swords: Action, ambition, assertiveness.",
+    "Queen of Swords: Independence, intelligence, discernment.",
+    "King of Swords: Authority, logic, truth.",
+    "Ace of Pentacles: Material abundance, prosperity, opportunity.",
+    "Two of Pentacles: Balance, adaptability, juggling priorities.",
+    "Three of Pentacles: Collaboration, teamwork, craftsmanship.",
+    "Four of Pentacles: Security, possessiveness, conservatism.",
+    "Five of Pentacles: Hardship, poverty, isolation.",
+    "Six of Pentacles: Generosity, charity, sharing.",
+    "Seven of Pentacles: Patience, perseverance, long-term vision.",
+    "Eight of Pentacles: Skill development, craftsmanship, diligence.",
+    "Nine of Pentacles: Self-sufficiency, luxury, independence.",
+    "Ten of Pentacles: Wealth, legacy, family abundance.",
+    "Page of Pentacles: Manifestation, practicality, opportunity.",
+    "Knight of Pentacles: Hard work, responsibility, reliability.",
+    "Queen of Pentacles: Nurturing, abundance, practicality.",
+    "King of Pentacles: Wealth, stability, success."
+ ];
+ responseshuffle = tarotquotes.sort(() => Math.random() - 0.5);
+ tarotquotes = responseshuffle;
                 //Show thinker.
                 document.getElementById("thinking-chat").style.display = "block";
                 //This functions anytime enter or send is pressed.
@@ -1550,6 +1635,7 @@ if (urlParams.has('gamemode')) {
                                         gamemode = "TEMP";
                                         usespecificquote = true;
                                     }
+
                                     //ROSEMARY!
                                     if(messagetest=="ROSEMARY"){
                                         var randomIndex = Math.floor(Math.random() * 3);
@@ -1588,6 +1674,7 @@ if (urlParams.has('gamemode')) {
                                         gamemode = "TEMP";
                                         usespecificquote = true;
                                     }
+
                                     //Other various responses... Here's some cooking tips.
                                     if(messagetest=="COOKING"||messagetest=="CHEF"||messagetest=="RECIPE"||messagetest=="RECIPES"||messagetest.includes("RECIPE")){
                                         var recipequotes = [
@@ -1610,95 +1697,45 @@ if (urlParams.has('gamemode')) {
                                         tempcharacternow = true;
                                         tempcharacter = "NON-CHEF";
                                     }
+
                                     //A full tarot deck. Yep.
-                                    if(messagetest=="TAROT"||messagetest=="TAROTDECK"||messagetest=="READING"||messagetest.includes("TAROT")){
-var tarotQuotes = [
-   "The Fool: Beginnings, innocence, spontaneity.",
-   "The Magician: Manifestation, power, resourcefulness.",
-   "The High Priestess: Intuition, mystery, inner knowledge.",
-   "The Empress: Nurturing, abundance, fertility.",
-   "The Emperor: Authority, structure, control.",
-   "The Hierophant: Tradition, spirituality, conformity.",
-   "The Lovers: Love, harmony, relationships.",
-   "The Chariot: Willpower, determination, success.",
-   "Strength: Courage, inner strength, resilience.",
-   "The Hermit: Solitude, introspection, guidance.",
-   "Wheel of Fortune: Change, destiny, cycles.",
-   "Justice: Fairness, balance, truth.",
-   "The Hanged Man: Surrender, letting go, new perspectives.",
-   "Death: Endings, transformation, rebirth.",
-   "Temperance: Balance, moderation, harmony.",
-   "The Devil: Temptation, materialism, bondage.",
-   "The Tower: Sudden change, upheaval, revelation.",
-   "The Star: Hope, inspiration, healing.",
-   "The Moon: Intuition, emotions, subconscious.",
-   "The Sun: Joy, success, vitality.",
-   "Judgment: Rebirth, renewal, awakening.",
-   "The World: Completion, fulfillment, wholeness.",
-   "Ace of Wands: Inspiration, new beginnings, potential.",
-   "Two of Wands: Planning, progress, decisions.",
-   "Three of Wands: Expansion, foresight, exploration.",
-   "Four of Wands: Celebration, harmony, homecoming.",
-   "Five of Wands: Conflict, competition, disagreements.",
-   "Six of Wands: Victory, success, recognition.",
-   "Seven of Wands: Perseverance, defensiveness, challenges.",
-   "Eight of Wands: Swiftness, progress, movement.",
-   "Nine of Wands: Resilience, persistence, determination.",
-   "Ten of Wands: Burden, responsibility, hard work.",
-   "Page of Wands: Enthusiasm, exploration, discovery.",
-   "Knight of Wands: Energy, passion, adventure.",
-   "Queen of Wands: Confidence, leadership, independence.",
-   "King of Wands: Ambition, charisma, vision.",
-   "Ace of Cups: Emotional new beginnings, love, intuition.",
-   "Two of Cups: Connection, partnership, harmony.",
-   "Three of Cups: Celebration, friendship, joy.",
-   "Four of Cups: Contemplation, introspection, apathy.",
-   "Five of Cups: Loss, grief, disappointment.",
-   "Six of Cups: Nostalgia, childhood, innocence.",
-   "Seven of Cups: Choices, illusions, daydreaming.",
-   "Eight of Cups: Disillusionment, walking away, seeking more.",
-   "Nine of Cups: Contentment, satisfaction, emotional fulfillment.",
-   "Ten of Cups: Happiness, harmony, family.",
-   "Page of Cups: Creativity, intuition, sensitivity.",
-   "Knight of Cups: Romance, charm, emotional pursuit.",
-   "Queen of Cups: Compassion, empathy, emotional maturity.",
-   "King of Cups: Emotional balance, wisdom, diplomacy.",
-   "Ace of Swords: Mental clarity, new ideas, breakthroughs.",
-   "Two of Swords: Indecision, stalemate, difficult choices.",
-   "Three of Swords: Heartbreak, sorrow, grief.",
-   "Four of Swords: Rest, recuperation, contemplation.",
-   "Five of Swords: Conflict, defeat, manipulation.",
-   "Six of Swords: Transition, moving on, healing.",
-   "Seven of Swords: Deception, trickery, stealth.",
-   "Eight of Swords: Restriction, self-imposed limitations, feeling trapped.",
-   "Nine of Swords: Anxiety, nightmares, worry.",
-   "Ten of Swords: Betrayal, endings, rock bottom.",
-   "Page of Swords: Curiosity, intellect, communication.",
-   "Knight of Swords: Action, ambition, assertiveness.",
-   "Queen of Swords: Independence, intelligence, discernment.",
-   "King of Swords: Authority, logic, truth.",
-   "Ace of Pentacles: Material abundance, prosperity, opportunity.",
-   "Two of Pentacles: Balance, adaptability, juggling priorities.",
-   "Three of Pentacles: Collaboration, teamwork, craftsmanship.",
-   "Four of Pentacles: Security, possessiveness, conservatism.",
-   "Five of Pentacles: Hardship, poverty, isolation.",
-   "Six of Pentacles: Generosity, charity, sharing.",
-   "Seven of Pentacles: Patience, perseverance, long-term vision.",
-   "Eight of Pentacles: Skill development, craftsmanship, diligence.",
-   "Nine of Pentacles: Self-sufficiency, luxury, independence.",
-   "Ten of Pentacles: Wealth, legacy, family abundance.",
-   "Page of Pentacles: Manifestation, practicality, opportunity.",
-   "Knight of Pentacles: Hard work, responsibility, reliability.",
-   "Queen of Pentacles: Nurturing, abundance, practicality.",
-   "King of Pentacles: Wealth, stability, success."
-];
-var randomIndex = Math.floor(Math.random()*tarotQuotes.length);
-specificquote = tarotQuotes[randomIndex];
+if(messagetest=="TAROT"||messagetest=="TAROTDECK"||messagetest=="READING"){
+var randomIndex = Math.floor(Math.random()*tarotquotes.length);
+var coinflip2 = Math.floor(Math.random()*2);
+if(tarotcount<=tarotquotes.length){
+    if(tarotreversed){
+        if(coinflip2==1){
+            specificquote = tarotquotes[randomIndex];
+        }else if(coinflip2==0){
+            specificquote = tarotquotes[randomIndex]+" (REVERSED! FLIP YOUR APPROACH.)";
+        }
+    }else{
+        specificquote = tarotquotes[randomIndex];
+    }
+    tarotcount ++;
+}else{
+    specificquote = "You went through a whole tarot deck...";
+}
 gamemode = "TEMP";
 usespecificquote = true;
 tempcharacternow = true;
 tempcharacter = "TAROT DECK";
-                                    }
+}
+//Turn tarot reversals on or off.
+if(messagetest=="TAROTREVERSE"||messagetest=="TAROTREVERSALOFF"||messagetest=="TAROTREVERSAL"||messagetest=="ADDREVERSALS"||messagetest=="REVERSALSOFF"){
+    if (tarotreversed) {
+        specificquote = "Turning off reversals.";
+        tarotreversed = false;
+    }else{
+       specificquote = "Turning on reversals.";
+        tarotreversed = true;
+    }
+    gamemode = "TEMP";
+    usespecificquote = true;
+    tempcharacternow = true;
+    tempcharacter = "TAROT DECK";
+    }
+    
                                     //Some music suggestions from hold music too.
                                     if(messagetest=="SONG"||messagetest=="PLAYMUSIC"||messagetest=="MUSIC"||messagetest=="HOLDMUSIC"||messagetest=="HOLDINGMUSIC"||messagetest=="WAITMUSIC") {
                                         usespecificquote = true;

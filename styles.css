@@ -2,7 +2,7 @@ body {
     left: 0;
     top: 0;
     background-color: black;
-    width: 75%;
+    width: 70vw;
     height: 100%;
     text-transform: uppercase;
     margin: 0;
@@ -19,13 +19,7 @@ body {
 }
 
 ::input-placeholder { /* Selects all input placeholders */
-     text-transform: uppercase;
-}
-
-.message {
-    margin-bottom: 10px;
-    word-wrap: break-word;
-    transition: all 0.3s ease; /* Added */
+text-transform: uppercase;
 }
 
 .chat-title {

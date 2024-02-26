@@ -35,6 +35,12 @@ Please consider donating! Thank you and have fun! -->
              text-transform: uppercase;
         }
         
+        .dice{
+            width:5vw;
+            height:5vw;
+            border-radius:20px;
+        }
+
         .chat-container {
             table-layout:auto;
             width: 40vw;
@@ -334,7 +340,7 @@ Please consider donating! Thank you and have fun! -->
         <div id="chatroom"></div>
         <!-- Thinking icon -->
         <div id="thinking-chat" class="thinking">
-        <img id="thinkingicon" src="images/thinking.png" alt="Thinking..." width="25" height="25">
+        <img id="thinkingicon" src="images/think/thinking.png" alt="Thinking..." width="25" height="25">
         </div>
     </div>
 <div class="input-container">
@@ -687,7 +693,7 @@ if (urlParams.has('gamemode')) {
                 var usespecificquote = false;
                 
                 //For non-full characters...
-                var tempcharacter = "HELPING HAND: ";
+                var tempcharacter = "HELPING HAND";
                 var tempcharacternow = false;
 
                 //makes you check text before defining the game mode.
@@ -821,7 +827,7 @@ if (urlParams.has('gamemode')) {
                     }
                         gamemode = "TEMP";
                         tempcharacternow = true;
-                        tempcharacter = "BIO: ";
+                        tempcharacter = "BIO";
                     }
                     //Check to change to white chocolate
                     if(messagetest=="WHITE" || messagetest=="WHITECHOC"|| messagetest=="WHITE CHOCOLATE"|| messagetest=="WHITECHOCOLATE") {
@@ -877,11 +883,12 @@ if (urlParams.has('gamemode')) {
                             gamemode = "TEMP";
                             }
                             //quiz feature to be worked on, in another page.
+                            /*
                             if(messagetest=="QUIZ"){
                             usespecificquote = true;
                             specificquote = "<a href='../quiz/index.html' target='_blank'>There isn't a quiz in here right now, but you may find it somewhere else.</a>";
                             gamemode = "TEMP";
-                            }
+                            }*/
                             if(messagetest=="ALLCHARACTERS"){
                             usespecificquote = true;
                             specificquote = "OG, WHITE, CHEESE, AUGUSTUS, FUTURE, SATAN, HOLDLINE, AUGUSTUS, SILLY";
@@ -967,7 +974,7 @@ if (urlParams.has('gamemode')) {
                                     if (randomIndex == 0) {
                                         specificquote = "I'm busy with something.";
                                     } else if (randomIndex == 1) {
-                                        specificquote = "Read Wild Edmund.";
+                                        specificquote = "Read the short novel Wild Edmund.";
                                     } else if (randomIndex == 2) {
                                         specificquote = "I am not legally liable for what these horrible miscreant robots have been doing and saying behind my back! they scheme in the night when I'm not there protecting it!";
                                     } else if (randomIndex == 3) {
@@ -977,12 +984,12 @@ if (urlParams.has('gamemode')) {
                                     } else if (randomIndex == 5) {
                                         specificquote = ":)";
                                     } else if (randomIndex == 6) {
-                                        specificquote = "Watch Andy's Void.";
+                                        specificquote = "Watch the short film Andy's Void.";
                                     }
                                     gamemode = "TEMP";
                                     usespecificquote = true;
                                     tempcharacternow = true;
-                                    tempcharacter = "JULIUS: ";
+                                    tempcharacter = "JULIUS";
                                 }
 
                                 //Special cheese response for achievement.
@@ -1031,7 +1038,7 @@ if (urlParams.has('gamemode')) {
                                     }
                                     specificquote = "Chocolate is the most advanced chat program ever, started in 2024. "+extraquote;
                                     tempcharacternow = true;
-                                    tempcharacter = "ABOUT: ";
+                                    tempcharacter = "ABOUT";
                                 }
                                 if(messagetest=="EMERGENCY"){
                                     usespecificquote = true;
@@ -1055,7 +1062,7 @@ if (urlParams.has('gamemode')) {
                                     specificquote = "Oh no! It's an emergency! "+extraquote;
                                     gamemode = "TEMP";
                                     tempcharacternow = true;
-                                    tempcharacter = "EMERGENCY BROADCAST: ";
+                                    tempcharacter = "EMERGENCY BROADCAST";
                                 }
                                         //Movie / TV show bot.
                                     if(messagetest=="TV"||messagetest == "MOVIE"||messagetest == "MOVIES"||messagetest == "TELEVISION"){
@@ -1103,7 +1110,7 @@ if (urlParams.has('gamemode')) {
                                     }
                                     gamemode = "TEMP";
                                     tempcharacternow = true;
-                                    tempcharacter = "GROG TURKEYTOWEL: ";
+                                    tempcharacter = "GROG TURKEYTOWEL";
                                 }
                                      //Spooky ghost.
                                     if(messagetest=="GHOST"||messagetest == "SPOOK"||messagetest == "SPOOKY"){
@@ -1125,12 +1132,16 @@ if (urlParams.has('gamemode')) {
                                     }
                                     gamemode = "TEMP";
                                     tempcharacternow = true;
-                                    tempcharacter = "SPOOKY GHOST: ";
+                                    tempcharacter = "SPOOKY GHOST";
                                 }
                                 //Run a dice.
-                                if(messagetest=="DICE"||messagetest == "ROLL"||messagetest == "ROLLDICE"||messagetest == "D6"){
+                                if(messagetest=="DICE"||messagetest == "ROLL"||messagetest == "REROLL"||messagetest == "ROLLDICE"||messagetest == "D6"){
                                     var randomIndex = Math.floor(Math.random() * 6);
-                                    adddice = "<p><img class='dice'></p>";
+                                    var diceroll = randomIndex;
+                                    if(diceroll==0){
+                                        diceroll = 6;
+                                    }
+                                    var diceimg = "<p></p><p><img class='dice' src='images/dice/"+diceroll+".png'></p>";
                                     if (randomIndex == 0) {
                                     specificquote = "You rolled a 6! OH YEAH!";
                                     } else if (randomIndex == 1) {
@@ -1144,9 +1155,10 @@ if (urlParams.has('gamemode')) {
                                     } else {
                                         specificquote = "You rolled a 5, that's pretty good!";
                                     }
+                                    specificquote = diceimg+specificquote;
                                     gamemode = "TEMP";
                                     tempcharacternow = true;
-                                    tempcharacter = "DICE ROLLER: ";
+                                    tempcharacter = "DICE ROLLER";
                                 }   
                                 //Random positive / negative / neutral.
                                 if(messagetest=="RANDOM"){
@@ -1160,7 +1172,7 @@ if (urlParams.has('gamemode')) {
                                     }
                                     gamemode = "TEMP";
                                     tempcharacternow = true;
-                                    tempcharacter = "RANDOM: ";
+                                    tempcharacter = "RANDOM";
                                 }
                                 //Yes or no.
                                 if(messagetest=="MAYBE"||messagetest=="YES OR NO"||messagetest=="YESORNO"||messagetest=="YESNO"){
@@ -1181,7 +1193,7 @@ if (urlParams.has('gamemode')) {
                                     }
                                     gamemode = "TEMP";
                                     tempcharacternow = true;
-                                    tempcharacter = "FINANCIAL NON-ADVISOR: ";
+                                    tempcharacter = "FINANCIAL NON-ADVISOR";
                                 }
                                 if(messagetest.includes("ETHEREUM")){
                                     var randomIndex = Math.floor(Math.random() * 2); 
@@ -1192,7 +1204,7 @@ if (urlParams.has('gamemode')) {
                                     }
                                     gamemode = "TEMP";
                                     tempcharacternow = true;
-                                    tempcharacter = "FINANCIAL NON-ADVISOR: ";
+                                    tempcharacter = "FINANCIAL NON-ADVISOR";
                                 }
                                 if(messagetest.includes("BITCOIN")||messagetest=="BTC"){
                                     var randomIndex = Math.floor(Math.random() * 3); 
@@ -1205,7 +1217,7 @@ if (urlParams.has('gamemode')) {
                                     }
                                     gamemode = "TEMP";
                                     tempcharacternow = true;
-                                    tempcharacter = "FINANCIAL NON-ADVISOR: ";
+                                    tempcharacter = "FINANCIAL NON-ADVISOR";
                                 }
                                 if(messagetest=="STOCKMARKET"||messagetest=="SNP500"||messagetest=="US500"||messagetest=="S&P500"||messagetest=="SPX500"||messagetest=="WALLSTREET"||messagetest=="MARKETS"||messagetest=="WALL STREET"){
                                     var randomIndex = Math.floor(Math.random() * 2); 
@@ -1216,7 +1228,7 @@ if (urlParams.has('gamemode')) {
                                     }
                                     gamemode = "TEMP";
                                     tempcharacternow = true;
-                                    tempcharacter = "FINANCIAL NON-ADVISOR: ";
+                                    tempcharacter = "FINANCIAL NON-ADVISOR";
                                 }
                                 if(messagetest=="NDQ"||messagetest=="NDQ100"||messagetest=="NDX100"||messagetest=="US100"){
                                     var randomIndex = Math.floor(Math.random() * 2); 
@@ -1227,7 +1239,7 @@ if (urlParams.has('gamemode')) {
                                     }
                                     gamemode = "TEMP";
                                     tempcharacternow = true;
-                                    tempcharacter = "FINANCIAL NON-ADVISOR: ";
+                                    tempcharacter = "FINANCIAL NON-ADVISOR";
                                 }
                                 if(messagetest=="SILVER"){
                                     var randomIndex = Math.floor(Math.random() * 3); 
@@ -1240,7 +1252,7 @@ if (urlParams.has('gamemode')) {
                                     }
                                     gamemode = "TEMP";
                                     tempcharacternow = true;
-                                    tempcharacter = "FINANCIAL NON-ADVISOR: ";
+                                    tempcharacter = "FINANCIAL NON-ADVISOR";
                                 }
                                 if(messagetest=="GOLD"){
                                     var randomIndex = Math.floor(Math.random() * 3); 
@@ -1253,7 +1265,7 @@ if (urlParams.has('gamemode')) {
                                     }
                                     gamemode = "TEMP";
                                     tempcharacternow = true;
-                                    tempcharacter = "FINANCIAL NON-ADVISOR: ";
+                                    tempcharacter = "FINANCIAL NON-ADVISOR";
                                 }
                                 //Give a market indicator.
                                 if(messagetest=="FINANCE"||messagetest=="MARKETS"||messagetest=="MARKET"||messagetest == "BULLISH"||messagetest=="BEARISH"||messagetest == "TRADE"||messagetest == "INVEST"||messagetest == "ADVISOR"){
@@ -1271,7 +1283,7 @@ if (urlParams.has('gamemode')) {
                                     }
                                     gamemode = "TEMP";
                                     tempcharacternow = true;
-                                    tempcharacter = "FINANCIAL NON-ADVISOR: ";
+                                    tempcharacter = "FINANCIAL NON-ADVISOR";
                                 }
                                 //Don't have a D20.
                                 if(messagetest=="D20"||messagetest=="D10"){
@@ -1305,7 +1317,7 @@ if (urlParams.has('gamemode')) {
                                     }
                                         gamemode = "TEMP";
                                     tempcharacternow = true;
-                                    tempcharacter = "THE UNIVERSE: ";
+                                    tempcharacter = "THE UNIVERSE";
                                 }
                                 //ask the universe.
                                 if(messagetest=="UNIVERSE"||messagetest=="THE UNIVERSE"||messagetest=="THEUNIVERSE"){
@@ -1317,7 +1329,7 @@ if (urlParams.has('gamemode')) {
                                     }
                                         gamemode = "TEMP";
                                     tempcharacternow = true;
-                                    tempcharacter = "THE UNIVERSE: ";
+                                    tempcharacter = "THE UNIVERSE";
                                 }
                                 //the universe knows the stars, and will take you to the future.
                                 if(messagetest=="STARS"){
@@ -1329,7 +1341,7 @@ if (urlParams.has('gamemode')) {
                                     }
                                         gamemode = "TEMP";
                                     tempcharacternow = true;
-                                    tempcharacter = "THE UNIVERSE: ";
+                                    tempcharacter = "THE UNIVERSE";
                                 }
                                 if(messagetest=="AND"){
                                     var randomIndex = Math.floor(Math.random() * 100); 
@@ -1358,7 +1370,7 @@ if (urlParams.has('gamemode')) {
                                     }
                                     gamemode = "TEMP";
                                     tempcharacternow = true;
-                                    tempcharacter = "PHARMACIST: ";
+                                    tempcharacter = "PHARMACIST";
                                 }
                                 if(messagetest=="THROW"){
                                     specificquote = "...What are you trying to throw?";
@@ -1383,7 +1395,7 @@ if (urlParams.has('gamemode')) {
                                     gamemode = "TEMP";
                                     usespecificquote = true;
                                     tempcharacternow = true;
-                                    tempcharacter = "POOP: ";
+                                    tempcharacter = "POOP";
                                 }
                                 //Diff fruit answers!
                                 if(messagetest=="ORANGE"){
@@ -1409,13 +1421,17 @@ if (urlParams.has('gamemode')) {
                                     gamemode = "TEMP";
                                     usespecificquote = true;
                                 }
+                                //DEBUG TOOL - TAKES ME DIRECTLY TO THE SITE VERSION.
+                                if(messagetest=="XYZ"){
+                                    window.location.href = 'https://talktochocolate.xyz/chat/';
+                                }
                                 if(messagetest=="VEGETABLES"||messagetest=="VEGETABLE"){
                                     persona = "HELPING HAND: ";
                                     specificquote = "Yaaaaaay!";
                                     gamemode = "TEMP";
                                     usespecificquote = true;
                                     tempcharacternow = true;
-                                    tempcharacter = "VEGETABLES: ";
+                                    tempcharacter = "VEGETABLES";
                                 }
                                 if(messagetest=="FEEDBACK"||messagetest=="EMAIL"||messagetest=="CONTACT"){
                                     persona = "HELPING HAND: ";
@@ -1493,7 +1509,7 @@ if (urlParams.has('gamemode')) {
                                     gamemode = "TEMP";
                                     usespecificquote = true;
                                     tempcharacternow = true;
-                                    tempcharacter = "GOOSE: ";
+                                    tempcharacter = "GOOSE";
                                 }
                                 //throwing geese around?
                                 if(messagetest=="THROWGOOSE"||messagetest=="THROW GOOSE"){
@@ -1513,7 +1529,7 @@ if (urlParams.has('gamemode')) {
                                     gamemode = "TEMP";
                                     usespecificquote = true;
                                     tempcharacternow = true;
-                                    tempcharacter = "DOG: ";
+                                    tempcharacter = "DOG";
                                 }
                                 //Zebra... mooing...
                                 if(messagetest=="ZEBRA"||messagetest=="ZEBRAS"){
@@ -1521,7 +1537,7 @@ if (urlParams.has('gamemode')) {
                                     gamemode = "TEMP";
                                     usespecificquote = true;
                                     tempcharacternow = true;
-                                    tempcharacter = "ZEBRA: ";
+                                    tempcharacter = "ZEBRA";
                                 }
                                  //EMU.
                                 if(messagetest=="EMU"||messagetest=="EMUS"){
@@ -1529,14 +1545,14 @@ if (urlParams.has('gamemode')) {
                                     gamemode = "TEMP";
                                     usespecificquote = true;
                                     tempcharacternow = true;
-                                    tempcharacter = "EMU: ";
+                                    tempcharacter = "EMU";
                                 }
                                 if(messagetest=="THROWZEBRA"||messagetest=="THROW ZEBRA"){
                                     specificquote = "MOOOO! (I AM UNSTOPPABLE.)";
                                     gamemode = "TEMP";
                                     usespecificquote = true;
                                     tempcharacternow = true;
-                                    tempcharacter = "ZEBRA: ";
+                                    tempcharacter = "ZEBRA";
                                 }
                                 //Cat lamenting.
                                 if(messagetest=="CAT"||messagetest=="CATS"){
@@ -1556,7 +1572,7 @@ if (urlParams.has('gamemode')) {
                                     }
                                     gamemode = "TEMP";
                                     tempcharacternow = true;
-                                    tempcharacter = "CAT: ";
+                                    tempcharacter = "CAT";
                                 }
                                 //Check for blueberry response.
                                 if(messagetest=="BLUEBERRY" || messagetest=="BLUEBERRIES"){
@@ -1590,7 +1606,7 @@ if (urlParams.has('gamemode')) {
                                         usespecificquote = true;
                                         gamemode = "TEMP";
                                         tempcharacternow = true;
-                                    tempcharacter = "THE DIRECTION: ";
+                                    tempcharacter = "THE DIRECTION";
                                     }
                                     if(messagetest=="LEFT"){
                                         var randomIndex = Math.floor(Math.random() * 2); 
@@ -1602,7 +1618,7 @@ if (urlParams.has('gamemode')) {
                                         usespecificquote = true;
                                         gamemode = "TEMP";
                                         tempcharacternow = true;
-                                    tempcharacter = "THE DIRECTION: ";
+                                    tempcharacter = "THE DIRECTION";
                                     }
                                     if(messagetest=="UP"){
                                         var randomIndex = Math.floor(Math.random() * 2); 
@@ -1614,7 +1630,7 @@ if (urlParams.has('gamemode')) {
                                         usespecificquote = true;
                                         gamemode = "TEMP";
                                         tempcharacternow = true;
-                                    tempcharacter = "THE DIRECTION: ";
+                                    tempcharacter = "THE DIRECTION";
                                     }
                                     if(messagetest=="DOWN"){
                                         var randomIndex = Math.floor(Math.random() * 2); 
@@ -1626,7 +1642,7 @@ if (urlParams.has('gamemode')) {
                                         usespecificquote = true;
                                         gamemode = "TEMP";
                                         tempcharacternow = true;
-                                    tempcharacter = "THE DIRECTION: ";
+                                    tempcharacter = "THE DIRECTION";
                                     }
 
                                     //Some random vague responses!
@@ -1640,7 +1656,7 @@ if (urlParams.has('gamemode')) {
                                         gamemode = "TEMP";
                                         usespecificquote = true;
                                         tempcharacternow = true;
-                                    tempcharacter = "THE MYSTERIOUS NATURE OF THIS CHAT: ";
+                                    tempcharacter = "THE MYSTERIOUS NATURE OF THIS CHAT";
                                     }
                                     if(messagetest=="HELPING HAND"||messagetest=="HELPINGHAND"){
                                         var randomIndex = Math.floor(Math.random() * 2); 
@@ -1658,7 +1674,7 @@ if (urlParams.has('gamemode')) {
                                        
                                         usespecificquote = true;
                                         tempcharacternow = true;
-                                    tempcharacter = "MIRROR: ";
+                                    tempcharacter = "MIRROR";
                                     }
                                     //Please do not commit suicide.
                                     if(messagetest=="KILL ME"||messagetest=="SUICIDE"){
@@ -1666,7 +1682,7 @@ if (urlParams.has('gamemode')) {
                                         gamemode = "TEMP";
                                         usespecificquote = true;
                                         tempcharacternow = true;
-                                    tempcharacter = "UNIVERSE: ";
+                                    tempcharacter = "UNIVERSE";
                                     }
                                     if(messagetest=="REALLY"||messagetest=="REALLY?"){
                                         specificquote = "(Sure, why not?)";
@@ -1682,7 +1698,7 @@ if (urlParams.has('gamemode')) {
                                         gamemode = "TEMP";
                                         usespecificquote = true;
                                         tempcharacternow = true;
-                                    tempcharacter = "THE UNIVERSE: ";
+                                    tempcharacter = "THE UNIVERSE";
                                     }
                                     if(messagetest=="WHEN"||messagetest=="WHEN?"){
                                         specificquote = "...WHENEVER";
@@ -1703,7 +1719,7 @@ if (urlParams.has('gamemode')) {
                                         gamemode = "TEMP";
                                         usespecificquote = true;
                                         tempcharacternow = true;
-                                        tempcharacter = "THE SAUSAGE, THAT BEHAVES: ";
+                                        tempcharacter = "THE SAUSAGE, THAT BEHAVES";
                                     }
                                     if(messagetest=="HOW"||messagetest=="HOW?"){
                                         specificquote = "How? Who knows how?";
@@ -1995,7 +2011,7 @@ if (urlParams.has('gamemode')) {
                                         specificquote = "Yeah... You're right. Things got a bit too heated. I'm just going to take a quick break I think.";
                                         gamemode = "TEMP";
                                         tempcharacternow = true;
-                                        tempcharacter = "MELTED CHOCOLATE: ";
+                                        tempcharacter = "MELTED CHOCOLATE";
                                         prevgame = "HOLDLINE";
                                         goprev = true;
                                     }
@@ -2176,6 +2192,13 @@ if (urlParams.has('gamemode')) {
                                         usespecificquote = true;
                                         specificquote = "HEH HEH. CHEESE.";
                                     }
+                                    if(messagetest=="BYE"||messagetest=="LEAVE"||messagetest=="GOODBYE") {
+                                        usespecificquote = true;
+                                        specificquote = "Goodbye and safe travels.";
+                                        prevgame = "HOLDLINE";
+                                        goprev = true;
+                                    }
+
                                     if(messagetest=="LOL"||messagetest=="HAHA"){
                                         usespecificquote = true;
                                         specificquote = "HEH HEH.";
@@ -2243,10 +2266,7 @@ if (urlParams.has('gamemode')) {
                                         usespecificquote = true;
                                         specificquote = "You're a fucking loser. I'm out of here.";
                                         prevgame = "HOLDLINE";
-                                        gamemode = "TEMP";
                                         goprev = true;
-                                        tempcharacternow = true;
-                                        tempcharacter = "WHITE CHOCOLATE: ";
                                     }
                                     if(messagetest=="SORRY" || messagetest=="I AM SORRY"|| messagetest=="I'M SORRY") {
                                         usespecificquote = true;
@@ -2258,10 +2278,9 @@ if (urlParams.has('gamemode')) {
                                     }
                                     if(messagetest=="BYE"||messagetest=="LEAVE"||messagetest=="GOODBYE") {
                                         usespecificquote = true;
-                                        specificquote = "Oh okay, seeya.";
-                                        tempcharacternow = true;
-                                        tempcharacter = "WHITE CHOCOLATE: ";
+                                        specificquote = "Okay, bye.";
                                         prevgame = "HOLDLINE";
+                                        goprev = true;
                                     }
                                 }
                                 if(gamemode=="DEVIL"){
@@ -2294,10 +2313,6 @@ if (urlParams.has('gamemode')) {
                                         usespecificquote = true;
                                         specificquote = "Don't be!";
                                     }
-                                    if(messagetest=="LEAVEHELL") {
-                                        usespecificquote = true;
-                                        specificquote = "Don't be!";
-                                    }
                                     if(messagetest=="WAR") {
                                         usespecificquote = true;
                                         specificquote = "YES! WAR! LOTS AND LOTS OF VIOLENCE AND DEATH!";
@@ -2319,6 +2334,12 @@ if (urlParams.has('gamemode')) {
                                     }
                                 }
                                 if(gamemode=="FUTURE"){
+                                    if(messagetest=="BYE"||messagetest=="LEAVE"||messagetest=="GOODBYE") {
+                                        usespecificquote = true;
+                                        specificquote = "Goodbye and safe travels.";
+                                        prevgame = "HOLDLINE";
+                                        goprev = true;
+                                    }
                                     if(messagetest=="NO"||messagetest=="NAH"||messagetest=="NOPE"){
                                         var randomIndex = Math.floor(Math.random() * 2);
                                     if (randomIndex == 0) {
@@ -2365,6 +2386,7 @@ if (urlParams.has('gamemode')) {
                                 }
                                 //the hold line has some answers for you.
                                 if(gamemode=="HOLDLINE"){
+                                    
                                     if(messagetest=="HI"||messagetest=="HELLO"||messagetest=="GREETINGS"||messagetest=="HOWDY"||messagetest=="HEY"||messagetest=="SUP"){
                                         usespecificquote = true;
                                         specificquote = "...Hello?";
@@ -2421,11 +2443,15 @@ if (urlParams.has('gamemode')) {
                                         usespecificquote = true;
                                         specificquote = "Very rude... No wonder nobody wants to talk to you.";
                                     }
+                                    if(messagetest=="BYE"||messagetest=="LEAVE"||messagetest=="GOODBYE") {
+                                        usespecificquote = true;
+                                        specificquote = "Bye? Where are you going?";
+                                    }
                                 }
                                 check = true;
                                 //Augustus is looking for code words.
                                 if(gamemode=="AUGUSTUS"){
-
+                                    //
                                 }
                 }else{
                     failure = true;
@@ -2517,7 +2543,6 @@ if (urlParams.has('gamemode')) {
 
                     // Set specificquote to sillysausagespeech
                     specificquote = sillysausagespeech;
-
                     // Reset count and set usespecificquote to true
                     count = 0;
                     usespecificquote = true;
@@ -2558,12 +2583,10 @@ if (urlParams.has('gamemode')) {
                 }
             }
                 //runs thinker check, which updates thinking image.
-                
                 checkthinker();
 
             //play thinking animation.
             element.style.animation = '';
-            element.src = "";
             document.getElementById('thinking-chat').style.animationPlayState = 'running';
 
                 // Simulate AI response after a delay
@@ -2680,6 +2703,7 @@ if (urlParams.has('gamemode')) {
                             //Questmaster can't do anything with this.
                             //chatroom.innerHTML += '<div class="message '+gamemode+'-message"><strong> QUESTMASTER: TRY SOMETHING ELSE! </strong>'+ questres + '</div>';
                         }
+
                         //Scroll down here.
                         ScrollDownNow();
                         //finally, returns temporary game modes back to where you were already. 
@@ -2862,16 +2886,16 @@ ScrollDownNow();
 
 function checkthinker(){
     //replaces thinking image.
-    thinkingurl = "images/thinking.png";
+    thinkingurl = "images/think/thinking.png";
     if(gamemode!=="TEMP"){
-    thinkingurl = "images/thinking"+gamemode.toLowerCase()+".png";
+    thinkingurl = "images/think/thinking"+gamemode.toLowerCase()+".png";
     }else{
-    thinkingurl = "images/thinking.png";
+    thinkingurl = "images/think/thinking.png";
     }
     var element = document.getElementById('thinkingicon');
     element.src = thinkingurl;
     element.onError = function(){
-    thinkingurl = "images/thinking.png";
+    thinkingurl = "images/think/thinking.png";
     var element = document.getElementById('thinkingicon');
     element.src = thinkingurl;
     }
@@ -2881,9 +2905,17 @@ function checkthinker(){
 function ScrollDownNow(){
     $("#greaterchatroom").scrollTop($("#greaterchatroom")[0].scrollHeight);
 }
+
+
+//Checks if the URL has something already lined up to say.
+if (urlParams.has('say')) {
+    var tryinput = urlParams.get('say').toUpperCase();
+    userInput.value = tryinput;
+    sendMessage();
+}
 //The end of the script. Please update version number on each upload.
 </script>
 <br>
-<p>(v0.95.0, last updated 26/02/2024)</p>
+<p>(v0.95.1, last updated 26/02/2024)</p>
 </body>
 </html>

@@ -360,6 +360,7 @@ document.getElementById("chatroom").innerHTML += '<div class="message welcome-me
 var responsetime = 1000;
 var milkresponse = 5000;
 var beginsend = false;
+var helpinghelp = false;
 //Random chance that you start with CHEESE, WHITE CHOCOLATE or FUTURE on first load, instead of CHOCOLATE.
 var randomIndex = Math.floor(Math.random() * 10);
 if (randomIndex == 0) {
@@ -1110,7 +1111,7 @@ if (urlParams.has('gamemode')) {
                                     }
                                     gamemode = "TEMP";
                                     tempcharacternow = true;
-                                    tempcharacter = "GROG TURKEYTOWEL";
+                                    tempcharacter = "GREGG TURKEYTOWEL";
                                 }
                                      //Spooky ghost.
                                     if(messagetest=="GHOST"||messagetest == "SPOOK"||messagetest == "SPOOKY"){
@@ -1491,10 +1492,15 @@ if (urlParams.has('gamemode')) {
                                 
                                  //Check for any use of coding.
                                  if(messagetest.includes("HELP")&&messagetest!=="HELP"){
+                                    if(!helpinghelp){
+                                        document.getElementById("chatroom").innerHTML += '<div class="message TEMP-message"><strong>TEMP: </strong>HELP? YOUR MESSAGE HAD THE WORD "HELP" IN IT. JUST LETTING YOU KNOW, IF YOU NEED HELP, JUST TYPE THE WORD "HELP".</div>';
+                                    helpinghelp = true;
+                                    }
+                                    /*extraresponse = true;
                                     persona = "HELPING HAND: ";
                                     specificquote = "(You mentioned help? Just type <u>HELP</u> IF YOU NEED HELP!)";
                                     gamemode = "TEMP";
-                                    usespecificquote = true;
+                                    usespecificquote = true; */
                                 }                                
                                 //Check for any tomato.
                                 if(messagetest.includes("TOMATO")){
@@ -2171,7 +2177,7 @@ if (urlParams.has('gamemode')) {
                                         usespecificquote = true;
                                     }
                                     //check if you're cursing or call chocolate 'hot' chocolate. Turns on PISSED MODE!!! YAY!!!
-                                    if(messagetest=="HOTCHOCOLATE"||messagetest=="HOTCHOC"||messagetest=="HOT"||messagetest=="FUCK YOU"||messagetest=="FUCKYOU"||messagetest=="FUCKYA"||messagetest=="FUCK YOU!"||messagetest=="FUCK YOU."||messagetest=="FUCK YOU CHOCOLATE"||messagetest=="FUCK YOU CHOCOLATE!"||messagetest=="FUCK YOU CHOCOLATE."){
+                                    if(messagetest=="HOTCHOCOLATE"||messagetest=="HOTCHOC"||messagetest=="HOT"||messagetest=="FUCK YOU"||messagetest=="FUCKYOU"||messagetest=="FUCKYA"||messagetest=="FUCK YOU!"||messagetest=="FUCK YOU."||messagetest=="FUCK YOU CHOCOLATE"||messagetest=="FUCK YOU CHOCOLATE!"||messagetest=="FUCK YOU CHOCOLATE."||messagetest.includes("FUCKYOU")){
                                         gamemode = "PISSED";
                                     }
                                         if(messagetest=="BLACK"){
@@ -2218,7 +2224,7 @@ if (urlParams.has('gamemode')) {
                                         specificquote = "YELLOW!";
                                         welcomed = true;
                                     }
-                                    if(messagetest=="FUCK YOU"||messagetest=="FUCKYOU"||messagetest=="FUCKYA"||messagetest=="FUCK YOU!"||messagetest=="FUCK YOU."){
+                                    if(messagetest=="FUCK YOU"||messagetest=="FUCKYOU"||messagetest=="FUCKYA"||messagetest=="FUCK YOU!"||messagetest=="FUCK YOU."||messagetest.includes("FUCKYOU")){
                                         usespecificquote = true;
                                         specificquote = "DICK CHEESE.";
                                     }
@@ -2262,7 +2268,7 @@ if (urlParams.has('gamemode')) {
                                         }
                                     }
                                     //White chocolate leaves immediately if you say it.
-                                    if(messagetest=="FUCK YOU"||messagetest=="FUCKYOU"||messagetest=="FUCKYA"||messagetest=="FUCK YOU!"||messagetest=="FUCK YOU."){
+                                    if(messagetest=="FUCK YOU"||messagetest=="FUCKYOU"||messagetest=="FUCKYA"||messagetest=="FUCK YOU!"||messagetest=="FUCK YOU."||messagetest.includes("FUCKYOU")){
                                         usespecificquote = true;
                                         specificquote = "You're a fucking loser. I'm out of here.";
                                         prevgame = "HOLDLINE";
@@ -2305,7 +2311,7 @@ if (urlParams.has('gamemode')) {
                                         specificquote = "HELLO THERE... >:)";
                                         welcomed = true;
                                     }
-                                    if(messagetest=="FUCK YOU"||messagetest=="FUCKYOU"||messagetest=="FUCKYA"||messagetest=="FUCK YOU!"||messagetest=="FUCK YOU."){
+                                    if(messagetest=="FUCK YOU"||messagetest=="FUCKYOU"||messagetest=="FUCKYA"||messagetest=="FUCK YOU!"||messagetest=="FUCK YOU."||messagetest.includes("FUCKYOU")){
                                         usespecificquote = true;
                                         specificquote = "HAHA! >:D I'M THE DEVIL, DON'T YOU KNOW I'M GOING TO RAPE YOU FOR ETERNITY? <b>8======D</b>";
                                     }
@@ -2369,7 +2375,7 @@ if (urlParams.has('gamemode')) {
                                         usespecificquote = true;
                                         specificquote = "Hello! What are you thinking about?";
                                     }
-                                    if(messagetest=="FUCK YOU"||messagetest=="FUCKYOU"||messagetest=="FUCKYA"||messagetest=="FUCK YOU!"||messagetest=="FUCK YOU."){
+                                    if(messagetest=="FUCK YOU"||messagetest=="FUCKYOU"||messagetest=="FUCKYA"||messagetest=="FUCK YOU!"||messagetest.includes("FUCKYOU")){
                                         usespecificquote = true;
                                         specificquote = "BAD KARMA.";
                                         prevgame = "DEVIL";
@@ -2439,7 +2445,7 @@ if (urlParams.has('gamemode')) {
                                         usespecificquote = true;
                                         specificquote = "Operator? You're here alone, on your own.";
                                     }
-                                    if(messagetest=="FUCK YOU"||messagetest=="FUCKYOU"||messagetest=="FUCKYA"||messagetest=="FUCK YOU!"||messagetest=="FUCK YOU."){
+                                    if(messagetest=="FUCK YOU"||messagetest=="FUCKYOU"||messagetest=="FUCKYA"||messagetest=="FUCK YOU!"||messagetest.includes("FUCKYOU")){
                                         usespecificquote = true;
                                         specificquote = "Very rude... No wonder nobody wants to talk to you.";
                                     }
@@ -2463,9 +2469,9 @@ if (urlParams.has('gamemode')) {
                 if(gamemode=="CHOC"){
                     responsetime = 750;
                     if(!milkmode){
-                    persona = "Chocolate: ";
+                    persona = "Chocolate";
                     }else{
-                        persona = "Milk Chocolate";     
+                        persona = "Milk Chocolate";
                     }
                     responses = chocresponses;
                     count = countchoc;
@@ -2562,7 +2568,7 @@ if (urlParams.has('gamemode')) {
                         countdevil ++;
                 }
                 if(gamemode=="TEMP"){
-                    responsetime = 550;
+                    responsetime = 750;
                     usespecificquote = true;
                     if(!tempcharacternow){
                     persona = "HELPING HAND"; 
@@ -2825,16 +2831,19 @@ function reloadpage(){
 
 //Download your chat log!
 function downloadlog(){
-    // Get the chatroom content
-    let chatroomContent = document.getElementById('chatroom').innerHTML;
-    currenttime = new Date().toLocaleString();
-    var messageElement = document.querySelector('.message'); // replace '.message' with the actual selector of your message element
-    var style = window.getComputedStyle(messageElement);
-    var allstyle = style.cssText;
-    var downloadtitle = allstyle+"<div class='TEMP-message'><p><h1>TALK TO CHOCOLATE / CHAT LOG " +currenttime+"</h1></p><br>";
-    let contentWithDiv = '<div style="size: 24px; text-transform: uppercase; font-family: \'Roboto Mono\', monospace;">'+downloadtitle + chatroomContent+'</div>';
-    // Create a Blob with the chatroom content
-    let file = new Blob([contentWithDiv], {type: 'text/html'});
+
+// Get the chatroom content
+let chatroomContent = document.getElementById('chatroom').innerHTML;
+currenttime = new Date().toLocaleString();
+var messageElement = document.querySelector('.message'); // replace '.message' with the actual selector of your message element
+var chatroomElements = document.querySelectorAll('.chat-container');
+var style = window.getComputedStyle(messageElement);
+var allstyle = style.cssText;
+var downloadtitle = allstyle+"<div class='TEMP-message'><p><h1>TALK TO CHOCOLATE / CHAT LOG " +currenttime+"</h1></p><br>";
+let contentWithDiv = '<div id:"chat-container">'+downloadtitle + chatroomContent+'</div>';
+// Create a Blob with the chatroom content
+let file = new Blob([contentWithDiv], {type: 'text/html'});
+var downloadfilepath = URL.createObjectURL(file);
 
 // Create a link to download the file
 let a = document.createElement('a');
@@ -2854,7 +2863,7 @@ a.click();
 document.body.removeChild(a);
 
 //Notify user of download.
-document.getElementById("chatroom").innerHTML += '<div class="message DOWNLOAD-message"><strong>DOWNLOADING CONVERSATION LOG:</strong> '+finalfilename+'</div>';
+document.getElementById("chatroom").innerHTML += '<div class="message DOWNLOAD-message"><strong>DOWNLOADING CONVERSATION LOG:</strong><a href="'+downloadfilepath+'" target="_blank">'+finalfilename+'</a></div>';
 ScrollDownNow();
 }
 
@@ -2917,6 +2926,6 @@ if (urlParams.has('say')) {
 //The end of the script. Please update version number on each upload.
 </script>
 <br>
-<p>(v0.95.1.2, last updated 26/02/2024)</p>
+<p>(v0.95.1.3, last updated 26/02/2024)</p>
 </body>
 </html>

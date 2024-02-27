@@ -61,8 +61,8 @@ if (urlParams.has('gamemode')) {
         document.getElementById("chatroom").innerHTML += '<div class="message TEMP-message"><b>GAMEMODE SET TO: DEPRESSION!</b></div>';
     }
     if(gamemodetry=="SILLY"||gamemodetry=="SAUSAGE"){
-        gamemode = "SILLY";
-        document.getElementById("chatroom").innerHTML += '<div class="message TEMP-message"><b>GAMEMODE SET TO: SILLY!</b></div>';
+        gamemode = "THE SOILED FOOL";
+        document.getElementById("chatroom").innerHTML += '<div class="message TEMP-message"><b>WELL WELL WELL, IF IT ISNT THE SOILED FOOL!</b></div>';
     }
 }
 
@@ -170,6 +170,16 @@ if (urlParams.has('gamemode')) {
                     "Why must you torment me?",
                     "I think we got off the wrong way. I try my best to get along with people, I really do.",
                 ];
+            //the motivator.
+                var motivationresponses = [
+                    "You know what? There's a way to accept to live our life, and there's a way to demand we live our life.",
+                    "REMEMBER there is a balance in all things! Find the balance for you!",
+                    "If you doubt yourself, you are doing something wrong! But the thing you're doing wrong may be doubting yourself.",
+                    "You achieve as high as the standard you set for yourself, and sink as low as your limitations you set for yourself.",
+                    "Accept that you could be looking at some things incorrectly.",
+                    "You may need to open up to some people around you, and show them who you really are.",
+                    "Do you like harmony, or do you like chaos? It is your choice.",
+                ]
             //white chocolate responses, oooh yeah....
                 var whitechocresponses = [
                 "Yeah, it's tight, I do alright!",
@@ -310,6 +320,7 @@ if (urlParams.has('gamemode')) {
                 "I am ONE bad APPLE. ;)",                     
             ]
                 // Randomize the order of the response arrays one time.
+                //SHUFFLE SECTION  SHUFFLE SHUFFLE!
                 //first chocolate responses.
                 var responseshuffle = chocresponses.sort(() => Math.random() - 0.5);
                 chocresponses = responseshuffle;
@@ -744,6 +755,10 @@ var tarotquotes = [
                                     gamemode = "CHEESE";
                                 }
 
+                                //Check to activate Motivator.
+                                if(messagetest=="MOTIVATION" || messagetest=="MOTIVATOR" || messagetest=="MEDIATOR"|| messagetest=="LIBRA"){
+                                    gamemode = "MOTIVATOR";
+                                }
                                 //Check to activate Augustus.
                                 if(messagetest=="AUGUSTUS"){
                                     gamemode = "AUGUSTUS";
@@ -2435,6 +2450,13 @@ if(messagetest=="TAROTREVERSE"||messagetest=="TAROTREVERSALOFF"||messagetest=="T
                         count = countcheese;
                         countcheese ++;
                 }
+                if(gamemode=="MOTIVATOR"){
+                    responsetime = 800;
+                    persona = "MOTIVATION";
+                        responses = motivationresponses;
+                        count = countmotivator;
+                        countmotivator ++;
+                }
                 //we built the silly sausage right here.
                 if(gamemode=="SILLY"){
                     responsetime = 750;
@@ -2558,6 +2580,8 @@ if(messagetest=="TAROTREVERSE"||messagetest=="TAROTREVERSALOFF"||messagetest=="T
                                     persona = "Future";
                                     goprev = true;
                                    prevgame = "DEVIL";
+                                   var responseshuffle = futureresponses.sort(() => Math.random() - 0.5);
+                                   futureresponses = responseshuffle;
                                 }else if(gamemode=="WHITE"){
                                     response = "Actually I'm late and have to run, see you soon!";
                                     persona = "White Chocolate";
@@ -2588,10 +2612,14 @@ if(messagetest=="TAROTREVERSE"||messagetest=="TAROTREVERSALOFF"||messagetest=="T
                                     persona = "MOTIVATOR";
                                     goprev = true;
                                    prevgame = "FUTURE";
+                                   var responseshuffle = motivationresponses.sort(() => Math.random() - 0.5);
+                                   motivationresponses = responseshuffle;
                                    var response = responses[count];
                                 }else if(gamemode=="SADGIRL"){
                                     response = "Thanks for listening to me... I don't know, should I go? You can stick around and keep talking. Nobody else really listens anyway.";
                                     countsadgirl = 0;
+                                    var responseshuffle = sadgirlresponses.sort(() => Math.random() - 0.5);
+                                    sadgirlresponses = responseshuffle;
                                  }
                                 }else{
                                 //If count IS < response length.

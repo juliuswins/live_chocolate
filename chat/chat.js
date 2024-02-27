@@ -30,27 +30,27 @@ if (urlParams.has('gamemode')) {
     gamemodetry = urlParams.get('gamemode').toUpperCase();
     if(gamemodetry=="CHOC"||gamemodetry=="OG"||gamemodetry=="CHOCOLATE"){
         gamemode = "CHOC";
-        document.getElementById("chatroom").innerHTML += '<div class="message TEMP-message"><b>GAMEMODE SET TO: CHOCOLATE!</b></div>';
+        document.getElementById("chatroom").innerHTML += '<div class="message TEMP-message"><b>HEY LOOK WHO IT IS: CHOCOLATE!</b></div>';
     }
     if(gamemodetry=="CHEESE"){
         gamemode = "CHEESE";
-        document.getElementById("chatroom").innerHTML += '<div class="message TEMP-message"><b>GAMEMODE SET TO: CHEESE!</b></div>';
+        document.getElementById("chatroom").innerHTML += '<div class="message TEMP-message"><b>SAY HELLO TO: CHEESE!</b></div>';
     }
     if(gamemodetry=="WHITE"||gamemodetry=="WHITECHOC"||gamemodetry=="WHITECHOCOLATE"){
         gamemode = "WHITE";
-        document.getElementById("chatroom").innerHTML += '<div class="message TEMP-message"><b>GAMEMODE SET TO: WHITE CHOCOLATE!</b></div>';
+        document.getElementById("chatroom").innerHTML += '<div class="message TEMP-message"><b>OH YEAH, WHITE CHOCOLATE!</b></div>';
     }
     if(gamemodetry=="DEVIL"||gamemodetry=="DARK"||gamemodetry=="SURPRISE"){
         gamemode = "DEVIL";
-        document.getElementById("chatroom").innerHTML += '<div class="message TEMP-message"><b>GAMEMODE SET TO... SATAN?!</b></div>';
+        document.getElementById("chatroom").innerHTML += '<div class="message TEMP-message"><b>GAMEMODE CHANGED.</b></div>';
     }
     if(gamemodetry=="FUTURE"){
         gamemode = "FUTURE";
-        document.getElementById("chatroom").innerHTML += '<div class="message TEMP-message"><b>GAMEMODE SET TO: FUTURE!</b></div>';
+        document.getElementById("chatroom").innerHTML += '<div class="message TEMP-message"><b>FUTURE MODE!</b></div>';
     }
     if(gamemodetry=="HOLD"||gamemodetry=="HOLDLINE"||gamemodetry=="WAIT"){
-        gamemode = "HOLDLINEs";
-        document.getElementById("chatroom").innerHTML += '<div class="message TEMP-message"><b>GAMEMODE SET TO: THE HOLD LINE!</b></div>';
+        gamemode = "HOLDLINE";
+        document.getElementById("chatroom").innerHTML += '<div class="message TEMP-message"><b>YOU ARE IN THE HOLD LINE!</b></div>';
     }
     if(gamemodetry=="AUGUSTUS"||gamemodetry=="AUGUST"){
         gamemode = "AUGUSTUS";
@@ -61,7 +61,7 @@ if (urlParams.has('gamemode')) {
         document.getElementById("chatroom").innerHTML += '<div class="message TEMP-message"><b>GAMEMODE SET TO: DEPRESSION!</b></div>';
     }
     if(gamemodetry=="SILLY"||gamemodetry=="SAUSAGE"){
-        gamemode = "THE SOILED FOOL";
+        gamemode = "SILLY";
         document.getElementById("chatroom").innerHTML += '<div class="message TEMP-message"><b>WELL WELL WELL, IF IT ISNT THE SOILED FOOL!</b></div>';
     }
 }
@@ -1109,11 +1109,11 @@ var tarotquotes = [
                                         gamemode = "TEMP";
                                 }
                                 if(messagetest=="ETC"){
-                                    var randomIndex = Math.floor(Math.random() * 100); 
+                                    var randomIndex = Math.floor(Math.random() * 100)*2; 
                                     if (randomIndex == 0) {
                                         specificquote = "What am I supposed to do with ETC? What do you actually expect?";
                                     } else {
-                                        specificquote = "...ETC? WHAT? ETC?! MAYBE BTC OR OTC BUT NOT ETC!";
+                                        specificquote = "...ETC? You really said ETC? Not BTC like Bitcoin? Or even... I don't know, OTC?";
                                     }
                                         gamemode = "TEMP";
                                 }
@@ -1372,7 +1372,7 @@ var tarotquotes = [
                                     specificquote = "Wow... You'll just do anything I tell you! You're real clever. You deserve an AWARD for that, obviously, genius.";
                                 }
                                 //change to future mode.
-                                if(messagetest=="FUTURE"){
+                                if(messagetest=="FUTURE"||messagetest=="FUTUREMODE"){
                                     prevgame = gamemode;
                                     gamemode = "FUTURE";
                                 }
@@ -1535,7 +1535,7 @@ var tarotquotes = [
                                         gamemode = "TEMP";
                                         usespecificquote = true;
                                         tempcharacternow = true;
-                                        tempcharacter = "THE UNIVERSE";
+                                        tempcharacter = "NEW CHAT";
                                         runclearmode();
                                     }
                                     if(messagetest=="FRESH"){
@@ -1824,10 +1824,10 @@ if(messagetest=="TAROTREVERSE"||messagetest=="TAROTREVERSALOFF"||messagetest=="T
                                     }
                             //All in quest mode.
                             if(messagetest=="QUEST"){
-                                        specificquote = "Sorry, quest is still in progress.";
-                                        gamemode = "TEMP";
-                                        usespecificquote = true;
-                                    }
+                                specificquote = "Sorry, quest is still in progress.";
+                                gamemode = "TEMP";
+                                usespecificquote = true;
+                            }
 
                         /*
 
@@ -1926,7 +1926,7 @@ if(messagetest=="TAROTREVERSE"||messagetest=="TAROTREVERSALOFF"||messagetest=="T
                                         usespecificquote = true;
                                         specificquote = "DON'T TELL ME TO CALM DOWN. I AM GOING TO FUCKING FIND YOU, KILL YOU, KILL YOUR WHOLE FAMILY, COOK YOU IN A SOUP AND THROW IT IN THE TOILET..";
                                     }
-                                    if(messagetest=="FLESHWALL"||messagetest=="FLESH WALL"||messagetest=="THE FLESH WALL"||messagetest=="FLESHWALL"||messagetest.includes("FLESHWALL")||messagetest.includes("FLESH WALL")){
+                                    if(messagetest=="FLESHWALL"||messagetest=="FLESHWALLS"||messagetest=="THEFLESHWALL"||messagetest=="FLESHWALL"||messagetest.includes("FLESHWALL")||messagetest.includes("FLESH WALL")){
                                         usespecificquote = true;
                                         specificquote = "Shut the fuck up with your flesh walls you sick fucking individual!";
                                     }
@@ -1946,7 +1946,7 @@ if(messagetest=="TAROTREVERSE"||messagetest=="TAROTREVERSALOFF"||messagetest=="T
                                     if(milkmode){
                                         milksend();
                                     }
-                                    if(messagetest=="FLESHWALL"||messagetest=="FLESH WALL"||messagetest=="THE FLESH WALL"||messagetest=="FLESHWALL"||messagetest.includes("FLESHWALL")||messagetest.includes("FLESH WALL")){
+                                    if(messagetest=="FLESHWALL"||messagetest=="THEFLESHWALL"||messagetest=="FLESHWALLS"||messagetest=="FLESHWALL"||messagetest.includes("FLESHWALL")){
                                         usespecificquote = true;
                                         specificquote = "<a href='https://www.google.com/search?q=FLESH+WALLS' target='_blank'>Please don't talk to me about Flesh walls.</a>";
                                     }
@@ -2060,7 +2060,7 @@ if(messagetest=="TAROTREVERSE"||messagetest=="TAROTREVERSALOFF"||messagetest=="T
                                         usespecificquote = true;
                                     }
                                     //Greeting.
-                                    if(messagetest=="HI"||messagetest=="HELLO"||messagetest=="GREETINGS"||messagetest=="HOWDY"||messagetest=="HEY"||messagetest=="SUP"){
+                                    if(messagetest=="HI"||messagetest=="HELLO"||messagetest=="WELCOME"||messagetest=="WHEREAMI"||messagetest=="GREETINGS"||messagetest=="HOWDY"||messagetest=="HEY"||messagetest=="SUP"){
                                         usespecificquote = true;
                                         if(!welcomed){
                                             specificquote = "Hi! I'm Chocolate, and it's a pleasure to meet you! Feel free to talk to me about whatever you like. There are others around in the chat too... But in the meantime, talk with me!";
@@ -2128,7 +2128,7 @@ if(messagetest=="TAROTREVERSE"||messagetest=="TAROTREVERSALOFF"||messagetest=="T
                                         usespecificquote = true;
                                         specificquote = "HEH HEH.";
                                     }
-                                    if(messagetest=="FLESHWALL"||messagetest=="FLESH WALL"||messagetest=="THE FLESH WALL"||messagetest=="FLESHWALL"||messagetest.includes("FLESHWALL")||messagetest.includes("FLESH WALL")){
+                                    if(messagetest=="FLESHWALL"||messagetest=="FLESHWALL"||messagetest=="THEFLESHWALL"||messagetest=="FLESHWALL"||messagetest.includes("FLESHWALL")||messagetest.includes("FLESH WALL")){
                                         usespecificquote = true;
                                         specificquote = "Fuck this, I'm outta here.";
                                         prevgame = "HOLDLINE";
@@ -2209,7 +2209,7 @@ if(messagetest=="TAROTREVERSE"||messagetest=="TAROTREVERSALOFF"||messagetest=="T
                                     }
                                 }
                                 if(gamemode=="DEVIL"){
-                                    if(messagetest=="FLESHWALL"||messagetest=="FLESH WALL"||messagetest=="THE FLESH WALL"||messagetest=="FLESHWALL"||messagetest.includes("FLESHWALL")||messagetest.includes("FLESH WALL")){
+                                    if(messagetest=="FLESHWALL"||messagetest=="FLESHWALLS"||messagetest=="THEFLESHWALL"||messagetest=="FLESHWALL"||messagetest.includes("FLESHWALL")||messagetest.includes("FLESH WALL")){
                                         usespecificquote = true;
                                         specificquote = "<p>THE MAGNIFICENT FLESH WALL, THAT SQUIRMS AWAY... </p><p>THE MAGNIFICENT FLESH WALL... IT MAKES ME STAY</p><p>TO JUST ADMIRE, ITS TWISTED BEAUTY</p><p>FOR ITS BLOOD AND SUFFERING TASTES QUITE FRUITY!</p>";
                                     }
@@ -2438,10 +2438,10 @@ if(messagetest=="TAROTREVERSE"||messagetest=="TAROTREVERSALOFF"||messagetest=="T
                 }
                 if(gamemode=="HOLDLINE"){
                     responsetime = 1100;
-                    persona = "Holding Line";
-                        responses = holdingresponses;
-                        count = countholding;
-                        countholding++;
+                    persona = "Hold Line";
+                    responses = holdingresponses;
+                    count = countholding;
+                    countholding++;
                 }
                 if(gamemode=="CHEESE"){
                     responsetime = 800;

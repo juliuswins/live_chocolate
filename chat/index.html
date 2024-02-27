@@ -30,11 +30,22 @@ Please consider donating! Thank you and have fun! -->
             color: #D2691E;
         }
 
-        #versionno {
+        .leftimg {
+        height: 5vh !important;
+        width: auto !important;
+        opacity: 0.25;
+        transition: opacity 0.3s ease-in-out; /* Optional: for a smooth transition */
+        }
+
+        .leftimg:hover {
+         opacity: 0.75;
+        }
+
+        #leftside {
         font-size:14px;
         text-align: left;
         position: fixed; 
-        bottom: 0; 
+        top: 0; 
         left: 0; 
         word-wrap: break-word; /* This will break the word at the end of the line */
         overflow-wrap: break-word;
@@ -177,7 +188,7 @@ Please consider donating! Thank you and have fun! -->
 
         .SADGIRL-message {
             color: #0e014a;
-            background: linear-gradient(to right, #b18bff 0%, rgb(255, 255, 255));
+            background: linear-gradient(to right, #536cea 0%, rgb(255, 255, 255));
             padding: 15px 0 15px 15px;
             border-radius: 15px 0 0 15px;
             size: 12 px;
@@ -301,7 +312,7 @@ Please consider donating! Thank you and have fun! -->
         .input-container {
             color: black;
             border-radius: 10px; 
-            width: 42vw;
+            width: 50vw;
             display: flex;
             flex-direction: row; /* Added */
             margin-top: 20px;
@@ -373,15 +384,19 @@ Please consider donating! Thank you and have fun! -->
     </div>
 <div class="input-container">
     <div class="input-container">
-        <input type="text" class="message-input" id="userInput" placeholder="Type something... (Help, About, Dice, etc.)" enabled width="100%">
+        <input type="text" class="message-input" id="userInput" placeholder="Type something... (Help, About, Recipe, Etc)" enabled width="100%">
         <button class="send-button" onclick="sendMessage()" id="sendButton"><b> SEND</b></button>
     </div>
 </div>
 <script src="chat.js"></script>
 <br>
 
-<div id="versionno">
-    <p>v0.95.1.4.6</p>
+<div id="leftside">
+    <p><a href="?gamemode=choc&say=Where Am I?" target="_top"><img class='leftimg' src='images/think/thinkingchoc.png'></a></p>
+    <p><a href="?gamemode=holdline" target="_top"><img class='leftimg' src='images/think/thinkingholdline.png'></a></p>
+    <p><a href="?gamemode=future" target="_top"><img class='leftimg' src='images/think/thinkingfuture.png' ></a></p>
+    <p><a href="?gamemode=cheese" target="_top"><img class='leftimg' src='images/think/thinkingcheese.png'></a></p>
+    <p><a href="?gamemode=silly&say=dice" target="_top"><img class='dice leftimg' src='images/dice/1.png'></a></p>
 </div>
 
 </body>

@@ -91,6 +91,7 @@ if (urlParams.has('gamemode')) {
     var countholding = 0;
     var countaugust = 0;
     var countsadgirl = 0;
+    countmotivator = 0;
     var tarotcount = 0;
     var yourroll = 0;
 
@@ -312,6 +313,10 @@ if (urlParams.has('gamemode')) {
                 //first chocolate responses.
                 var responseshuffle = chocresponses.sort(() => Math.random() - 0.5);
                 chocresponses = responseshuffle;
+                // Randomize the order of the response arrays one time.
+                //sadgirl / depression responses.
+                var responseshuffle = sadgirlresponses.sort(() => Math.random() - 0.5);
+                sadgirlresponses = responseshuffle;
                 //then white chocolate.
                 responseshuffle = whitechocresponses.sort(() => Math.random() - 0.5);
                 whitechocresponses = responseshuffle;
@@ -1738,7 +1743,7 @@ var tarotquotes = [
                                     }
 
                                     //A full tarot deck. Yep.
-if(messagetest=="TAROT"||messagetest=="TAROTDECK"||messagetest=="READING"){
+if(messagetest=="TAROT"||messagetest=="TAROTDECK"||messagetest=="READING"||messagetest=="MORETAROT"||messagetest.includes("MORETAROT")){
 var randomIndex = Math.floor(Math.random()*tarotquotes.length);
 var coinflip2 = Math.floor(Math.random()*2);
 if(tarotcount<=tarotquotes.length){
@@ -1759,6 +1764,8 @@ gamemode = "TEMP";
 usespecificquote = true;
 tempcharacternow = true;
 tempcharacter = "TAROT DECK";
+prevgame = "FUTURE";
+goprev = true;
 }
 //Turn tarot reversals on or off.
 if(messagetest=="TAROTREVERSE"||messagetest=="TAROTREVERSALOFF"||messagetest=="TAROTREVERSAL"||messagetest=="ADDREVERSALS"||messagetest=="REVERSALSOFF"){
@@ -1773,8 +1780,10 @@ if(messagetest=="TAROTREVERSE"||messagetest=="TAROTREVERSALOFF"||messagetest=="T
     usespecificquote = true;
     tempcharacternow = true;
     tempcharacter = "TAROT DECK";
+    prevgame = "FUTURE";
+    goprev = true;
     }
-    
+//End of tarot BS
                                     //Some music suggestions from hold music too.
                                     if(messagetest=="SONG"||messagetest=="PLAYMUSIC"||messagetest=="MUSIC"||messagetest=="HOLDMUSIC"||messagetest=="HOLDINGMUSIC"||messagetest=="WAITMUSIC") {
                                         usespecificquote = true;
@@ -2278,7 +2287,15 @@ if(messagetest=="TAROTREVERSE"||messagetest=="TAROTREVERSALOFF"||messagetest=="T
                                     }
                                     if(messagetest=="SORRY" || messagetest=="I AM SORRY"|| messagetest=="I'M SORRY") {
                                         usespecificquote = true;
-                                        specificquote = "What you are sorry for, I forgive you.";
+                                        if(!saidsorry||saidsorry==null||saidsorry==undefined){
+                                            //First iteration.
+                                            specificquote = "What you are sorry for, I forgive you.";
+                                            var saidsorry = true;
+                                        }else{
+                                            //Second iteration.
+                                            specificquote = "What you know inside that you feel deep regret for, I sincerely forgive you.";
+                                            var saidsorry = false;
+                                        }
                                     }
                                     if(messagetest=="PREDICT"||messagetest=="PREDICTION") {
                                         usespecificquote = true;
@@ -2560,12 +2577,22 @@ if(messagetest=="TAROTREVERSE"||messagetest=="TAROTREVERSALOFF"||messagetest=="T
                                     goprev = true;
                                    prevgame = "HOLDLINE";
                                 }else if(gamemode=="QUEST"){
-                                   //Do nothing.
+                                   //Do nothing, because it's quest mode.
                                    var response = responses[count]; 
                                 }else if(gamemode=="SILLY"){
-                                   //Do nothing.
+                                   //Do nothing because it will still be random. Count doesn't really matter here.
                                    var response = responses[count]; 
-                                }
+                                }else if(gamemode=="MOTIVATOR"){
+                                    response = "Alright, "+yourusername+"! I gotta run!";
+                                    countmotivator = 0;
+                                    persona = "MOTIVATOR";
+                                    goprev = true;
+                                   prevgame = "FUTURE";
+                                   var response = responses[count];
+                                }else if(gamemode=="SADGIRL"){
+                                    response = "Thanks for listening to me... I don't know, should I go? You can stick around and keep talking. Nobody else really listens anyway.";
+                                    countsadgirl = 0;
+                                 }
                                 }else{
                                 //If count IS < response length.
                                  var response = responses[count];

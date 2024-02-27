@@ -756,7 +756,7 @@ var tarotquotes = [
                                 }
 
                                 //Check to activate Motivator.
-                                if(messagetest=="MOTIVATION" || messagetest=="MOTIVATOR" || messagetest=="MEDIATOR"|| messagetest=="LIBRA"){
+                                if(messagetest.includes("MOTIVATION")||messagetest.includes("NEEDMOTIVATION")||messagetest=="MOTIVATION" || messagetest=="MOTIVATEME" ||messagetest=="MOTIVATOR" || messagetest=="MEDIATOR"|| messagetest=="LIBRA"){
                                     gamemode = "MOTIVATOR";
                                 }
                                 //Check to activate Augustus.

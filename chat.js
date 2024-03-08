@@ -2034,7 +2034,7 @@ if(tarotcount<=tarotquotes.length){
                                                 //Copy this and give a unique number to add a one time score addition.
                                                 var boolused = 70;
                                                 if(pointsfound[boolused] == false){
-                                                    newvalue = -midscore;
+                                                    newvalue = midscore;
                                                     updatescore();
                                                     pointsfound[boolused] = true;
                                                 } 

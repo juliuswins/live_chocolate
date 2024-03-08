@@ -2,7 +2,7 @@
 document.getElementById("userInput").focus();
 
 //the welcome message you see:
-document.getElementById("chatroom").innerHTML += '<div class="message welcome-message"><h1><strong> Talk to chocolate .xyz</h1><p> Contains some adult content / Please be respectful and enjoy!</p></strong></div>';  
+document.getElementById("chatroom").innerHTML += '<div class="message welcome-message"><h1><strong> Talk to chocolate .xyz</h1><p> Contains some adult content / Please be respectful and enjoy!</p></strong><p style="font-size: 5px;">Updated 8th March, 2024.</p></div>';  
 
 //responsetime is the delay between your message and the response.
 var responsetime = 1000;

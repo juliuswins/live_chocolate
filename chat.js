@@ -2,7 +2,7 @@
 document.getElementById("userInput").focus();
 
 //the welcome message you see:
-document.getElementById("chatroom").innerHTML += '<div class="message welcome-message"><h1><strong> Talk to chocolate .xyz</h1><p> Contains some adult content / Please be respectful and enjoy!</p></strong><p style="font-size: 10px;">Updated 8th March, 2024.</p></div>';  
+document.getElementById("chatroom").innerHTML += '<div class="message welcome-message"><h1><strong> Talk to chocolate .xyz</h1><p> Contains some adult content / Please be respectful and enjoy!</p></strong><p style="font-size: 10px;">Last update: 9th March, 2024.</p></div>';  
 
 //responsetime is the delay between your message and the response.
 var responsetime = 1000;
@@ -12,16 +12,12 @@ var helpinghelp = false;
 var tarotreversed = true;
 //sets some score variables.
 var myscore = 0;
-//function newscore(){
-  //  var element = document.getElementById('scoredisplay');
-   // element.textContent = 'Hello, world!';
-//document.getElementById('scoredisplay').textContent = myscore;
-//}
 var hiscore = 0;
 var lilscore = 10;
 var midscore = 100;
 var bigscore = 1000;
-//newscore();
+var newvalue = 0;
+var pointsfound = new Array(100).fill(false);
 //Random chance that you start with CHEESE, WHITE CHOCOLATE or FUTURE on first load, instead of CHOCOLATE.
 var randomIndex = Math.floor(Math.random() * 20);
 if (randomIndex == 0) {
@@ -476,7 +472,7 @@ var tarotquotes = [
                 //sets up messagetest2... same but also checks for CHARACTERS.
                 var messagetest2 = userInput.value.trim().toUpperCase(); 
                 //SHOULD BE ASAP after var messagetest!                                      ^^^
-                if(messagetest=="DOWNLOAD"){
+                if(messagetest=="DOWNLOAD"||messagetest=="DL"){
                 //On request, downloads the chat log minus your input to ask for download, or the responses..
                 //Checking user input - submits a download if requested.
                 downloadlog();
@@ -603,11 +599,6 @@ var tarotquotes = [
                         persona = "DEPRESSION";
                     }
                     //Checking achievements... to be added.
-                    if(messagetest=="DL"){
-                            usespecificquote = true;
-                             specificquote = "type 'download' to get a chat log file."; 
-                            gamemode = "TEMP";
-                            }
                         if(messagetest=="ACHIEVEMENTS"){
                              usespecificquote = true;
                              specificquote = "Achievements are not available yet, but I look forward to them coming soon!";
@@ -904,6 +895,14 @@ var tarotquotes = [
                                 }
                                 //Run a dice.
                                 if(messagetest=="DICE"||messagetest == "ROLL"||messagetest == "REROLL"||messagetest == "ROLLDICE"||messagetest == "D6"){
+                                    //Copy this and give a unique number to add a one time score addition.
+                                    var boolused = 0;
+                                    if(pointsfound[boolused] == false){
+                                        newvalue = lilscore;
+                                        updatescore();
+                                        pointsfound[boolused] = true;
+                                    }
+
                                     var randomIndex = Math.floor(Math.random() * 6);
                                     var diceroll = randomIndex;
                                     if(diceroll==0){
@@ -1052,6 +1051,9 @@ var tarotquotes = [
                                     gamemode = "TEMP";
                                     tempcharacternow = true;
                                     tempcharacter = "FINANCIAL NON-ADVISOR";
+                                    if(!financepoint||financepoint==null){
+
+                                    }
                                 }
                                 //Don't have a D20.
                                 if(messagetest=="D20"||messagetest=="D10"){
@@ -1128,6 +1130,13 @@ var tarotquotes = [
                                         specificquote = "...ETC? You really said ETC? Not BTC like Bitcoin? Or even... I don't know, OTC?";
                                     }
                                         gamemode = "TEMP";
+                                    //Copy this and give a unique number to add a one time score addition.
+                                    var boolused = 3;
+                                    if(pointsfound[boolused] == false){
+                                        newvalue = lilscore;
+                                        updatescore();
+                                        pointsfound[boolused] = true;
+                                    }                                        
                                 }
                                 if(messagetest=="OTC"){
                                     var randomIndex = Math.floor(Math.random() * 2); 
@@ -1382,6 +1391,12 @@ var tarotquotes = [
                                     gamemode = "TEMP";
                                     usespecificquote = true;
                                     specificquote = "Wow... You'll just do anything I tell you! You're real clever. You deserve an AWARD for that, obviously, genius.";
+                                    var boolused = 12;
+                                    if(pointsfound[boolused] == false){
+                                        newvalue = bigscore;
+                                        updatescore();
+                                        pointsfound[boolused] = true;
+                                    }   
                                 }
                                 //change to future mode.
                                 if(messagetest=="FUTURE"||messagetest=="FUTUREMODE"){
@@ -1397,14 +1412,27 @@ var tarotquotes = [
                                 if(messagetest=="HELL"||messagetest=="DEVIL"|| messagetest=="DARK"|| messagetest=="SATAN"|| messagetest=="HAILSATAN"|| messagetest=="LUCIFER"|| messagetest=="THEDEVIL"){
                                     prevgame = gamemode;
                                     gamemode = "DEVIL";
+                                    var boolused = 13;
+                                    if(pointsfound[boolused] == false){
+                                        newvalue = lilscore;
+                                        updatescore();
+                                        pointsfound[boolused] = true;
+                                    }   
                                 }
                                 //Some responses to directions.
-                                if(messagetest=="RIGHT"){
+                                if(messagetest=="RIGHT"){                                   
                                         var randomIndex = Math.floor(Math.random() * 2); 
                                     if (randomIndex == 0) {
                                         specificquote = "Yes, Right!";
                                     } else {
                                         specificquote = "Nope, Left.";
+//Copy this and give a unique number to add a one time score addition.
+                                    var boolused = 14;
+                                    if(pointsfound[boolused] == false){
+                                        newvalue = lilscore;
+                                        updatescore();
+                                        pointsfound[boolused] = true;
+                                    } 
                                     }
                                         usespecificquote = true;
                                         gamemode = "TEMP";
@@ -1453,6 +1481,13 @@ var tarotquotes = [
                                         specificquote = "...I appreciate the manners, but please WHAT?";
                                         gamemode = "TEMP";
                                         usespecificquote = true;
+                                    //Copy this and give a unique number to add a one time score addition.
+                                    var boolused = 15;
+                                    if(pointsfound[boolused] == false){
+                                        newvalue = 1;
+                                        updatescore();
+                                        pointsfound[boolused] = true;
+                                    } 
                                     }
                                     if(messagetest=="OBVIOUS"){
                                         specificquote = "...I don't want to be too obvious.";
@@ -1615,6 +1650,12 @@ var tarotquotes = [
                                     }
                                         gamemode = "TEMP";
                                         usespecificquote = true;
+                                        var boolused = 21;
+                                        if(pointsfound[boolused] == false){
+                                            newvalue = lilscore;
+                                            updatescore();
+                                            pointsfound[boolused] = true;
+                                        } 
                                     }
                                     if(messagetest=="WHY NOT"||messagetest=="WHYNOT"){
                                         var randomIndex = Math.floor(Math.random() * 5); 
@@ -1631,6 +1672,12 @@ var tarotquotes = [
                                     }
                                         gamemode = "TEMP";
                                         usespecificquote = true;
+                                        var boolused = 22;
+                                        if(pointsfound[boolused] == false){
+                                            newvalue = lilscore;
+                                            updatescore();
+                                            pointsfound[boolused] = true;
+                                        } 
                                     }
                                     //Request music correctly!
                                     if(messagetest=="MUSICPLEASE"||messagetest=="SONGPLEASE"||messagetest=="SONG PLEASE"||messagetest=="PLEASEMUSIC"||messagetest=="MUSIC PLEASE"||messagetest=="PLEASE PLAY MUSIC"||messagetest=="PLAY MUSIC PLEASE"){
@@ -1932,18 +1979,46 @@ if(messagetest=="TAROTREVERSE"||messagetest=="TAROTREVERSALOFF"||messagetest=="T
                                     }else {
                                         specificquote = "HOW FAR ARE YOU WILLING TO GO HERE?! PROBABLY NOT FURTHER THAN ME.";
                                     }
+                                    //Copy this and give a unique number to add a one time score addition.
+                                    var boolused = 6;
+                                    if(pointsfound[boolused] == false){
+                                        newvalue = midscore;
+                                        updatescore();
+                                        pointsfound[boolused] = true;
+                                    }                                    
                                     }
                                     //don't tell pissed choc to calm down.
                                     if(messagetest=="CALMDOWN"|| messagetest=="CALM"|| messagetest=="CALM DOWN") {
                                         usespecificquote = true;
                                         specificquote = "DON'T TELL ME TO CALM DOWN. I AM GOING TO FUCKING FIND YOU, KILL YOU, KILL YOUR WHOLE FAMILY, COOK YOU IN A SOUP AND THROW IT IN THE TOILET..";
+                                    //Copy this and give a unique number to add a one time score addition.
+                                    var boolused = 7;
+                                    if(pointsfound[boolused] == false){
+                                        newvalue = midscore;
+                                        updatescore();
+                                        pointsfound[boolused] = true;
+                                    }                                       
                                     }
                                     if(messagetest=="FLESHWALL"||messagetest=="FLESHWALLS"||messagetest=="THEFLESHWALL"||messagetest=="FLESHWALL"||messagetest.includes("FLESHWALL")||messagetest.includes("FLESH WALL")){
                                         usespecificquote = true;
                                         specificquote = "Shut the fuck up with your flesh walls you sick fucking individual!";
+                                        //Copy this and give a unique number to add a one time score addition.
+                                    var boolused = 8;
+                                    if(pointsfound[boolused] == false){
+                                        newvalue = midscore;
+                                        updatescore();
+                                        pointsfound[boolused] = true;
+                                    }   
                                     }
                                     //apologize to choc :)
                                     if(messagetest=="SORRY") {
+                                    //Copy this and give a unique number to add a one time score addition.
+                                    var boolused = 5;
+                                    if(pointsfound[boolused] == false){
+                                        newvalue = bigscore;
+                                        updatescore();
+                                        pointsfound[boolused] = true;
+                                    }                                        
                                         usespecificquote = true;
                                         specificquote = "Yeah... You're right. Things got a bit too heated. I'm just going to take a quick break I think.";
                                         gamemode = "TEMP";
@@ -1961,6 +2036,12 @@ if(messagetest=="TAROTREVERSE"||messagetest=="TAROTREVERSALOFF"||messagetest=="T
                                     if(messagetest=="FLESHWALL"||messagetest=="THEFLESHWALL"||messagetest=="FLESHWALLS"||messagetest=="FLESHWALL"||messagetest.includes("FLESHWALL")){
                                         usespecificquote = true;
                                         specificquote = "<a href='https://www.google.com/search?q=FLESH+WALLS' target='_blank'>Please don't talk to me about Flesh walls.</a>";
+                                        var boolused = 9;
+                                        if(pointsfound[boolused] == false){
+                                            newvalue = midscore;
+                                            updatescore();
+                                            pointsfound[boolused] = true;
+                                        }   
                                     }
                                     if(messagetest=="STEAK"|| messagetest=="STEAK") {
                                         usespecificquote = true;
@@ -2001,6 +2082,12 @@ if(messagetest=="TAROTREVERSE"||messagetest=="TAROTREVERSALOFF"||messagetest=="T
                                     if(messagetest=="IDK"|| messagetest=="I DON'T KNOW"||messagetest=="DUNNO"||messagetest=="IDONTKNOW") {
                                         usespecificquote = true;
                                         specificquote = "EXACTLY. ME NEITHER. NOBODY KNOWS.";
+                                        var boolused = 20;
+                                        if(pointsfound[boolused] == false){
+                                            newvalue = lilscore;
+                                            updatescore();
+                                            pointsfound[boolused] = true;
+                                        } 
                                     }
                                     if(messagetest=="WTF"|| messagetest=="WHAT THE FUCK"||messagetest=="WHAT THE FUCK!"||messagetest=="WHAT THE FUCK?") {
                                         usespecificquote = true;
@@ -2075,10 +2162,24 @@ if(messagetest=="TAROTREVERSE"||messagetest=="TAROTREVERSALOFF"||messagetest=="T
                                     if(messagetest=="HI"||messagetest=="HELLO"||messagetest=="WELCOME"||messagetest=="WHEREAMI"||messagetest=="GREETINGS"||messagetest=="HOWDY"||messagetest=="HEY"||messagetest=="SUP"){
                                         usespecificquote = true;
                                         if(!welcomed){
+                                                    //Copy this and give a unique number to add a one time score addition.
+                                                    var boolused = 1;
+                                                    if(pointsfound[boolused] == false){
+                                                        newvalue = midscore;
+                                                        updatescore();
+                                                        pointsfound[boolused] = true;
+                                                    }                        
                                             specificquote = "Hi! I'm Chocolate, and it's a pleasure to meet you! Feel free to talk to me about whatever you like. There are others around in the chat too... But in the meantime, talk with me!";
                                             welcomed = true;
                                         }else{
                                             specificquote = "I already introduced myself, numnuts.";
+                                                                                //Copy this and give a unique number to add a one time score addition.
+                                    var boolused = 2;
+                                    if(pointsfound[boolused] == false){
+                                        newvalue = lilscore;
+                                        updatescore();
+                                        pointsfound[boolused] = true;
+                                    }
                                         }
                                     }
                                     //reaction to Positive.
@@ -2090,12 +2191,18 @@ if(messagetest=="TAROTREVERSE"||messagetest=="TAROTREVERSALOFF"||messagetest=="T
                                     } else {
                                         specificquote = "Alright.";
                                     }
-
                                     }
                                     if(messagetest=="MILK"){
                                         usespecificquote = true;
                                         specificquote = "YEAH, EXACTLY, MILK!";
                                         milkmode = true;
+                                    //Copy this and give a unique number to add a one time score addition.
+                                    var boolused = 4;
+                                    if(pointsfound[boolused] == false){
+                                        newvalue = midscore;
+                                        updatescore();
+                                        pointsfound[boolused] = true;
+                                    }                                        
                                     }
                                     //reaction to Negative.
                                     if(messagetest=="NO"||messagetest=="NAH"||messagetest=="NOPE"){
@@ -2128,6 +2235,12 @@ if(messagetest=="TAROTREVERSE"||messagetest=="TAROTREVERSALOFF"||messagetest=="T
                                     if(messagetest.includes("CHEESE")){
                                         usespecificquote = true;
                                         specificquote = "HEH HEH. CHEESE.";
+                                        var boolused = 23;
+                                        if(pointsfound[boolused] == false){
+                                            newvalue = midscore;
+                                            updatescore();
+                                            pointsfound[boolused] = true;
+                                        } 
                                     }
                                     if(messagetest=="BYE"||messagetest=="LEAVE"||messagetest=="GOODBYE") {
                                         usespecificquote = true;
@@ -2145,6 +2258,12 @@ if(messagetest=="TAROTREVERSE"||messagetest=="TAROTREVERSALOFF"||messagetest=="T
                                         specificquote = "Fuck this, I'm outta here.";
                                         prevgame = "HOLDLINE";
                                         goprev = true;
+                                        var boolused = 11;
+                                        if(pointsfound[boolused] == false){
+                                            newvalue = midscore;
+                                            updatescore();
+                                            pointsfound[boolused] = true;
+                                        }   
                                     }
                                     if(messagetest=="LOVE"||messagetest=="ILOVEYOU") {
                                         usespecificquote = true;
@@ -2204,6 +2323,12 @@ if(messagetest=="TAROTREVERSE"||messagetest=="TAROTREVERSALOFF"||messagetest=="T
                                         specificquote = "You're a fucking loser. I'm out of here.";
                                         prevgame = "HOLDLINE";
                                         goprev = true;
+                                        var boolused = 16;
+                                        if(pointsfound[boolused] == false){
+                                            newvalue = -1;
+                                            updatescore();
+                                            pointsfound[boolused] = true;
+                                        } 
                                     }
                                     if(messagetest=="SORRY" || messagetest=="I AM SORRY"|| messagetest=="I'M SORRY") {
                                         usespecificquote = true;
@@ -2212,26 +2337,56 @@ if(messagetest=="TAROTREVERSE"||messagetest=="TAROTREVERSALOFF"||messagetest=="T
                                     if(messagetest=="BLACK" || messagetest=="BLUE"|| messagetest=="GREEN"|| messagetest=="RED"|| messagetest=="ORANGE"|| messagetest=="BROWN") {
                                         usespecificquote = true;
                                         specificquote = "This isn't a colour guessing game.";
+                                        var boolused = 17;
+                                        if(pointsfound[boolused] == false){
+                                            newvalue = 1;
+                                            updatescore();
+                                            pointsfound[boolused] = true;
+                                        } 
                                     }
                                     if(messagetest=="BYE"||messagetest=="LEAVE"||messagetest=="GOODBYE") {
                                         usespecificquote = true;
                                         specificquote = "Okay, bye.";
                                         prevgame = "HOLDLINE";
                                         goprev = true;
+                                        var boolused = 18;
+                                        if(pointsfound[boolused] == false){
+                                            newvalue = midscore;
+                                            updatescore();
+                                            pointsfound[boolused] = true;
+                                        } 
                                     }
                                 }
                                 if(gamemode=="DEVIL"){
                                     if(messagetest=="FLESHWALL"||messagetest=="FLESHWALLS"||messagetest=="THEFLESHWALL"||messagetest=="FLESHWALL"||messagetest.includes("FLESHWALL")||messagetest.includes("FLESH WALL")){
                                         usespecificquote = true;
                                         specificquote = "<p>THE MAGNIFICENT FLESH WALL, THAT SQUIRMS AWAY... </p><p>THE MAGNIFICENT FLESH WALL... IT MAKES ME STAY</p><p>TO JUST ADMIRE, ITS TWISTED BEAUTY</p><p>FOR ITS BLOOD AND SUFFERING TASTES QUITE FRUITY!</p>";
+                                        var boolused = 10;
+                                        if(pointsfound[boolused] == false){
+                                            newvalue = bigscore;
+                                            updatescore();
+                                            pointsfound[boolused] = true;
+                                        }   
                                     }
                                     if(messagetest=="HELL"){
                                         usespecificquote = true;
                                         specificquote = "THAT'S WHERE WE ARE, BITCH!";
+                                        var boolused = 24;
+                                        if(pointsfound[boolused] == false){
+                                            newvalue = bigscore;
+                                            updatescore();
+                                            pointsfound[boolused] = true;
+                                        } 
                                     }
                                     if(messagetest=="HEAVEN"){
                                         usespecificquote = true;
                                         specificquote = "YOU DEFINITELY AIN'T GETTING THERE IF YOU'RE HERE WITH ME!";
+                                        var boolused = 25;
+                                        if(pointsfound[boolused] == false){
+                                            newvalue = lilscore;
+                                            updatescore();
+                                            pointsfound[boolused] = true;
+                                        } 
                                     }
                                     if(messagetest=="LOL"||messagetest=="HAHA"){
                                         usespecificquote = true;
@@ -2373,6 +2528,12 @@ if(messagetest=="TAROTREVERSE"||messagetest=="TAROTREVERSALOFF"||messagetest=="T
                                     }
                                     }
                                     if(messagetest=="REPRESENTATIVE") {
+                                        var boolused = 26;
+                                        if(pointsfound[boolused] == false){
+                                            newvalue = bigscore;
+                                            updatescore();
+                                            pointsfound[boolused] = true;
+                                        } 
                                         usespecificquote = true;
                                         specificquote = "There are no current representatives. Feel free to use breathing techniques to increase your patience threshold.";
                                     }
@@ -2381,16 +2542,34 @@ if(messagetest=="TAROTREVERSE"||messagetest=="TAROTREVERSALOFF"||messagetest=="T
                                         specificquote = "There are NO representatives available. Got that?";
                                     }
                                     if(messagetest=="OPERATOR") {
+                                        var boolused = 27;
+                                        if(pointsfound[boolused] == false){
+                                            newvalue = lilscore;
+                                            updatescore();
+                                            pointsfound[boolused] = true;
+                                        } 
                                         usespecificquote = true;
                                         specificquote = "Operator? You're here alone, on your own.";
                                     }
                                     if(messagetest=="FUCK YOU"||messagetest=="FUCKYOU"||messagetest=="FUCKYA"||messagetest=="FUCK YOU!"||messagetest.includes("FUCKYOU")){
                                         usespecificquote = true;
                                         specificquote = "Very rude... No wonder nobody wants to talk to you.";
+                                        var boolused = 28;
+                                        if(pointsfound[boolused] == false){
+                                            newvalue = lilscore;
+                                            updatescore();
+                                            pointsfound[boolused] = true;
+                                        } 
                                     }
                                     if(messagetest=="BYE"||messagetest=="LEAVE"||messagetest=="GOODBYE") {
                                         usespecificquote = true;
                                         specificquote = "Bye? Where are you going?";
+                                        var boolused = 29;
+                                        if(pointsfound[boolused] == false){
+                                            newvalue = midscore;
+                                            updatescore();
+                                            pointsfound[boolused] = true;
+                                        } 
                                     }
                                 }
                                 check = true;
@@ -2407,6 +2586,12 @@ if(messagetest=="TAROTREVERSE"||messagetest=="TAROTREVERSALOFF"||messagetest=="T
                 //Makes sure temp is on if you're getting a temp character answer.
                 if(tempcharacternow){
                     gamemode = "TEMP";
+                    var boolused = 30;
+                    if(pointsfound[boolused] == false){
+                        newvalue = lilscore;
+                        updatescore();
+                        pointsfound[boolused] = true;
+                    } 
                 }
                 //checking gamemodes...
                 if(gamemode=="CHOC"){
@@ -2468,6 +2653,12 @@ if(messagetest=="TAROTREVERSE"||messagetest=="TAROTREVERSALOFF"||messagetest=="T
                         responses = motivationresponses;
                         count = countmotivator;
                         countmotivator ++;
+                        var boolused = 31;
+                        if(pointsfound[boolused] == false){
+                            newvalue = midscore;
+                            updatescore();
+                            pointsfound[boolused] = true;
+                        } 
                 }
                 //we built the silly sausage right here.
                 if(gamemode=="SILLY"){
@@ -2630,6 +2821,12 @@ if(messagetest=="TAROTREVERSE"||messagetest=="TAROTREVERSALOFF"||messagetest=="T
                                 }else if(gamemode=="SADGIRL"){
                                     response = "Thanks for listening to me... I don't know, should I go? You can stick around and keep talking. Nobody else really listens anyway.";
                                     countsadgirl = 0;
+                                    var boolused = 19;
+                                    if(pointsfound[boolused] == false){
+                                        newvalue = bigscore;
+                                        updatescore();
+                                        pointsfound[boolused] = true;
+                                    } 
                                     var responseshuffle = sadgirlresponses.sort(() => Math.random() - 0.5);
                                     sadgirlresponses = responseshuffle;
                                  }
@@ -2639,7 +2836,7 @@ if(messagetest=="TAROTREVERSE"||messagetest=="TAROTREVERSALOFF"||messagetest=="T
 
                                 //We try to kick you out of future mode after the 1 intro response and 5 random responses.
                                 if(gamemode=="FUTURE"&&count==8){
-                                response = "I'm sorry, I'd better go. This should do for the time being!";
+                                response = "Anyway, I'd better go. This should do for the time being!";
                                  goprev = true;
                                 prevgame = "HOLDLINE";
                                  }
@@ -2800,41 +2997,59 @@ function reloadpage(){
 }
 
 //Download your chat log!
-function downloadlog(){
+function downloadlog() {
+    // Get the chatroom content
+    let chatroomContent = document.getElementById('chatroom').innerHTML;
+    currenttime = new Date().toLocaleString();
+    var messageElement = document.querySelector('.message'); // replace '.message' with the actual selector of your message element
+    var chatroomElements = document.querySelectorAll('.chat-container');
+    var style = window.getComputedStyle(messageElement);
+    var allstyle = style.cssText;
 
-// Get the chatroom content
-let chatroomContent = document.getElementById('chatroom').innerHTML;
-currenttime = new Date().toLocaleString();
-var messageElement = document.querySelector('.message'); // replace '.message' with the actual selector of your message element
-var chatroomElements = document.querySelectorAll('.chat-container');
-var style = window.getComputedStyle(messageElement);
-var allstyle = style.cssText;
-var downloadtitle = (allstyle+"<div class='TEMP-message'><p><h1>TALK TO CHOCOLATE / CHAT LOG " +currenttime+"</h1></p><br></div>").toUpperCase();
-let contentWithDiv = '<div id:"chat-container">'+downloadtitle + chatroomContent+"<br><p>END OF CHAT.</p>";var downloadtitle = allstyle+"<div class='TEMP-message'><p><h1>"+("TALK TO CHOCOLATE / CHAT LOG " +currenttime).toUpperCase()+"</h1></p><br></div>";
-// Create a Blob with the chatroom content
-let file = new Blob([contentWithDiv], {type: 'text/html'});
-var downloadfilepath = URL.createObjectURL(file);
+    // Get all style and link (CSS) elements from the head
+    var styleElements = Array.from(document.head.querySelectorAll('style, link[rel="stylesheet"]'));
 
-// Create a link to download the file
-let a = document.createElement('a');
-a.href = URL.createObjectURL(file);
-var filenamerandomizer = Math.floor(Math.random() * 10);
-var filenamerandomizer2 = Math.floor(Math.random() * 10000);
-var finalfilename = 'talktochocolate_chatlog_'+filenamerandomizer+'_'+filenamerandomizer2+'.html';
-a.download = finalfilename;
-a.style.display = 'none';
-// Append the link to the body
-document.body.appendChild(a);
+    // Initialize an empty string to hold all the styles
+    var allStyles = '';
 
-// Simulate a click on the link
-a.click();
+    // For each original style/link element...
+    styleElements.forEach(function(styleElement) {
+        // If it's a style element, copy its text content
+        if (styleElement.tagName.toLowerCase() === 'style') {
+            allStyles += styleElement.textContent;
+        }
+        // If it's a link element, copy its href
+        else if (styleElement.tagName.toLowerCase() === 'link') {
+            allStyles += '@import url("' + styleElement.href + '");';
+        }
+    });
 
-// Remove the link from the body
-document.body.removeChild(a);
+    var downloadtitle = (allstyle+"<div class='TEMP-message'><p><h1>TALK TO CHOCOLATE / CHAT LOG.</p><p>SCORE: "+myscore+" / PRINT TIME: " +currenttime+"</h1></p><br></div>").toUpperCase();
+    let contentWithDiv = '<style>' + allStyles + '</style><div id="chat-container">'+downloadtitle + chatroomContent+"<br><p>END OF CHAT.</p>";
+    // Create a Blob with the chatroom content
+    let file = new Blob([contentWithDiv], {type: 'text/html'});
+    var downloadfilepath = URL.createObjectURL(file);
 
-//Notify user of download.
-document.getElementById("chatroom").innerHTML += '<div class="message DOWNLOAD-message"><strong>DOWNLOADING CONVERSATION LOG:</strong><br><a href="'+downloadfilepath+'" target="_blank">'+finalfilename+'</a></div>';
-ScrollDownNow();
+    // Create a link to download the file
+    let a = document.createElement('a');
+    a.href = URL.createObjectURL(file);
+    var filenamerandomizer = Math.floor(Math.random() * 10);
+    var filenamerandomizer2 = Math.floor(Math.random() * 10000);
+    var finalfilename = 'talktochocolate_chatlog_'+filenamerandomizer+'_'+filenamerandomizer2+'.html';
+    a.download = finalfilename;
+    a.style.display = 'none';
+    // Append the link to the body
+    document.body.appendChild(a);
+
+    // Simulate a click on the link
+    a.click();
+
+    // Remove the link from the body
+    document.body.removeChild(a);
+
+    //Notify user of download.
+    document.getElementById("chatroom").innerHTML += '<div class="message DOWNLOAD-message"><strong>DOWNLOADING CONVERSATION LOG:</strong><br><a href="'+downloadfilepath+'" target="_blank">'+finalfilename+'</a></div>';
+    ScrollDownNow();
 }
 
 //Cow notifications.
@@ -2894,9 +3109,22 @@ function runclearmode(){
 }
 
 //Checks if the URL has something already lined up to say.
+/* CURRENTLY DISABLED.
 if (urlParams.has('say')) {
     var tryinput = urlParams.get('say').toUpperCase();
-    userInput.value = tryinput;
+    var userINPUT = document.getElementById("userInput");
+    userINPUT.value = tryinput;
     sendMessage();
+}
+*/
+
+//Displays the score on load (should be 0 by default).
+window.onload = function(){
+    document.getElementsByClassName('thescore')[0].textContent = myscore;
+}
+//Updates the score.
+function updatescore(){
+    myscore += newvalue;
+    document.getElementsByClassName('thescore')[0].textContent = myscore;
 }
 //The end of the script.

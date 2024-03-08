@@ -16,6 +16,7 @@ var hiscore = 0;
 var lilscore = 10;
 var midscore = 100;
 var bigscore = 1000;
+var massivescore = 10000;
 var newvalue = 0;
 var pointsfound = new Array(100).fill(false);
 //Random chance that you start with CHEESE, WHITE CHOCOLATE or FUTURE on first load, instead of CHOCOLATE.
@@ -761,7 +762,7 @@ var tarotquotes = [
                                                   //Copy this and give a unique number to add a one time score addition.
                                                   var boolused = 40;
                                                   if(pointsfound[boolused] == false){
-                                                      newvalue = 100000;
+                                                      newvalue = bigscore;
                                                       updatescore();
                                                       pointsfound[boolused] = true;
                                                   }                       

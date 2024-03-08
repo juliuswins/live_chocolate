@@ -37,6 +37,11 @@ Please consider donating! Thank you and have fun! -->
         transition: opacity 0.3s ease-in-out; /* Optional: for a smooth transition */
         }
 
+        .thescore{
+            font-size: 40px;
+            text-align: right;
+        }
+
         .leftimg:hover {
          opacity: 1;
         }
@@ -333,7 +338,7 @@ Please consider donating! Thank you and have fun! -->
         .input-container {
             color: black;
             border-radius: 10px; 
-            width: 40vw;
+            width: 35vw;
             display: flex;
             flex-direction: row; /* Added */
             margin-top: 20px;
@@ -404,16 +409,15 @@ Please consider donating! Thank you and have fun! -->
     </div>
 <div class="input-container">
     <div class="input-container">
-        <input type="text" class="message-input" id="userInput" placeholder="Type something... (Help, About, Recipe, Etc)" enabled width="100%">
+        <input type="text" class="message-input" id="userInput" placeholder="Type something... (About, Help, Dice, Recipe, Etc)" enabled width="100%">
         <button class="send-button" onclick="sendMessage()" id="sendButton"><b> SEND</b></button>
     </div>
 </div>
 <script src="chat.js"></script>
 <br>
-
 <div id="leftside">
 <p><img src="images/logo/talktochocolatelogo.png" class="leftimg"></p>
-<p id="scoredisplay"></p>
+<p class="thescore" id="scoredisplay"></p>
 </div>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6285017727399378"
 crossorigin="anonymous"></script>

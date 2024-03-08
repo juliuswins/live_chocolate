@@ -2,7 +2,7 @@
 document.getElementById("userInput").focus();
 
 //the welcome message you see:
-document.getElementById("chatroom").innerHTML += '<div class="message welcome-message"><h1><strong> Talk to chocolate .xyz</h1><p> Contains some adult content / Please be respectful and enjoy!</p></strong><p style="font-size: 10px;">Last update: 9th March, 2024.</p></div>';  
+document.getElementById("chatroom").innerHTML += '<div class="message welcome-message"><h1><strong> Talk to chocolate .xyz</h1><p> Contains some adult content / Please be respectful and enjoy!</p></strong><p style="font-size: 10px;">Last update: 10th March, 2024.</p></div>';  
 
 //responsetime is the delay between your message and the response.
 var responsetime = 1000;
@@ -699,6 +699,13 @@ var tarotquotes = [
                                     var randomIndex = Math.floor(Math.random() * 17); 
                                     if (randomIndex >= 10) {
                                         specificquote = "You're feeling LUCKY!";
+                                                                            //Copy this and give a unique number to add a one time score addition.
+                                    var boolused = 37;
+                                    if(pointsfound[boolused] == false){
+                                        newvalue = bigscore;
+                                        updatescore();
+                                        pointsfound[boolused] = true;
+                                    } 
                                     } else if(randomIndex==9) {
                                         specificquote = "Luck... is alright.";
                                     }else if(randomIndex==6){
@@ -721,6 +728,13 @@ var tarotquotes = [
                                         isitheads = false;
                                     }
                                     gamemode = "TEMP";
+                                                                        //Copy this and give a unique number to add a one time score addition.
+                                                                        var boolused = 35;
+                                                                        if(pointsfound[boolused] == false){
+                                                                            newvalue = lilscore;
+                                                                            updatescore();
+                                                                            pointsfound[boolused] = true;
+                                                                        } 
                                 }
                                   //Julius.
                                   if(messagetest=="JULIUS"||messagetest=="JULIAN"){
@@ -744,12 +758,26 @@ var tarotquotes = [
                                     usespecificquote = true;
                                     tempcharacternow = true;
                                     tempcharacter = "JULIUS";
+                                                  //Copy this and give a unique number to add a one time score addition.
+                                                  var boolused = 40;
+                                                  if(pointsfound[boolused] == false){
+                                                      newvalue = 100000;
+                                                      updatescore();
+                                                      pointsfound[boolused] = true;
+                                                  }                       
                                 }
 
                                 //Special cheese response for achievement.
                                 if(messagetest=="CREAM"){
                                     gamemode = "CHEESE";
                                     usespecificquote = true;
+                                                  //Copy this and give a unique number to add a one time score addition.
+                                                  var boolused = 49;
+                                                  if(pointsfound[boolused] == false){
+                                                      newvalue = lilscore;
+                                                      updatescore();
+                                                      pointsfound[boolused] = true;
+                                                  }                       
                                     specificquote = "I'm THICK, I'm KEEN! I'm READY for that CREAM! When it's time for the platter, I'm on the right team! There's no losing steam, for the CHEESE CREAM DREAM!";                       
                                 }
                                 //Check to activate cheese.
@@ -768,7 +796,14 @@ var tarotquotes = [
                                 if(messagetest=="AUGUST"){
                                     gamemode = "AUGUSTUS";
                                     usespecificquote = true;
-                                    specificquote = "August? ...August? IT'S AUGUSTUS!";                       
+                                    specificquote = "August? ...August? IT'S AUGUSTUS!";       
+                                                                        //Copy this and give a unique number to add a one time score addition.
+                                                                        var boolused = 32;
+                                                                        if(pointsfound[boolused] == false){
+                                                                            newvalue = bigscore;
+                                                                            updatescore();
+                                                                            pointsfound[boolused] = true;
+                                                                        }                 
                                 }
 
                                 if(messagetest=="ABOUT"){
@@ -799,6 +834,13 @@ var tarotquotes = [
                                     tempcharacter = "ABOUT";
                                 }
                                 if(messagetest=="EMERGENCY"){
+                                                                        //Copy this and give a unique number to add a one time score addition.
+                                                                        var boolused = 34;
+                                                                        if(pointsfound[boolused] == false){
+                                                                            newvalue = midscore;
+                                                                            updatescore();
+                                                                            pointsfound[boolused] = true;
+                                                                        } 
                                     usespecificquote = true;
                                     var randomIndex = Math.floor(Math.random() * 7); 
                                     if (randomIndex == 0) {
@@ -825,6 +867,13 @@ var tarotquotes = [
                                 }
                                         //Movie / TV show bot.
                                     if(messagetest=="TV"||messagetest == "MOVIE"||messagetest == "MOVIES"||messagetest == "TELEVISION"){
+                                                                            //Copy this and give a unique number to add a one time score addition.
+                                    var boolused = 33;
+                                    if(pointsfound[boolused] == false){
+                                        newvalue = midscore;
+                                        updatescore();
+                                        pointsfound[boolused] = true;
+                                    } 
                                     var randomIndex = Math.floor(Math.random() * 20); 
                                     if (randomIndex == 0) {
                                         specificquote = "The Film Fargo (1996) is a fun, exciting and thrilling crime comedy-drama that's as gripping as it is absurd. It gets better every rewatch and has a great cast and direction in general!";
@@ -878,6 +927,13 @@ var tarotquotes = [
                                         specificquote = "Boooo....";
                                     } else if (randomIndex == 1) {
                                         specificquote = "BOO!";
+                                                                            //Copy this and give a unique number to add a one time score addition.
+                                    var boolused = 48;
+                                    if(pointsfound[boolused] == false){
+                                        newvalue = lilscore;
+                                        updatescore();
+                                        pointsfound[boolused] = true;
+                                    } 
                                     } else if (randomIndex == 2) {
                                         specificquote = "...";
                                     } else if (randomIndex == 3) {
@@ -888,10 +944,24 @@ var tarotquotes = [
                                         specificquote = "Boooooooo.... booooo.... booooooo....";
                                     } else if (randomIndex == 6) {
                                         specificquote = "....ooooohhhh... ;)";
+                                                                            //Copy this and give a unique number to add a one time score addition.
+                                    var boolused = 47;
+                                    if(pointsfound[boolused] == false){
+                                        newvalue = bigscore;
+                                        updatescore();
+                                        pointsfound[boolused] = true;
+                                    } 
                                     }
                                     gamemode = "TEMP";
                                     tempcharacternow = true;
                                     tempcharacter = "SPOOKY GHOST";
+                                                                        //Copy this and give a unique number to add a one time score addition.
+                                    var boolused = 62;
+                                    if(pointsfound[boolused] == false){
+                                        newvalue = lilscore;
+                                        updatescore();
+                                        pointsfound[boolused] = true;
+                                    } 
                                 }
                                 //Run a dice.
                                 if(messagetest=="DICE"||messagetest == "ROLL"||messagetest == "REROLL"||messagetest == "ROLLDICE"||messagetest == "D6"){
@@ -996,6 +1066,13 @@ var tarotquotes = [
                                     gamemode = "TEMP";
                                     tempcharacternow = true;
                                     tempcharacter = "FINANCIAL NON-ADVISOR";
+                                                                        //Copy this and give a unique number to add a one time score addition.
+                                                                        var boolused = 51;
+                                                                        if(pointsfound[boolused] == false){
+                                                                            newvalue = bigscore;
+                                                                            updatescore();
+                                                                            pointsfound[boolused] = true;
+                                                                        } 
                                 }
                                 if(messagetest=="NDQ"||messagetest=="NDQ100"||messagetest=="NDX100"||messagetest=="US100"){
                                     var randomIndex = Math.floor(Math.random() * 2); 
@@ -1022,6 +1099,13 @@ var tarotquotes = [
                                     tempcharacter = "FINANCIAL NON-ADVISOR";
                                 }
                                 if(messagetest=="GOLD"){
+                                                                        //Copy this and give a unique number to add a one time score addition.
+                                                                        var boolused = 52;
+                                                                        if(pointsfound[boolused] == false){
+                                                                            newvalue = midscore;
+                                                                            updatescore();
+                                                                            pointsfound[boolused] = true;
+                                                                        } 
                                     var randomIndex = Math.floor(Math.random() * 3); 
                                     if (randomIndex == 0) {
                                         specificquote = "TODAY I REALLY LIKE GOLD!";
@@ -1059,6 +1143,13 @@ var tarotquotes = [
                                 if(messagetest=="D20"||messagetest=="D10"){
                                     specificquote = "...I only have a D6 here. Sorry.";
                                     gamemode = "TEMP";
+                                    //Copy this and give a unique number to add a one time score addition.
+                                    var boolused = 53;
+                                    if(pointsfound[boolused] == false){
+                                        newvalue = 20;
+                                        updatescore();
+                                        pointsfound[boolused] = true;
+                                    }                                     
                                 }
                                 //Get some helpful and unhelpful tips from helping hand
                                 if(messagetest == "STUCK" || messagetest == "HELP"){
@@ -1076,14 +1167,35 @@ var tarotquotes = [
                                     usespecificquote = true;
                                     prevgame = gamemode;
                                     gamemode = "TEMP";
+                                                                        //Copy this and give a unique number to add a one time score addition.
+                                                                        var boolused = 54;
+                                                                        if(pointsfound[boolused] == false){
+                                                                            newvalue = 0.01;
+                                                                            updatescore();
+                                                                            pointsfound[boolused] = true;
+                                                                        } 
                                 }
                                 //Some things that the universe would like to get in on.
                                 if(messagetest=="GOD"){
                                     var randomIndex = Math.floor(Math.random() * 2); 
                                     if (randomIndex == 0) {
                                         specificquote = "God is real, alive and well! :)";
+                                                                            //Copy this and give a unique number to add a one time score addition.
+                                    var boolused = 55;
+                                    if(pointsfound[boolused] == false){
+                                        newvalue = bigscore;
+                                        updatescore();
+                                        pointsfound[boolused] = true;
+                                    } 
                                     } else {
                                         specificquote = "God is dead. :(";
+                                                                            //Copy this and give a unique number to add a one time score addition.
+                                    var boolused = 63;
+                                    if(pointsfound[boolused] == false){
+                                        newvalue = -1;
+                                        updatescore();
+                                        pointsfound[boolused] = true;
+                                    } 
                                     }
                                         gamemode = "TEMP";
                                     tempcharacternow = true;
@@ -1093,13 +1205,20 @@ var tarotquotes = [
                                 if(messagetest=="UNIVERSE"||messagetest=="THE UNIVERSE"||messagetest=="THEUNIVERSE"){
                                     var randomIndex = Math.floor(Math.random() * 2); 
                                     if (randomIndex == 0) {
-                                        specificquote = "God is real, alive and well! :)";
+                                        specificquote = "The universe is connected?";
                                     } else {
-                                        specificquote = "God is dead. :(";
+                                        specificquote = "The universe is chaotic.";
                                     }
                                         gamemode = "TEMP";
                                     tempcharacternow = true;
                                     tempcharacter = "THE UNIVERSE";
+                                    //Copy this and give a unique number to add a one time score addition.
+                                    var boolused = 56;
+                                    if(pointsfound[boolused] == false){
+                                        newvalue = midscore;
+                                        updatescore();
+                                        pointsfound[boolused] = true;
+                                    }                                     
                                 }
                                 //the universe knows the stars, and will take you to the future.
                                 if(messagetest=="STARS"){
@@ -1112,6 +1231,13 @@ var tarotquotes = [
                                         gamemode = "TEMP";
                                     tempcharacternow = true;
                                     tempcharacter = "THE UNIVERSE";
+                                    //Copy this and give a unique number to add a one time score addition.
+                                    var boolused = 59;
+                                    if(pointsfound[boolused] == false){
+                                        newvalue = lilscore;
+                                        updatescore();
+                                        pointsfound[boolused] = true;
+                                    }                                     
                                 }
                                 if(messagetest=="AND"){
                                     var randomIndex = Math.floor(Math.random() * 100); 
@@ -1121,6 +1247,13 @@ var tarotquotes = [
                                         specificquote = "AND THIS, AND THAT, AND...";
                                     }
                                         gamemode = "TEMP";
+                                                                            //Copy this and give a unique number to add a one time score addition.
+                                    var boolused = 57;
+                                    if(pointsfound[boolused] == false){
+                                        newvalue = lilscore;
+                                        updatescore();
+                                        pointsfound[boolused] = true;
+                                    } 
                                 }
                                 if(messagetest=="ETC"){
                                     var randomIndex = Math.floor(Math.random() * 100)*2; 
@@ -1131,7 +1264,7 @@ var tarotquotes = [
                                     }
                                         gamemode = "TEMP";
                                     //Copy this and give a unique number to add a one time score addition.
-                                    var boolused = 3;
+                                    var boolused = 38;
                                     if(pointsfound[boolused] == false){
                                         newvalue = lilscore;
                                         updatescore();
@@ -1157,10 +1290,25 @@ var tarotquotes = [
                                     gamemode = "TEMP";
                                     var randomIndex = Math.floor(Math.random() * 2); 
                                     if (randomIndex == 0) {
+                                                                            //Copy this and give a unique number to add a one time score addition.
+                                    var boolused = 60;
+                                    if(pointsfound[boolused] == false){
+                                        newvalue = 100000;
+                                        updatescore();
+                                        pointsfound[boolused] = true;
+                                    } 
                                         specificquote = "Yeah! You throw Poop at a President... successfully!!! RIGHT IN THEIR FACE!!! This is incredible, a timeless event that will forever interlink your lives upon a world stage.";
                                     } else {
+                                                                            //Copy this and give a unique number to add a one time score addition.
+                                    var boolused = 58;
+                                    if(pointsfound[boolused] == false){
+                                        newvalue = -bigscore;
+                                        updatescore();
+                                        pointsfound[boolused] = true;
+                                    } 
                                         specificquote = "You pick up a piece of crap with your bare hands, and though it misses your target, a fair clump of it does successfully stick to your hand. Good going.";
                                     }
+                                    
                                 }
                                 if(messagetest=="POO"||messagetest=="POOP"||messagetest=="CRAP"||messagetest=="SHIT"){
                                     var randomIndex = Math.floor(Math.random() * 2); 
@@ -1168,6 +1316,13 @@ var tarotquotes = [
                                         specificquote = "I'm all dried up.";
                                     } else {
                                         specificquote = "I'm a nice and fresh piece of crap!";
+                                                                            //Copy this and give a unique number to add a one time score addition.
+                                    var boolused = 50;
+                                    if(pointsfound[boolused] == false){
+                                        newvalue = lilscore;
+                                        updatescore();
+                                        pointsfound[boolused] = true;
+                                    } 
                                     }
                                     gamemode = "TEMP";
                                     usespecificquote = true;
@@ -1187,10 +1342,18 @@ var tarotquotes = [
                                 if(messagetest=="PINEAPPLE"){
                                     specificquote = "Yeah... A pineapple.";
                                     usespecificquote = true;
+                                                                        //Copy this and give a unique number to add a one time score addition.
+                                                                        var boolused = 61;
+                                                                        if(pointsfound[boolused] == false){
+                                                                            newvalue = -0.01;
+                                                                            updatescore();
+                                                                            pointsfound[boolused] = true;
+                                                                        } 
                                 }
                                 if(messagetest=="BOMB"){
                                     specificquote = "Bomb?! BOMB!!!";
                                     usespecificquote = true;
+                                    
                                 }
                                 if(messagetest=="PEAR"){
                                     persona = "HELPING HAND: ";
@@ -1200,7 +1363,7 @@ var tarotquotes = [
                                 }
                                 //DEBUG TOOL - TAKES ME DIRECTLY TO THE SITE VERSION.
                                 if(messagetest=="XYZ"){
-                                    window.location.href = 'https://talktochocolate.xyz/chat/';
+                                    window.location.href = 'https://talktochocolate.xyz/';
                                 }
                                 //DEBUG TOOL - TAKES ME DIRECTLY TO GITHUB FOLDER.
                                 if(messagetest=="XYZHUB"){
@@ -1213,6 +1376,13 @@ var tarotquotes = [
                                     usespecificquote = true;
                                     tempcharacternow = true;
                                     tempcharacter = "VEGETABLES";
+                                    //Copy this and give a unique number to add a one time score addition.
+                                    var boolused = 3;
+                                    if(pointsfound[boolused] == false){
+                                        newvalue = lilscore;
+                                        updatescore();
+                                        pointsfound[boolused] = true;
+                                    }                                     
                                 }
                                 if(messagetest=="FEEDBACK"||messagetest=="EMAIL"||messagetest=="CONTACT"){
                                     persona = "HELPING HAND: ";
@@ -1746,12 +1916,26 @@ var tarotquotes = [
                                         specificquote = "Nobody, or somebody? Happy to help when you need. Sometimes it's nice to say please! ;)";
                                         gamemode = "TEMP";
                                         usespecificquote = true;
+                                                                            //Copy this and give a unique number to add a one time score addition.
+                                    var boolused = 66;
+                                    if(pointsfound[boolused] == false){
+                                        newvalue = midscore;
+                                        updatescore();
+                                        pointsfound[boolused] = true;
+                                    } 
                                     }
                                     //Accepts thank yous.
                                     if(messagetest=="THANKS"||messagetest=="THANKYOU"||messagetest=="THANK YOU"){
                                         specificquote = "I will take that thank you and say you are most welcome! :)";
                                         gamemode = "TEMP";
                                         usespecificquote = true;
+                                      //Copy this and give a unique number to add a one time score addition.
+                                    var boolused = 65;
+                                    if(pointsfound[boolused] == false){
+                                        newvalue = midscore;
+                                        updatescore();
+                                        pointsfound[boolused] = true;
+                                    } 
                                     }
 
                                     //ROSEMARY!
@@ -1777,6 +1961,13 @@ var tarotquotes = [
 
                                     //Clue / hint responses.
                                     if(messagetest=="CLUE"||messagetest=="HINT"){
+                                                                            //Copy this and give a unique number to add a one time score addition.
+                                    var boolused = 67;
+                                    if(pointsfound[boolused] == false){
+                                        newvalue = lilscore;
+                                        updatescore();
+                                        pointsfound[boolused] = true;
+                                    } 
                                         cluequotes = [
                                             "Hints are fun! But I can't make everything too obvious! I feel like I'm obvious enough... ;)",
                                             "Even if I'm not useful now, I may be more useful the next time you say the same thing! I'm intentionally inconsistent :)",
@@ -1814,6 +2005,13 @@ var tarotquotes = [
                                         usespecificquote = true;
                                         tempcharacternow = true;
                                         tempcharacter = "NON-CHEF";
+                                                                            //Copy this and give a unique number to add a one time score addition.
+                                    var boolused = 68;
+                                    if(pointsfound[boolused] == false){
+                                        newvalue = midscore;
+                                        updatescore();
+                                        pointsfound[boolused] = true;
+                                    } 
                                     }
 
                                     //A full tarot deck. Yep.
@@ -1823,9 +2021,23 @@ var coinflip2 = Math.floor(Math.random()*2);
 if(tarotcount<=tarotquotes.length){
     if(tarotreversed){
         if(coinflip2==1){
+                                                //Copy this and give a unique number to add a one time score addition.
+                                                var boolused = 69;
+                                                if(pointsfound[boolused] == false){
+                                                    newvalue = midscore;
+                                                    updatescore();
+                                                    pointsfound[boolused] = true;
+                                                } 
             specificquote = tarotquotes[randomIndex];
         }else if(coinflip2==0){
             specificquote = tarotquotes[randomIndex]+" (REVERSED! FLIP YOUR APPROACH.)";
+                                                //Copy this and give a unique number to add a one time score addition.
+                                                var boolused = 70;
+                                                if(pointsfound[boolused] == false){
+                                                    newvalue = -midscore;
+                                                    updatescore();
+                                                    pointsfound[boolused] = true;
+                                                } 
         }
     }else{
         specificquote = tarotquotes[randomIndex];
@@ -1864,6 +2076,13 @@ if(messagetest=="TAROTREVERSE"||messagetest=="TAROTREVERSALOFF"||messagetest=="T
                                     if(gamemode=="HOLDLINE"){
                                         var randomIndex = Math.floor(Math.random() * 3);
                                         if (randomIndex == 0) {
+                                                                                //Copy this and give a unique number to add a one time score addition.
+                                    var boolused = 39;
+                                    if(pointsfound[boolused] == false){
+                                        newvalue = lilscore;
+                                        updatescore();
+                                        pointsfound[boolused] = true;
+                                    } 
                                             specificquote = "Hold music? <a href='https://www.youtube.com/results?search_query=enya' target='_blank'>Try this... It always relaxes me, especially when I need patience!</a>";
                                         } else if (randomIndex == 1) {
                                             specificquote = "Hmmm... <a href='https://www.youtube.com/results?search_query=herb+alpert' target='_blank'>You might recognize some of this guy's songs if you listen.</a>";
@@ -1874,6 +2093,13 @@ if(messagetest=="TAROTREVERSE"||messagetest=="TAROTREVERSALOFF"||messagetest=="T
                                         specificquote = "<a href='https://www.youtube.com/results?search_query=Jocelyn+pook+masked+ball' target='_blank'>THIS ONE.</a>";
                                         gamemode = "TEMP";
                                     }else if(gamemode=="CHEESE"){
+                                                                            //Copy this and give a unique number to add a one time score addition.
+                                    var boolused = 36;
+                                    if(pointsfound[boolused] == false){
+                                        newvalue = bigscore;
+                                        updatescore();
+                                        pointsfound[boolused] = true;
+                                    } 
                                         specificquote = "<a href='https://www.youtube.com/results?search_query=cheese+is+a+kind+of+meat' target='_blank'>CHEESE IS A KIND OF MEAT!</a>";
                                         gamemode = "TEMP";
                                     }else{
@@ -2046,10 +2272,24 @@ if(messagetest=="TAROTREVERSE"||messagetest=="TAROTREVERSALOFF"||messagetest=="T
                                     if(messagetest=="STEAK"|| messagetest=="STEAK") {
                                         usespecificquote = true;
                                         specificquote = "Yes, a delicious, well kept, high quality steak!";
+                                                                            //Copy this and give a unique number to add a one time score addition.
+                                    var boolused = 71;
+                                    if(pointsfound[boolused] == false){
+                                        newvalue = bigscore;
+                                        updatescore();
+                                        pointsfound[boolused] = true;
+                                    } 
                                     }
                                     if(messagetest=="COW"|| messagetest=="COWS") {
                                         usespecificquote = true;
                                         specificquote = "What does a cow even make?";
+                                                                            //Copy this and give a unique number to add a one time score addition.
+                                    var boolused = 72;
+                                    if(pointsfound[boolused] == false){
+                                        newvalue = lilscore;
+                                        updatescore();
+                                        pointsfound[boolused] = true;
+                                    } 
                                     }
                                     if(messagetest=="MOO"|| messagetest=="MOOCOW"|| messagetest=="COWMOO") {
                                         usespecificquote = true;
@@ -2116,6 +2356,13 @@ if(messagetest=="TAROTREVERSE"||messagetest=="TAROTREVERSALOFF"||messagetest=="T
                                         specificquote = "If I am in a moving vehicle going past you, I promise to throw my brownie out the window at you so you can enjoy it as much as I do.";
                                     }
                                     usespecificquote = true;
+                                                                        //Copy this and give a unique number to add a one time score addition.
+                                                                        var boolused = 73;
+                                                                        if(pointsfound[boolused] == false){
+                                                                            newvalue = lilscore;
+                                                                            updatescore();
+                                                                            pointsfound[boolused] = true;
+                                                                        } 
                                     }
                                     //Laughter is the best medicine.
                                     if(messagetest=="HAHAHA"||messagetest=="HAHA"||messagetest=="LOL"||messagetest=="LMAO"||messagetest=="LMFAO"){
@@ -2137,6 +2384,13 @@ if(messagetest=="TAROTREVERSE"||messagetest=="TAROTREVERSALOFF"||messagetest=="T
                                     if(messagetest=="RAIN"||messagetest=="CHOCOLATE RAIN") {
                                         usespecificquote = true;
                                         specificquote = "Yes. Chocolate Rain. Very good. What is Tay Zonday up to?";
+                                                                            //Copy this and give a unique number to add a one time score addition.
+                                    var boolused = 74;
+                                    if(pointsfound[boolused] == false){
+                                        newvalue = midscore;
+                                        updatescore();
+                                        pointsfound[boolused] = true;
+                                    } 
                                     }
                                     if(messagetest=="MARSHMELLOWS"||messagetest=="SUNDAES") {
                                         usespecificquote = true;
@@ -2229,6 +2483,13 @@ if(messagetest=="TAROTREVERSE"||messagetest=="TAROTREVERSALOFF"||messagetest=="T
                                     if(messagetest=="SORRY" || messagetest=="I AM SORRY"|| messagetest=="I'M SORRY") {
                                         usespecificquote = true;
                                         specificquote = "It's okay.";
+                                                                            //Copy this and give a unique number to add a one time score addition.
+                                    var boolused = 64;
+                                    if(pointsfound[boolused] == false){
+                                        newvalue = lilscore;
+                                        updatescore();
+                                        pointsfound[boolused] = true;
+                                    } 
                                     }
                                 }
                                 if(gamemode=="CHEESE"){
@@ -2247,6 +2508,13 @@ if(messagetest=="TAROTREVERSE"||messagetest=="TAROTREVERSALOFF"||messagetest=="T
                                         specificquote = "Goodbye and safe travels.";
                                         prevgame = "HOLDLINE";
                                         goprev = true;
+                                                                            //Copy this and give a unique number to add a one time score addition.
+                                    var boolused = 41;
+                                    if(pointsfound[boolused] == false){
+                                        newvalue = lilscore;
+                                        updatescore();
+                                        pointsfound[boolused] = true;
+                                    } 
                                     }
 
                                     if(messagetest=="LOL"||messagetest=="HAHA"){
@@ -2268,11 +2536,25 @@ if(messagetest=="TAROTREVERSE"||messagetest=="TAROTREVERSALOFF"||messagetest=="T
                                     if(messagetest=="LOVE"||messagetest=="ILOVEYOU") {
                                         usespecificquote = true;
                                         specificquote = "BRIE CHEESE <3";
+                                                                            //Copy this and give a unique number to add a one time score addition.
+                                    var boolused = 42;
+                                    if(pointsfound[boolused] == false){
+                                        newvalue = lilscore;
+                                        updatescore();
+                                        pointsfound[boolused] = true;
+                                    } 
                                     }
                                     if(messagetest=="HI"||messagetest=="HELLO"||messagetest=="GREETINGS"||messagetest=="HOWDY"||messagetest=="HEY"||messagetest=="SUP"){
                                         usespecificquote = true;
                                         specificquote = "YELLOW!";
                                         welcomed = true;
+                                                                            //Copy this and give a unique number to add a one time score addition.
+                                    var boolused = 43;
+                                    if(pointsfound[boolused] == false){
+                                        newvalue = lilscore;
+                                        updatescore();
+                                        pointsfound[boolused] = true;
+                                    } 
                                     }
                                     if(messagetest=="FUCK YOU"||messagetest=="FUCKYOU"||messagetest=="FUCKYA"||messagetest=="FUCK YOU!"||messagetest=="FUCK YOU."||messagetest.includes("FUCKYOU")){
                                         usespecificquote = true;
@@ -2281,6 +2563,13 @@ if(messagetest=="TAROTREVERSE"||messagetest=="TAROTREVERSALOFF"||messagetest=="T
                                     if(messagetest=="PENIS"||messagetest=="DICK"||messagetest=="COCK"){
                                         usespecificquote = true;
                                         specificquote = "penetrate the penis into the cheese.";
+                                                                            //Copy this and give a unique number to add a one time score addition.
+                                    var boolused = 44;
+                                    if(pointsfound[boolused] == false){
+                                        newvalue = bigscore;
+                                        updatescore();
+                                        pointsfound[boolused] = true;
+                                    } 
                                     }
                                     if(messagetest=="LOL"||messagetest=="HAHA"){
                                         usespecificquote = true;
@@ -2289,6 +2578,13 @@ if(messagetest=="TAROTREVERSE"||messagetest=="TAROTREVERSALOFF"||messagetest=="T
                                     if(messagetest=="TOMATO"){
                                         usespecificquote = true;
                                         specificquote = "Tomato and Cheese are a great combination together. I love Tomato. :)";
+                                                                            //Copy this and give a unique number to add a one time score addition.
+                                    var boolused = 45;
+                                    if(pointsfound[boolused] == false){
+                                        newvalue = bigscore;
+                                        updatescore();
+                                        pointsfound[boolused] = true;
+                                    } 
                                     }
                                     if(messagetest=="MILK"){
                                         usespecificquote = true;
@@ -2408,6 +2704,13 @@ if(messagetest=="TAROTREVERSE"||messagetest=="TAROTREVERSALOFF"||messagetest=="T
                                     if(messagetest=="WAR") {
                                         usespecificquote = true;
                                         specificquote = "YES! WAR! LOTS AND LOTS OF VIOLENCE AND DEATH!";
+                                                                            //Copy this and give a unique number to add a one time score addition.
+                                    var boolused = 46;
+                                    if(pointsfound[boolused] == false){
+                                        newvalue = bigscore;
+                                        updatescore();
+                                        pointsfound[boolused] = true;
+                                    } 
                                     }
                                     if(messagetest=="LOVE"||messagetest=="ILOVEYOU") {
                                         usespecificquote = true;
@@ -2512,6 +2815,13 @@ if(messagetest=="TAROTREVERSE"||messagetest=="TAROTREVERSALOFF"||messagetest=="T
                                         specificquote = "You're in the holding line. It's a place where you get dropped when a character is done talking. This is your Timeout zone so that they can get some rest.";
                                     }
                                     if(messagetest=="BEEP"||messagetest=="BLIP"||messagetest=="BOOP") {
+                                                                            //Copy this and give a unique number to add a one time score addition.
+                                    var boolused = 76;
+                                    if(pointsfound[boolused] == false){
+                                        newvalue = 10101;
+                                        updatescore();
+                                        pointsfound[boolused] = true;
+                                    } 
                                         var randomIndex = Math.floor(Math.random() * 6);
                                     if (randomIndex == 0) {
                                         specificquote = "... BLIP?";
@@ -2662,6 +2972,13 @@ if(messagetest=="TAROTREVERSE"||messagetest=="TAROTREVERSALOFF"||messagetest=="T
                 }
                 //we built the silly sausage right here.
                 if(gamemode=="SILLY"){
+                                                        //Copy this and give a unique number to add a one time score addition.
+                                                        var boolused = 75;
+                                                        if(pointsfound[boolused] == false){
+                                                            newvalue = Math.random()*10;
+                                                            updatescore();
+                                                            pointsfound[boolused] = true;
+                                                        } 
                     responsetime = 750;
                     persona = "SILLY SAUSAGE";
                     var sausageresponses = [
@@ -2919,6 +3236,13 @@ if(messagetest=="TAROTREVERSE"||messagetest=="TAROTREVERSALOFF"||messagetest=="T
     //Check to see if you've turned the timer messages off.
     //10 minute timer: shames you into donating
     setTimeout(function() {
+                                            //Copy this and give a unique number to add a one time score addition.
+                                            var boolused = 77;
+                                            if(pointsfound[boolused] == false){
+                                                newvalue = bigscore;
+                                                updatescore();
+                                                pointsfound[boolused] = true;
+                                            } 
         if(!timeroff){
             response = "YOU'VE SPENT 10 MINUTES HERE! IF YOU'RE HAVING FUN, MAYBE YOU COULD SAY THANKS AND DONATE SOME MONEY! THAT'S RIGHT, I'M AN ANNOUNCEMENT DESIGNED TO SHAMELESSLY SELL YOU SOMETHING YOU ALREADY HAVE FOR FREE.";
             document.getElementById("chatroom").innerHTML += '<div class="message TIMER-message"><strong>TIMER: </strong>' + response + '</div>';
@@ -2928,6 +3252,13 @@ if(messagetest=="TAROTREVERSE"||messagetest=="TAROTREVERSALOFF"||messagetest=="T
 
     //20 minute timer: shames you much, much more.
     setTimeout(function() {
+                                            //Copy this and give a unique number to add a one time score addition.
+                                            var boolused = 78;
+                                            if(pointsfound[boolused] == false){
+                                                newvalue = massivescore;
+                                                updatescore();
+                                                pointsfound[boolused] = true;
+                                            } 
             response = "Wow.  You've been here for 20 minutes. Did you leave this open, or are you entertaining yourself this much? I'm going to put my hand out once again and say donate if you enjoy. There is an exclusive mode for donors.";
             document.getElementById("chatroom").innerHTML += '<div class="message TIMER-message"><strong>TIMER: </strong>' + response + '</div>';
             ScrollDownNow();
@@ -3058,6 +3389,13 @@ var cowmsg = "MOO!";
 var randomIndex = Math.floor(Math.random() * 15); 
 if (randomIndex == 0) {
 cowmsg = "MOOOO! (MILK GOES ALL OVER YOU AND YOUR PRECIOUS BELONGINGS)";
+                                    //Copy this and give a unique number to add a one time score addition.
+                                    var boolused = 3;
+                                    if(pointsfound[boolused] == false){
+                                        newvalue = 1;
+                                        updatescore();
+                                        pointsfound[boolused] = true;
+                                    } 
 mooing = true;
 } else if (randomIndex == 1){
 cowmsg = "MOO, MOO MOO MOOOOOOOOOOOO.";

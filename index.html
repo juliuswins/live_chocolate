@@ -35,11 +35,21 @@ Please consider donating! Thank you and have fun! -->
         width: 15vw !important;
         opacity: 0.5;
         transition: opacity 0.3s ease-in-out; /* Optional: for a smooth transition */
+        word-wrap: break-word;
         }
 
         .thescore{
-            font-size: 40px;
+            font-size: 30px;
             text-align: right;
+        }
+
+        .rightalign{
+            text-align: right;
+        }
+
+        #pagebottom{
+            line-height: 5px;
+            font-size: 10px;
         }
 
         .leftimg:hover {
@@ -47,7 +57,7 @@ Please consider donating! Thank you and have fun! -->
         }
 
         #leftside {
-        font-size:14px;
+        font-size:10px;
         text-align: left;
         position: fixed; 
         top: 0; 
@@ -72,8 +82,10 @@ Please consider donating! Thank you and have fun! -->
         }
 
         .chat-container {
+            line-height: 1.2;
             table-layout:auto;
-            width: 45vw;
+            width: 50vw;
+            max-width: 600px;
             height: 75vh;
             border: 2px solid black;
             overflow-y: scroll;
@@ -137,6 +149,7 @@ Please consider donating! Thank you and have fun! -->
             padding: 15px 0 15px 15px;
             border-radius: 15px 0 0 15px;
             size: 12 px;
+            line-height: 1;
         }
 
         .user-message {
@@ -338,7 +351,8 @@ Please consider donating! Thank you and have fun! -->
         .input-container {
             color: black;
             border-radius: 10px; 
-            width: 35vw;
+            width: 50vw;
+            max-width: 500px;
             display: flex;
             flex-direction: row; /* Added */
             margin-top: 20px;
@@ -409,17 +423,20 @@ Please consider donating! Thank you and have fun! -->
     </div>
 <div class="input-container">
     <div class="input-container">
-        <input type="text" class="message-input" id="userInput" placeholder="Type something... (About, Help, Recipe, Bio, Etc)" enabled width="100%">
-        <button class="send-button" onclick="sendMessage()" id="sendButton"><b> SEND</b></button>
+        <input type="text" class="message-input" id="userInput" placeholder="Type something... (About, Help, Recipe, Bio, Etc)" enabled width="100%">        <button class="send-button" onclick="sendMessage()" id="sendButton"><b> SEND</b></button>
     </div>
 </div>
 <script src="chat.js"></script>
 <br>
 <div id="leftside">
 <p><img src="images/logo/talktochocolatelogo.png" class="leftimg"></p>
-<p class="thescore" id="scoredisplay"></p>
 </div>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6285017727399378"
 crossorigin="anonymous"></script>
+<div id="pagebottom">
+<p class="rightalign">Score</p>
+<p class="thescore" id="scoredisplay">0</p>
+<p><b>Donate BTC (BTC network)</b></p><p>13xm444RRP9zaAQAKDbSBn61RLZswAbneG</p>
+</div>
 </body>
 </html>

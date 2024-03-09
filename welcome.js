@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     // Start the fadeout animation after 3 seconds
     setTimeout(function() {
         div.style.animation = 'fadeout 1s forwards';
-    }, 3000);
+    }, 7000);
 
     // Remove the div from the DOM after the animation ends
     div.addEventListener('animationend', function() {

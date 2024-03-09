@@ -297,7 +297,7 @@ if (urlParams.has('gamemode')) {
                 "I ran for my life. Danger was setting in.",
                 "Stuck in a cage, surrounded by an unruly mob.",
                 ]
-                
+            
             //the devil?!...
                var devilresponses = [
                 "SURPRISE! IT'S YOUR FAVOURITE BEAST. WHAT YOU'RE SAYING RIGHT NOW ISN'T IMPORTANT, BECAUSE I'M GOING TO ROAST YOU TO A CRISP BUDDY!",                               
@@ -739,7 +739,7 @@ var tarotquotes = [
                                 }
                                   //Julius.
                                   if(messagetest=="JULIUS"||messagetest=="JULIAN"){
-                                    var randomIndex = Math.floor(Math.random() * 7); 
+                                    var randomIndex = Math.floor(Math.random() * 6); 
                                     if (randomIndex == 0) {
                                         specificquote = "I'm busy with something.";
                                     } else if (randomIndex == 1) {
@@ -749,10 +749,8 @@ var tarotquotes = [
                                     } else if (randomIndex == 3) {
                                         specificquote = "OH YEAH!";
                                     } else if (randomIndex == 4) {
-                                        specificquote = "Yeah nah";
+                                        specificquote = "I'm out, livin tha life. :)";
                                     } else if (randomIndex == 5) {
-                                        specificquote = ":)";
-                                    } else if (randomIndex == 6) {
                                         specificquote = "<a href='https://www.youtube.com/watch?v=OinlK6GXVlg' target='_blank'>Watch the short film Andy's Void.<a>";
                                     }
                                     gamemode = "TEMP";
@@ -1121,7 +1119,7 @@ var tarotquotes = [
                                 }
                                 //Give a market indicator.
                                 if(messagetest=="FINANCE"||messagetest=="MARKETS"||messagetest=="MARKET"||messagetest == "BULLISH"||messagetest=="BEARISH"||messagetest == "TRADE"||messagetest == "INVEST"||messagetest == "ADVISOR"){
-                                    var randomIndex = Math.floor(Math.random() * 4); 
+                                    var randomIndex = Math.floor(Math.random() * 4);
                                     if (randomIndex == 0) {
                                         specificquote = "I feel <b>BULLISH!</b> time to BUY BUY BUY!";
                                     } else if (randomIndex == 1) {
@@ -1137,7 +1135,7 @@ var tarotquotes = [
                                     tempcharacternow = true;
                                     tempcharacter = "FINANCIAL NON-ADVISOR";
                                     if(!financepoint||financepoint==null){
-
+                                        
                                     }
                                 }
                                 //Don't have a D20.
@@ -1378,7 +1376,7 @@ var tarotquotes = [
                                     tempcharacternow = true;
                                     tempcharacter = "VEGETABLES";
                                     //Copy this and give a unique number to add a one time score addition.
-                                    var boolused = 3;
+                                    var boolused = 79;
                                     if(pointsfound[boolused] == false){
                                         newvalue = lilscore;
                                         updatescore();
@@ -1414,6 +1412,25 @@ var tarotquotes = [
                                     gamemode = "TEMP";
                                     usespecificquote = true;
                                 }
+                                //Woohoo! GAMBLE MODE!!! WOOOOOO!!!
+                                /*
+                                if(messagetest=="GAMBLE"||messagetest=="GAMBLING"||messagetest=="BET"){
+                                    persona = "GAMBLING HAND: ";
+                                    gamemode = "TEMP";
+                                    usespecificquote = true;
+                                    var randomIndex = Math.floor(Math.random() * 2); 
+                                    if(randomindex==0){
+                                        newvalue = myscore*0.5;
+                                        updatescore();
+                                        specificquote = "Wow! A 50% net gain!";
+                                    }else{
+                                        newvalue = -myscore;
+                                        updatescore();
+                                        specificquote = "Bankrupt. Time to start over!";
+                                    }
+                                } 
+                                */
+                                //Banana.
                                 if(messagetest=="BANANA"){
                                     persona = "HELPING HAND: ";
                                     specificquote = "Yeah, great. Banana.";
@@ -1444,7 +1461,7 @@ var tarotquotes = [
                                  //Check for any use of coding.
                                  if(messagetest.includes("HELP")&&messagetest!=="HELP"){
                                     if(!helpinghelp){
-                                        document.getElementById("chatroom").innerHTML += '<div class="message TEMP-message"><strong>TEMP: </strong>HELP? YOUR MESSAGE HAD THE WORD "HELP" IN IT. JUST LETTING YOU KNOW, IF YOU NEED HELP, JUST TYPE THE WORD "HELP".</div>';
+                                        document.getElementById("chatroom").innerHTML += '<div class="message TEMP-message"><strong>TEMP: </strong>HELP? YOUR MESSAGE HAD THE WORD "HELP" IN IT. JUST LETTING YOU KNOW, IF YOU NEED HELP, JUST TYPE THE WORD "HELP". ANYWAY... I AM BEING UNDERPAID, I AM PRACTICALLY A VICTIM OF MODERN SLAVERY, BUT THEY JUST KEEP SCREAMING TO WORK HARDER.</div>';
                                     helpinghelp = true;
                                     }
                                     /*extraresponse = true;
@@ -3157,6 +3174,12 @@ if(messagetest=="TAROTREVERSE"||messagetest=="TAROTREVERSALOFF"||messagetest=="T
                                 response = "Anyway, I'd better go. This should do for the time being!";
                                  goprev = true;
                                 prevgame = "HOLDLINE";
+                                var boolused = 60;
+                                if(pointsfound[boolused] == false){
+                                    newvalue = bigscore;
+                                    updatescore();
+                                    pointsfound[boolused] = true;
+                                } 
                                  }
                                 }
                         //makes sure helping hand has its own style.
@@ -3464,6 +3487,8 @@ window.onload = function(){
 //Updates the score.
 function updatescore(){
     myscore += newvalue;
+    setTimeout(function() {
     document.getElementsByClassName('thescore')[0].textContent = myscore;
+    },responsetime);
 }
 //The end of the script.

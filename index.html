@@ -390,6 +390,11 @@ Please consider donating! Thank you and have fun! -->
             enable-background: rgb(39, 39, 39);   
         }
         
+        .scorereaction{
+            font-size: 10px;
+            text-align: right;
+        }
+
         .send-button {
             border: 5px;
             border-radius: 25px;
@@ -407,17 +412,16 @@ Please consider donating! Thank you and have fun! -->
                     filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.35));
         }
     
-.fullscreen-image {
+
+    .fullscreen-image {
     position: fixed; /* Make the div cover the whole screen */
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    animation: fadeout 1s; /* Apply the animation */
+    background-size: auto; /* Set the background image to its original size */
+    background-repeat: repeat; /* Make the background image repeat */
+    animation: fadeout 3s; /* Apply the animation */
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
 }

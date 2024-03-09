@@ -2,7 +2,7 @@
 document.getElementById("userInput").focus();
 
 //the welcome message you see:
-document.getElementById("chatroom").innerHTML += '<div class="message welcome-message"><h1><strong> Talk to chocolate .xyz</h1><p> Contains some adult content / Please be respectful and enjoy!</p></strong><p style="font-size: 10px;">Last update: 10th March, 2024.</p></div>';  
+document.getElementById("chatroom").innerHTML += '<div class="message welcome-message"><h1><strong> Talk to chocolate .xyz</h1><p> Contains some adult content / Please be respectful and enjoy!</p></strong><p style="font-size: 10px;"><b>Last update:</b> 10th March, 2024. Type <i>email</i> for feedback.</p></div>';  
 
 //responsetime is the delay between your message and the response.
 var responsetime = 1000;
@@ -19,6 +19,16 @@ var bigscore = 1000;
 var massivescore = 10000;
 var newvalue = 0;
 var pointsfound = new Array(100).fill(false);
+
+//Updates the score.
+function updatescore(){
+    setTimeout(function() {
+    myscore = myscore + newvalue;
+    document.getElementsByClassName('thescore')[0].textContent = myscore;
+   // document.getElementById("chatroom").innerHTML += '<div class="message TEMP-message"><b>TEST: '+myscore+'</b></div>';
+}, responsetime); 
+}
+
 //Random chance that you start with CHEESE, WHITE CHOCOLATE or FUTURE on first load, instead of CHOCOLATE.
 var randomIndex = Math.floor(Math.random() * 20);
 if (randomIndex == 0) {
@@ -103,6 +113,7 @@ if (urlParams.has('gamemode')) {
     countmotivator = 0;
     var tarotcount = 0;
     var yourroll = 0;
+    var newvalue = 0;
 
     //define which thinking image is being used URL.
     if(gamemode!=="temp"&&gamemode!==null&&gamemode!==undefined){
@@ -157,7 +168,6 @@ if (urlParams.has('gamemode')) {
                     "Check me out, watch my moves, I'm doing a flip! Just take the tip!",
                     "I can see you... You might not be able to understand it because your human understanding of vision requires your eyeballs. But I can see everything, whether you believe it or not.",
                     "Things are more complicated than they seem. You know? ...You feel where I'm coming from here?!",
-                    "I'd kill for a steak. A human steak.",
                     "Brownies are delicious!",
                     "I'm taking a photo of you, Say cheese ;)",
                     "I don't know where my kids are.",
@@ -318,6 +328,8 @@ if (urlParams.has('gamemode')) {
                 "Look, you seem a little bit innocent. Why don't you just leave?",
                 "Infinite menstrual cycles.",
                 "Pestilence...",
+                "I'd kill for a steak. A human steak.",
+                "I'll hurt ya!",
                 "You'll be with me soon enough, and tortured beyond belief! Imagine being able to be stabbed over and over without dying.",
                 "HELL IS WAITING FOR YOU!",
                 "Your nightmares have just begun, child.",
@@ -753,17 +765,17 @@ var tarotquotes = [
                                     } else if (randomIndex == 5) {
                                         specificquote = "<a href='https://www.youtube.com/watch?v=OinlK6GXVlg' target='_blank'>Watch the short film Andy's Void.<a>";
                                     }
+                                    //Copy this and give a unique number to add a one time score addition.
+                                    var boolused = 40;
+                                    if(pointsfound[boolused] == false){
+                                    newvalue = bigscore;
+                                    updatescore();
+                                    pointsfound[boolused] = true;
+                                    }
                                     gamemode = "TEMP";
                                     usespecificquote = true;
                                     tempcharacternow = true;
-                                    tempcharacter = "JULIUS";
-                                                  //Copy this and give a unique number to add a one time score addition.
-                                                  var boolused = 40;
-                                                  if(pointsfound[boolused] == false){
-                                                      newvalue = bigscore;
-                                                      updatescore();
-                                                      pointsfound[boolused] = true;
-                                                  }                       
+                                    tempcharacter = "JULIUS";               
                                 }
 
                                 //Special cheese response for achievement.
@@ -1029,7 +1041,7 @@ var tarotquotes = [
                                     }
                                     gamemode = "TEMP";
                                     tempcharacternow = true;
-                                    tempcharacter = "FINANCIAL NON-ADVISOR";
+                                    tempcharacter = "<a href='https://www.talktochocolate.xyz/finance/' target='_blank'>FINANCIAL NON-ADVISOR</a>";
                                 }
                                 if(messagetest.includes("ETHEREUM")){
                                     var randomIndex = Math.floor(Math.random() * 2); 
@@ -1040,7 +1052,7 @@ var tarotquotes = [
                                     }
                                     gamemode = "TEMP";
                                     tempcharacternow = true;
-                                    tempcharacter = "FINANCIAL NON-ADVISOR";
+                                    tempcharacter = "<a href='https://www.talktochocolate.xyz/finance/' target='_blank'>FINANCIAL NON-ADVISOR</a>";
                                 }
                                 if(messagetest.includes("BITCOIN")||messagetest=="BTC"){
                                     var randomIndex = Math.floor(Math.random() * 3); 
@@ -1053,7 +1065,7 @@ var tarotquotes = [
                                     }
                                     gamemode = "TEMP";
                                     tempcharacternow = true;
-                                    tempcharacter = "FINANCIAL NON-ADVISOR";
+                                    tempcharacter = "<a href='https://www.talktochocolate.xyz/finance/' target='_blank'>FINANCIAL NON-ADVISOR</a>";
                                 }
                                 if(messagetest=="STOCKMARKET"||messagetest=="SNP500"||messagetest=="US500"||messagetest=="S&P500"||messagetest=="SPX500"||messagetest=="WALLSTREET"||messagetest=="MARKETS"||messagetest=="WALL STREET"){
                                     var randomIndex = Math.floor(Math.random() * 2); 
@@ -1064,14 +1076,14 @@ var tarotquotes = [
                                     }
                                     gamemode = "TEMP";
                                     tempcharacternow = true;
-                                    tempcharacter = "FINANCIAL NON-ADVISOR";
+                                    tempcharacter = "<a href='https://www.talktochocolate.xyz/finance/' target='_blank'>FINANCIAL NON-ADVISOR</a>";
                                                                         //Copy this and give a unique number to add a one time score addition.
                                                                         var boolused = 51;
                                                                         if(pointsfound[boolused] == false){
                                                                             newvalue = bigscore;
                                                                             updatescore();
                                                                             pointsfound[boolused] = true;
-                                                                        } 
+                                                                        }
                                 }
                                 if(messagetest=="NDQ"||messagetest=="NDQ100"||messagetest=="NDX100"||messagetest=="US100"){
                                     var randomIndex = Math.floor(Math.random() * 2); 
@@ -1082,7 +1094,7 @@ var tarotquotes = [
                                     }
                                     gamemode = "TEMP";
                                     tempcharacternow = true;
-                                    tempcharacter = "FINANCIAL NON-ADVISOR";
+                                    tempcharacter = "<a href='https://www.talktochocolate.xyz/finance/' target='_blank'>FINANCIAL NON-ADVISOR</a>";
                                 }
                                 if(messagetest=="SILVER"){
                                     var randomIndex = Math.floor(Math.random() * 3); 
@@ -1095,7 +1107,7 @@ var tarotquotes = [
                                     }
                                     gamemode = "TEMP";
                                     tempcharacternow = true;
-                                    tempcharacter = "FINANCIAL NON-ADVISOR";
+                                    tempcharacter = "<a href='https://www.talktochocolate.xyz/finance/' target='_blank'>FINANCIAL NON-ADVISOR</a>";
                                 }
                                 if(messagetest=="GOLD"){
                                                                         //Copy this and give a unique number to add a one time score addition.
@@ -1115,7 +1127,7 @@ var tarotquotes = [
                                     }
                                     gamemode = "TEMP";
                                     tempcharacternow = true;
-                                    tempcharacter = "FINANCIAL NON-ADVISOR";
+                                    tempcharacter = "<a href='https://www.talktochocolate.xyz/finance/' target='_blank'>FINANCIAL NON-ADVISOR</a>";
                                 }
                                 //Give a market indicator.
                                 if(messagetest=="FINANCE"||messagetest=="MARKETS"||messagetest=="MARKET"||messagetest == "BULLISH"||messagetest=="BEARISH"||messagetest == "TRADE"||messagetest == "INVEST"||messagetest == "ADVISOR"){
@@ -1133,10 +1145,15 @@ var tarotquotes = [
                                     }
                                     gamemode = "TEMP";
                                     tempcharacternow = true;
-                                    tempcharacter = "FINANCIAL NON-ADVISOR";
-                                    if(!financepoint||financepoint==null){
-                                        
-                                    }
+                                    tempcharacter = "<a href='https://www.talktochocolate.xyz/finance/' target='_blank'>FINANCIAL NON-ADVISOR</a>";
+                                    //Copy this and give a unique number to add a one time score addition.
+                                    var boolused = 80;
+                                    if(pointsfound[boolused] == false){
+                                        newvalue = bigscore;
+                                        updatescore();
+                                        pointsfound[boolused] = true;
+                                    }                                                           
+
                                 }
                                 //Don't have a D20.
                                 if(messagetest=="D20"||messagetest=="D10"){
@@ -1290,7 +1307,7 @@ var tarotquotes = [
                                     var randomIndex = Math.floor(Math.random() * 2); 
                                     if (randomIndex == 0) {
                                                                             //Copy this and give a unique number to add a one time score addition.
-                                    var boolused = 60;
+                                    var boolused = 82;
                                     if(pointsfound[boolused] == false){
                                         newvalue = 100000;
                                         updatescore();
@@ -1388,6 +1405,13 @@ var tarotquotes = [
                                     specificquote = "You can email <a href='mailto:admin@talktochocolate.xyz' target='_blank'>admin@talktochocolate.xyz</a> for feedback. Feel free to type download and then attach the downloaded chat log file to your email.";
                                     gamemode = "TEMP";
                                     usespecificquote = true;
+                                    //Copy this and give a unique number to add a one time score addition.
+                                    var boolused = 81;
+                                    if(pointsfound[boolused] == false){
+                                        newvalue = bigscore;
+                                        updatescore();
+                                        pointsfound[boolused] = true;
+                                    }                                           
                                 }
                                 if(messagetest=="FRUIT"){
                                     persona = "HELPING HAND: ";
@@ -1406,45 +1430,74 @@ var tarotquotes = [
                                     gamemode = "TEMP";
                                     usespecificquote = true;
                                 }
-                                if(messagetest=="NOTHING HAPPENED"||messagetest=="NOTHING HAPPENED."||messagetest=="NOTHINGHAPPENED"){
+                                if(messagetest=="NOTHINGHAPPENED"){
                                     persona = "HELPING HAND: ";
                                     specificquote = "Yeah? ...Oh well, I can't really do anything about that.";
                                     gamemode = "TEMP";
                                     usespecificquote = true;
                                 }
-                                //Woohoo! GAMBLE MODE!!! WOOOOOO!!!
-                                /*
-                                if(messagetest=="GAMBLE"||messagetest=="GAMBLING"||messagetest=="BET"){
-                                    persona = "GAMBLING HAND: ";
+                                //GAMBLE MODE. WOOOO!
+                                if(messagetest=="GAMBLE"||messagetest=="BET"){
+                                    var randomIndex = Math.floor(Math.random() * 5); 
+                                    if (randomIndex == 0) {
+                                        specificquote = "You contemplate betting, but then choose not to.";
+                                    } else if (randomIndex == 1) {
+                                        if(myscore>0){
+                                            newvalue = myscore;
+                                            specificquote = "You just doubled your score!";
+                                        }else{
+                                            newvalue = 1;
+                                            specificquote = "You are back in the game - you found 1 point!";
+                                        }
+                                    } else if (randomIndex == 2) {
+                                        if(myscore>0){
+                                            specificquote = "You bet a little, and lose 10% of your score.";
+                                            newvalue = myscore * -0.1;
+                                        }else{
+                                            specificquote = "You would have lost some points, if you had any. Excess debt fee.";
+                                            newvalue = -1;
+                                        }
+                                    } else if (randomIndex == 3) {
+                                        if(myscore>0){
+                                            specificquote = "You bet big, and lost all your points. Time to rebuild from bankrupt, genius.";
+                                            newvalue = 0-myscore;
+                                        }else if(myscore<0){
+                                            specificquote = "You bet with points you don't have. Now you have debt.";
+                                            newvalue = myscore;
+                                        }else{
+                                            specificquote = "You bet with points you don't have. Now you have debt.";
+                                            newvalue = (-bigscore);
+                                        }
+                                    } else if (randomIndex == 4) {
+                                        if(myscore>0){
+                                            specificquote = "You bet a little, and increase your score by 10%!";
+                                            newvalue = myscore * 0.1;
+                                        }else{
+                                            specificquote = "Here's 1 point.";
+                                            newvalue = 1;
+                                        }
+                                    }
+                                    updatescore();
                                     gamemode = "TEMP";
                                     usespecificquote = true;
-                                    var randomIndex = Math.floor(Math.random() * 2); 
-                                    if(randomindex==0){
-                                        newvalue = myscore*0.5;
-                                        updatescore();
-                                        specificquote = "Wow! A 50% net gain!";
-                                    }else{
-                                        newvalue = -myscore;
-                                        updatescore();
-                                        specificquote = "Bankrupt. Time to start over!";
-                                    }
-                                } 
-                                */
+                                    tempcharacternow = true;
+                                    tempcharacter = "GAMBLING HAND";
+                                }
                                 //Banana.
                                 if(messagetest=="BANANA"){
-                                    persona = "HELPING HAND: ";
+                                    persona = "HELPING HAND";
                                     specificquote = "Yeah, great. Banana.";
                                     gamemode = "TEMP";
                                     usespecificquote = true;
                                 }
                                 if(messagetest=="BANANAS"){
-                                    persona = "HELPING HAND: ";
+                                    persona = "HELPING HAND";
                                     specificquote = "That's how I feel.";
                                     gamemode = "TEMP";
                                     usespecificquote = true;
                                 }
                                   //Check for apple response.
-                                 if(messagetest=="APPLE"||messagetest=="APPLES"){
+                                if(messagetest=="APPLE"||messagetest=="APPLES"){
                                     persona = "HELPING HAND: ";
                                     specificquote = "Try the blueberries.";
                                     gamemode = "TEMP";
@@ -1541,11 +1594,16 @@ var tarotquotes = [
                                     } else if (randomIndex == 3) {
                                         specificquote = "I have an incredible intestine. All koalas do. Compared to human ones. :)";
                                     }
-                                    specificquote = "...";
                                     gamemode = "TEMP";
                                     usespecificquote = true;
                                     tempcharacternow = true;
                                     tempcharacter = "KOALA";
+                                    var boolused = 83;
+                                    if(pointsfound[boolused] == false){
+                                        newvalue = lilscore;
+                                        updatescore();
+                                        pointsfound[boolused] = true;
+                                    }
                                 }
                                 if(messagetest=="THROWZEBRA"||messagetest=="THROW ZEBRA"){
                                     specificquote = "MOOOO! (I AM UNSTOPPABLE.)";
@@ -1553,6 +1611,12 @@ var tarotquotes = [
                                     usespecificquote = true;
                                     tempcharacternow = true;
                                     tempcharacter = "ZEBRA";
+                                    var boolused = 30;
+                                    if(pointsfound[boolused] == false){
+                                        newvalue = bigscore;
+                                        updatescore();
+                                        pointsfound[boolused] = true;
+                                    }
                                 }
                                 //Cat lamenting.
                                 if(messagetest=="CAT"||messagetest=="CATS"){
@@ -2914,12 +2978,6 @@ if(messagetest=="TAROTREVERSE"||messagetest=="TAROTREVERSALOFF"||messagetest=="T
                 //Makes sure temp is on if you're getting a temp character answer.
                 if(tempcharacternow){
                     gamemode = "TEMP";
-                    var boolused = 30;
-                    if(pointsfound[boolused] == false){
-                        newvalue = lilscore;
-                        updatescore();
-                        pointsfound[boolused] = true;
-                    } 
                 }
                 //checking gamemodes...
                 if(gamemode=="CHOC"){
@@ -3164,7 +3222,7 @@ if(messagetest=="TAROTREVERSE"||messagetest=="TAROTREVERSALOFF"||messagetest=="T
                                     } 
                                     var responseshuffle = sadgirlresponses.sort(() => Math.random() - 0.5);
                                     sadgirlresponses = responseshuffle;
-                                 }
+                                }
                                 }else{
                                 //If count IS < response length.
                                  var response = responses[count];
@@ -3206,10 +3264,24 @@ if(messagetest=="TAROTREVERSE"||messagetest=="TAROTREVERSALOFF"||messagetest=="T
                             }
                         //CHATPRINT PRINTCHAT 
                         //Show response in chat room.
+
+                        //Checks to see if response isn't working.
                         if(response==undefined||response==null){
                             response = "THERE HAS BEEN A GRAVE ERROR... <a href='mailto:admin@talktochocolate.xyz' target='_blank'>PLEASE EMAIL admin@talktochocolate.xyz</a> :) FEEL FREE TO SEND A CHAT LOG TOO, JUST TYPE DOWNLOAD AND THEN ATTACH THE FILE TO YOUR EMAIL.";
                         }
-                        chatroom.innerHTML += '<div class="message '+msgformat+'-message"><strong>'+ parent.persona+": </strong>" + response + '</div>';
+                        //Checks to see if you got any points.
+                        var scoreformat = "";
+                        var scoresay = "";
+                        if(newvalue>0){
+                            var scoreformat = "<p class='scorereaction'><b>";
+                            scoresay = "+"+newvalue;
+                        }else if(newvalue<0){
+                            var scoreformat = "<p class='scorereaction'><b>";
+                            scoresay = ""+newvalue;
+                        }
+                        
+                        chatroom.innerHTML += '<div class="message '+msgformat+'-message"><p><strong>'+ parent.persona+": </strong>" + response + scoreformat + scoresay+'</p></b></div>';
+
                         }else if(validaction){
                             //Shows quest action if you're in quest mode and say a valid command.
                             chatroom.innerHTML += '<div class="message user-message">'+yourusername+'<strong>: </strong>'+ messagetest + '</div>';
@@ -3218,6 +3290,9 @@ if(messagetest=="TAROTREVERSE"||messagetest=="TAROTREVERSALOFF"||messagetest=="T
                             //Questmaster can't do anything with this.
                             //chatroom.innerHTML += '<div class="message '+gamemode+'-message"><strong> QUESTMASTER: TRY SOMETHING ELSE! </strong>'+ questres + '</div>';
                         }
+                        
+                        //reset score adding system.
+                        newvalue = 0;
 
                         //Scroll down here.
                         ScrollDownNow();
@@ -3482,13 +3557,6 @@ if (urlParams.has('say')) {
 
 //Displays the score on load (should be 0 by default).
 window.onload = function(){
-    document.getElementsByClassName('thescore')[0].textContent = myscore;
-}
-//Updates the score.
-function updatescore(){
-    myscore += newvalue;
-    setTimeout(function() {
-    document.getElementsByClassName('thescore')[0].textContent = myscore;
-    },responsetime);
+    updatescore();
 }
 //The end of the script.

@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', (event) => {
-    // Generate a random number between 1 and 10
-    var randomNumber = Math.floor(Math.random() * 10) + 1;
+    // Generate a random number between 1 and whatever its multiplying by.
+    var randomNumber = Math.floor(Math.random() * 2) + 1;
 
     // Create the div and set its properties
     var div = document.createElement('div');

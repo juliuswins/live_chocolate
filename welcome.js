@@ -1,12 +1,11 @@
 document.addEventListener('DOMContentLoaded', (event) => {
-    // Generate a random number between 1 and whatever its multiplying by.
+    // Generate a random number between 1 and whatever the number is (inclusive)
     var randomNumber = Math.floor(Math.random() * 2) + 1;
 
     // Create the div and set its properties
     var div = document.createElement('div');
     div.className = 'fullscreen-image';
     div.style.backgroundImage = 'url(images/welcome/welcome' + randomNumber + '.png)';
-
     // Append the div to the body
     document.body.appendChild(div);
 
@@ -18,7 +17,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
     // Start the fadeout animation after 3 seconds
     setTimeout(function() {
         div.style.animation = 'fadeout 1s forwards';
-    }, 7000);
+    }, 0);
 
     // Remove the div from the DOM after the animation ends
     div.addEventListener('animationend', function() {

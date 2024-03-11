@@ -8,7 +8,7 @@ Everything has one word to get the response required.
 Please consider donating! Thank you and have fun! -->
     <meta charset="utf-8">
     <meta name="description" content="Talk to Chocolate: A chat game to find conversations beyond what you know!">
-    <title>TALK TO CHOCOLATE - LOGS. USE ?LOG EQUALS FILENAME IN LOGS/</title>
+    <title>TALK TO CHOCOLATE - LOG</title>
     <link rel="canonical" href="https://www.talktochocolate.xyz/logs/" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <style>
@@ -343,6 +343,17 @@ Please consider donating! Thank you and have fun! -->
             background-color:WHITE;
         }
 
+        .chatlogsbutton{
+            position: fixed;
+            bottom: 0;
+            right: 10vw;
+            margin: 10px;
+            padding: 10px;
+            background-color: #D2691E;
+            border-radius: 25px;
+            transition: all 0.3s ease; /* Added */
+        }
+
         .send-button:disabled{
             background-color:rgb(39, 39, 39);   
         }
@@ -392,7 +403,8 @@ Please consider donating! Thank you and have fun! -->
     </script>
     <br>
 </div>
-    </div>
+<div class="chatlogsbutton">
+<a href="logs/index.html">See Chat logs list</a>
 </div>
 </body>
 </html>

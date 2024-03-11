@@ -1,0 +1,79 @@
+<html>
+<head>
+    <style>
+        body{
+            margin: 0;
+            text-align: center;
+            align-items: center;
+        }
+
+        .slide-image {
+            width: 80vw;
+            height: auto;
+            max-width: 100vw;
+        }
+
+        .blackbg{
+            background-color: black;
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .Finaltext{
+            text-align: center;
+            padding: 10px;
+            .Finaltext {
+    font-family: 'Georgia', serif; /* Use a serif font for a more formal, classy look */
+    font-size: 18px; /* Increase the font size for readability */
+    color: #333; /* Use a dark gray color for the text */
+    padding: 20px; /* Add some padding around the text */
+    line-height: 1.6; /* Increase the line height for readability */
+}
+        }
+    </style>
+</head>
+<body>
+<img src="slide2.png" class="slide-image" />
+<img src="slide3.png" class="slide-image" />
+<img src="slide4.png" class="slide-image" />
+<img src="slide5.png" class="slide-image" />
+<img src="slide6.png" class="slide-image" />
+<img src="slide7.png" class="slide-image" />
+<img src="slide8.png" class="slide-image" />
+<img src="slide9.png" class="slide-image" />
+<img src="slide10.png" class="slide-image" />
+<img src="slide11.png" class="slide-image" />
+<img src="slide12.png" class="slide-image" />
+<img src="slide13.png" class="slide-image" />
+<img src="slide15.png" class="slide-image" />
+<img src="slide16.png" class="slide-image" />
+<img src="slide17.png" class="slide-image" />
+<img src="slide18.png" class="slide-image" />
+<img src="slide19.png" class="slide-image" />
+<img src="slide20.png" class="slide-image" />
+<img src="slide21.png" class="slide-image" />
+<img src="slide22.png" class="slide-image" />
+<script>
+    // Get all the images
+    var images = document.querySelectorAll('.slide-image');
+    var currentImageIndex = 0; // Start at the first image
+
+    // For each image...
+    for (var i = 0; i < images.length; i++) {
+        // Add a click event listener
+        images[i].addEventListener('click', function() {
+            // Get the next image
+            var nextImage = this.nextElementSibling;
+
+            // If there is a next image...
+            if (nextImage) {
+                // Scroll to the next image
+                nextImage.scrollIntoView({behavior: 'smooth'});
+                currentImageIndex++;
+            }
+        });
+    }
+
+</script>
+</body>
+</html>

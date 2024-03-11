@@ -5,30 +5,10 @@
 </head>
 <body>
     <h1>Log upload list</h1>
-    <ul id="fileList"></ul>
-
-    <script>
-        // Get the current directory path
-        var currentPath = window.location.pathname.substring(0, window.location.pathname.lastIndexOf("/") + 1);
-
-        // Fetch the list of files in the directory
-        fetch(currentPath)
-            .then(response => response.text())
-            .then(data => {
-                // Parse the HTML response
-                var parser = new DOMParser();
-                var htmlDoc = parser.parseFromString(data, "text/html");
-
-                // Find all the anchor tags with .html extension
-                var fileLinks = htmlDoc.querySelectorAll('a[href$=".html"]');
-
-                // Loop through the file links and add them to the list
-                fileLinks.forEach(link => {
-                    var listItem = document.createElement("li");
-                    listItem.textContent = link.textContent;
-                    document.getElementById("fileList").appendChild(listItem);
-                });
-            });
-    </script>
+    <ul id="fileList">
+    <li><a href="../logs.html?log=prediction1">12 March 2024 Prediction</a></li>
+    <li><a href="../logs.html?log=nine_eleven">A national tragedy</a></li>
+    <li><a href="../logs.html?log=logtest">The OG</a></li>
+</ul>
 </body>
 </html>

@@ -1,8 +1,155 @@
 <html>
-<head></head>
+<head>
+    <style>
+        body{
+            margin: 0;
+            text-align: center;
+            align-items: center;
+        }
+
+        .slide-image {
+            width: 80vw;
+            height: auto;
+            max-width: 100vw;
+        }
+
+        .blackbg{
+            background-color: black;
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .sign {
+            position: absolute; /* Position the sign div absolutely within the blackbg div */
+            bottom: 0; /* Align the sign div to the bottom of the blackbg div */
+            right: 0; /* Align the sign div to the right of the blackbg div */
+            color: black; /* Set the text color to white */
+            padding: 10px; /* Add some padding around the text */
+            background-color: rgba(255, 255, 255, 0.5); /* Add a semi-transparent white background color to the sign div */
+            border-radius: 25px;
+        }
+
+        .Finaltext{
+            text-align: center;
+            padding: 10px;
+            .Finaltext {
+    font-family: 'Georgia', serif; /* Use a serif font for a more formal, classy look */
+    font-size: 18px; /* Increase the font size for readability */
+    color: #333; /* Use a dark gray color for the text */
+    padding: 20px; /* Add some padding around the text */
+    line-height: 1.6; /* Increase the line height for readability */
+}
+        }
+    </style>
+</head>
 <body>
-<iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/sglvzwMfZjI?si=BH0MFV-eUHrqJ1AW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
-  
-</iframe>
+<div class="blackbg">
+    <div class="sign">Slides are below. Click on each slide for the next.</div>
+    <iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/sglvzwMfZjI?si=BH0MFV-eUHrqJ1AW" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+    </iframe>
+</div>
+<img src="slide2.png" class="slide-image" />
+<img src="slide3.png" class="slide-image" />
+<img src="slide4.png" class="slide-image" />
+<img src="slide5.png" class="slide-image" />
+<img src="slide6.png" class="slide-image" />
+<img src="slide7.png" class="slide-image" />
+<img src="slide8.png" class="slide-image" />
+<img src="slide9.png" class="slide-image" />
+<img src="slide10.png" class="slide-image" />
+<img src="slide11.png" class="slide-image" />
+<img src="slide12.png" class="slide-image" />
+<img src="slide13.png" class="slide-image" />
+<img src="slide15.png" class="slide-image" />
+<img src="slide16.png" class="slide-image" />
+<img src="slide17.png" class="slide-image" />
+<img src="slide18.png" class="slide-image" />
+<img src="slide19.png" class="slide-image" />
+<img src="slide20.png" class="slide-image" />
+<img src="slide21.png" class="slide-image" />
+<img src="slide22.png" class="slide-image" />
+<script>
+    // Get all the images
+    var images = document.querySelectorAll('.slide-image');
+    var currentImageIndex = 0; // Start at the first image
+
+    // For each image...
+    for (var i = 0; i < images.length; i++) {
+        // Add a click event listener
+        images[i].addEventListener('click', function() {
+            // Get the next image
+            var nextImage = this.nextElementSibling;
+
+            // If there is a next image...
+            if (nextImage) {
+                // Scroll to the next image
+                nextImage.scrollIntoView({behavior: 'smooth'});
+                currentImageIndex++;
+            }
+        });
+    }
+
+    // Add keydown event listener to the document
+    document.addEventListener('keydown', function(event) {
+        // If the right arrow key or the down arrow key is pressed...
+        if (event.key === 'ArrowRight' || event.key === 'ArrowDown') {
+            // If there is a next image...
+            if (currentImageIndex < images.length - 1) {
+                // Prevent the default behavior of the arrow keys
+                event.preventDefault();
+                // Scroll to the next image
+                images[++currentImageIndex].scrollIntoView({behavior: 'smooth'});
+            }
+        }
+        // If the left arrow key or the up arrow key is pressed...
+        else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') {
+            // If there is a previous image...
+            if (currentImageIndex > 0) {
+                // Prevent the default behavior of the arrow keys
+                event.preventDefault();
+                // Scroll to the previous image
+                images[--currentImageIndex].scrollIntoView({behavior: 'smooth'});
+            }
+        }
+    });
+
+    // Add scroll event listener to the document
+    document.addEventListener('scroll', function(event) {
+        // If scrolling down...
+        if (window.scrollY > 0) {
+            // If there is a next image...
+            if (currentImageIndex < images.length - 1) {
+                // Scroll to the next image
+                images[++currentImageIndex].scrollIntoView({behavior: 'smooth'});
+            }
+        }
+        // If scrolling up...
+        else if (window.scrollY < 0) {
+            // If there is a previous image...
+            if (currentImageIndex > 0) {
+                // Scroll to the previous image
+                images[--currentImageIndex].scrollIntoView({behavior: 'smooth'});
+            }
+        }
+    });
+</script>
+<div class="Finaltext">
+<p><b>This is intended to help beginners or anybody unfamiliar with investing.</b></p>
+<p>Do not be scared by the prospect of investing: You already have a bank account, you use a currency, you pay tax and you may have superannuation if you're Australian.</p>
+<p>This does not consider tax circumstances, brokerage fees of buying and selling assets, nor the fees in funds, which work internally.</p>
+<p>It is also worth noting that individual companies can inflate or buy back shares, which will also affect your asset value and makes good management paramount for a suitable long term investment in a company.</p>
+<p>Interactive Brokers is a reasonable investment broker available globally. <a href='https://www.interactivebrokers.com/en/home.php' target="_other">https://www.interactivebrokers.com/en/home.php</a></p>
+<p>Selfwealth is a good Australian choice for US or ASX (Australian Stock Exchange) shares and 10 free trades to start with. <a href='https://secure.selfwealth.com.au/Registration/Plan/5/8weMp'>https://secure.selfwealth.com.au/Registration/Plan/5/8weMp</a></p>
+<br>
+Some other things to consider for adjusting your portfolio:
+
+<p>-If you think the stock market will CRASH: buy GLD on the NYSE. This is the equivalent of holding your cash as GOLD. follows the GOLD VALUE compared to the US DOLLAR</p>
+<p>-You may want to hold some safe TREASURY BONDS from the NYSE – Short term floating if you think interest rates will go higher, Long term if you think interest rates will cut. Fixed Rate Bonds are a great way to get a set and certain amount from your portfolio / 'savings' but will still change in value based on inflation, interest rates and stocks.</p>
+    <p>-If you think RARE EARTH is going to be a growing sector: buy REMX on the NYSE. The fund is a series of different companies making money from mining Rare Earth resources.</p>
+        <p>-You can apply this to the sectors of other resources, such as URNM NYSE for Uranium Miners, or LIT NYSE for Lithium and Battery mining and production.</p>
+            <p>-You can have access to Industrial Real Estate using REIT ETFs, such as through REET NYSE, or through a REIT (Real Estate Investment Trust) company itself on the stock market.</p>
+                <p>-If you think BITCOIN will continue to grow: Buy BITB or MSTR on the NYSE BITB is the cheapest fund on the New York Stock Exchange that offers Bitcoin ownership. MicroStrategy have a cash reserve of many Bitcoin, and will continue using it in their profitable business.</p>
+                    <p>-If you really have no clue what will happen, holding the entire market or top 500 companies is the best performing asset historically... so far. Cryptocurrencies are full of new but uncertain and unestablished markets, and if you invest in any - consider the currency's supply in circulation before you buy.</p>
+</div>
 </body>
 </html>

@@ -3453,8 +3453,9 @@ function downloadlog() {
             allStyles += '@import url("' + styleElement.href + '");';
         }
     });
-
-    var downloadtitle = (allstyle+"<div class='TEMP-message'><p><h1>TALK TO CHOCOLATE / CHAT LOG.</p><p>SCORE: "+myscore+" / PRINT TIME: " +currenttime+"</h1></p><br></div>").toUpperCase();
+    var scoreprinting = "N/A";
+    // var scoreprinting = myscore;
+    var downloadtitle = (allstyle+"<div class='TEMP-message'><p><h1>TALK TO CHOCOLATE / CHAT LOG.</p><p>SCORE: "+scoreprinting+" / PRINT TIME: " +currenttime+"</h1></p><br></div>").toUpperCase();
     let contentWithDiv = '<style>' + allStyles + '</style><div id="chat-container">'+downloadtitle + chatroomContent+"<br><p>END OF CHAT.</p>";
     // Create a Blob with the chatroom content
     let file = new Blob([contentWithDiv], {type: 'text/html'});

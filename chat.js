@@ -666,6 +666,11 @@ var tarotquotes = [
                             specificquote = "NICE TRY. THE BEST YOU WILL GET IS A CLUE.";
                             gamemode = "TEMP";
                             }
+                            if(messagetest=="SCORE"||messagetest=="MYSCORE"){
+                                usespecificquote = true;
+                                specificquote = "Your score is "+myscore+"!";
+                                gamemode = "TEMP";
+                            }
                             if(messagetest=="GOAWAY"||messagetest=="GO AWAY"){
                             usespecificquote = true;
                             specificquote = "Who, me? Because if it's me, I'll be here longer than you'll ever be. But the rest will usually go away if you pick a new character.";

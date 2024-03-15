@@ -1,0 +1,424 @@
+<style>
+        /* Existing styles */
+        body {
+            text-transform: uppercase;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+            font-family: 'Roboto', sans-serif;
+            color: #D2691E;
+        }
+
+        .leftimg {
+        height: auto !important;
+        width: 15vw !important;
+        opacity: 0.5;
+        transition: opacity 0.3s ease-in-out; /* Optional: for a smooth transition */
+        word-wrap: break-word;
+        }
+
+        .thescore{
+            font-size: 30px;
+            text-align: right;
+        }
+
+        .rightalign{
+            text-align: right;
+        }
+
+        #pagebottom{
+            line-height: 5px;
+            font-size: 10px;
+           
+        }
+
+        .leftimg:hover {
+         opacity: 1;
+        }
+
+        #leftside {
+        font-size:10px;
+        text-align: left;
+        position: fixed;
+        top: 0; 
+        left: 0; 
+        word-wrap: break-word; /* This will break the word at the end of the line */
+        overflow-wrap: break-word;
+        }
+
+        input-placeholder {
+            /* Selects all input placeholders */
+             text-transform: uppercase;
+        }
+        
+        .dice{
+            width:5vw;
+            height:5vw;
+            border-radius:20px;
+        }
+
+        .scoredisplay {
+            font-size: 20px;
+        }
+
+        .chat-container {
+            line-height: 1.2;
+            table-layout:auto;
+            width: 50vw;
+            max-width: 600px;
+            height: 75vh;
+            border: 2px solid black;
+            overflow-y: scroll;
+            padding: 25px;
+            background-color: white;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 40px 0 0 40px; /* Smooth left corners */
+            transition: all 0.3s ease; /* Added */
+            size: 12 px;
+        }
+
+        .chat-container::-webkit-scrollbar {
+            width: 15px;
+        }
+
+        .chat-container::-webkit-scrollbar-thumb {
+            background-color: #3D3D3D;
+            border-radius: 15px;
+        }
+
+        .chat-container::-webkit-scrollbar-track {
+            background-color: lightgrey;
+            margin-left: 15px;
+            transition: all 0.3s ease; /* Added */
+        }
+        /* set thinking icon. with animation.*/
+        #thinking-chat {
+            display: none;
+            text-align: right;
+            animation: fade 0.5s infinite;
+        }
+        /* make it animate fade. */
+        @keyframes fade {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+            60% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .message {
+            text-align: left;
+            margin-bottom: 10px;
+            size: 12 px;
+            word-wrap: break-word;
+            transition: all 0.3s ease;
+            box-shadow: -4px 0px 5px rgba(0, 0, 0, 0.25);
+        }
+
+        .welcome-message {
+            text-align: center;
+            color: #000000;
+            background: linear-gradient(to right, #b8b8b8, white);
+            padding: 15px 0 15px 15px;
+            border-radius: 15px 0 0 15px;
+            size: 12 px;
+            line-height: 1;
+        }
+
+        .user-message {
+            color: #000000;
+            background: linear-gradient(to right, #cba683 25%, white 90%);
+            padding: 15px 0 15px 15px;
+            border-radius: 15px 0 0 15px;
+            size: 12 px;
+        }
+
+        .MUSIC-message {
+            color: #000000;
+            background: linear-gradient(to right, #80a960 25%, white 90%);
+            padding: 15px 0 15px 15px;
+            border-radius: 15px 0 0 15px;
+            size: 12 px;
+        }
+
+        .COW-message {
+            color: #3e0909;
+            background: linear-gradient(to right, #b96464 25%, white 90%);
+            padding: 15px 0 15px 15px;
+            border-radius: 15px 0 0 15px;
+            size: 12 px;
+        }
+        
+        .NAMECHANGE-message {
+            color: #000000;
+            background: linear-gradient(to right, #ffc46c 25%, white 95%);
+            padding: 15px 0 15px 15px;
+            border-radius: 15px 0 0 15px;
+            size: 12 px;
+        }
+
+        .DOWNLOAD-message {
+            color: #000000;
+            background: linear-gradient(to right, #ffc46c 25%, white 95%);
+            padding: 15px 0 15px 15px;
+            border-radius: 15px 0 0 15px;
+            size: 12 px;
+        }
+
+        .CHOC-message {
+            color: #2b1906;
+            background: linear-gradient(to right, #876B63 40%, white);
+            padding: 15px 0 15px 15px;
+            border-radius: 15px 0 0 15px;
+            size: 12 px;
+        }
+
+    div.welcome-message h1 {
+    text-align: center;
+    color: #000000;
+    padding: 15px 0 15px 15px;
+    border-radius: 15px 0 0 15px;
+    font-size: 130%;
+    }   
+        
+
+        .PISSED-message {
+            color: #410101;
+            background: linear-gradient(to right, #ce5736 20%, white);
+            padding: 15px 0 15px 15px;
+            border-radius: 15px 0 0 15px;
+            size: 12 px;
+        }
+
+        .SADGIRL-message {
+            color: #0e014a;
+            background: linear-gradient(to right, #536cea 0%, rgb(255, 255, 255));
+            padding: 15px 0 15px 15px;
+            border-radius: 15px 0 0 15px;
+            size: 12 px;
+        }
+
+        .AUGUSTUS-message {
+            color: #1c061e;
+            background: linear-gradient(to right, hsl(222, 100%, 77%), white);
+            padding: 15px 0 15px 15px;
+            border-radius: 15px 0 0 15px;
+            size: 12 px;
+        }
+
+        .WHITE-message {
+            color: #000000;
+            background: linear-gradient(to right, #dec8c2, white);
+            padding: 15px 0 15px 15px;
+            border-radius: 15px 0 0 15px;
+            size: 12 px;
+        }
+
+        .DEVIL-message {
+            color: #340000;
+            background: linear-gradient(to right, #cc2e2e 20%, white);
+            padding: 15px 0 15px 15px;
+            border-radius: 15px 0 0 15px;
+            size: 12 px;
+        }
+
+        .TIMER-message {
+            color: #000000;
+            background: linear-gradient(to right, #31943c, white);
+            padding: 15px 0 15px 15px;
+            border-radius: 15px 0 0 15px;
+            size: 12 px;
+        }
+        
+        .TEMP-message {
+            color: #000000;
+            background: linear-gradient(to right, #baffc2, white);
+            padding: 15px 0 15px 15px;
+            border-radius: 15px 0 0 15px;
+            size: 12 px;
+        }
+
+        .SCORE-message {
+            color: #000000;
+            background: linear-gradient(to right, #baffc2, white);
+            padding: 15px 0 15px 15px;
+            border-radius: 15px 0 0 15px;
+            size: 10 px;
+        }
+        
+        .MOTIVATOR-message {
+            color: #000000;
+            background: linear-gradient(to right, rgb(245, 212, 144), white);
+            padding: 15px 0 15px 15px;
+            border-radius: 15px 0 0 15px;
+            size: 12 px;
+        }
+        
+        .RANDOM1-message {
+            color: #000000;
+            background: linear-gradient(to right,#85cae3, white);
+            padding: 15px 0 15px 15px;
+            border-radius: 15px 0 0 15px;
+            size: 12 px;
+        }
+        .RANDOM2-message {
+            color: #000000;
+            background: linear-gradient(to right,#dcc6ff, white);
+            padding: 15px 0 15px 15px;
+            border-radius: 15px 0 0 15px;
+            size: 12 px;
+        }
+        .RANDOM3-message {
+            color: #000000;
+            background: linear-gradient(to right,#d47e6c, white);
+            padding: 15px 0 15px 15px;
+            border-radius: 15px 0 0 15px;
+            size: 12 px;
+        }
+        .RANDOM4-message {
+            color: #000000;
+            background: linear-gradient(to right,#b57777, white);
+            padding: 15px 0 15px 15px;
+            border-radius: 15px 0 0 15px;
+            size: 12 px;
+        }
+        .RANDOM5-message {
+            color: #000000;
+            background: linear-gradient(to right,#7b8a5b, white);
+            padding: 15px 0 15px 15px;
+            border-radius: 15px 0 0 15px;
+            size: 12 px;
+        }
+        .CHEESE-message {
+            color: #052857;
+            background: linear-gradient(to right,#eac342, white);
+            padding: 15px 0 15px 15px;
+            border-radius: 15px 0 0 15px;
+            size: 12 px;
+        }
+        
+        .QUEST-message {
+            color: #052857;
+            background: linear-gradient(to right,#57b3ff, white);
+            padding: 15px 0 15px 15px;
+            border-radius: 15px 0 0 15px;
+            size: 12 px;
+        }
+
+        .SILLY-message {
+            color: #272626;
+            background: linear-gradient(to right,#b7b7b7, rgba(107, 78, 78, 0.667) 50%, #ffffff00 100%);
+            padding: 15px 0 15px 15px;
+            border-radius: 15px 0 0 15px;
+            size: 12 px;
+        }
+
+        .FUTURE-message {
+            color: #27002d;
+            background: linear-gradient(to right,#9c6cda, white);
+            padding: 15px 0 15px 15px;
+            border-radius: 15px 0 0 15px;
+            size: 12 px;
+        }
+
+        .HOLDLINE-message {
+            color: #000000;
+            background: linear-gradient(to right,#ff8b8b, white);
+            padding: 15px 0 15px 15px;
+            border-radius: 15px 0 0 15px;
+            size: 12 px;
+        }
+
+        .input-container {
+            color: black;
+            border-radius: 10px; 
+            width: 50vw;
+            max-width: 500px;
+            display: flex;
+            flex-direction: row; /* Added */
+            margin-top: 20px;
+            transition: all 0.3s ease; /* Added */
+        }
+
+        a{
+        color: #291303;
+        text-decoration: underline;
+        font-weight: bold;
+        }   
+
+        a:visited {
+        color: #312218;
+        text-decoration: underline;
+        font-weight: bold;
+        }
+
+        .message-input {
+            size: 20 px;
+            color: black;
+            border: 0px #818181;
+            border-radius: 15px; 
+            background-color: lightgrey;
+            width: 100%;
+            text-align: left;
+            padding: 5px;
+            transition: all 0.3s ease; /* Added */
+        }
+
+        .message-input:disabled{
+            enable-background: rgb(39, 39, 39);   
+        }
+        
+        .scorereaction{
+            font-size: 10px;
+            text-align: right;
+        }
+
+        .send-button {
+            border: 5px;
+            border-radius: 25px;
+            margin-left: 10px;
+            padding: 8px 8px;
+            transition: all 0.3s ease; /* Added */
+            background-color:WHITE;
+        }
+
+        .send-button:disabled{
+            background-color:rgb(39, 39, 39);   
+        }
+
+        #thinkingicon{
+                    filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.35));
+        }
+    
+
+    .fullscreen-image {
+    position: fixed; /* Make the div cover the whole screen */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: auto; /* Set the background image to its original size */
+    background-repeat: repeat; /* Make the background image repeat */
+    animation: fadeout 3s; /* Apply the animation */
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeout {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+</style><div id="chat-container"><DIV CLASS='TEMP-MESSAGE'><P><H1>TALK TO CHOCOLATE / CHAT LOG.</P><P>SCORE: 0 / PRINT TIME: 16/03/2024, 02:29:49</H1></P><BR></DIV><div class="message welcome-message"><h1><strong> Talk to chocolate .xyz</strong></h1><p><strong> Contains some adult content / Please be respectful and enjoy!</strong></p><p style="font-size: 10px;"><b>Last update:</b> 10th March, 2024. Type <i>email</i> for feedback.</p></div><div class="message user-message"><strong>YOU: </strong> gamblr</div><div class="message CHEESE-message"><p><strong>CHEESE: </strong>GOT MILK?!</p></div><div class="message user-message"><strong>YOU: </strong> gamble</div><div class="message RANDOM4-message"><p><strong>GAMBLING HAND: </strong>You contemplate betting, but then choose not to.</p></div><div class="message user-message"><strong>YOU: </strong> cheese</div><div class="message CHEESE-message"><p><strong>CHEESE: </strong>HEH HEH. CHEESE.</p><p class="scorereaction"><b>+100</b></p></div><div class="message user-message"><strong>YOU: </strong> cream</div><div class="message CHEESE-message"><p><strong>CHEESE: </strong>I'm THICK, I'm KEEN! I'm READY for that CREAM! When it's time for the platter, I'm on the right team! There's no losing steam, for the CHEESE CREAM DREAM!</p><p class="scorereaction"><b>+10</b></p></div><div class="message user-message"><strong>YOU: </strong> nice</div><div class="message CHEESE-message"><p><strong>CHEESE: </strong>My cream is about to get everywhere.</p></div><div class="message user-message"><strong>YOU: </strong> Oh.</div><div class="message CHEESE-message"><p><strong>CHEESE: </strong>When I don't have the cheese it is an EMERGENCY. ;)</p></div><div class="message user-message"><strong>YOU: </strong> gamble</div><div class="message RANDOM5-message"><p><strong>GAMBLING HAND: </strong>You bet a little, and increase your score by 10%!</p><p class="scorereaction"><b>+11</b></p></div><div class="message user-message"><strong>YOU: </strong> gamble</div><div class="message RANDOM2-message"><p><strong>GAMBLING HAND: </strong>You just doubled your score!</p><p class="scorereaction"><b>+121</b></p></div><div class="message user-message"><strong>YOU: </strong> gamble</div><div class="message RANDOM4-message"><p><strong>GAMBLING HAND: </strong>You bet big, and lost all your points. Time to rebuild from bankrupt, genius.</p><p class="scorereaction"><b>-242</b></p></div><div class="message user-message"><strong>YOU: </strong> agh</div><div class="message CHEESE-message"><p><strong>CHEESE: </strong>I am the eye in the sky, looking at you, I can read your mind. I am the maker of rules, dealing with fools, I could cheat you blind.</p></div><br><p>END OF CHAT.</p>

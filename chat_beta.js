@@ -2,7 +2,7 @@
 document.getElementById("userInput").focus();
 
 //the welcome message you see:
-document.getElementById("chatroom").innerHTML += '<div class="message welcome-message"><h1><strong> Talk to chocolate .xyz</h1><p> Contains some adult content / Please be respectful and enjoy!</p></strong><p style="font-size: 10px;"><b>Last update:</b> 10th March, 2024. Type <i>email</i> for feedback.</p></div>';  
+document.getElementById("chatroom").innerHTML += '<div class="message welcome-message"><h1><strong> Talk to chocolate .xyz</h1><p> Contains some adult content / Please be respectful and enjoy! To consume the piss is to rule the world. </p></strong><p style="font-size: 10px;"><b>Last update:</b> 16th March, 2024. Type <i>email</i> for feedback.</p></div>';  
 
 //responsetime is the delay between your message and the response.
 var responsetime = 1000;
@@ -1659,15 +1659,21 @@ var tarotquotes = [
                                     gamemode = "HOLDLINE";
                                 }
                                 //enables devil mode.
-                                if(messagetest=="HELL"||messagetest=="DEVIL"|| messagetest=="DARK"|| messagetest=="SATAN"|| messagetest=="HAILSATAN"|| messagetest=="LUCIFER"|| messagetest=="THEDEVIL"){
+                                if(messagetest=="HELL"||messagetest=="DEVIL"|| messagetest=="DARK"|| messagetest=="SATAN"|| messagetest=="LUCIFER"|| messagetest=="THEDEVIL"){
                                     prevgame = gamemode;
                                     gamemode = "DEVIL";
+                                }
+                                if(messagetest=="HAILSATAN"){
+                                    prevgame = gamemode;
+                                    gamemode = "DEVIL";
+                                    usespecificquote = true;
+                                    specificquote = "WOOOOOOOOOO! >:)";
                                     var boolused = 13;
                                     if(pointsfound[boolused] == false){
-                                        newvalue = lilscore;
+                                        newvalue = 666666;
                                         updatescore();
                                         pointsfound[boolused] = true;
-                                    }   
+                                    }    
                                 }
                                 //Some responses to directions.
                                 if(messagetest=="RIGHT"){                                   
@@ -3569,11 +3575,14 @@ function updatescore(){
 //Checks if the URL has something already lined up to say.
 
 if (urlParams.has('say')) {
-    var tryinput = urlParams.get('say').toUpperCase();
+   var tryinput = urlParams.get('say').toUpperCase();
     var userINPUT = document.getElementById("userInput");
     userINPUT.value = tryinput;
+    
+    /* Try without
     beginsend = false;
     sendMessage();
+    */
 }
 
 

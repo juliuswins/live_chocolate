@@ -2,7 +2,7 @@
 document.getElementById("userInput").focus();
 
 //the welcome message you see:
-document.getElementById("chatroom").innerHTML += '<div class="message welcome-message"><h1><strong> Talk to chocolate .xyz</h1><p> Contains some adult content / Please be respectful and enjoy! To consume the piss is to rule the world. </p></strong><p style="font-size: 10px;"><b>Last update:</b> 16th March, 2024. Type <i>email</i> for feedback.</p></div>';  
+document.getElementById("chatroom").innerHTML += '<div class="message welcome-message"><h1><strong> Talk to chocolate .xyz</h1><p> Contains some adult content / Please be respectful and enjoy!</p></strong><p style="font-size: 10px;"><b>Last update:</b> 69th March, 2024. Type <i>email</i> for feedback. Fuck you, idiot. Nerd.</p></div>';  
 
 //responsetime is the delay between your message and the response.
 var responsetime = 1000;
@@ -1670,7 +1670,7 @@ var tarotquotes = [
                                     specificquote = "WOOOOOOOOOO! >:)";
                                     var boolused = 13;
                                     if(pointsfound[boolused] == false){
-                                        newvalue = 666666;
+                                        newvalue = 666;
                                         updatescore();
                                         pointsfound[boolused] = true;
                                     }    
@@ -2808,10 +2808,17 @@ if(messagetest=="LOGS"||messagetest=="ALLLOGS"||messagetest=="CHATLOGS"||message
                                     }
                                     if(messagetest=="ILOVEJESUS"||messagetest=="JESUS"||messagetest=="PRAISEGOD"||messagetest=="HAILMARY") {
                                         usespecificquote = true;
-                                        specificquote = "Eww.";
+                                        specificquote = ":| Fuck this shit, I'm out. For now. >:)";
                                         prevgame = "HOLDLINE";
-                                        gamemode = "TEMP";
+                                        gamemode = "DEVIL";
                                         goprev = true;
+                                    //Copy this and give a unique number to add a one time score addition.
+                                    var boolused = 64;
+                                    if(pointsfound[boolused] == false){
+                                        newvalue = 777;
+                                        updatescore();
+                                        pointsfound[boolused] = true;
+                                    } 
                                     }
                                 }
                                 if(gamemode=="FUTURE"){

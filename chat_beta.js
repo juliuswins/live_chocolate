@@ -1450,7 +1450,7 @@ var tarotquotes = [
                                     } else if (randomIndex == 2) {
                                         if(myscore>0){
                                             specificquote = "You bet a little, and lose 10% of your score.";
-                                            newvalue = Math.floor((myscore * 0.1)*-100) / -100;
+                                            newvalue = Math.floor((myscore * 0.1)*-100) / 100;
                                         }else{
                                             specificquote = "You would have lost some points, if you had any. Excess debt fee.";
                                             newvalue = -1;

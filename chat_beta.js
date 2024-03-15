@@ -2,7 +2,7 @@
 document.getElementById("userInput").focus();
 
 //the welcome message you see:
-document.getElementById("chatroom").innerHTML += '<div class="message welcome-message"><h1><strong> Talk to chocolate .xyz</h1><p> Contains some adult content / Please be respectful and enjoy!</p></strong><p style="font-size: 10px;"><b>Last update:</b> 10th March, 2024. Type <i>email</i> for feedback.</p></div>';  
+document.getElementById("chatroom").innerHTML += '<div class="message welcome-message"><h1><strong> Talk to chocolate .xyz</h1><p> Contains some adult content / Please be respectful and enjoy!</p></strong><p style="font-size: 10px;"><b>Last update:</b> 10th March, 2024. Constipation or diarrhea... Who is really to say? Type <i>email</i> for feedback.</p></div>';  
 
 //responsetime is the delay between your message and the response.
 var responsetime = 1000;
@@ -1450,7 +1450,7 @@ var tarotquotes = [
                                     } else if (randomIndex == 2) {
                                         if(myscore>0){
                                             specificquote = "You bet a little, and lose 10% of your score.";
-                                            newvalue = myscore * -0.1;
+                                            newvalue = Math.floor((myscore * 0.1)*100) / 100;
                                         }else{
                                             specificquote = "You would have lost some points, if you had any. Excess debt fee.";
                                             newvalue = -1;
@@ -1469,7 +1469,7 @@ var tarotquotes = [
                                     } else if (randomIndex == 4) {
                                         if(myscore>0){
                                             specificquote = "You bet a little, and increase your score by 10%!";
-                                            newvalue = myscore * 0.1;
+                                            newvalue = Math.floor(myscore * -0.1 * 100) / 100;
                                         }else{
                                             specificquote = "Here's 1 point.";
                                             newvalue = 1;
@@ -3561,6 +3561,7 @@ function updatescore(){
 //Checks if the URL has something already lined up to say.
 
 if (urlParams.has('say')) {
+    updatescore();
     var tryinput = urlParams.get('say').toUpperCase();
     var userINPUT = document.getElementById("userInput");
     userINPUT.value = tryinput;
@@ -3570,7 +3571,7 @@ if (urlParams.has('say')) {
 
 //Displays the score on load (should be 0 by default).
 window.onload = function(){
-    updatescore();
+updatescore();
 //Puts the input in focus immediately.
 document.getElementById("userInput").focus();
 }

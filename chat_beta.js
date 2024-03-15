@@ -2,7 +2,7 @@
 document.getElementById("userInput").focus();
 
 //the welcome message you see:
-document.getElementById("chatroom").innerHTML += '<div class="message welcome-message"><h1><strong> Talk to chocolate .xyz</h1><p> Contains some adult content / Please be respectful and enjoy!</p></strong><p style="font-size: 10px;"><b>Last update:</b> 17th March, 2024. Type <i>email</i> for feedback. What is good for the goose is good for the zebra!</p></div>';  
+document.getElementById("chatroom").innerHTML += '<div class="message welcome-message"><h1><strong> Talk to chocolate .xyz</h1><p> Contains some adult content / Please be respectful and enjoy!</p></strong><p style="font-size: 10px;"><b>Last update:</b> 16th March, 2024. BETA! Type <i>email</i> for feedback.</p></div>';  
 
 //responsetime is the delay between your message and the response.
 var responsetime = 1000;
@@ -450,7 +450,8 @@ var tarotquotes = [
             function sendMessage(){
                 //makes sure you can't click / press enter. SHOULD BE TOP OF SENDMESSAGE()!!!
                 var beginsend = true;
-
+                //Makes sure we're not giving players double points.
+                newvalue = 0;
                 //Checks whether to jump back to the previous gamemode.
                 var goprev = false;
 
@@ -3356,6 +3357,7 @@ if(messagetest=="LOGS"||messagetest=="ALLLOGS"||messagetest=="CHATLOGS"||message
                                             } 
         if(!timeroff){
             response = "YOU'VE SPENT 10 MINUTES HERE! IF YOU'RE HAVING FUN, MAYBE YOU COULD SAY THANKS AND DONATE SOME MONEY! THAT'S RIGHT, I'M AN ANNOUNCEMENT DESIGNED TO SHAMELESSLY SELL YOU SOMETHING YOU ALREADY HAVE FOR FREE.";
+            updatescore();
             document.getElementById("chatroom").innerHTML += '<div class="message TIMER-message"><strong>TIMER: </strong>' + response + '</div>';
             ScrollDownNow();
         }
@@ -3371,6 +3373,7 @@ if(messagetest=="LOGS"||messagetest=="ALLLOGS"||messagetest=="CHATLOGS"||message
                                                 pointsfound[boolused] = true;
                                             } 
             response = "Wow.  You've been here for 20 minutes. Did you leave this open, or are you entertaining yourself this much? I'm going to put my hand out once again and say donate if you enjoy. There is an exclusive mode for donors.";
+            updatescore();
             document.getElementById("chatroom").innerHTML += '<div class="message TIMER-message"><strong>TIMER: </strong>' + response + '</div>';
             ScrollDownNow();
         }, 1200000); // 1200000 is 20 minutes.

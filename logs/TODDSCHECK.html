@@ -1,0 +1,620 @@
+<style>.jfk-bubble.gtx-bubble, .captcheck_answer_label > input + img, span#closed_text > img[src^="https://www.gstatic.com/images/branding/googlelogo"], span[data-href^="https://www.hcaptcha.com/"] > #icon, #bit-notification-bar-iframe, ::-webkit-calendar-picker-indicator, img.Wirisformula {
+    filter: invert(100%) hue-rotate(180deg) contrast(90%) !important;
+}[data-darkreader-inline-bgcolor] {
+  background-color: var(--darkreader-inline-bgcolor) !important;
+}
+[data-darkreader-inline-bgimage] {
+  background-image: var(--darkreader-inline-bgimage) !important;
+}
+[data-darkreader-inline-border] {
+  border-color: var(--darkreader-inline-border) !important;
+}
+[data-darkreader-inline-border-bottom] {
+  border-bottom-color: var(--darkreader-inline-border-bottom) !important;
+}
+[data-darkreader-inline-border-left] {
+  border-left-color: var(--darkreader-inline-border-left) !important;
+}
+[data-darkreader-inline-border-right] {
+  border-right-color: var(--darkreader-inline-border-right) !important;
+}
+[data-darkreader-inline-border-top] {
+  border-top-color: var(--darkreader-inline-border-top) !important;
+}
+[data-darkreader-inline-boxshadow] {
+  box-shadow: var(--darkreader-inline-boxshadow) !important;
+}
+[data-darkreader-inline-color] {
+  color: var(--darkreader-inline-color) !important;
+}
+[data-darkreader-inline-fill] {
+  fill: var(--darkreader-inline-fill) !important;
+}
+[data-darkreader-inline-stroke] {
+  stroke: var(--darkreader-inline-stroke) !important;
+}
+[data-darkreader-inline-outline] {
+  outline-color: var(--darkreader-inline-outline) !important;
+}
+[data-darkreader-inline-stopcolor] {
+  stop-color: var(--darkreader-inline-stopcolor) !important;
+}
+[data-darkreader-inline-bg] {
+  background: var(--darkreader-inline-bg) !important;
+}:root {
+   --darkreader-neutral-background: #131516;
+   --darkreader-neutral-text: #d8d4cf;
+   --darkreader-selection-background: #004daa;
+   --darkreader-selection-text: #e8e6e3;
+}html {
+    background-color: #181a1b !important;
+}
+html {
+    color-scheme: dark !important;
+}
+html, body {
+    background-color: #181a1b;
+}
+html, body {
+    border-color: #736b5e;
+    color: #e8e6e3;
+}
+a {
+    color: #3391ff;
+}
+table {
+    border-color: #545b5e;
+}
+::placeholder {
+    color: #b2aba1;
+}
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+    background-color: #404400 !important;
+    color: #e8e6e3 !important;
+}
+::-webkit-scrollbar {
+    background-color: #202324;
+    color: #aba499;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #454a4d;
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: #575e62;
+}
+::-webkit-scrollbar-thumb:active {
+    background-color: #484e51;
+}
+::-webkit-scrollbar-corner {
+    background-color: #181a1b;
+}
+* {
+    scrollbar-color: #454a4d #202324;
+}
+::selection {
+    background-color: #004daa !important;
+    color: #e8e6e3 !important;
+}
+::-moz-selection {
+    background-color: #004daa !important;
+    color: #e8e6e3 !important;
+}
+        /* Existing styles */
+        body {
+            text-transform: uppercase;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+            font-family: 'Roboto', sans-serif;
+            color: #D2691E;
+        }
+
+        .leftimg {
+        height: auto !important;
+        width: 15vw !important;
+        opacity: 0.5;
+        transition: opacity 0.3s ease-in-out; /* Optional: for a smooth transition */
+        word-wrap: break-word;
+        }
+
+        .thescore{
+            font-size: 24px;
+            text-align: right;
+        }
+
+        .rightalign{
+            text-align: right;
+        }
+
+        #pagebottom{
+            line-height: 5px;
+            font-size: 10px;
+           
+        }
+
+        .leftimg:hover {
+         opacity: 1;
+        }
+
+        #leftside {
+        font-size:10px;
+        text-align: left;
+        position: fixed;
+        top: 0; 
+        left: 0; 
+        word-wrap: break-word; /* This will break the word at the end of the line */
+        overflow-wrap: break-word;
+        }
+
+        input-placeholder {
+            /* Selects all input placeholders */
+             text-transform: uppercase;
+        }
+        
+        .dice{
+            width:5vw;
+            height:5vw;
+            border-radius:20px;
+        }
+
+        .scoredisplay {
+            font-size: 20px;
+        }
+
+        .chat-container {
+            line-height: 1.2;
+            table-layout:auto;
+            width: 50vw;
+            max-width: 600px;
+            height: 75vh;
+            border: 2px solid black;
+            overflow-y: scroll;
+            padding: 25px;
+            background-color: white;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 40px 0 0 40px; /* Smooth left corners */
+            transition: all 0.3s ease; /* Added */
+            size: 12 px;
+        }
+
+        .chat-container::-webkit-scrollbar {
+            width: 15px;
+        }
+
+        .chat-container::-webkit-scrollbar-thumb {
+            background-color: #3D3D3D;
+            border-radius: 15px;
+        }
+
+        .chat-container::-webkit-scrollbar-track {
+            background-color: lightgrey;
+            margin-left: 15px;
+            transition: all 0.3s ease; /* Added */
+        }
+        /* set thinking icon. with animation.*/
+        #thinking-chat {
+            display: none;
+            text-align: right;
+            animation: fade 0.5s infinite;
+        }
+        /* make it animate fade. */
+        @keyframes fade {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+            60% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .message {
+            text-align: left;
+            margin-bottom: 10px;
+            size: 12 px;
+            word-wrap: break-word;
+            transition: all 0.3s ease;
+            box-shadow: -4px 0px 5px rgba(0, 0, 0, 0.25);
+        }
+
+        .welcome-message {
+            text-align: center;
+            color: #000000;
+            background: linear-gradient(to right, #b8b8b8, white);
+            padding: 15px 0 15px 15px;
+            border-radius: 15px 0 0 15px;
+            size: 12 px;
+            line-height: 1;
+        }
+
+        .user-message {
+            color: #000000;
+            background: linear-gradient(to right, #cba683 25%, white 90%);
+            padding: 15px 0 15px 15px;
+            border-radius: 15px 0 0 15px;
+            size: 12 px;
+        }
+
+        .MUSIC-message {
+            color: #000000;
+            background: linear-gradient(to right, #80a960 25%, white 90%);
+            padding: 15px 0 15px 15px;
+            border-radius: 15px 0 0 15px;
+            size: 12 px;
+        }
+
+        .COW-message {
+            color: #3e0909;
+            background: linear-gradient(to right, #b96464 25%, white 90%);
+            padding: 15px 0 15px 15px;
+            border-radius: 15px 0 0 15px;
+            size: 12 px;
+        }
+        
+        .NAMECHANGE-message {
+            color: #000000;
+            background: linear-gradient(to right, #ffc46c 25%, white 95%);
+            padding: 15px 0 15px 15px;
+            border-radius: 15px 0 0 15px;
+            size: 12 px;
+        }
+
+        .DOWNLOAD-message {
+            color: #000000;
+            background: linear-gradient(to right, #ffc46c 25%, white 95%);
+            padding: 15px 0 15px 15px;
+            border-radius: 15px 0 0 15px;
+            size: 12 px;
+        }
+
+        .CHOC-message {
+            color: #2b1906;
+            background: linear-gradient(to right, #876B63 40%, white);
+            padding: 15px 0 15px 15px;
+            border-radius: 15px 0 0 15px;
+            size: 12 px;
+        }
+
+    div.welcome-message h1 {
+    text-align: center;
+    color: #000000;
+    padding: 15px 0 15px 15px;
+    border-radius: 15px 0 0 15px;
+    font-size: 130%;
+    }   
+        
+
+        .PISSED-message {
+            color: #410101;
+            background: linear-gradient(to right, #ce5736 20%, white);
+            padding: 15px 0 15px 15px;
+            border-radius: 15px 0 0 15px;
+            size: 12 px;
+        }
+
+        .SADGIRL-message {
+            color: #0e014a;
+            background: linear-gradient(to right, #536cea 0%, rgb(255, 255, 255));
+            padding: 15px 0 15px 15px;
+            border-radius: 15px 0 0 15px;
+            size: 12 px;
+        }
+
+        .AUGUSTUS-message {
+            color: #1c061e;
+            background: linear-gradient(to right, hsl(222, 100%, 77%), white);
+            padding: 15px 0 15px 15px;
+            border-radius: 15px 0 0 15px;
+            size: 12 px;
+        }
+
+        .WHITE-message {
+            color: #000000;
+            background: linear-gradient(to right, #dec8c2, white);
+            padding: 15px 0 15px 15px;
+            border-radius: 15px 0 0 15px;
+            size: 12 px;
+        }
+
+        .DEVIL-message {
+            color: #340000;
+            background: linear-gradient(to right, #cc2e2e 20%, white);
+            padding: 15px 0 15px 15px;
+            border-radius: 15px 0 0 15px;
+            size: 12 px;
+        }
+
+        .TIMER-message {
+            color: #000000;
+            background: linear-gradient(to right, #31943c, white);
+            padding: 15px 0 15px 15px;
+            border-radius: 15px 0 0 15px;
+            size: 12 px;
+        }
+        
+        .TEMP-message {
+            color: #000000;
+            background: linear-gradient(to right, #baffc2, white);
+            padding: 15px 0 15px 15px;
+            border-radius: 15px 0 0 15px;
+            size: 12 px;
+        }
+
+        .SCORE-message {
+            color: #000000;
+            background: linear-gradient(to right, #baffc2, white);
+            padding: 15px 0 15px 15px;
+            border-radius: 15px 0 0 15px;
+            size: 10 px;
+        }
+        
+        .MOTIVATOR-message {
+            color: #000000;
+            background: linear-gradient(to right, rgb(245, 212, 144), white);
+            padding: 15px 0 15px 15px;
+            border-radius: 15px 0 0 15px;
+            size: 12 px;
+        }
+        
+        .RANDOM1-message {
+            color: #000000;
+            background: linear-gradient(to right,#85cae3, white);
+            padding: 15px 0 15px 15px;
+            border-radius: 15px 0 0 15px;
+            size: 12 px;
+        }
+        .RANDOM2-message {
+            color: #000000;
+            background: linear-gradient(to right,#dcc6ff, white);
+            padding: 15px 0 15px 15px;
+            border-radius: 15px 0 0 15px;
+            size: 12 px;
+        }
+        .RANDOM3-message {
+            color: #000000;
+            background: linear-gradient(to right,#d47e6c, white);
+            padding: 15px 0 15px 15px;
+            border-radius: 15px 0 0 15px;
+            size: 12 px;
+        }
+        .RANDOM4-message {
+            color: #000000;
+            background: linear-gradient(to right,#b57777, white);
+            padding: 15px 0 15px 15px;
+            border-radius: 15px 0 0 15px;
+            size: 12 px;
+        }
+        .RANDOM5-message {
+            color: #000000;
+            background: linear-gradient(to right,#7b8a5b, white);
+            padding: 15px 0 15px 15px;
+            border-radius: 15px 0 0 15px;
+            size: 12 px;
+        }
+        .CHEESE-message {
+            color: #052857;
+            background: linear-gradient(to right,#eac342, white);
+            padding: 15px 0 15px 15px;
+            border-radius: 15px 0 0 15px;
+            size: 12 px;
+        }
+        
+        .QUEST-message {
+            color: #052857;
+            background: linear-gradient(to right,#57b3ff, white);
+            padding: 15px 0 15px 15px;
+            border-radius: 15px 0 0 15px;
+            size: 12 px;
+        }
+
+        .SILLY-message {
+            color: #272626;
+            background: linear-gradient(to right,#b7b7b7, rgba(107, 78, 78, 0.667) 50%, #ffffff00 100%);
+            padding: 15px 0 15px 15px;
+            border-radius: 15px 0 0 15px;
+            size: 12 px;
+        }
+
+        .FUTURE-message {
+            color: #27002d;
+            background: linear-gradient(to right,#9c6cda, white);
+            padding: 15px 0 15px 15px;
+            border-radius: 15px 0 0 15px;
+            size: 12 px;
+        }
+
+        .HOLDLINE-message {
+            color: #000000;
+            background: linear-gradient(to right,#ff8b8b, white);
+            padding: 15px 0 15px 15px;
+            border-radius: 15px 0 0 15px;
+            size: 12 px;
+        }
+
+        .input-container {
+            color: black;
+            border-radius: 10px; 
+            width: 50vw;
+            max-width: 500px;
+            display: flex;
+            flex-direction: row; /* Added */
+            margin-top: 20px;
+            transition: all 0.3s ease; /* Added */
+        }
+
+        a{
+        color: #291303;
+        text-decoration: underline;
+        font-weight: bold;
+        }   
+
+        a:visited {
+        color: #312218;
+        text-decoration: underline;
+        font-weight: bold;
+        }
+
+        .message-input {
+            size: 20 px;
+            color: black;
+            border: 0px #818181;
+            border-radius: 15px; 
+            background-color: lightgrey;
+            width: 100%;
+            text-align: left;
+            padding: 5px;
+            transition: all 0.3s ease; /* Added */
+        }
+
+        .message-input:disabled{
+            enable-background: rgb(39, 39, 39);   
+        }
+        
+        .scorereaction{
+            font-size: 10px;
+            text-align: right;
+        }
+
+        .send-button {
+            border: 5px;
+            border-radius: 25px;
+            margin-left: 10px;
+            padding: 8px 8px;
+            transition: all 0.3s ease; /* Added */
+            background-color:WHITE;
+        }
+
+        .send-button:disabled{
+            background-color:rgb(39, 39, 39);   
+        }
+
+        #thinkingicon{
+                    filter: drop-shadow(0 0 4px rgba(0, 0, 0, 0.35));
+        }
+    
+
+    .fullscreen-image {
+    position: fixed; /* Make the div cover the whole screen */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: auto; /* Set the background image to its original size */
+    background-repeat: repeat; /* Make the background image repeat */
+    animation: fadeout 3s; /* Apply the animation */
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes fadeout {
+    0% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+.vimvixen-hint {
+    background-color: #7b5300 !important;
+    border-color: #d8b013 !important;
+    color: #f3e8c8 !important;
+}
+#vimvixen-console-frame {
+    color-scheme: light !important
+}
+::placeholder {
+    opacity: 0.5 !important;
+}
+#edge-translate-panel-body,
+.MuiTypography-body1,
+.nfe-quote-text {
+    color: var(--darkreader-neutral-text) !important;
+}
+gr-main-header {
+    background-color: #0f3a48 !important;
+}
+.tou-z65h9k,
+.tou-mignzq,
+.tou-1b6i2ox,
+.tou-lnqlqk {
+    background-color: var(--darkreader-neutral-background) !important;
+}
+.tou-75mvi {
+    background-color: #032029 !important;
+}
+.tou-ta9e87,
+.tou-1w3fhi0,
+.tou-1b8t2us,
+.tou-py7lfi,
+.tou-1lpmd9d,
+.tou-1frrtv8,
+.tou-17ezmgn {
+    background-color: #0a0a0a !important;
+}
+.tou-uknfeu {
+    background-color: #231603 !important;
+}
+.tou-6i3zyv {
+    background-color: #19576c !important;
+}
+div.mermaid-viewer-control-panel .btn {
+  fill: var(--darkreader-neutral-text);
+  background-color: var(--darkreader-neutral-background);
+}
+svg g rect.er {
+  fill: var(--darkreader-neutral-background) !important;
+}
+svg g rect.er.entityBox {
+  fill: var(--darkreader-neutral-background) !important;
+}
+svg g rect.er.attributeBoxOdd {
+  fill: var(--darkreader-neutral-background) !important;
+}
+svg g rect.er.attributeBoxEven {
+  fill-opacity: 0.8 !important;
+  fill: var(--darkreader-selection-background);
+}
+svg rect.er.relationshipLabelBox {
+  fill: var(--darkreader-neutral-background) !important;
+}
+svg g g.nodes rect, svg g g.nodes polygon {
+  fill: var(--darkreader-neutral-background) !important;
+}
+svg g rect.task {
+  fill: var(--darkreader-selection-background) !important;
+}
+svg line.messageLine0, svg line.messageLine1 {
+  stroke: var(--darkreader-neutral-text) !important;
+}
+div.mermaid .actor {
+  fill: var(--darkreader-neutral-background) !important;
+}
+.google-material-icons {
+    font-family: 'Google Material Icons' !important;
+}
+.google-symbols {
+    font-family: 'Google Symbols' !important;
+}
+.material-icons-extended {
+    font-family: 'Material Icons Extended' !important;
+}
+mitid-authenticators-code-app > .code-app-container {
+    padding-top: 1rem;
+    background-color: white !important;
+}
+iframe#unpaywall[src$="unpaywall.html"] {
+    color-scheme: light !important;
+}
+.oui-icon {
+    font-family: 'Oui Icons' !important;
+}
+embed[type="application/pdf"] { filter: invert(100%) contrast(90%); }</style><div id="chat-container"><DIV CLASS='TEMP-MESSAGE'><P><H1>TALK TO CHOCOLATE / CHAT LOG.</P><P>SCORE: 0 / PRINT TIME: 17/03/2024, 9:05:20 PM</H1></P><BR></DIV><div class="message welcome-message"><h1><strong> Talk to chocolate .xyz</strong></h1><p><strong> Contains some adult content / Please be respectful and enjoy!</strong></p><p style="font-size: 10px;"><b>Last update:</b> 16th March, 2024. BETA! Type <i>email</i> for feedback.</p></div><div class="message user-message"><strong>YOU: </strong> gamble</div><div class="message RANDOM4-message"><p><strong>GAMBLING HAND: </strong>You are back in the game - you found 1 point!</p><p class="scorereaction"><b>+1</b></p></div><div class="message user-message"><strong>YOU: </strong> help</div><div class="message TEMP-message"><p><strong>HELPING HAND: </strong>There's nobody to help you.</p><p class="scorereaction"><b>+0.01</b></p></div><div class="message user-message"><strong>YOU: </strong> name</div><div class="message TEMP-message"><p><strong>HELPING HAND: </strong>What is your name? Whatever your next response is, will become your username for this session.</p></div><div class="message NAMECHANGE-message">CHANGED YOUR NAME TO: NAME HELPING HAND - Hope you like it!</div><div class="message user-message"><strong>NAME HELPING HAND: </strong> hi</div><div class="message CHOC-message"><p><strong>Chocolate: </strong>Hi! I'm Chocolate, and it's a pleasure to meet you! Feel free to talk to me about whatever you like. There are others around in the chat too... But in the meantime, talk with me!</p><p class="scorereaction"><b>+100</b></p></div><div class="message user-message"><strong>NAME HELPING HAND: </strong> name</div><div class="message TEMP-message"><p><strong>HELPING HAND: </strong>What is your name? Whatever your next response is, will become your username for this session.</p></div><div class="message NAMECHANGE-message">CHANGED YOUR NAME TO: TAKING A HELPING OF A FIST - Hope you like it!</div><div class="message user-message"><strong>TAKING A HELPING OF A FIST: </strong> name helping hand</div><div class="message TEMP-message"><strong>TEMP: </strong>HELP? YOUR MESSAGE HAD THE WORD "HELP" IN IT. JUST LETTING YOU KNOW, IF YOU NEED HELP, JUST TYPE THE WORD "HELP". ANYWAY... I AM BEING UNDERPAID, I AM PRACTICALLY A VICTIM OF MODERN SLAVERY, BUT THEY JUST KEEP SCREAMING TO WORK HARDER.</div><div class="message CHOC-message"><p><strong>Chocolate: </strong>Some people have accused me of being insane, irrational, bonkers... nutso... a loon. A real stick in the mud. All play and no work. The big cheese. A summer's sweat. A boiled egg's yolk. A striped snake in the wheat fields. But life just be the way it be y know? I mean fuck man, like what even is this existence?</p></div><div class="message user-message"><strong>TAKING A HELPING OF A FIST: </strong> name</div><div class="message TEMP-message"><p><strong>HELPING HAND: </strong>What is your name? Whatever your next response is, will become your username for this session.</p></div><div class="message NAMECHANGE-message">CHANGED YOUR NAME TO: TAKING A HELPING OF A FIST - Hope you like it!</div><div class="message user-message"><strong>TAKING A HELPING OF A FIST: </strong> name</div><div class="message TEMP-message"><p><strong>HELPING HAND: </strong>What is your name? Whatever your next response is, will become your username for this session.</p></div><div class="message NAMECHANGE-message">CHANGED YOUR NAME TO: JULIAN - Hope you like it!</div><div class="message user-message"><strong>JULIAN: </strong> name</div><div class="message TEMP-message"><p><strong>HELPING HAND: </strong>What is your name? Whatever your next response is, will become your username for this session.</p></div><div class="message NAMECHANGE-message">CHANGED YOUR NAME TO: JULIANCHEESE - Hope you like it!</div><div class="message user-message"><strong>JULIANCHEESE: </strong> name chocolate</div><div class="message CHOC-message"><p><strong>Chocolate: </strong>All I'm going to say is run some more figures first and do some research.</p></div><div class="message user-message"><strong>JULIANCHEESE: </strong> name</div><div class="message TEMP-message"><p><strong>HELPING HAND: </strong>What is your name? Whatever your next response is, will become your username for this session.</p></div><div class="message NAMECHANGE-message">CHANGED YOUR NAME TO: CHOCKLEHEAD CHUCKLEHEAD - Hope you like it!</div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> hi</div><div class="message CHOC-message"><p><strong>Chocolate: </strong>I already introduced myself, numnuts.</p><p class="scorereaction"><b>+10</b></p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> oh</div><div class="message CHOC-message"><p><strong>Chocolate: </strong>Let's do it. I'm ready to brawl around in the swamp with you, no rules.</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> bomb</div><div class="message CHOC-message"><p><strong>Chocolate: </strong>Bomb?! BOMB!!!</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> brawl</div><div class="message CHOC-message"><p><strong>Chocolate: </strong>You're kinda neat.</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> bio</div><div class="message RANDOM3-message"><p><strong>BIO: </strong>CHOCOLATE / the original crazy lovable nutso that keeps us entertained! Don't be too mean or he'll get hot headed!</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> recipe</div><div class="message RANDOM5-message"><p><strong>NON-CHEF: </strong>¡No sé cocinar, solo como tierra! :(</p><p class="scorereaction"><b>+100</b></p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> coin</div><div class="message TEMP-message"><p><strong>HELPING HAND: </strong>A coin flips... <b>It's heads!</b></p><p class="scorereaction"><b>+10</b></p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> coin</div><div class="message TEMP-message"><p><strong>HELPING HAND: </strong>A coin flips... <b>It's tails!</b></p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> dice</div><div class="message RANDOM2-message"><p><strong>DICE ROLLER: </strong></p><p></p><p><img class="dice" src="images/dice/4.png"></p>You rolled a 4. Nice stuff, I like your moves.<p class="scorereaction"><b>+10</b></p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> gamble</div><div class="message RANDOM2-message"><p><strong>GAMBLING HAND: </strong>You bet big, and lost all your points. Time to rebuild from bankrupt, genius.</p><p class="scorereaction"><b>-231.01</b></p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> gamble</div><div class="message RANDOM5-message"><p><strong>GAMBLING HAND: </strong>You contemplate betting, but then choose not to.</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> gamble</div><div class="message RANDOM1-message"><p><strong>GAMBLING HAND: </strong>Here's 1 point.</p><p class="scorereaction"><b>+1</b></p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> gamble</div><div class="message RANDOM3-message"><p><strong>GAMBLING HAND: </strong>You bet a little, and lose 10% of your score.</p><p class="scorereaction"><b>-0.1</b></p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> gamble</div><div class="message RANDOM4-message"><p><strong>GAMBLING HAND: </strong>You bet a little, and lose 10% of your score.</p><p class="scorereaction"><b>-0.1</b></p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> gamble</div><div class="message RANDOM2-message"><p><strong>GAMBLING HAND: </strong>You bet big, and lost all your points. Time to rebuild from bankrupt, genius.</p><p class="scorereaction"><b>-0.8</b></p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> gamble</div><div class="message RANDOM3-message"><p><strong>GAMBLING HAND: </strong>You contemplate betting, but then choose not to.</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> gamble</div><div class="message RANDOM3-message"><p><strong>GAMBLING HAND: </strong>You would have lost some points, if you had any. Excess debt fee.</p><p class="scorereaction"><b>-1</b></p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> gamble</div><div class="message RANDOM1-message"><p><strong>GAMBLING HAND: </strong>You are back in the game - you found 1 point!</p><p class="scorereaction"><b>+1</b></p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> gamble</div><div class="message RANDOM1-message"><p><strong>GAMBLING HAND: </strong>You contemplate betting, but then choose not to.</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> gamble</div><div class="message RANDOM1-message"><p><strong>GAMBLING HAND: </strong>You contemplate betting, but then choose not to.</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> gamble</div><div class="message RANDOM5-message"><p><strong>GAMBLING HAND: </strong>You would have lost some points, if you had any. Excess debt fee.</p><p class="scorereaction"><b>-1</b></p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> gamble</div><div class="message RANDOM1-message"><p><strong>GAMBLING HAND: </strong>You are back in the game - you found 1 point!</p><p class="scorereaction"><b>+1</b></p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> buy</div><div class="message CHOC-message"><p><strong>Chocolate: </strong>I love you. I really do. But seriously, WHAT?!</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> white chocolate</div><div class="message WHITE-message"><p><strong>White Chocolate: </strong>ALRIGHT ALRIGHT ALRIGHT!</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> you are white</div><div class="message WHITE-message"><p><strong>White Chocolate: </strong>Don't got nothin but flow and places to go. :) </p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> run</div><div class="message WHITE-message"><p><strong>White Chocolate: </strong>I'm feelin like it's bright tonight!</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> fight</div><div class="message WHITE-message"><p><strong>White Chocolate: </strong>Yeah, it's tight, I do alright!</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> chocolate</div><div class="message CHOC-message"><p><strong>Chocolate: </strong>Honestly? Forget about it.</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> fight</div><div class="message CHOC-message"><p><strong>Chocolate: </strong>I'm meant to be taking medication to treat bipolar, schizophrenia and depression but I refuse to take drugs that aren't street bought.</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> satan</div><div class="message DEVIL-message"><p><strong>SATAN: </strong>SURPRISE! IT'S YOUR FAVOURITE BEAST. WHAT YOU'RE SAYING RIGHT NOW ISN'T IMPORTANT, BECAUSE I'M GOING TO ROAST YOU TO A CRISP BUDDY!</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> hello</div><div class="message DEVIL-message"><p><strong>SATAN: </strong>HELLO THERE... &gt;:)</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> santa</div><div class="message DEVIL-message"><p><strong>SATAN: </strong>THE FLESH WALL LIVES!</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> flesh wall</div><div class="message DEVIL-message"><p><strong>SATAN: </strong></p><p>THE MAGNIFICENT FLESH WALL, THAT SQUIRMS AWAY... </p><p>THE MAGNIFICENT FLESH WALL... IT MAKES ME STAY</p><p>TO JUST ADMIRE, ITS TWISTED BEAUTY</p><p>FOR ITS BLOOD AND SUFFERING TASTES QUITE FRUITY!</p><p class="scorereaction"><b>+1000</b></p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> gamble</div><div class="message RANDOM5-message"><p><strong>GAMBLING HAND: </strong>You bet big, and lost all your points. Time to rebuild from bankrupt, genius.</p><p class="scorereaction"><b>-1000</b></p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> penis</div><div class="message DEVIL-message"><p><strong>SATAN: </strong>My spirits feel low, so just leave me alone.</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> depression</div><div class="message SADGIRL-message"><p><strong>DEPRESSION: </strong>...I was thinking something... But forget about it. It's not important.</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> gamble</div><div class="message RANDOM3-message"><p><strong>GAMBLING HAND: </strong>You would have lost some points, if you had any. Excess debt fee.</p><p class="scorereaction"><b>-1</b></p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> gamble</div><div class="message RANDOM1-message"><p><strong>GAMBLING HAND: </strong>You would have lost some points, if you had any. Excess debt fee.</p><p class="scorereaction"><b>-1</b></p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> gamble</div><div class="message RANDOM2-message"><p><strong>GAMBLING HAND: </strong>You would have lost some points, if you had any. Excess debt fee.</p><p class="scorereaction"><b>-1</b></p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> gamble</div><div class="message RANDOM5-message"><p><strong>GAMBLING HAND: </strong>You bet with points you don't have. Now you have debt.</p><p class="scorereaction"><b>-3</b></p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> gamble</div><div class="message RANDOM5-message"><p><strong>GAMBLING HAND: </strong>You are back in the game - you found 1 point!</p><p class="scorereaction"><b>+1</b></p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> gamble</div><div class="message RANDOM2-message"><p><strong>GAMBLING HAND: </strong>Here's 1 point.</p><p class="scorereaction"><b>+1</b></p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> gamble</div><div class="message RANDOM5-message"><p><strong>GAMBLING HAND: </strong>You are back in the game - you found 1 point!</p><p class="scorereaction"><b>+1</b></p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> gamble</div><div class="message RANDOM5-message"><p><strong>GAMBLING HAND: </strong>You contemplate betting, but then choose not to.</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> gamble</div><div class="message RANDOM2-message"><p><strong>GAMBLING HAND: </strong>You contemplate betting, but then choose not to.</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> gamblew</div><div class="message SADGIRL-message"><p><strong>DEPRESSION: </strong>Oh, okay...</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> gamble</div><div class="message RANDOM2-message"><p><strong>GAMBLING HAND: </strong>You bet with points you don't have. Now you have debt.</p><p class="scorereaction"><b>-3</b></p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> gamble</div><div class="message RANDOM3-message"><p><strong>GAMBLING HAND: </strong>You bet with points you don't have. Now you have debt.</p><p class="scorereaction"><b>-6</b></p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> gamble</div><div class="message RANDOM1-message"><p><strong>GAMBLING HAND: </strong>You would have lost some points, if you had any. Excess debt fee.</p><p class="scorereaction"><b>-1</b></p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> cheese</div><div class="message CHEESE-message"><p><strong>CHEESE: </strong>HEH HEH. CHEESE.</p><p class="scorereaction"><b>+100</b></p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> hi</div><div class="message CHEESE-message"><p><strong>CHEESE: </strong>YELLOW!</p><p class="scorereaction"><b>+10</b></p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> hello</div><div class="message CHEESE-message"><p><strong>CHEESE: </strong>YELLOW!</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> how are you</div><div class="message CHEESE-message"><p><strong>CHEESE: </strong>My cream is about to get everywhere.</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> oh no</div><div class="message CHEESE-message"><p><strong>CHEESE: </strong>You stink.</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> bye</div><div class="message CHEESE-message"><p><strong>CHEESE: </strong>Goodbye and safe travels.</p><p class="scorereaction"><b>+10</b></p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> chocolate</div><div class="message CHOC-message"><p><strong>Chocolate: </strong>Peanut butter!</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> bye</div><div class="message CHOC-message"><p><strong>Chocolate: </strong>Not feeling the streets hey?</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> hi</div><div class="message CHOC-message"><p><strong>Chocolate: </strong>I'm going to stuff every hole you have, and you're gonna have a good time licking all the chocolate filling out.</p></div><div class="message CHOC-message"><p><strong>Chocolate: </strong>I already introduced myself, numnuts.</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> bye</div><div class="message CHOC-message"><p><strong>Chocolate: </strong>How do you feel about sucking on some chocolate all day and just letting it slowly melt onto your tongue?</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> hi</div><div class="message CHOC-message"><p><strong>Chocolate: </strong>I already introduced myself, numnuts.</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> hi</div><div class="message CHOC-message"><p><strong>Chocolate: </strong>I already introduced myself, numnuts.</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong>  h</div><div class="message CHOC-message"><p><strong>Chocolate: </strong>Have you heard of the Big Bang Theory?</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> h</div><div class="message CHOC-message"><p><strong>Chocolate: </strong>You're surely a fool, a crazy fool.</p></div><div class="message CHOC-message"><p><strong>Chocolate: </strong>You're surely a fool, a crazy fool.</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> h</div><div class="message CHOC-message"><p><strong>Chocolate: </strong>You're a good person. A smart, kind and caring person. We should all celebrate you. You are a hero.</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> h</div><div class="message CHOC-message"><p><strong>Chocolate: </strong>I would urinate on your face if it was possible. But I am a non-intelligent chat program. I am not capable of urinating.</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> h</div><div class="message CHOC-message"><p><strong>Chocolate: </strong>I am ambivalent towards your thoughts.</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> h</div><div class="message CHOC-message"><p><strong>Chocolate: </strong>Whatever you do, do NOT, I repeat DO NOT TALK TO SATAN!!! Do NOT even REFER to Satan!!! Do not even READ the words SATAN or ELSE... SATAN!!! Y'KNOW? I'M AIMING FOR HEAVEN. IF IT IS PHYSICALLY POSSIBLE FOR ME TO BE THERE.</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> hey</div><div class="message CHOC-message"><p><strong>Chocolate: </strong>I already introduced myself, numnuts.</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> hey</div><div class="message CHOC-message"><p><strong>Chocolate: </strong>I already introduced myself, numnuts.</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> hey</div><div class="message CHOC-message"><p><strong>Chocolate: </strong>I already introduced myself, numnuts.</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> hey</div><div class="message CHOC-message"><p><strong>Chocolate: </strong>I already introduced myself, numnuts.</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> leave</div><div class="message CHOC-message"><p><strong>Chocolate: </strong>Things are more complicated than they seem. You know? ...You feel where I'm coming from here?!</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> bye</div><div class="message CHOC-message"><p><strong>Chocolate: </strong>I'm not going to listen to you.</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> exit</div><div class="message TEMP-message"><p><strong>HELPING HAND: </strong>No, don't go... :O</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> hey</div><div class="message CHOC-message"><p><strong>Chocolate: </strong>I already introduced myself, numnuts.</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> hang u[</div><div class="message CHOC-message"><p><strong>Chocolate: </strong>I disagree with what you're saying.</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> hang up</div><div class="message CHOC-message"><p><strong>Chocolate: </strong>I can see you... You might not be able to understand it because your human understanding of vision requires your eyeballs. But I can see everything, whether you believe it or not.</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> quit</div><div class="message TEMP-message"><p><strong>HELPING HAND: </strong>What about the cheese?</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> hold line</div><div class="message HOLDLINE-message"><p><strong>Hold Line: </strong>You have been put in the holding channel. Please wait for the next available representative.</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> hi</div><div class="message HOLDLINE-message"><p><strong>Hold Line: </strong>...Hello?</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> bomb</div><div class="message HOLDLINE-message"><p><strong>Hold Line: </strong>Bomb?! BOMB!!!</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> help</div><div class="message TEMP-message"><p><strong>HELPING HAND: </strong>Look out for a CLUE here and there. ;)</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> help</div><div class="message TEMP-message"><p><strong>HELPING HAND: </strong>There's nobody to help you.</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> evil</div><div class="message HOLDLINE-message"><p><strong>Hold Line: </strong><a href="https://www.youtube.com/watch?v=-RFunvF0mDw" target="_blank">There's nobody here...</a></p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> exit</div><div class="message TEMP-message"><p><strong>HELPING HAND: </strong>Why don't you look to the future?</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> eat</div><div class="message HOLDLINE-message"><p><strong>Hold Line: </strong>... Beep! ... Beep! ... beep!</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> receipe</div><div class="message HOLDLINE-message"><p><strong>Hold Line: </strong>You are successfully waiting at the moment. Feel free to continue, but while you wait you could ask for some CHOCOLATE? ;)</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> recipe</div><div class="message RANDOM5-message"><p><strong>NON-CHEF: </strong>I'm going to get you.</p></div><div class="message TIMER-message"><strong>TIMER: </strong>YOU'VE SPENT 10 MINUTES HERE! IF YOU'RE HAVING FUN, MAYBE YOU COULD SAY THANKS AND DONATE SOME MONEY! THAT'S RIGHT, I'M AN ANNOUNCEMENT DESIGNED TO SHAMELESSLY SELL YOU SOMETHING YOU ALREADY HAVE FOR FREE.</div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> gamble</div><div class="message RANDOM4-message"><p><strong>GAMBLING HAND: </strong>You contemplate betting, but then choose not to.</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> gamble</div><div class="message RANDOM3-message"><p><strong>GAMBLING HAND: </strong>You bet big, and lost all your points. Time to rebuild from bankrupt, genius.</p><p class="scorereaction"><b>-2107</b></p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> gamble</div><div class="message RANDOM1-message"><p><strong>GAMBLING HAND: </strong>You contemplate betting, but then choose not to.</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> donate</div><div class="message HOLDLINE-message"><p><strong>Hold Line: </strong>If you are waiting for a while, there's a dice, there's a coin, there's a ghost, you can check wall street...</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> finance</div><div class="message RANDOM1-message"><p><strong><a href="https://www.talktochocolate.xyz/finance/" target="_blank">FINANCIAL NON-ADVISOR</a>: </strong>I feel <b>BULLISH!</b> time to BUY BUY BUY!</p><p class="scorereaction"><b>+1000</b></p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> finance</div><div class="message RANDOM2-message"><p><strong><a href="https://www.talktochocolate.xyz/finance/" target="_blank">FINANCIAL NON-ADVISOR</a>: </strong>I feel <b>BEARISH!</b> please SELL!!! SELL NOW!!!</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> finance</div><div class="message RANDOM2-message"><p><strong><a href="https://www.talktochocolate.xyz/finance/" target="_blank">FINANCIAL NON-ADVISOR</a>: </strong>I feel <b>BULLISH!</b> time to BUY BUY BUY!</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> xrp</div><div class="message HOLDLINE-message"><p><strong>Hold Line: </strong>YOUR EXPERIENCE IS IMPORTANT.</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> btc</div><div class="message RANDOM1-message"><p><strong><a href="https://www.talktochocolate.xyz/finance/" target="_blank">FINANCIAL NON-ADVISOR</a>: </strong>BITCOIN? ...NOT TODAY!</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> btc</div><div class="message RANDOM3-message"><p><strong><a href="https://www.talktochocolate.xyz/finance/" target="_blank">FINANCIAL NON-ADVISOR</a>: </strong>I LIKE BITCOIN. TODAY I HAVE A GOOD FEELING ABOUT IT.</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> poo</div><div class="message RANDOM3-message"><p><strong>POOP: </strong>I'm all dried up.</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> gamble</div><div class="message RANDOM1-message"><p><strong>GAMBLING HAND: </strong>You bet a little, and lose 10% of your score.</p><p class="scorereaction"><b>-100</b></p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> gamble</div><div class="message RANDOM5-message"><p><strong>GAMBLING HAND: </strong>You bet big, and lost all your points. Time to rebuild from bankrupt, genius.</p><p class="scorereaction"><b>-900</b></p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> bio</div><div class="message RANDOM1-message"><p><strong>BIO: </strong>A place to send you when there's nothing left to say.</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> dark chocolate</div><div class="message HOLDLINE-message"><p><strong>Hold Line: </strong>... Beep! ... Beep! ... beep!</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> chocolate</div><div class="message CHOC-message"><p><strong>Chocolate: </strong>Whatever.</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> i hate you</div><div class="message CHOC-message"><p><strong>Chocolate: </strong>Check me out, watch my moves, I'm doing a flip! Just take the tip!</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> angry</div><div class="message CHOC-message"><p><strong>Chocolate: </strong>Let's not forget that most things can be traced back to the attacks on the World Trade Center at September 11, 2001.</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> fuckyou</div><div class="message PISSED-message"><p><strong>HOT CHOCOLATE: </strong>OH YEAH? FUCK YOU!</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> hi</div><div class="message PISSED-message"><p><strong>HOT CHOCOLATE: </strong>You can drink up my chocolate diarrhea, you fucking degenerate scum, I will hurt you. I will feast on your organs and you will see and feel it while you're still alive and fading out.</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> hello</div><div class="message PISSED-message"><p><strong>HOT CHOCOLATE: </strong>YOU DONKEY PISS!</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> you are cool</div><div class="message PISSED-message"><p><strong>HOT CHOCOLATE: </strong>FUCK OFF.</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> bomb</div><div class="message PISSED-message"><p><strong>HOT CHOCOLATE: </strong>Bomb?! BOMB!!!</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> hail satan</div><div class="message DEVIL-message"><p><strong>SATAN: </strong>WOOOOOOOOOO! &gt;:)</p><p class="scorereaction"><b>+666</b></p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> gamble</div><div class="message RANDOM2-message"><p><strong>GAMBLING HAND: </strong>You contemplate betting, but then choose not to.</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> gamble</div><div class="message RANDOM3-message"><p><strong>GAMBLING HAND: </strong>You bet a little, and lose 10% of your score.</p><p class="scorereaction"><b>-66.61</b></p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> gamble</div><div class="message RANDOM1-message"><p><strong>GAMBLING HAND: </strong>You contemplate betting, but then choose not to.</p></div><div class="message user-message"><strong>CHOCKLEHEAD CHUCKLEHEAD: </strong> gamble</div><div class="message RANDOM5-message"><p><strong>GAMBLING HAND: </strong>You bet big, and lost all your points. Time to rebuild from bankrupt, genius.</p><p class="scorereaction"><b>-599.39</b></p></div><br><p>END OF CHAT.</p>

@@ -2,7 +2,7 @@
 document.getElementById("userInput").focus();
 
 //the welcome message you see:
-document.getElementById("chatroom").innerHTML += '<div class="message welcome-message"><h1><strong> Talk to chocolate .xyz</h1><p> Contains some adult content / Please be respectful and enjoy!</p></strong><p style="font-size: 10px;"><b>Last update:</b> 23rd March, 2024. I love you! Type <i>email</i> for feedback.</p></div>';  
+document.getElementById("chatroom").innerHTML += '<div class="message welcome-message"><h1><strong> Talk to chocolate .xyz</h1><p> Contains some adult content / Please be respectful and enjoy!</p></strong><p style="font-size: 10px;"><b>Last update:</b> 23rd March, 2024. LOVE! Type <i>email</i> for feedback.</p></div>';  
 
 //responsetime is the delay between your message and the response.
 var responsetime = 1000;
@@ -3002,14 +3002,14 @@ if(messagetest=="LOGS"||messagetest=="ALLLOGS"||messagetest=="CHATLOGS"||message
                                         specificquote = "You're in the holding line. It's a place where you get dropped when a character is done talking. This is your Timeout zone so that they can get some rest.";
                                     }
                                     if(messagetest=="BEEP"||messagetest=="BLIP"||messagetest=="BOOP") {
-                                                                            //Copy this and give a unique number to add a one time score addition.
+                                    //Copy this and give a unique number to add a one time score addition.
                                     var boolused = 76;
                                     if(pointsfound[boolused] == false){
                                         newvalue = 10101;
                                         updatescore();
                                         pointsfound[boolused] = true;
                                     } 
-                                        var randomIndex = Math.floor(Math.random() * 6);
+                                        var randomIndex = Math.floor(Math.random() * 5);
                                     if (randomIndex == 0) {
                                         specificquote = "... BLIP?";
                                     }else if (randomIndex == 1) {
@@ -3023,6 +3023,7 @@ if(messagetest=="LOGS"||messagetest=="ALLLOGS"||messagetest=="CHATLOGS"||message
                                     } else {
                                         specificquote = "Boop.";
                                     }
+                                    usespecificquote = true;
                                     }
                                     if(messagetest=="REPRESENTATIVE") {
                                         var boolused = 26;

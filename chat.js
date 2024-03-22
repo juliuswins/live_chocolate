@@ -2,7 +2,7 @@
 document.getElementById("userInput").focus();
 
 //the welcome message you see:
-document.getElementById("chatroom").innerHTML += '<div class="message welcome-message"><h1><strong> Talk to chocolate .xyz</h1><p> Contains some adult content / Please be respectful and enjoy!</p></strong><p style="font-size: 10px;"><b>Last update:</b> 16th March, 2024. BETA! Type <i>email</i> for feedback.</p></div>';  
+document.getElementById("chatroom").innerHTML += '<div class="message welcome-message"><h1><strong> Talk to chocolate .xyz</h1><p> Contains some adult content / Please be respectful and enjoy!</p></strong><p style="font-size: 10px;"><b>Last update:</b> 23rd March, 2024. I love you! Type <i>email</i> for feedback.</p></div>';  
 
 //responsetime is the delay between your message and the response.
 var responsetime = 1000;
@@ -32,7 +32,7 @@ if (randomIndex == 0) {
     var gamemode = "SADGIRL";      
 } else if (randomIndex == 7){
     var gamemode = "FUTURE";
-}else{    
+}else{ 
     var gamemode = "CHOC";
 }
 //Gamemode URL override: if gamemode is in the URL, we will use this as our gamemode.
@@ -854,7 +854,7 @@ var tarotquotes = [
                                     usespecificquote = true;
                                     var randomIndex = Math.floor(Math.random() * 7); 
                                     if (randomIndex == 0) {
-                                        extraquote = "YOUR ";
+                                        extraquote = "YOUR MONEY IS INFLATING MORE THAN YOUR BANK IS PAYING YOU INTEREST, CAUSING YOU TO LOSE GENERATIONAL WEALTH!";
                                     } else if (randomIndex == 1) {
                                         extraquote = "You are about to get shot in the fucking head!";
                                     } else if (randomIndex == 2) {
@@ -1806,7 +1806,37 @@ var tarotquotes = [
                                         tempcharacternow = true;
                                         tempcharacter = "UNIVERSE";
                                     }
-                                    //Please do not commit suicide.
+                                    //Gives you some random headlines.
+                                    if(messagetest=="NEWS"||messagetest=="HEADLINE"||messagetest=="HEADLINES"||messagetest=="ARTICLE"||messagetest=="THENEWS"){
+                                        var recipequotes = [
+                                            "Dog pisses on tree, barks back as it falls over, crushing Tesla, profits plummet!",
+                                            "You're now 10% more likely to get addicted to cough syrup!",
+                                            "After careful negotiations, the middle east continues a path of violence!",
+                                            "Urine is now legal to keep in basements in the state of California...",
+                                            "Congress is hoping to pass a bill that will allow more free access to bill passing.",
+                                            "The Onion decides to revamp, renames to Mega BuzzFeed 2.0?!",
+                                            "Russia frozen land ratio has now risen to 90%, a new multi-decade high!",
+                                            "Ex-space program international group dwelling on earth's moon seek asylum on Hawaii!",
+                                            "Greyhound betting considered for new Australian local town council decisions!",
+                                            "Wall Street falls, returns, falls again, returns! Bitcoin remains at an all-time medium!",
+                                            ""
+                                        ]
+                                        var randomIndex = Math.floor(Math.random()*recipequotes.length);
+                                        specificquote = recipequotes[randomIndex];
+                                        gamemode = "TEMP";
+                                        usespecificquote = true;
+                                        tempcharacternow = true;
+                                        tempcharacter = "BREAKING NEWS";
+                                        //score:
+                                        var boolused = 84;
+                                        if(pointsfound[boolused] == false){
+                                            newvalue = midscore;
+                                            updatescore();
+                                            pointsfound[boolused] = true;
+                                        }
+                                    }
+
+                                    //Suggestions?
                                     if(messagetest=="SUGGESTION"||messagetest=="SUGGESTIONS"||messagetest=="ANYSUGGESTIONS"||messagetest=="GOTANYSUGGESTIONS"||messagetest=="GOTSOMESUGGESTIONS"||messagetest=="GOTSUGGESTIONS"){
                                         var recipequotes = [
                                             "HERE IS A SUGGESTION! I SUGGEST YOU SUGGESTIVELY GO ELSEWHERE!",
@@ -1822,12 +1852,26 @@ var tarotquotes = [
                                         usespecificquote = true;
                                         tempcharacternow = true;
                                         tempcharacter = "SUGGESTION";
+                                        //score:
+                                        var boolused = 87;
+                                        if(pointsfound[boolused] == false){
+                                            newvalue = bigscore;
+                                            updatescore();
+                                            pointsfound[boolused] = true;
+                                        }                                        
                                     }
 
                                     if(messagetest=="REALLY"||messagetest=="REALLY?"){
                                         specificquote = "(Sure, why not?)";
                                         gamemode = "TEMP";
                                         usespecificquote = true;
+                                        //score:
+                                        var boolused = 86;
+                                        if(pointsfound[boolused] == false){
+                                            newvalue = midscore;
+                                            updatescore();
+                                            pointsfound[boolused] = true;
+                                        }                                        
                                     }
                                     if(messagetest=="WHAT"||messagetest=="WHAT?"){
                                         specificquote = messagetest;
@@ -1855,6 +1899,13 @@ var tarotquotes = [
                                         tempcharacternow = true;
                                         tempcharacter = "FRESH GUY";
                                         runclearmode();
+                                        //score:
+                                        var boolused = 85;
+                                        if(pointsfound[boolused] == false){
+                                            newvalue = midscore;
+                                            updatescore();
+                                            pointsfound[boolused] = true;
+                                        }                                        
                                     }
                                     if(messagetest=="WHEN"||messagetest=="WHEN?"){
                                         specificquote = "...WHENEVER";
@@ -2070,6 +2121,7 @@ var tarotquotes = [
                                             "I like to imagine that I'm a farmer sometimes. Or a wall street broker. :O",
                                             "What's your favourite type of Chocolate? I like White Chocolate ;)",
                                             "Another clue to throw at you: pay attention to some words being used and use them individually.",
+                                            "I don't know, do you have a suggestion? Do you know anything about animals? do you know poop?"
                                         ]
                                         var randomIndex = Math.floor(Math.random()*cluequotes.length);
                                         specificquote = cluequotes[randomIndex];
@@ -2320,7 +2372,7 @@ if(messagetest=="LOGS"||messagetest=="ALLLOGS"||messagetest=="CHATLOGS"||message
                                     //Copy this and give a unique number to add a one time score addition.
                                     var boolused = 7;
                                     if(pointsfound[boolused] == false){
-                                        newvalue = midscore;
+                                        newvalue = bigscore;
                                         updatescore();
                                         pointsfound[boolused] = true;
                                     }                                       
@@ -2331,7 +2383,7 @@ if(messagetest=="LOGS"||messagetest=="ALLLOGS"||messagetest=="CHATLOGS"||message
                                         //Copy this and give a unique number to add a one time score addition.
                                     var boolused = 8;
                                     if(pointsfound[boolused] == false){
-                                        newvalue = midscore;
+                                        newvalue = bigscore;
                                         updatescore();
                                         pointsfound[boolused] = true;
                                     }   
@@ -2372,7 +2424,7 @@ if(messagetest=="LOGS"||messagetest=="ALLLOGS"||messagetest=="CHATLOGS"||message
                                     if(messagetest=="STEAK"|| messagetest=="STEAK") {
                                         usespecificquote = true;
                                         specificquote = "Yes, a delicious, well kept, high quality steak!";
-                                                                            //Copy this and give a unique number to add a one time score addition.
+                    //Copy this and give a unique number to add a one time score addition.
                                     var boolused = 71;
                                     if(pointsfound[boolused] == false){
                                         newvalue = bigscore;
@@ -2399,6 +2451,13 @@ if(messagetest=="LOGS"||messagetest=="ALLLOGS"||messagetest=="CHATLOGS"||message
                                     if(messagetest=="COWSHIT"|| messagetest=="COW ") {
                                         usespecificquote = true;
                                         specificquote = "What does a cow even make?";
+                                         //score:
+                                         var boolused = 88;
+                                         if(pointsfound[boolused] == false){
+                                             newvalue = bigscore;
+                                             updatescore();
+                                             pointsfound[boolused] = true;
+                                         }                                       
                                     }
                                     if(messagetest=="BEEF"|| messagetest=="MEAT") {
                                         usespecificquote = true;
@@ -2632,7 +2691,7 @@ if(messagetest=="LOGS"||messagetest=="ALLLOGS"||messagetest=="CHATLOGS"||message
                                                                             //Copy this and give a unique number to add a one time score addition.
                                     var boolused = 42;
                                     if(pointsfound[boolused] == false){
-                                        newvalue = lilscore;
+                                        newvalue = midscore;
                                         updatescore();
                                         pointsfound[boolused] = true;
                                     } 
@@ -2667,6 +2726,13 @@ if(messagetest=="LOGS"||messagetest=="ALLLOGS"||messagetest=="CHATLOGS"||message
                                     if(messagetest=="LOL"||messagetest=="HAHA"){
                                         usespecificquote = true;
                                         specificquote = "HAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHA";
+                                        //score:
+                                        var boolused = 89;
+                                        if(pointsfound[boolused] == false){
+                                            newvalue = 1;
+                                            updatescore();
+                                            pointsfound[boolused] = true;
+                                        }                                        
                                     }
                                     if(messagetest=="TOMATO"){
                                         usespecificquote = true;
@@ -2682,6 +2748,13 @@ if(messagetest=="LOGS"||messagetest=="ALLLOGS"||messagetest=="CHATLOGS"||message
                                     if(messagetest=="MILK"){
                                         usespecificquote = true;
                                         specificquote = "All milk expires and eventually becomes cheese! Even the milk in your stomach. That's what I heard once.";
+                                         //score:
+                                         var boolused = 90;
+                                         if(pointsfound[boolused] == false){
+                                             newvalue = midscore;
+                                             updatescore();
+                                             pointsfound[boolused] = true;
+                                         }                                   
                                     }
                                 }
                                 if(gamemode=="WHITE"){
@@ -2843,6 +2916,13 @@ if(messagetest=="LOGS"||messagetest=="ALLLOGS"||messagetest=="CHATLOGS"||message
                                         specificquote = "Sometimes it is best to take things a bit more seriously.";
                                     }
                                         usespecificquote = true;
+                                        //score:
+                                        var boolused = 91;
+                                        if(pointsfound[boolused] == false){
+                                            newvalue = midscore;
+                                            updatescore();
+                                            pointsfound[boolused] = true;
+                                        }                                        
                                     }
                                     if(messagetest=="LOVE"||messagetest=="LOVEYOU"||messagetest=="ILOVEYOU"||messagetest=="LOVEU"||messagetest=="ILOVEU"||messagetest=="I LOVE YOU"){
                                         usespecificquote = true;
@@ -2859,6 +2939,13 @@ if(messagetest=="LOGS"||messagetest=="ALLLOGS"||messagetest=="CHATLOGS"||message
                                     } else {
                                         specificquote = "ALL PAIN FADES AND ALL TRUE LOVE STAYS.";
                                     }
+                                         //score:
+                                         var boolused = 92;
+                                         if(pointsfound[boolused] == false){
+                                             newvalue = bigscore;
+                                             updatescore();
+                                             pointsfound[boolused] = true;
+                                         }                                   
                                     }
                                     if(messagetest=="HI"||messagetest=="HELLO"||messagetest=="GREETINGS"||messagetest=="HOWDY"||messagetest=="HEY"||messagetest=="SUP"){
                                         usespecificquote = true;

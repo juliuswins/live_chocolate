@@ -3466,7 +3466,7 @@ if(messagetest=="LOGS"||messagetest=="ALLLOGS"||messagetest=="CHATLOGS"||message
                                                 updatescore();
                                                 pointsfound[boolused] = true;
                                             } 
-            response = "Wow.  You've been here for 20 minutes. Did you leave this open, or are you entertaining yourself this much? I'm going to put my hand out once again and say donate if you enjoy. There is an exclusive mode for donors.";
+            response = "Wow.  You've been here for 20 minutes. Did you leave this open, or are you entertaining yourself this much? I'm going to put my hand out once again and say donate if you enjoy. There is an exclusive mode for donors... Well, not really. But imagine if there was. That'd be pretty great.";
             updatescore();
             document.getElementById("chatroom").innerHTML += '<div class="message TIMER-message"><strong>TIMER: </strong>' + response + '</div>';
             ScrollDownNow();

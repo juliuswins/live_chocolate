@@ -748,22 +748,6 @@ var tarotquotes = [
                                                                             pointsfound[boolused] = true;
                                                                         } 
                                 }
-                                  //Julius.
-                                  if(messagetest=="JULIUS"||messagetest=="JULIAN"){
-                                    var randomIndex = Math.floor(Math.random() * 6); 
-                                    if (randomIndex == 0) {
-                                        specificquote = "I'm busy with something.";
-                                    } else if (randomIndex == 1) {
-                                        specificquote = "Wild Edmund is coming soon...";
-                                    } else if (randomIndex == 2) {
-                                        specificquote = "I am not legally liable for what these horrible miscreant robots have been doing and saying behind my back! they scheme in the night when I'm not there protecting it!";
-                                    } else if (randomIndex == 3) {
-                                        specificquote = "OH YEAH!";
-                                    } else if (randomIndex == 4) {
-                                        specificquote = "I'm out, livin tha life. :)";
-                                    } else if (randomIndex == 5) {
-                                        specificquote = "<a href='https://www.youtube.com/watch?v=OinlK6GXVlg' target='_blank'>Watch the short film Andy's Void.<a>";
-                                    }
                                     //Copy this and give a unique number to add a one time score addition.
                                     var boolused = 40;
                                     if(pointsfound[boolused] == false){

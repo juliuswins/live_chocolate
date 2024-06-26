@@ -728,9 +728,8 @@ var tarotquotes = [
                                     }
                                     gamemode = "TEMP";
                                 }
-
                                 //Flip a coin.
-                                if(messagetest=="COIN"||messagetest == "FLIP"||messagetest=="FLIP A COIN"||messagetest == "COINFLIP"){
+                         if(messagetest=="COIN"||messagetest == "FLIP"||messagetest=="FLIP A COIN"||messagetest == "COINFLIP"){
                                     var randomIndex = Math.floor(Math.random() * 2); 
                                     if (randomIndex == 0) {
                                         specificquote = "A coin flips... <b>It's heads!</b>";
@@ -740,13 +739,13 @@ var tarotquotes = [
                                         isitheads = false;
                                     }
                                     gamemode = "TEMP";
-                                                                        //Copy this and give a unique number to add a one time score addition.
-                                                                        var boolused = 35;
-                                                                        if(pointsfound[boolused] == false){
-                                                                            newvalue = lilscore;
-                                                                            updatescore();
-                                                                            pointsfound[boolused] = true;
-                                                                        } 
+                                    //Copy this and give a unique number to add a one time score addition.
+                                       var boolused = 35;
+                                  if(pointsfound[boolused] == false){
+                                    newvalue = lilscore;
+                                    updatescore();
+                                    pointsfound[boolused] = true;
+                                    }
                                 }
                                 //Special cheese response for achievement.
                                 if(messagetest=="CREAM"){
@@ -765,7 +764,6 @@ var tarotquotes = [
                                 if(messagetest=="CHEESE" || messagetest=="CHEESY"){
                                     gamemode = "CHEESE";
                                 }
-
                                 //Check to activate Motivator.
                                 if(messagetest.includes("MOTIVATION")||messagetest.includes("NEEDMOTIVATION")||messagetest=="MOTIVATION" || messagetest=="MOTIVATEME" ||messagetest=="MOTIVATOR" || messagetest=="MEDIATOR"|| messagetest=="LIBRA"){
                                     gamemode = "MOTIVATOR";
@@ -786,7 +784,6 @@ var tarotquotes = [
                                                                             pointsfound[boolused] = true;
                                                                         }                 
                                 }
-
                                 if(messagetest=="ABOUT"){
                                     usespecificquote = true;
                                     gamemode = "TEMP";

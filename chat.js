@@ -748,19 +748,6 @@ var tarotquotes = [
                                                                             pointsfound[boolused] = true;
                                                                         } 
                                 }
-                                    //Copy this and give a unique number to add a one time score addition.
-                                    var boolused = 40;
-                                    if(pointsfound[boolused] == false){
-                                    newvalue = bigscore;
-                                    updatescore();
-                                    pointsfound[boolused] = true;
-                                    }
-                                    gamemode = "TEMP";
-                                    usespecificquote = true;
-                                    tempcharacternow = true;
-                                    tempcharacter = "JULIUS";               
-                                }
-
                                 //Special cheese response for achievement.
                                 if(messagetest=="CREAM"){
                                     gamemode = "CHEESE";

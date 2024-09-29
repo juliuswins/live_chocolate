@@ -1,0 +1,43 @@
+body {
+	font-family: Arial, sans-serif;
+}
+
+.container {
+	text-align: center;
+}
+
+h1{
+    text-align: center;
+}
+
+.letters {
+    font-size: 60px; /* Change the font size to 24px */
+    font-family: 'Arial Black', sans-serif; /* Change the font to Arial Black */
+    background-color: #f0f0f0;
+    border: 10px solid #ccc;
+    width: 500px;
+    margin: 25px auto;
+    height: 80px;
+    text-align: center;
+    vertical-align: middle;
+    letter-spacing:5px;
+}
+
+#reset-btn{
+    background-color: #952222;
+}
+
+button {
+	margin: 10px;
+	padding: 10px;
+	border: none;
+    font-size: 50px;
+	border-radius: 5px;
+	background-color: #4CAF50;
+	color: #fff;
+	cursor: pointer;
+}
+
+button:hover {
+	background-color: #3e8e41;
+}

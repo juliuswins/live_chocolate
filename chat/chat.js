@@ -1372,7 +1372,7 @@ var tarotquotes = [
                                 }
                                 if(messagetest=="FEEDBACK"||messagetest=="EMAIL"||messagetest=="CONTACT"){
                                     persona = "HELPING HAND: ";
-                                    specificquote = "You can email <a href='mailto:admin@talktochocolate.xyz' target='_blank'>admin@talktochocolate.xyz</a> for feedback. Feel free to type download and then attach the downloaded chat log file to your email.";
+                                    specificquote = "I do not give a chocolate dick about your shitty feedback!";
                                     gamemode = "TEMP";
                                     usespecificquote = true;
                                     //Copy this and give a unique number to add a one time score addition.

@@ -2,7 +2,7 @@
 document.getElementById("userInput").focus();
 
 //the welcome message you see:
-document.getElementById("chatroom").innerHTML += '<div class="message welcome-message"><h1><strong> Talk to chocolate .xyz</h1><p> Contains some adult content / Please be respectful and enjoy!</p></strong><p style="font-size: 10px;"><b>Last update:</b> 23rd March, 2024. I LOVE YOU! Type <i>email</i> for feedback.</p></div>';  
+document.getElementById("chatroom").innerHTML += '<div class="message welcome-message"><h1><strong>Talk To chocolate!</h1><p> Contains some adult content / Please be respectful or face horrific punishment!</p></strong><p style="font-size: 10px;"><b>Last update:</b> 25 December, 2024. Type <i>email</i> for feedback.</p></div>';  
 
 //responsetime is the delay between your message and the response.
 var responsetime = 1000;
@@ -1372,7 +1372,7 @@ var tarotquotes = [
                                 }
                                 if(messagetest=="FEEDBACK"||messagetest=="EMAIL"||messagetest=="CONTACT"){
                                     persona = "HELPING HAND: ";
-                                    specificquote = "I do not give a chocolate dick about your shitty feedback!";
+                                    specificquote = "You can email <a href='mailto:admin@talktochocolate.xyz' target='_blank'>admin@talktochocolate.xyz</a> for feedback. Feel free to type download and then attach the downloaded chat log file to your email.";
                                     gamemode = "TEMP";
                                     usespecificquote = true;
                                     //Copy this and give a unique number to add a one time score addition.
@@ -1590,6 +1590,32 @@ var tarotquotes = [
                                     var boolused = 30;
                                     if(pointsfound[boolused] == false){
                                         newvalue = bigscore;
+                                        updatescore();
+                                        pointsfound[boolused] = true;
+                                    }
+                                }
+                                if(messagetest=="MERRYCHRISTMAS"||messagetest=="MERRYXMAS"){
+                                    specificquote = "Nah.";
+                                    gamemode = "TEMP";
+                                    usespecificquote = true;
+                                    tempcharacternow = true;
+                                    tempcharacter = "THE GRINCH";
+                                    var boolused = 250;
+                                    if(pointsfound[boolused] == false){
+                                        newvalue = bigscore;
+                                        updatescore();
+                                        pointsfound[boolused] = true;
+                                    }
+                                }
+                                if(messagetest=="ILOVEYOUTOO"||messagetest=="ILOVEUTOO"){
+                                    specificquote = ":)";
+                                    gamemode = "TEMP";
+                                    usespecificquote = true;
+                                    tempcharacternow = true;
+                                    tempcharacter = "LOVE IS IN THE AIR";
+                                    var boolused = 251;
+                                    if(pointsfound[boolused] == false){
+                                        newvalue = 10000000000000;
                                         updatescore();
                                         pointsfound[boolused] = true;
                                     }
@@ -3635,7 +3661,6 @@ function updatescore(){
     printscore = true;
     }
     if(printscore){
-
         //A short delay om updating score.
         setTimeout(function() {
             //test to ensure score is working via the chat.
